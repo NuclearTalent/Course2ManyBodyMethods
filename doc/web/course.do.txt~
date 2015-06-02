@@ -1,0 +1,93 @@
+TITLE: Many-body Methods for Nuclear Physics, "Nuclear Talent":"http://www.nucleartalent.org"  course 2
+AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no/" at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
+DATE: July  6-24, 2015, GANIL, Caen, France
+
+
+<%
+pub_url = 'http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub'
+published = ['intro', 'secondquant', 'hfock', 'proj', 'fci', 'mbpt', 'cc', 'forces', 'inf',]
+chapters = {
+ 'intro': 'Introduction and motivation',
+ 'secondquant': 'Reminder on second quantization',
+ 'hfock': 'Hartree-Fock theory',
+ 'proj': 'How to build a numerical project and project proposals for the course',
+ 'fci': 'Full configuration interaction theory',
+ 'mbpt': 'Many-body perturbation theory',
+ 'cc': 'Coupled cluster theory',
+ 'forces': 'Simple overview of nuclear forces',
+ 'inf': 'Infinite nuclear matter',
+}
+%>
+
+
+
+
+
+<%def name="text_types(name)">
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "${pub_url}/${name}/pdf/${name}-print.pdf"
+ * HTML:
+   * "solarized style": "${pub_url}/${name}/html/${name}.html"
+ * iPython notebook:
+   * "ipynb file": "${pub_url}/${name}/ipynb/${name}.ipynb"
+
+</%def>
+
+<%def name="slide_types(name)">
+</%def>
+
+The teaching material is produced in various formats for printing and on-screen reading.
+If you are not familiar with second quantization, we recommend that you go through the additional material included here. 
+!split
+The PDF files are based on LaTeX and have seldom technical
+failures that cannot be easily corrected.
+The HTML-based files, called ``HTML'' and ``ipynb'' below, apply MathJax
+for rendering LaTeX formulas and sometimes this technology gives rise
+to unexpected failures (e.g.,
+incorrect rendering in a web page despite correct LaTeX syntax in the
+formula). Consult the corresponding PDF
+files if you find missing or incorrectly rendered
+formulas in HTML or ipython notebook files.
+
+!split
+=====  Plan for the lectures May 18-22, 2015 =====
+!bblock
+* Monday May 18
+  o  Lecture 10am-11am: Introduction to the many-body problem and Hartree-Fock (HF) theory
+  o  Break 11am-11.30am
+  o  Lecture 11.30am-12.30pm: Hartree-Fock (HF) theory continues
+  o  Lunch   12.30pm-2.30pm
+  o  Lecture 2.30pm-3.30pm: How to build a numerical quantum mechanical project
+* Tuesday May 19
+  o  Lecture 10am-11am: Finalizing HF theory
+  o  Break 11am-11.30am
+  o  Lecture 11.30am-12.30pm: Full configuration interaction theory (FCI)
+  o  Lunch   12.30pm-2.30pm
+  o  Lecture 2.30pm-3.30pm: How to build a numerical quantum mechanical project
+* Wednesday May 20
+  o  Lecture 10am-11am: FCI and start Many-body perturbation theory (MBPT)
+  o  Break 11am-11.30am
+  o  Lecture 11.30am-12.30pm: MBPT
+  o  Lunch   12.30pm-2.30pm
+  o  Lecture 2.30pm-3.30pm: How to build a numerical quantum mechanical project
+* Thursday May 21
+  o  Lecture 10am-11am: Coupled cluster theory (CC)
+  o  Break 11am-11.30am
+  o  Lecture 11.30am-12.30pm: CC and summary
+  o  Lunch   12.30pm-2.30pm
+  o  The afternoon can be used as time for discussion for those who are interested
+* Friday May 22
+  o  Self-study
+!eblock
+
+======= Lectures in Many-body theory  =======
+
+% for ch in published:
+===== ${chapters[ch]} =====
+
+${text_types(ch)}
+
+% endfor
+
+
