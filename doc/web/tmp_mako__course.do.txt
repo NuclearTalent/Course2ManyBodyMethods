@@ -1,0 +1,150 @@
+TITLE: Many-body Methods for Nuclear Physics, "Nuclear Talent":"http://www.nucleartalent.org"  course 2
+AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no/" at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
+DATE: July  6-24, 2015, GANIL, Caen, France
+
+
+
+
+
+
+
+
+
+
+
+
+The teaching material is produced in various formats for printing and on-screen reading.
+If you are not familiar with second quantization, we recommend that you go through the additional material included here. 
+!split
+The PDF files are based on LaTeX and have seldom technical
+failures that cannot be easily corrected.
+The HTML-based files, called ``HTML'' and ``ipynb'' below, apply MathJax
+for rendering LaTeX formulas and sometimes this technology gives rise
+to unexpected failures (e.g.,
+incorrect rendering in a web page despite correct LaTeX syntax in the
+formula). Consult the corresponding PDF
+files if you find missing or incorrectly rendered
+formulas in HTML or ipython notebook files.
+
+
+======= Material for the Many-body theory course =======
+
+===== Introduction and motivation =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/pdf/intro-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/html/intro.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/ipynb/intro.ipynb"
+
+
+
+===== Reminder on second quantization =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/pdf/secondquant-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/ipynb/secondquant.ipynb"
+
+
+
+===== Hartree-Fock theory =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/pdf/hfock-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/ipynb/hfock.ipynb"
+
+
+
+===== How to build a numerical project and project proposals for the course =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/pdf/proj-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/ipynb/proj.ipynb"
+
+
+
+===== Full configuration interaction theory =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/pdf/fci-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/html/fci.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/ipynb/fci.ipynb"
+
+
+
+===== Many-body perturbation theory =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/pdf/mbpt-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/html/mbpt.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/ipynb/mbpt.ipynb"
+
+
+
+===== Coupled cluster theory =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/cc-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/html/cc.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/ipynb/cc.ipynb"
+
+
+
+===== Simple overview of nuclear forces =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/pdf/forces-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/ipynb/forces.ipynb"
+
+
+
+===== Infinite nuclear matter =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/inf-print.pdf"
+ * HTML:
+   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf.html"
+ * iPython notebook:
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/ipynb/inf.ipynb"
+
+
+
+
+
