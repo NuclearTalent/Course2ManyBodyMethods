@@ -1,5 +1,9 @@
 TITLE: Many-body Methods for Nuclear Physics, "Nuclear Talent":"http://www.nucleartalent.org"  course 2
-AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no/" at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
+AUTHOR: "Carlo Barbieri":"http://www.surrey.ac.uk/physics/people/carlo_barbieri/" at Department of Physics, University of Surrey, United Kingdom 
+AUTHOR: "Wim Dickhoff":"https://www.physics.wustl.edu/people/dickhoff_willem-h" at Department of Physics, Washington University, St Louis, Missouri 
+AUTHOR: "Gaute Hagen":"https://scholar.google.com/citations?user=n6JHe5sAAAAJ&hl=en" at Physics Division, Oak Ridge National Laboratory, Oak Ridge & Department of Physics and Astronomy, University of Tennessee, Knoxville, Tennessee, USA 
+AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no/" at Department of Physics, University of Oslo, Norway & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University, USA
+AUTHOR: "Artur Polls":"http://www.ecm.ub.edu/~artur/" at Departament d'Estructura i Constituents de la Matèria, Universitat de Barcelona, Barcelona, Spain 
 DATE: July  6-24, 2015, GANIL, Caen, France
 
 
@@ -50,38 +54,8 @@ formula). Consult the corresponding PDF
 files if you find missing or incorrectly rendered
 formulas in HTML or ipython notebook files.
 
-!split
-=====  Plan for the lectures May 18-22, 2015 =====
-!bblock
-* Monday May 18
-  o  Lecture 10am-11am: Introduction to the many-body problem and Hartree-Fock (HF) theory
-  o  Break 11am-11.30am
-  o  Lecture 11.30am-12.30pm: Hartree-Fock (HF) theory continues
-  o  Lunch   12.30pm-2.30pm
-  o  Lecture 2.30pm-3.30pm: How to build a numerical quantum mechanical project
-* Tuesday May 19
-  o  Lecture 10am-11am: Finalizing HF theory
-  o  Break 11am-11.30am
-  o  Lecture 11.30am-12.30pm: Full configuration interaction theory (FCI)
-  o  Lunch   12.30pm-2.30pm
-  o  Lecture 2.30pm-3.30pm: How to build a numerical quantum mechanical project
-* Wednesday May 20
-  o  Lecture 10am-11am: FCI and start Many-body perturbation theory (MBPT)
-  o  Break 11am-11.30am
-  o  Lecture 11.30am-12.30pm: MBPT
-  o  Lunch   12.30pm-2.30pm
-  o  Lecture 2.30pm-3.30pm: How to build a numerical quantum mechanical project
-* Thursday May 21
-  o  Lecture 10am-11am: Coupled cluster theory (CC)
-  o  Break 11am-11.30am
-  o  Lecture 11.30am-12.30pm: CC and summary
-  o  Lunch   12.30pm-2.30pm
-  o  The afternoon can be used as time for discussion for those who are interested
-* Friday May 22
-  o  Self-study
-!eblock
 
-======= Lectures in Many-body theory  =======
+======= Material for the Many-body theory course =======
 
 % for ch in published:
 ===== ${chapters[ch]} =====

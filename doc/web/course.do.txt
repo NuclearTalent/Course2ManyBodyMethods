@@ -1,5 +1,9 @@
 TITLE: Many-body Methods for Nuclear Physics, "Nuclear Talent":"http://www.nucleartalent.org"  course 2
-AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no/" at Department of Physics, University of Oslo & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University
+AUTHOR: "Carlo Barbieri":"http://www.surrey.ac.uk/physics/people/carlo_barbieri/" at Department of Physics, University of Surrey, United Kingdom 
+AUTHOR: "Wim Dickhoff":"https://www.physics.wustl.edu/people/dickhoff_willem-h" at Department of Physics, Washington University, St Louis, Missouri 
+AUTHOR: "Gaute Hagen":"https://scholar.google.com/citations?user=n6JHe5sAAAAJ&hl=en" at Physics Division, Oak Ridge National Laboratory, Oak Ridge & Department of Physics and Astronomy, University of Tennessee, Knoxville, Tennessee, USA 
+AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no/" at Department of Physics, University of Oslo, Norway & Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University, USA
+AUTHOR: "Artur Polls":"http://www.ecm.ub.edu/~artur/" at Departament d'Estructura i Constituents de la Materia, Universitat de Barcelona, Barcelona, Spain 
 DATE: July  6-24, 2015, GANIL, Caen, France
 
 
