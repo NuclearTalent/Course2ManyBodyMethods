@@ -1,0 +1,446 @@
+<!--
+Automatically generated HTML file from DocOnce source
+(https://github.com/hplgit/doconce/)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="description" content="Projects and how do develop a numerical project">
+
+<title>Projects and how do develop a numerical project</title>
+
+
+<style type="text/css">
+/* bloodish style */
+
+body {
+  font-family: Helvetica, Verdana, Arial, Sans-serif;
+  color: #404040;
+  background: #ffffff;
+}
+h1 { font-size: 1.8em;  color: #8A0808; }
+h2 { font-size: 1.6em;  color: #8A0808; }
+h3 { font-size: 1.4em;  color: #8A0808; }
+h4 { color: #8A0808; }
+a { color: #8A0808; text-decoration:none; }
+tt { font-family: "Courier New", Courier; }
+/* pre style removed because it will interfer with pygments */
+p { text-indent: 0px; }
+hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+p.caption { width: 80%; font-style: normal; text-align: left; }
+hr.figure { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+.alert-text-small   { font-size: 80%;  }
+.alert-text-large   { font-size: 130%; }
+.alert-text-normal  { font-size: 90%;  }
+.alert {
+  padding:8px 35px 8px 14px; margin-bottom:18px;
+  text-shadow:0 1px 0 rgba(255,255,255,0.5);
+  border:1px solid #bababa;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  color: #555;
+  background-color: #f8f8f8;
+  background-position: 10px 5px;
+  background-repeat: no-repeat;
+  background-size: 38px;
+  padding-left: 55px;
+  width: 75%;
+ }
+.alert-block {padding-top:14px; padding-bottom:14px}
+.alert-block > p, .alert-block > ul {margin-bottom:1em}
+.alert li {margin-top: 1em}
+.alert-block p+p {margin-top:5px}
+.alert-notice { background-image: url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_notice.png); }
+.alert-summary  { background-image:url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_summary.png); }
+.alert-warning { background-image: url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_warning.png); }
+.alert-question {background-image:url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_question.png); }
+
+div { text-align: justify; text-justify: inter-word; }
+</style>
+
+
+<script src="http://sagecell.sagemath.org/static/jquery.min.js"></script>
+<script src="http://sagecell.sagemath.org/embedded_sagecell.js"></script>
+<link rel="stylesheet" type="text/css" href="https://sagecell.sagemath.org/static/sagecell_embed.css">
+<script>
+$(function () {
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+});
+</script>
+
+</head>
+
+<!-- tocinfo
+{'highest level': 2,
+ 'sections': [(' Some basic ingredients for a successful numerical project ',
+               2,
+               None,
+               '___sec0'),
+              (' Additional benefits: A structured approach to solving problems ',
+               2,
+               None,
+               '___sec1'),
+              (' Analysis of project, Configuration Interaction theory ',
+               2,
+               None,
+               '___sec2'),
+              (' Analysis of project, Many-body perturbation theory ',
+               2,
+               None,
+               '___sec3')]}
+end of tocinfo -->
+
+<body>
+
+    
+<!-- ------------------- main content ---------------------- -->
+
+<!-- Slides for PHY981 -->
+
+
+<center><h1>Projects and how do develop a numerical project</h1></center>  <!-- document title -->
+
+<p>
+<!-- author(s): Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA &amp; Department of Physics, University of Oslo, Oslo, Norway -->
+
+<center>
+<b>Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA &amp; Department of Physics, University of Oslo, Oslo, Norway</b> 
+</center>
+
+<p>
+<!-- institution(s) -->
+<p>
+<center><h4>July 6-24, Ganil, Caen, France</h4></center> <!-- date -->
+<p>
+<!-- !split --><br><br><br><br><br><br><br><br>
+
+<h2 id="___sec0">Some basic ingredients for a successful numerical project </h2>
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+In when building up a numerical project there are several elements you should think of
+
+<ol>
+  <li> How to structure a code in terms of functions</li>
+  <li> How to make a module</li>
+  <li> How to read input data flexibly from the command line</li>
+  <li> How to create graphical/web user interfaces</li>
+  <li> How to write unit tests (test functions or doctests)</li>
+  <li> How to refactor code in terms of classes (instead of functions only)</li>
+  <li> How to conduct and automate large-scale numerical experiments</li>
+  <li> How to write scientific reports in various formats (LaTeX, HTML)</li>
+</ol>
+</div>
+
+
+<p>
+<!-- !split --><br><br><br><br><br><br><br><br>
+
+<h2 id="___sec1">Additional benefits: A structured approach to solving problems </h2>
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+The conventions and techniques outlined here will save you a lot of time when you incrementally extend software over time from simpler to more complicated problems. In particular, you will benefit from many good habits:
+
+<ol>
+<li> New code is added in a modular fashion to a library (modules)</li>
+<li> Programs are run through convenient user interfaces</li>
+<li> It takes one quick command to let all your code undergo heavy testing</li> 
+<li> Tedious manual work with running programs is automated,</li>
+<li> Your scientific investigations are reproducible, scientific reports with top quality typesetting are produced both for paper and electronic devices.</li>
+</ol>
+</div>
+
+
+<p>
+<!-- !split --><br><br><br><br><br><br><br><br>
+
+<h2 id="___sec2">Analysis of project, Configuration Interaction theory </h2>
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+<p>
+
+
+<div class="compute"><script type="text/x-sage">
+from numpy import *
+from sympy import *
+from matplotlib.pyplot import *
+
+
+g_array = linspace(-1, 1, 1001)
+e1_array = []
+e2_array = []
+
+for g in g_array:
+	H1 = matrix([[2-g , -g/2.,  -g/2., -g/2., -g/2.,     0], 
+		        [-g/2.,   4-g,  -g/2., -g/2.,    0., -g/2.],
+		        [-g/2., -g/2.,    6-g,     0, -g/2., -g/2.],
+				[-g/2., -g/2.,      0,   6-g, -g/2., -g/2.],
+				[-g/2.,     0,  -g/2., -g/2.,   8-g, -g/2.],
+				[0    , -g/2.,  -g/2., -g/2., -g/2.,  10-g]]) 
+
+	H2 = matrix([[2-g , -g/2.,  -g/2., -g/2., -g/2.], 
+		        [-g/2.,   4-g,  -g/2., -g/2.,    0.],
+		        [-g/2., -g/2.,    6-g,     0, -g/2.],
+				[-g/2., -g/2.,      0,   6-g, -g/2.],
+				[-g/2.,     0,  -g/2., -g/2.,   8-g]]) 
+
+		
+
+	u1, v1 = linalg.eig(H1)
+	u2, v2 = linalg.eig(H2)
+
+	if g == 1./2:
+		print argmin(u1)
+
+		for i in range(5):
+			print " %.3f " % v2[i,0],
+
+
+
+	e1_array.append(min(u1))
+	e2_array.append(min(u2))
+
+
+plot(g_array, e1_array, linewidth=2.0)
+#plot(g_array, e2_array, linewidth=2.0)
+plot(g_array, (2-g_array), linewidth=2.0)
+grid()
+xlabel(r"Strength of interaction, $g$", fontsize=16)
+ylabel(r'Ground state energy', fontsize=16)
+#axis([-1,1,-0.4,0.05])
+legend(['FCI -- Exact', 'Reference energy'])
+savefig("proj1_ref2.pdf")
+show()
+	
+
+
+</script></div>
+
+</div>
+
+
+<p>
+<!-- !split --><br><br><br><br><br><br><br><br>
+
+<h2 id="___sec3">Analysis of project, Many-body perturbation theory </h2>
+<div class="alert alert-block alert-block alert-text-normal">
+<b></b>
+<p>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">sympy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">pylab</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+
+below_fermi <span style="color: #666666">=</span> (<span style="color: #666666">0</span>,<span style="color: #666666">1</span>,<span style="color: #666666">2</span>,<span style="color: #666666">3</span>)
+above_fermi <span style="color: #666666">=</span> (<span style="color: #666666">4</span>,<span style="color: #666666">5</span>,<span style="color: #666666">6</span>,<span style="color: #666666">7</span>)
+
+states <span style="color: #666666">=</span> [(<span style="color: #666666">1</span>,<span style="color: #666666">1</span>),(<span style="color: #666666">1</span>,<span style="color: #666666">-1</span>),(<span style="color: #666666">2</span>,<span style="color: #666666">1</span>),(<span style="color: #666666">2</span>,<span style="color: #666666">-1</span>),(<span style="color: #666666">3</span>,<span style="color: #666666">1</span>),(<span style="color: #666666">3</span>,<span style="color: #666666">-1</span>),(<span style="color: #666666">4</span>,<span style="color: #666666">1</span>),(<span style="color: #666666">4</span>,<span style="color: #666666">-1</span>)]
+N <span style="color: #666666">=</span> <span style="color: #666666">8</span>
+g <span style="color: #666666">=</span> Symbol(<span style="color: #BA2121">&#39;g&#39;</span>)
+
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">h0</span>(p,q):
+	<span style="color: #008000; font-weight: bold">if</span> p <span style="color: #666666">==</span> q:
+		p1, s1 <span style="color: #666666">=</span> states[p]
+		<span style="color: #008000; font-weight: bold">return</span> (p1 <span style="color: #666666">-</span> <span style="color: #666666">1</span>)	
+	<span style="color: #008000; font-weight: bold">else</span>:
+		<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(p,q):
+	<span style="color: #008000; font-weight: bold">if</span> p <span style="color: #666666">==</span> q:
+		<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>
+
+	s <span style="color: #666666">=</span> h0(p,q)
+	<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+		s <span style="color: #666666">+=</span> assym(p,i,q,i)
+	<span style="color: #008000; font-weight: bold">return</span> s
+
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">assym</span>(p,q,r,s):
+	p1, s1 <span style="color: #666666">=</span> states[p]
+	p2, s2 <span style="color: #666666">=</span> states[q]
+	p3, s3 <span style="color: #666666">=</span> states[r]
+	p4, s4 <span style="color: #666666">=</span> states[s]
+
+	<span style="color: #008000; font-weight: bold">if</span> p1 <span style="color: #666666">!=</span> p2 <span style="color: #AA22FF; font-weight: bold">or</span> p3 <span style="color: #666666">!=</span> p4:
+		<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>
+	<span style="color: #008000; font-weight: bold">if</span> s1 <span style="color: #666666">==</span> s2 <span style="color: #AA22FF; font-weight: bold">or</span> s3 <span style="color: #666666">==</span> s4:
+		<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>
+	<span style="color: #008000; font-weight: bold">if</span> s1 <span style="color: #666666">==</span> s3 <span style="color: #AA22FF; font-weight: bold">and</span> s2 <span style="color: #666666">==</span> s4:
+		<span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-</span>g<span style="color: #666666">/2.</span>
+	<span style="color: #008000; font-weight: bold">if</span> s1 <span style="color: #666666">==</span> s4 <span style="color: #AA22FF; font-weight: bold">and</span> s2 <span style="color: #666666">==</span> s3:
+		<span style="color: #008000; font-weight: bold">return</span> g<span style="color: #666666">/2.</span>
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">eps</span>(holes, particles):
+	E <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+	<span style="color: #008000; font-weight: bold">for</span> h <span style="color: #AA22FF; font-weight: bold">in</span> holes:
+		p, s <span style="color: #666666">=</span> states[h]
+		E <span style="color: #666666">+=</span> (p<span style="color: #666666">-1</span>)
+	<span style="color: #008000; font-weight: bold">for</span> p <span style="color: #AA22FF; font-weight: bold">in</span> particles:
+		p, s <span style="color: #666666">=</span> states[p]
+		E <span style="color: #666666">-=</span> (p<span style="color: #666666">-1</span>)
+	<span style="color: #008000; font-weight: bold">return</span> E
+
+
+<span style="color: #408080; font-style: italic"># Diagram 3</span>
+<span style="color: #408080; font-style: italic"># s = 0 </span>
+<span style="color: #408080; font-style: italic"># for a in above_fermi:</span>
+<span style="color: #408080; font-style: italic"># 	for b in above_fermi:</span>
+<span style="color: #408080; font-style: italic"># 		for c in above_fermi:</span>
+<span style="color: #408080; font-style: italic"># 			for i in below_fermi:</span>
+<span style="color: #408080; font-style: italic"># 				for j in below_fermi:</span>
+<span style="color: #408080; font-style: italic"># 					for k in below_fermi:</span>
+<span style="color: #408080; font-style: italic"># 						s += assym(i,j,a,b)*assym(a,c,j,k)*assym(b,k,c,i)/eps((i,j),(a,b))/eps((k,j),(a,c))</span>
+<span style="color: #408080; font-style: italic"># print s</span>
+
+
+<span style="color: #408080; font-style: italic"># ga = linspace(-1,1,101)</span>
+<span style="color: #408080; font-style: italic"># corr2 = []</span>
+<span style="color: #408080; font-style: italic"># corr3 = []</span>
+<span style="color: #408080; font-style: italic"># corrx = []</span>
+
+
+<span style="color: #408080; font-style: italic"># Diagram 1</span>
+s1 <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+<span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+	<span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+		<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+			<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+				s1 <span style="color: #666666">+=</span> <span style="color: #666666">0.25*</span>assym(a,b,i,j)<span style="color: #666666">*</span>assym(i,j,a,b)<span style="color: #666666">/</span>eps((i,j),(a,b))
+
+<span style="color: #408080; font-style: italic"># Diagram 4</span>
+s4 <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+<span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+	<span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+		<span style="color: #008000; font-weight: bold">for</span> c <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+			<span style="color: #008000; font-weight: bold">for</span> d <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+				<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+					<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+						s4 <span style="color: #666666">+=</span> <span style="color: #666666">0.125*</span>assym(i,j,a,b)<span style="color: #666666">*</span>assym(a,b,c,d)<span style="color: #666666">*</span>assym(c,d,i,j)<span style="color: #666666">/</span>eps((i,j),(a,b))<span style="color: #666666">/</span>eps((i,j),(c,d))
+
+<span style="color: #408080; font-style: italic"># Diagram 5</span>
+s5 <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+<span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+	<span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+		<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+			<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+				<span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+					<span style="color: #008000; font-weight: bold">for</span> l <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+						s5 <span style="color: #666666">+=</span> <span style="color: #666666">0.125*</span>assym(i,j,a,b)<span style="color: #666666">*</span>assym(k,l,i,j)<span style="color: #666666">*</span>assym(a,b,k,l)<span style="color: #666666">/</span>eps((i,j),(a,b))<span style="color: #666666">/</span>eps((k,l),(a,b))
+
+<span style="color: #408080; font-style: italic"># Diagram 8 (simplified)</span>
+s8 <span style="color: #666666">=</span> <span style="color: #666666">0</span> 
+<span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+	<span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+		<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+			<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+				<span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+					s8 <span style="color: #666666">-=</span> <span style="color: #666666">0.5*</span>assym(i,j,a,b)<span style="color: #666666">*</span>assym(a,b,i,k)<span style="color: #666666">*</span>f(k,j)<span style="color: #666666">/</span>eps((i,j),(a,b))<span style="color: #666666">/</span>eps((i,k),(a,b))
+
+<span style="color: #408080; font-style: italic"># Diagram 9 (simplified)</span>
+s9 <span style="color: #666666">=</span> <span style="color: #666666">0</span> 
+<span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+	<span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+		<span style="color: #008000; font-weight: bold">for</span> c <span style="color: #AA22FF; font-weight: bold">in</span> above_fermi:
+			<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+				<span style="color: #008000; font-weight: bold">for</span> j <span style="color: #AA22FF; font-weight: bold">in</span> below_fermi:
+					s9 <span style="color: #666666">+=</span> <span style="color: #666666">0.5*</span>assym(i,j,a,b)<span style="color: #666666">*</span>assym(a,c,i,j)<span style="color: #666666">*</span>f(b,c)<span style="color: #666666">/</span>eps((i,j),(a,b))<span style="color: #666666">/</span>eps((i,j),(a,c))
+
+
+<span style="color: #008000; font-weight: bold">print</span> s1
+<span style="color: #008000; font-weight: bold">print</span> s4
+<span style="color: #008000; font-weight: bold">print</span> s5
+<span style="color: #008000; font-weight: bold">print</span> s8
+<span style="color: #008000; font-weight: bold">print</span> s9
+
+s_5 <span style="color: #666666">=</span>  <span style="color: #666666">-0.0291521990740741*</span>g<span style="color: #666666">**4</span>
+s14 <span style="color: #666666">=</span>  <span style="color: #666666">-0.0308883101851853*</span>g<span style="color: #666666">**4</span>
+s34 <span style="color: #666666">=</span>  <span style="color: #666666">0.0163049768518519*</span>g<span style="color: #666666">**4</span>
+s36 <span style="color: #666666">=</span>  <span style="color: #666666">-0.0145760995370371*</span>g<span style="color: #666666">**4</span>
+s38 <span style="color: #666666">=</span>  <span style="color: #666666">-0.0201099537037037*</span>g<span style="color: #666666">**4</span>
+s39 <span style="color: #666666">=</span>  <span style="color: #666666">0.0176938657407407*</span>g<span style="color: #666666">**4</span>
+
+ga <span style="color: #666666">=</span> linspace(<span style="color: #666666">-1</span>,<span style="color: #666666">1</span>,<span style="color: #666666">10001</span>)
+e1 <span style="color: #666666">=</span> []
+corr2 <span style="color: #666666">=</span> []
+corr3 <span style="color: #666666">=</span> []
+corr4 <span style="color: #666666">=</span> []
+<span style="color: #008000; font-weight: bold">for</span> g_val <span style="color: #AA22FF; font-weight: bold">in</span> ga:
+	H1 <span style="color: #666666">=</span> matrix([[<span style="color: #666666">2-</span>g_val , <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,  <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,     <span style="color: #666666">0</span>], 
+		        [<span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,   <span style="color: #666666">4-</span>g_val,  <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,    <span style="color: #666666">0.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>],
+		        [<span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,    <span style="color: #666666">6-</span>g_val,     <span style="color: #666666">0</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>],
+				[<span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,      <span style="color: #666666">0</span>,   <span style="color: #666666">6-</span>g_val, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>],
+				[<span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,     <span style="color: #666666">0</span>,  <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,   <span style="color: #666666">8-</span>g_val, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>],
+				[<span style="color: #666666">0</span>    , <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,  <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>, <span style="color: #666666">-</span>g_val<span style="color: #666666">/2.</span>,  <span style="color: #666666">10-</span>g_val]]) 
+
+	u1, v1 <span style="color: #666666">=</span> linalg<span style="color: #666666">.</span>eig(H1)
+	e1<span style="color: #666666">.</span>append(<span style="color: #008000">min</span>(u1))
+
+	corr2<span style="color: #666666">.</span>append((s1)<span style="color: #666666">.</span>subs(g,g_val))
+	corr3<span style="color: #666666">.</span>append((s1<span style="color: #666666">+</span>s4<span style="color: #666666">+</span>s5)<span style="color: #666666">.</span>subs(g,g_val))
+	corr4<span style="color: #666666">.</span>append((s1<span style="color: #666666">+</span>s4<span style="color: #666666">+</span>s5<span style="color: #666666">+2*</span>s_5<span style="color: #666666">+2*</span>s14<span style="color: #666666">+2*</span>s34<span style="color: #666666">+2*</span>s36<span style="color: #666666">+</span>s38<span style="color: #666666">+2*</span>s39)<span style="color: #666666">.</span>subs(g,g_val))
+
+exact <span style="color: #666666">=</span> e1 <span style="color: #666666">-</span> (<span style="color: #666666">2-</span>ga)
+
+plot(ga, exact, linewidth<span style="color: #666666">=2.0</span>)
+plot(ga, corr2, linewidth<span style="color: #666666">=2.0</span>)
+plot(ga, corr3, linewidth<span style="color: #666666">=2.0</span>)
+plot(ga, corr4, linewidth<span style="color: #666666">=2.0</span>)
+xlabel(<span style="color: #BA2121">r&#39;Interaction strength, $g$&#39;</span>, fontsize<span style="color: #666666">=16</span>)
+ylabel(<span style="color: #BA2121">r&#39;Correlation energy&#39;</span>, fontsize<span style="color: #666666">=16</span>)
+axis([<span style="color: #666666">-1</span>,<span style="color: #666666">1</span>,<span style="color: #666666">-0.5</span>,<span style="color: #666666">0.05</span>])
+grid()
+legend([<span style="color: #BA2121">&quot;Exact&quot;</span>, <span style="color: #BA2121">&quot;2. order MPBT&quot;</span>, <span style="color: #BA2121">&quot;3. order MPBT&quot;</span>, <span style="color: #BA2121">&quot;4. order MPBT&quot;</span>], <span style="color: #BA2121">&#39;lower left&#39;</span>)
+savefig(<span style="color: #BA2121">&quot;pert_2.pdf&quot;</span>)
+show()
+
+
+error1 <span style="color: #666666">=</span> zeros(<span style="color: #008000">len</span>(exact))
+error2 <span style="color: #666666">=</span> zeros(<span style="color: #008000">len</span>(exact))
+error3 <span style="color: #666666">=</span> zeros(<span style="color: #008000">len</span>(exact))
+
+<span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(exact)):
+	error1[i] <span style="color: #666666">=</span> <span style="color: #008000">abs</span>(<span style="color: #008000">float</span>(exact[i]<span style="color: #666666">-</span>corr2[i]))
+	error2[i] <span style="color: #666666">=</span> <span style="color: #008000">abs</span>(<span style="color: #008000">float</span>(exact[i]<span style="color: #666666">-</span>corr3[i]))
+	error3[i] <span style="color: #666666">=</span> <span style="color: #008000">abs</span>(<span style="color: #008000">float</span>(exact[i]<span style="color: #666666">-</span>corr4[i]))
+
+error1 <span style="color: #666666">=</span> array(error1)
+error2 <span style="color: #666666">=</span> array(error2)
+error3 <span style="color: #666666">=</span> array(error3)
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">type</span>(error1)
+
+plot(ga, log10(error1))
+plot(ga, log10(error2))
+plot(ga, log10(error3))
+xlabel(<span style="color: #BA2121">r&quot;Strength of interaction, $g$&quot;</span>, fontsize<span style="color: #666666">=16</span>)
+ylabel(<span style="color: #BA2121">r&quot;Error, $\log_{\rm 10}({\rm abs}({\rm error})$&quot;</span>, fontsize<span style="color: #666666">=16</span>)
+legend([<span style="color: #BA2121">&quot;2. order MPBT&quot;</span>, <span style="color: #BA2121">&quot;3. order MPBT&quot;</span>, <span style="color: #BA2121">&quot;4. order MPBT&quot;</span>], <span style="color: #BA2121">&#39;lower left&#39;</span>)
+grid()
+savefig(<span style="color: #BA2121">&quot;logerror.pdf&quot;</span>)
+show()
+</pre></div>
+
+</div>
+
+
+<p>
+
+<!-- ------------------- end of main content --------------- -->
+
+
+</body>
+</html>
+    
+
