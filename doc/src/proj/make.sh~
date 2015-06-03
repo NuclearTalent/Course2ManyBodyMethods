@@ -40,6 +40,13 @@ system doconce split_html $html.html
 # Remove top navigation in all parts
 doconce subst -s '<!-- begin top navigation.+?end top navigation -->' '' ${name}-plain.html ._${name}*.html
 
+# Bootstrap style
+html=${name}-bs
+system doconce format html $name --html_style=bootstrap --pygments_html_style=default --html_admon=bootstrap_panel --html_output=$html $opt
+system doconce split_html $html.html --pagination --nav_button=bottom
+
+
+
 # LaTeX Beamer slides
 beamertheme=red_plain
 system doconce format pdflatex $name --latex_title_layout=beamer --latex_table_format=footnotesize $opt

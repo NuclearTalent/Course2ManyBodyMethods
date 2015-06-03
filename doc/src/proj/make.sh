@@ -46,20 +46,7 @@ system doconce format html $name --html_style=bootstrap --pygments_html_style=de
 system doconce split_html $html.html --pagination --nav_button=bottom
 
 
-
-# LaTeX Beamer slides
-beamertheme=red_plain
-system doconce format pdflatex $name --latex_title_layout=beamer --latex_table_format=footnotesize $opt
-system doconce ptex2tex $name envir=minted
-# Add special packages
-doconce subst "% Add user's preamble" "\g<1>\n\\usepackage{simplewick}" $name.tex
-system doconce slides_beamer $name --beamer_slide_theme=$beamertheme
-system pdflatex -shell-escape ${name}
-cp $name.pdf ${name}-beamer.pdf
-cp $name.tex ${name}-beamer.tex
-
 # Ordinary plain LaTeX document
-rm -f *.aux  # important after beamer
 system doconce format pdflatex $name --minted_latex_style=trac --latex_admon=paragraph $opt
 system doconce ptex2tex $name envir=minted
 # Add special packages
