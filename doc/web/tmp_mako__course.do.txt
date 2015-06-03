@@ -40,8 +40,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/pdf/intro-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/html/intro.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/html/intro.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/html/intro-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/ipynb/intro.ipynb"
 
 
@@ -53,8 +54,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/pdf/secondquant-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/ipynb/secondquant.ipynb"
 
 
@@ -66,8 +68,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/pdf/hfock-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/ipynb/hfock.ipynb"
 
 
@@ -79,8 +82,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/pdf/proj-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/ipynb/proj.ipynb"
 
 
@@ -92,8 +96,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/pdf/fci-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/html/fci.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/html/fci.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/html/fci-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/ipynb/fci.ipynb"
 
 
@@ -105,8 +110,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/pdf/mbpt-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/html/mbpt.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/html/mbpt.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/html/mbpt-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/ipynb/mbpt.ipynb"
 
 
@@ -118,8 +124,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/cc-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/html/cc.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/html/cc.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/html/cc-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/ipynb/cc.ipynb"
 
 
@@ -131,8 +138,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/pdf/forces-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/ipynb/forces.ipynb"
 
 
@@ -144,8 +152,9 @@ formulas in HTML or ipython notebook files.
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/inf-print.pdf"
  * HTML:
-   * "solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf.html"
- * iPython notebook:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/ipynb/inf.ipynb"
 
 
