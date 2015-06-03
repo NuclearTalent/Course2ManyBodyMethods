@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:13
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -494,31 +494,35 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [1
+)
+\tf@toc=\write5
+\openout5 = `fci.toc'.
+
+ [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 161.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 169.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 161.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 169.
  [2] [3]
-Overfull \hbox (51.68655pt too wide) detected at line 308
+Overfull \hbox (51.68655pt too wide) detected at line 316
 [] [] \OT1/lmr/m/n/10 = 0\OML/lmm/m/it/10 :
  []
 
 [4]
 
-LaTeX Warning: Reference `eq:fullci' on page 5 undefined on input line 341.
+LaTeX Warning: Reference `eq:fullci' on page 5 undefined on input line 349.
 
 
-LaTeX Warning: Reference `eq:fullci' on page 5 undefined on input line 348.
+LaTeX Warning: Reference `eq:fullci' on page 5 undefined on input line 356.
 
 
-Overfull \hbox (56.47595pt too wide) detected at line 386
+Overfull \hbox (56.47595pt too wide) detected at line 394
 \OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it/1
 0 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 + 
 []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it
@@ -532,7 +536,7 @@ t/10 ;
  []
 
 [5]
-Overfull \hbox (48.4896pt too wide) detected at line 392
+Overfull \hbox (48.4896pt too wide) detected at line 400
 \OMS/lmsy/m/n/10 h\OML/lmm/m/it/10 i\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 a\OMS
 /lmsy/m/n/10 i \OT1/lmr/m/n/10 + \OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lm
 sy/m/n/10 j[]j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/
@@ -545,12 +549,12 @@ OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 = 0\OML/lmm/m/it/10 :
  []
 
 
-Overfull \hbox (5.04453pt too wide) detected at line 402
+Overfull \hbox (5.04453pt too wide) detected at line 410
 \OMS/lmsy/m/n/10 ^^B [] \OML/lmm/m/it/10 :
  []
 
 
-Overfull \hbox (57.09183pt too wide) detected at line 423
+Overfull \hbox (57.09183pt too wide) detected at line 431
 []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it
 /10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 
 C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10
@@ -562,7 +566,7 @@ t/10 ;
  []
 
 [6]
-Overfull \hbox (56.47595pt too wide) detected at line 442
+Overfull \hbox (56.47595pt too wide) detected at line 450
 \OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it/1
 0 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 + 
 []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it
@@ -576,7 +580,7 @@ t/10 ;
  []
 
 [7] [8] [9] [10] [11]
-Overfull \hbox (22.26917pt too wide) in paragraph at lines 815--819
+Overfull \hbox (22.26917pt too wide) in paragraph at lines 823--827
 \OT1/lmr/m/n/10 (-20) +1\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 (-20) 2$\T1/lmr/m/n/1
 0 (-20) , namely $\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 (-20) 1\OML/lmm/m/it/10 ; \
 OT1/lmr/m/n/10 (-20) 2\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 (-20) 3\OMS/lmsy/m/n/1
@@ -601,11 +605,11 @@ mr/m/n/10 (-20) 6\OMS/lmsy/m/n/10 i$\T1/lmr/m/n/10 (-20) .
 
 [12]
 No file fci.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 960.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 968.
 [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 960.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 968.
  (./fci.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 960.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 968.
 
 
  *File List*
@@ -690,7 +694,7 @@ gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
   omslmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 960.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 968.
 Package rerunfilecheck Info: File `fci.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -699,16 +703,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 960.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 968.
  ) 
 Here is how much of TeX's memory you used:
- 8134 strings out of 493488
- 122839 string characters out of 3141326
+ 8141 strings out of 493488
+ 122939 string characters out of 3141326
  260694 words of memory out of 3000000
- 11182 multiletter control sequences out of 15000+200000
- 46016 words of font info for 98 fonts, out of 3000000 for 9000
+ 11187 multiletter control sequences out of 15000+200000
+ 52013 words of font info for 100 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,9n,35p,384b,393s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,9n,35p,425b,393s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
 12/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2012/texmf-d
@@ -724,10 +728,10 @@ lic/lm/lmri10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lms
 y10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></u
 sr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/te
 xlive/2012/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on fci.pdf (13 pages, 205923 bytes).
+Output written on fci.pdf (13 pages, 206048 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 104 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 12801 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 106 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 13825 words of extra memory for PDF output out of 14400 (max. 10000000)
 
