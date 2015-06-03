@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 09:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:02
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -498,11 +498,13 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 (/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write5
 \openout5 = `hfock.toc'.
 
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 139.
-
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -802,10 +804,10 @@ local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texl
 ive/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2012/t
 exmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/f
 onts/type1/public/lm/lmsy7.pfb>
-Output written on hfock.pdf (18 pages, 271214 bytes).
+Output written on hfock.pdf (18 pages, 271512 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
+ 192 PDF objects out of 1000 (max. 8388607)
+ 156 compressed objects within 2 object streams
  49 named destinations out of 1000 (max. 500000)
  15361 words of extra memory for PDF output out of 17280 (max. 10000000)
 

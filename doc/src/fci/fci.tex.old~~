@@ -44,12 +44,6 @@ final,                   % or draft (marks overfull hboxes, figures with paths)
 
 \setcounter{tocdepth}{2}  % number chapter, section, subsection
 
-\usepackage[framemethod=TikZ]{mdframed}
-
-% --- begin definitions of admonition environments ---
-
-% --- end of definitions of admonition environments ---
-
 % prevent orhpans and widows
 \clubpenalty = 10000
 \widowpenalty = 10000
@@ -105,11 +99,8 @@ July 6-24 2015
 \vspace{1cm}
 
 
-% !split
 \subsection{Slater determinants as basis states, Repetition}
 
-% --- begin paragraph admon ---
-\paragraph{}
 The simplest possible choice for many-body wavefunctions are \textbf{product} wavefunctions.
 That is
 \[ 
@@ -126,16 +117,9 @@ integrals factorize.
 
 The price we pay is the lack of correlations, which we must build up by using many, many product 
 wavefunctions. (Thus we have a trade-off: compact representation of correlations but 
-difficult integrals versus easy integrals but many states required.)
-% --- end paragraph admon ---
+difficult integrals versus easy integrals but many states required.) 
 
 
-
-% !split
-\subsection{Slater determinants as basis states, repetition}
-
-% --- begin paragraph admon ---
-\paragraph{}
 Because we have fermions, we are required to have antisymmetric wavefunctions, e.g.
 \[
 \Psi(x_1, x_2, x_3, \ldots, x_A) = - \Psi(x_2, x_1, x_3, \ldots, x_A)
@@ -153,16 +137,10 @@ etc. This is accomplished formally by using the determinantal formalism
 \end{array}
 \right |
 \]
-Product wavefunction + antisymmetry = Slater determinant.
-% --- end paragraph admon ---
+Product wavefunction + antisymmetry = Slater determinant. 
 
 
 
-% !split
-\subsection{Slater determinants as basis states}
-
-% --- begin paragraph admon ---
-\paragraph{}
 \[
 \Psi(x_1, x_2, \ldots, x_A) 
 = \frac{1}{\sqrt{N!}} 
@@ -186,16 +164,6 @@ two columns can be the same) lead to the Pauli principle:
 \end{itemize}
 
 \noindent
-% --- end paragraph admon ---
-
-
-
-
-% !split
-\subsection{Slater determinants as basis states}
-
-% --- begin paragraph admon ---
-\paragraph{}
 As a practical matter, however, Slater determinants beyond $N=4$ quickly become 
 unwieldy. Thus we turn to the \textbf{occupation representation} or \textbf{second quantization} to simplify calculations. 
 
@@ -206,16 +174,10 @@ the harmonic oscillator or for angular momentum, but unlike those cases, the ope
 
 Instead, one can think of fermion creation/annihilation operators as a game of symbols that 
 compactly reproduces what one would do, albeit clumsily, with full coordinate-space Slater 
-determinants.
-% --- end paragraph admon ---
+determinants. 
 
 
 
-% !split
-\subsection{Quick repetition of the occupation representation}
-
-% --- begin paragraph admon ---
-\paragraph{}
 We start with a set of orthonormal single-particle states $\{ \phi_i(x) \}$. 
 (Note: this requirement, and others, can be relaxed, but leads to a 
 more involved formalism.) \textbf{Any} orthonormal set will do. 
@@ -228,15 +190,9 @@ a particle to occupy the single-particle state $\phi_i(x)$:
 \[
 \phi_i(x) \rightarrow \hat{a}^\dagger_i |0 \rangle
 \]
-% --- end paragraph admon ---
 
 
 
-% !split
-\subsection{Quick repetition  of the occupation representation}
-
-% --- begin paragraph admon ---
-\paragraph{}
 But with multiple creation operators we can occupy multiple states:
 \[
 \phi_i(x) \phi_j(x^\prime) \phi_k(x^{\prime \prime}) 
@@ -253,16 +209,10 @@ so that
 \[
 \hat{a}^\dagger_i \hat{a}^\dagger_j = - \hat{a}^\dagger_j \hat{a}^\dagger_i
 \]
-% --- end paragraph admon ---
 
 
 
 
-% !split
-\subsection{Quick repetition  of the occupation representation}
-
-% --- begin paragraph admon ---
-\paragraph{}
 Because of this property, automatically $\hat{a}^\dagger_i \hat{a}^\dagger_i = 0$, 
 enforcing the Pauli exclusion principle.  Thus when writing a Slater determinant 
 using creation operators, 
@@ -270,16 +220,12 @@ using creation operators,
 \hat{a}^\dagger_i \hat{a}^\dagger_j \hat{a}^\dagger_k \ldots |0 \rangle
 \]
 each index $i,j,k, \ldots$ must be unique.
-% --- end paragraph admon ---
 
 
 
 
-% !split
 \subsection{Full Configuration Interaction Theory}
 
-% --- begin paragraph admon ---
-\paragraph{}
 We have defined the ansatz for the ground state as 
 \[
 |\Phi_0\rangle = \left(\prod_{i\le F}\hat{a}_{i}^{\dagger}\right)|0\rangle,
@@ -297,15 +243,9 @@ and a general $NpNh$ state as
 \[
 |\Phi_{ijk\dots}^{abc\dots}\rangle = \hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_{c}^{\dagger}\dots\hat{a}_k\hat{a}_j\hat{a}_i|\Phi_0\rangle.
 \]
-% --- end paragraph admon ---
 
 
 
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 We can then expand our exact state function for the ground state 
 as
 \[
@@ -325,15 +265,8 @@ resulting in
 \[
 |\Psi_0\rangle=(1+\hat{C})|\Phi_0\rangle.
 \]
-% --- end paragraph admon ---
 
 
-
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 We rewrite 
 \[
 |\Psi_0\rangle=C_0|\Phi_0\rangle+\sum_{ai}C_i^a|\Phi_i^a\rangle+\sum_{abij}C_{ij}^{ab}|\Phi_{ij}^{ab}\rangle+\dots,
@@ -351,15 +284,8 @@ and the energy can be written as
 \[
 E= \langle \Psi_0 | \hat{H} |\Phi_0 \rangle= \sum_{PP'HH'}C_H^{*P}\langle \Phi_H^P | \hat{H} |\Phi_{H'}^{P'} \rangle C_{H'}^{P'}.
 \]
-% --- end paragraph admon ---
 
 
-
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 Normally 
 \[
 E= \langle \Psi_0 | \hat{H} |\Phi_0 \rangle= \sum_{PP'HH'}C_H^{*P}\langle \Phi_H^P | \hat{H} |\Phi_{H'}^{P'} \rangle C_{H'}^{P'},
@@ -396,15 +322,9 @@ leading to the identification $\lambda = E$. This means that we have for all $PH
 \begin{equation}
 \sum_{P'H'}\langle \Phi_H^P | \hat{H} -E|\Phi_{H'}^{P'} \rangle = 0. \label{eq:fullci}
 \end{equation}
-% --- end paragraph admon ---
 
 
 
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 An alternative way to derive the last equation is to start from 
 \[
 (\hat{H} -E)|\Psi_0\rangle = (\hat{H} -E)\sum_{P'H'}C_{H'}^{P'}|\Phi_{H'}^{P'} \rangle=0, 
@@ -413,18 +333,13 @@ and if this equation is successively projected against all $\Phi_H^P$ in the exp
 results.   As stated previously, one solves this equation normally by diagonalization. If we are able to solve this equation exactly (that is
 numerically exactly) in a large Hilbert space (it will be truncated in terms of the number of single-particle states included in the definition
 of Slater determinants), it can then serve as a benchmark for other many-body methods which approximate the correlation operator
-$\hat{C}$.
-% --- end paragraph admon ---
+$\hat{C}$.  
 
 
 
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 For reasons to come (links with Coupled-Cluster theory and Many-Body perturbation theory), 
 we will rewrite Eq.~(~\ref{eq:fullci}) as a set of coupled non-linear equations in terms of the unknown coefficients $C_H^P$. 
+To obtain the eigenstates and eigenvalues in terms of non-linear equations is not a very practical approach. However, it serves the scope of linking FCI theory with approximative solutions to the many-body problem.
 
 To see this, we look at the contributions arising from 
 \[
@@ -455,15 +370,8 @@ $\langle \Phi_0 | \hat{H}|\Phi_{i}^{a}\rangle $ and we are left with a correlati
 \[
 E-E_0 =\Delta E^{HF}=\sum_{abij}\langle \Phi_0 | \hat{H}|\Phi_{ij}^{ab} \rangle C_{ij}^{ab}. 
 \]
-% --- end paragraph admon ---
 
 
-
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 Inserting the various matrix elements we can rewrite the previous equation as
 \[
 \Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle C_{i}^{a}+
@@ -482,15 +390,8 @@ as this equation will allow us to find an expression for the coefficents $C_i^a$
 \sum_{bcjk}\langle \Phi_i^a | \hat{H}|\Phi_{jk}^{bc} \rangle C_{jk}^{bc}+
 \sum_{bcdjkl}\langle \Phi_i^a | \hat{H}|\Phi_{jkl}^{bcd} \rangle C_{jkl}^{bcd}=0.
 \]
-% --- end paragraph admon ---
 
 
-
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 We rewrite this equation as
 \[
 C_{i}^{a}=-(\langle \Phi_i^a | \hat{H}|\Phi_{i}^{a})^{-1}
@@ -510,16 +411,9 @@ and the denominator can be written as
 \]
 The observant reader will however see that we need an equation for $C_{jk}^{bc}$ and $C_{jkl}^{bcd}$ as well.
 To find equations for these coefficients we need then to continue our multiplications from the left with the various
-$\Phi_{H}^P$ terms.
-% --- end paragraph admon ---
+$\Phi_{H}^P$ terms. 
 
 
-
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 For $C_{jk}^{bc}$ we need then
 \[
 \langle \Phi_{ij}^{ab} | \hat{H} -E| \Phi_0\rangle + \sum_{kc}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{k}^{c} \rangle C_{k}^{c}+
@@ -533,15 +427,8 @@ This is a very cumbersome way of solving the equation. However, by using this it
 various terms in the wave operator or correlation operator $\hat{C}$. We will later identify the calculation of the various terms $C_H^P$
 as parts of different many-body approximations to full CI. In particular, ww can  relate this non-linear scheme with Coupled Cluster theory and
 many-body perturbation theory. .
-% --- end paragraph admon ---
 
 
-
-% !split
-\subsection{Full Configuration Interaction Theory}
-
-% --- begin paragraph admon ---
-\paragraph{}
 If we use a Hartree-Fock basis, we simplify this equation
 \[
 \Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle C_{i}^{a}+
@@ -561,20 +448,32 @@ and
 \[
 \sum_{cdeklm}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{klm}^{cde} \rangle C_{klm}^{cde}+\sum_{cdefklmn}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{klmn}^{cdef} \rangle C_{klmn}^{cdef}=0?
 \]
-% --- end paragraph admon ---
 
 
+\begin{itemize}
+\item TO DO: finish this discussion and discuss truncations like CISD, prepare the ground for MBPT and CC theories
+\end{itemize}
 
-
-
-
-
-% !split
+\noindent
 \subsection{Building a many-body basis}
 
-% --- begin paragraph admon ---
-\paragraph{}
+\begin{itemize}
+\item TO DO: make figures of various approaches to the basis:
+\begin{enumerate}
 
+ \item Standard shell-model basis in one or two major shells
+
+ \item Full CI in a given basis and no truncations
+
+ \item CISD and CISDT (prepare for link to CC theory)
+
+ \item No-core shell model and truncation in excitation energy
+\end{enumerate}
+
+\noindent
+\end{itemize}
+
+\noindent
 Let us now sketch how  construct a working code that constructs the 
 many-body Hamiltonian matrix in a basis of Slater determinants and allows us to find the low-lying eigenenergies. 
 This is referred to as the configuration-interaction method or shell-model diagonalization 
@@ -586,16 +485,11 @@ While the formalism is independent of the choice of basis, the \textbf{effective
 will certainly be basis dependent. 
 
 Furthermore there are common conventions useful to know.
-% --- end paragraph admon ---
 
 
 
 
-% !split
-\subsection{Building a many-body basis}
 
-% --- begin paragraph admon ---
-\paragraph{}
 First, the single-particle basis has angular momentum as a good quantum number.  You can 
 imagine the single-particle wavefunctions being generated by a one-body Hamiltonian, 
 for example a harmonic oscillator.  Modifications include harmonic oscillator plus 
@@ -622,16 +516,6 @@ Each single-particle state is labeled by the following quantum numbers:
 \end{itemize}
 
 \noindent
-% --- end paragraph admon ---
-
-
-
-
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 In this format one labels states by $n(l)_j$, with $(l)$ replaced by a letter:
 $s$ for $l=0$, $p$ for $l=1$, $d$ for $l=2$, $f$ for $l=3$, and thenceforth alphabetical.
 
@@ -642,16 +526,10 @@ from a mean-field potential.
 
 Sometimes we freeze the core and only consider a valence space. For example, one 
 may assume a frozen ${}^{4}\mbox{He}$ core, with two protons and two neutrons in the $0s_{1/2}$ 
-shell, and then only allow active particles in the $0p_{1/2}$ and $0p_{3/2}$ orbits.
-% --- end paragraph admon ---
+shell, and then only allow active particles in the $0p_{1/2}$ and $0p_{3/2}$ orbits. 
 
 
 
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 Another example is a frozen ${}^{16}\mbox{O}$ core, with eight protons and eight neutrons filling the 
 $0s_{1/2}$,  $0p_{1/2}$ and $0p_{3/2}$ orbits, with valence particles in the 
@@ -661,17 +539,11 @@ $0d_{5/2}, 1s_{1/2}$ and $0d_{3/2}$ orbits.
 Sometimes we refer to nuclei by the valence space where their last nucleons go.  
 So, for example, we call ${}^{12}\mbox{C}$ a $p$-shell nucleus, while ${}^{26}\mbox{Al}$ is an 
 $sd$-shell nucleus and ${}^{56}\mbox{Fe}$ is a $pf$-shell nucleus.
-% --- end paragraph admon ---
 
 
 
 
 
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 There are different kinds of truncations.
 
 \begin{itemize}
@@ -683,51 +555,29 @@ There are different kinds of truncations.
 \end{itemize}
 
 \noindent
-% --- end paragraph admon ---
-
-
-
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
  Here one works in a harmonic oscillator basis, with each major oscillator shell assigned 
 a principal quantum number $N=0,1,2,3,...$. 
 
 The $N\hbar\Omega$ or $N_{max}$ truncation: Any configuration is given an noninteracting energy, which is the sum 
 of the single-particle harmonic oscillator energies. (Thus this ignores 
 spin-orbit splitting.)
-% --- end paragraph admon ---
 
 
 
 
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 Excited state are labeled relative to the lowest configuration by the 
 number of harmonic oscillator quanta.
 
 This truncation is useful because: if one includes \emph{all} configuration up to 
 some $N_{max}$, and has a translationally invariant interaction, then the intrinsic 
 motion and the center-of-mass motion factor. In other words, we can know exactly 
-the center-of-mass wavefunction.
-% --- end paragraph admon ---
+the center-of-mass wavefunction. 
 
 
 
 
 
 
-
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 In almost all cases, the many-body Hamiltonian is rotationally invariant. This means 
 it commutes with the operators $\hat{J}^2, \hat{J}_z$ and so eigenstates will have 
 good $J,M$. Furthermore, the eigenenergies do not depend upon the orientation $M$. 
@@ -747,16 +597,9 @@ construct with Slater determinants, while the $J$-scheme basis states, and thus 
 matrix elements, are more complicated, almost always being linear combinations of 
 $M$-scheme states. $J$-scheme bases are important and useful, but we'll focus on the 
 simpler $M$-scheme.
-% --- end paragraph admon ---
 
 
 
-
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 The quantum number $m$ is additive (because the underlying group is Abelian): 
 if a Slater determinant $\hat{a}_i^\dagger \hat{a}^\dagger_j \hat{a}^\dagger_k \ldots | 0 \rangle$ 
 is built from single-particle states all with good $m$, then the total 
@@ -779,17 +622,11 @@ Note that the individual $M$-scheme basis states will \emph{not}, in general,
 have good total $J$. 
 Because the Hamiltonian is rotationally invariant, however, the eigenstates will 
 have good $J$. (The situation is muddied when one has states of different $J$ that are 
-nonetheless degenerate.)
-% --- end paragraph admon ---
+nonetheless degenerate.) 
 
 
 
 
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 Example: two $j=1/2$ orbits
 
 
@@ -829,20 +666,9 @@ which we list with the total $M$:
 
 \noindent
 and 1 each with $M = \pm 1$.
-% --- end paragraph admon ---
 
 
 
-
-
-
-
-
-% !split
-\subsection{Building a many-body basis}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 Example: consider using only single particle states from the $0d_{5/2}$ space. 
 They have the following quantum numbers
@@ -883,16 +709,12 @@ which we list with the total $M$:
 \end{quote}
 
 \noindent
-% --- end paragraph admon ---
 
 
 
 
-% !split
-\subsection{Example case: pairing Hamiltonian}
+\subsection{Example case: pairing Hamiltonian, the warm-up project}
 
-% --- begin paragraph admon ---
-\paragraph{}
 
 We consider a space with $2\Omega$ single-particle states, with each 
 state labeled by 
@@ -912,17 +734,9 @@ and $\hat{P}_- = ( \hat{P}_+)^\dagger$.
 
 This problem can be solved using what is called the quasi-spin formalism to obtain the 
 exact results. Thereafter we will try again using the explicit Slater determinant formalism.
-% --- end paragraph admon ---
 
 
 
-
-
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 One can show (and this is part of the project) that
 \[
@@ -946,15 +760,9 @@ So we rewrite the Hamiltonian to make this explicit:
 \hat{H} = -G \hat{P}_+ \hat{P}_- 
 = -G \left( \hat{P}^2 - \hat{P}_z^2 + \hat{P}_z\right)
 \]
-% --- end paragraph admon ---
 
 
 
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 Because of the SU(2) algebra, we know that the eigenvalues of 
 $\hat{P}^2$ must be of the form $p(p+1)$, with $p$ either integer or half-integer, and the eigenvalues of $\hat{P}_z$ 
@@ -978,16 +786,8 @@ With this it is easy to deduce that the eigenvalues of the pairing Hamiltonian a
 -G(N-v)(2\Omega +2-N-v)/4
 \]
 This also works for $N$ odd, with $v= 1,3,5, \dots$.
-% --- end paragraph admon ---
 
 
-
-
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 Let's take a specific example: $\Omega = 3$ so there are 6 single-particle states, 
 and $N = 3$, with $v= 1,3$. Therefore there are two distinct eigenvalues, 
@@ -1016,19 +816,11 @@ Now let's work this out explicitly. The single particle degrees of freedom are d
  There are  $\left( \begin{array}{c}6 \\ 3 \end{array} \right) = 20$ three-particle states, but there 
 are 9 states with $M = +1/2$, namely
 $| 1,2,3 \rangle, |1,2,5\rangle, | 1,4,6 \rangle, | 2,3,4 \rangle, |2,3,6 \rangle, | 2,4,5 \rangle, | 2, 5, 6 \rangle, |3,4,6 \rangle, | 4,5,6 \rangle$.
-% --- end paragraph admon ---
 
 
 
 
 
-
-
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 In this basis, the operator 
 \[
@@ -1042,16 +834,9 @@ From this we can determine that
 = \hat{P}_- | 2, 4, 5 \rangle = 0
 \]
 so those states all have eigenvalue 0.
-% --- end paragraph admon ---
 
 
 
-
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
 Now for further example, 
 \[
 \hat{P}_- | 1,2,3 \rangle = | 3 \rangle
@@ -1067,15 +852,8 @@ get
 \hat{P}_+ \hat{P}_- | 1,2,3\rangle = | 1,2,3\rangle+ |3, 5,6\rangle
 \]
 without picking up a phase.
-% --- end paragraph admon ---
 
 
-
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 Continuing in this fashion, with the previous ordering of the many-body states
 (  $| 1,2,3 \rangle, |1,2,5\rangle, | 1,4,6 \rangle, | 2,3,4 \rangle, |2,3,6 \rangle, | 2,4,5 \rangle, | 2, 5, 6 \rangle, |3,4,6 \rangle, | 4,5,6 \rangle$) the 
@@ -1097,15 +875,9 @@ H = -G\left(
 \] 
 This is useful for our project.  One can by hand confirm 
 that there are 3 eigenvalues $-2G$ and 6 with value zero.
-% --- end paragraph admon ---
 
 
 
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
 
 Another example
 Using the $(1/2)^4$ single-particle space, resulting in eight single-particle states
@@ -1147,16 +919,6 @@ determinants:
 \end{itemize}
 
 \noindent
-% --- end paragraph admon ---
-
-
-
-% !split
-\subsection{Example case: pairing Hamiltonian}
-
-% --- begin paragraph admon ---
-\paragraph{}
-
 Now we take the following Hamiltonian
 \[
 \hat{H} = \sum_n n \delta \hat{N}_n  - G \hat{P}^\dagger \hat{P}
@@ -1185,7 +947,6 @@ H = \left (
 (You should check by hand that this is correct.) 
 
 For $\delta = 0$ we have the closed form solution of  the g.s. energy given by $-6G$.
-% --- end paragraph admon ---
 
 
 

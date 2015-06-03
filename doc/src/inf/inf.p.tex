@@ -81,6 +81,15 @@ final,                   % or draft (marks overfull hboxes, figures with paths)
 
 \newenvironment{doconceexercise}{}{}
 \newcounter{doconceexercisecounter}
+% --- begin definition of \listofexercises command ---
+\makeatletter
+\newcommand\listofexercises{\section*{List of Exercises}
+\@starttoc{loe}
+}
+\newcommand*{\l@doconceexercise}{\@dottedtocline{0}{0pt}{6.5em}}
+\makeatother
+% --- end definition of \listofexercises command ---
+
 
 
 % ------ header in subexercises ------
@@ -130,7 +139,7 @@ Infinite matter, from the electron gas to nuclear matter
 % ----------------- author(s) -------------------------
 
 \begin{center}
-{\bf Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
+{\bf \href{{http://computationalphysics.no}}{Morten Hjorth-Jensen}, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
 \end{center}
 
     \begin{center}
@@ -140,10 +149,18 @@ Infinite matter, from the electron gas to nuclear matter
 % ----------------- end author(s) -------------------------
 
 \begin{center} % date
-May 18-22 2015
+July 6-24
 \end{center}
 
 \vspace{1cm}
+
+
+\tableofcontents
+
+
+\vspace{1cm} % after toc
+
+
 
 
 \subsection{Introduction to studies of infinite matter}

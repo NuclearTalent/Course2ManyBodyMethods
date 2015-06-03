@@ -83,7 +83,7 @@ Many-body perturbation theory
 % ----------------- author(s) -------------------------
 
 \begin{center}
-{\bf Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
+{\bf \href{{http://computationalphysics.no}}{Morten Hjorth-Jensen}, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
 \end{center}
 
     \begin{center}
@@ -97,6 +97,14 @@ July 6-24 2015
 \end{center}
 
 \vspace{1cm}
+
+
+\tableofcontents
+
+
+\vspace{1cm} % after toc
+
+
 
 
 \subsection{Many-body perturbation theory}
@@ -296,8 +304,12 @@ which is the contribution to second order.
 being the third-order contribution. 
 
 
+\subsection{Interpreting the correlation energy and the wave operator}
+\begin{itemize}
+\item TO DO: add material about the relation between the correlated wave operator and FCI and HF calculations
+\end{itemize}
 
-
+\noindent
 
 % ------------------- end of main content ---------------
 
