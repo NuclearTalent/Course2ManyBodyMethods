@@ -1,0 +1,37 @@
+
+# Information about all exercises in the file hfock.do.txt.
+# The information can be loaded into a Python list of dicts by
+#
+# f = open('.hfock.exerinfo', 'r')
+# exer = eval(f.read())
+#
+[{'answer': '',
+  'closing_remarks': '',
+  'file': None,
+  'heading': '=====',
+  'hints': [],
+  'keywords': None,
+  'label': None,
+  'no': 1,
+  'solution': '',
+  'solution_file': None,
+  'subex': [],
+  'text': 'Consider a Slater determinant built up of single-particle orbitals $\\psi_{\\lambda}$, \nwith $\\lambda = 1,2,\\dots,N$.\n\nThe unitary transformation\n!bt\n\\[\n\\psi_a  = \\sum_{\\lambda} C_{a\\lambda}\\phi_{\\lambda},\n\\]\n\n!et\nbrings us into the new basis.  \nThe new basis has quantum numbers $a=1,2,\\dots,N$.\nShow that the new basis is orthonormal.\nShow that the new Slater determinant constructed from the new single-particle wave functions can be\nwritten as the determinant based on the previous basis and the determinant of the matrix $C$.\nShow that the old and the new Slater determinants are equal up to a complex constant with absolute value unity.\n(Hint, $C$ is a unitary matrix).',
+  'title': 'Derivation of Hartree-Fock equations',
+  'type': 'Exercise',
+  'type_visible': True},
+ {'answer': '',
+  'closing_remarks': '',
+  'file': None,
+  'heading': '=====',
+  'hints': [],
+  'keywords': None,
+  'label': None,
+  'no': 2,
+  'solution': '',
+  'solution_file': None,
+  'subex': [],
+  'text': 'Consider the  Slater  determinant\n!bt\n\\[\n\\Phi_{0}=\\frac{1}{\\sqrt{n!}}\\sum_{p}(-)^{p}P\n\\prod_{i=1}^{n}\\psi_{\\alpha_{i}}(x_{i}).\n\\]\n\n!et\nA small variation in this function is given by\n!bt\n\\[\n\\delta\\Phi_{0}=\\frac{1}{\\sqrt{n!}}\\sum_{p}(-)^{p}P\n\\psi_{\\alpha_{1}}(x_{1})\\psi_{\\alpha_{2}}(x_{2})\\dots\n\\psi_{\\alpha_{i-1}}(x_{i-1})(\\delta\\psi_{\\alpha_{i}}(x_{i}))\n\\psi_{\\alpha_{i+1}}(x_{i+1})\\dots\\psi_{\\alpha_{n}}(x_{n}).\n\\]\n\n!et\nShow that\n!bt\n\\[\n\\langle \\delta\\Phi_{0}|\\sum_{i=1}^{n}\\left\\{t(x_{i})+u(x_{i})\n\\right\\}+\\frac{1}{2}\n\\sum_{i\\neq j=1}^{n}v(x_{i},x_{j})|\\Phi_{0}\\rangle=\\sum_{i=1}^{n}\\langle \\delta\\psi_{\\alpha_{i}}|\\hat{t}+\\hat{u}\n|\\phi_{\\alpha_{i}}\\rangle\n+\\sum_{i\\neq j=1}^{n}\\left\\{\\langle\\delta\\psi_{\\alpha_{i}}\n\\psi_{\\alpha_{j}}|\\hat{v}|\\psi_{\\alpha_{i}}\\psi_{\\alpha_{j}}\\rangle-\n\\langle\\delta\\psi_{\\alpha_{i}}\\psi_{\\alpha_{j}}|\\hat{v}\n|\\psi_{\\alpha_{j}}\\psi_{\\alpha_{i}}\\rangle\\right\\}\n\\]\n\n!et',
+  'title': 'Derivation of Hartree-Fock equations',
+  'type': 'Exercise',
+  'type_visible': True}]
