@@ -32,8 +32,9 @@ chapters = {
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "${pub_url}/${name}/pdf/${name}-print.pdf"
  * HTML:
-   * "solarized style": "${pub_url}/${name}/html/${name}.html"
- * iPython notebook:
+   * "Solarized style": "${pub_url}/${name}/html/${name}.html"
+   * "Bootstrap style (also for mobile devices)": "${pub_url}/${name}/html/${name}-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "${pub_url}/${name}/ipynb/${name}.ipynb"
 
 </%def>
