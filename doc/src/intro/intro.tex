@@ -70,6 +70,15 @@ final,                   % or draft (marks overfull hboxes, figures with paths)
 
 \newenvironment{doconceexercise}{}{}
 \newcounter{doconceexercisecounter}
+% --- begin definition of \listofexercises command ---
+\makeatletter
+\newcommand\listofexercises{\section*{List of Exercises}
+\@starttoc{loe}
+}
+\newcommand*{\l@doconceexercise}{\@dottedtocline{0}{0pt}{6.5em}}
+\makeatother
+% --- end definition of \listofexercises command ---
+
 
 
 % ------ header in subexercises ------
@@ -134,6 +143,14 @@ July 6-24 2015
 \vspace{1cm}
 
 
+\tableofcontents
+
+
+\vspace{1cm} % after toc
+
+
+
+
 \section*{Introduction}
 
 To understand why matter is stable, and thereby shed light on the limits of 
@@ -167,8 +184,7 @@ where $r_p^{\mathrm{rms}}$ is the corresponding proton rms radius.
 There are several properties which relate the thickness of the neutron skin to quantities in nuclei and 
 nuclear matter, such as the symmetry energy at the saturation point for nuclear matter, the slope
 of the equation of state for neutron matter
-or the low-energy electric dipole strength due to the pigmy dipole resonance. 
-See Ref.~\href{{http://iopscience.iop.org/1402-4896/2013/T152}}{\nolinkurl{http://iopscience.iop.org/1402-4896/2013/T152}} for several interesting discussions of these topics. 
+or the low-energy electric dipole strength due to the \href{{http://iopscience.iop.org/1402-4896/2013/T152}}{pigmy dipole resonance}.
 
 
 Having access to precise measurements of masses, radii, and
@@ -276,7 +292,7 @@ Our first approach in analyzing data theoretically, is to see if we can use expe
 
 \noindent
 The next step is to see if we could use these interpretations to say something about shell closures and magic numbers. Since we focus on single-particle properties, a quantity we can extract from experiment is the separation energy for protons and neutrons. Before we proceed, we need to define quantities like masses and binding energies.   Two excellent reviews on 
-recent trends in the determination of nuclear masses can be found in \href{{http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.75.1021}}{\nolinkurl{http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.75.1021}} and in \href{{http://iopscience.iop.org/1402-4896/2013/T152/014017/}}{\nolinkurl{http://iopscience.iop.org/1402-4896/2013/T152/014017/}}
+recent trends in the determination of nuclear masses can be found in the work of \href{{http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.75.1021}}{Pearson et al.} and \href{{http://iopscience.iop.org/1402-4896/2013/T152/014017/}}{Blaum et al.}
 
 
 A basic quantity which can be measured for the ground states of nuclei is the atomic mass $M(N, Z)$ of the neutral atom with atomic mass number $A$ and charge $Z$. The number of neutrons is $N$.
@@ -290,7 +306,7 @@ where $u$ is the Atomic Mass Unit
 u = M(^{12}\mathrm{C})/12 = 931.49386 \hspace{0.1cm} \mathrm{MeV}/c^2.
 \]
 In this course we will mainly use 
-data from the 2003 compilation of Audi, Wapstra and Thibault, see \href{{http://www.sciencedirect.com/science/journal/03759474/729/1}}{\nolinkurl{http://www.sciencedirect.com/science/journal/03759474/729/1}}.
+data from the 2003 compilation of \href{{http://www.sciencedirect.com/science/journal/03759474/729/1}}{Audi, Wapstra and Thibault}.
 
 
 The nucleon masses are
@@ -564,7 +580,7 @@ One may thus infer that intrinsic properties of nucleons in a nucleus are close 
 \begin{itemize}
 \item In the discussion of the neutron separation energies for the oxygen isotopes, we note  a clear staggering effect between odd and even isotopes with the even ones being more bound (larger separation energies). We will later link this to strong pairing correlations in nuclei.
 
-\item The neutron separation energy becomes negative at $\,{}^{25}\mbox{O}$, making this nucleus unstable with respect to the emission of one neutron. A nucleus like $\,{}^{24}\mbox{O}$ is thus the last stable oxygen isotopes which has been observed. Oyxgen-26 has been found to be unbound with respect to $\,{}^{24}\mbox{O}$, see \href{{ournals.aps.org/prl/abstract/10.1103/PhysRevLett.108.142503}}{\nolinkurl{ournals.aps.org/prl/abstract/10.1103/PhysRevLett.108.142503}} .
+\item The neutron separation energy becomes negative at $\,{}^{25}\mbox{O}$, making this nucleus unstable with respect to the emission of one neutron. A nucleus like $\,{}^{24}\mbox{O}$ is thus the last stable oxygen isotopes which has been observed. "Oxygen-26":"ournals.aps.org/prl/abstract/10.1103/PhysRevLett.108.142503" . has been found to be unbound with respect to $\,{}^{24}\mbox{O}$.
 
 \item We note also that there are large shell-gaps for some nuclei, meaning that more energy is needed to remove one nucleon. These gaps are used to define so-called magic numbers. For the oxygen isotopes we see a clear gap for $\,{}^{16}\mbox{O}$. We will interpret this gap as one of several experimental properties that define so-called magic numbers. In our discussion below we will make a first interpretation using  single-particle states from the harmonic oscillator and the Woods-Saxon potential. 
 \end{itemize}
@@ -947,7 +963,7 @@ The parametrization is
 \]
 with $V_0\approx 50$ MeV representing the potential well depth, $a\approx 0.5$ fm 
 length representing the "surface thickness" of the nucleus and $R=r_0A^{1/3}$, with $r_0=1.25$ fm and $A$ the number of nucleons.
-The value for $r_0$ can be extracted from a fit to data, see for example M.~Kirson, \href{{http://www.sciencedirect.com/science/article/pii/S037594740600769X}}{\nolinkurl{http://www.sciencedirect.com/science/article/pii/S037594740600769X}}.
+The value for $r_0$ can be extracted from a fit to data, see for example \href{{http://www.sciencedirect.com/science/article/pii/S037594740600769X}}{M.~Kirson}.
 
 The following python code produces a plot of the Woods-Saxon potential with the above parameters. 
 
@@ -1246,15 +1262,15 @@ The following python program is an example of how one can obtain the eigenvalues
 
 
 \begin{itemize}
-\item The c++ and Fortran versions of this program can be found at \href{{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}{\nolinkurl{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}. 
+\item The c++ and Fortran versions of this program can be found \href{{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}{here}. 
 
-\item The c++  program uses the c++ library armadillo, see \href{{http://arma.sourceforge.net/}}{\nolinkurl{http://arma.sourceforge.net/}}. 
+\item The c++  program uses the c++ library \href{{http://arma.sourceforge.net/}}{armadillo}. 
 
-\item To install armadillo see the guidelines at \href{{http://www.uio.no/studier/emner/matnat/fys/FYS4411/v14/guides/installing-armadillo/}}{\nolinkurl{http://www.uio.no/studier/emner/matnat/fys/FYS4411/v14/guides/installing-armadillo/}}. 
+\item To install armadillo see the \href{{http://www.uio.no/studier/emner/matnat/fys/FYS4411/v14/guides/installing-armadillo/}}{guidelines}. 
 
-\item For mac users I recommend using \emph{brew}, see \href{{http://brew.sh/}}{\nolinkurl{http://brew.sh/}}.
+\item For mac users I recommend using \href{{http://brew.sh/}}{*brew*}.
 
-\item If you use ipython notebook, you can run c++ programs following the instructions at \href{{http://nbviewer.ipython.org/github/dragly/cppmagic/blob/master/example.ipynb}}{\nolinkurl{http://nbviewer.ipython.org/github/dragly/cppmagic/blob/master/example.ipynb}}
+\item If you use ipython notebook, you can run c++ programs following the instructions \href{{http://nbviewer.ipython.org/github/dragly/cppmagic/blob/master/example.ipynb}}{here}
 \end{itemize}
 
 \noindent
@@ -1339,8 +1355,7 @@ plt.show()
 \subsection*{Exercise \thedoconceexercisecounter: Masses and binding energies}
 
 
-The data on binding energies can be found in the file bedata.dat at the github address of the course, see
-\href{{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}{\nolinkurl{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}
+The data on binding energies can be found in the file bedata.dat at the github address of the \href{{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}{Nuclear Structure course at MSU, PHY981}
 
 
 \subex{a)}
@@ -1383,8 +1398,7 @@ A program example in C++ and the input data file \emph{bedata.dat} can be found 
 \subsection*{Exercise \thedoconceexercisecounter: Eigenvalues and eigenvectors for various single-particle potentials}
 
 
-The program for finding the eigenvalues of the harmonic oscillator are in the github folder
-\href{{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}{\nolinkurl{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}.
+The program for finding the eigenvalues of the harmonic oscillator are in the \href{{https://github.com/NuclearStructure/PHY981/tree/master/doc/pub/spdata/programs}}{github folder}.
 
 You can use this program to solve the exercises below, or write your own using your preferred programming language, be it python, fortran or c++ or other languages. Here I will mainly provide fortran, python and c++.
 
