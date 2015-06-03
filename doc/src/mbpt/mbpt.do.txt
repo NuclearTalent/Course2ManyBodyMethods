@@ -1,9 +1,9 @@
 # Slides for PHY981
 TITLE: Many-body perturbation theory
-AUTHOR: Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA & Department of Physics, University of Oslo, Oslo, Norway 
+AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no", National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA & Department of Physics, University of Oslo, Oslo, Norway 
 DATE: July 6-24 2015
 
-
+TOC: on
 
 ===== Many-body perturbation theory =====
 
@@ -266,5 +266,7 @@ which is the contribution to second order.
 being the third-order contribution. 
 
 
+=====  Interpreting the correlation energy and the wave operator =====
+* TO DO: add material about the relation between the correlated wave operator and FCI and HF calculations
 
 
