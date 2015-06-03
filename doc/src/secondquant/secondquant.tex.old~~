@@ -111,7 +111,7 @@ Second Quantization
 % ----------------- author(s) -------------------------
 
 \begin{center}
-{\bf Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
+{\bf \href{{http://computationalphysics.no}}{Morten Hjorth-Jensen}, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
 \end{center}
 
     \begin{center}
@@ -135,7 +135,7 @@ July 6-24 2015
 
 
 
-\subsection{Second quantization}
+\section{Second quantization}
 
 We introduce the time-independent  operators
 $a_\alpha^{\dagger}$ and $a_\alpha$   which create and annihilate, respectively, a particle 

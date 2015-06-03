@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:29
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -985,10 +985,10 @@ fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
 lmsy8.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtk10.pfb>
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local
 /texlive/2012/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on secondquant.pdf (32 pages, 385797 bytes).
+Output written on secondquant.pdf (32 pages, 385947 bytes).
 PDF statistics:
- 395 PDF objects out of 1000 (max. 8388607)
- 338 compressed objects within 4 object streams
+ 396 PDF objects out of 1000 (max. 8388607)
+ 339 compressed objects within 4 object streams
  164 named destinations out of 1000 (max. 500000)
  24577 words of extra memory for PDF output out of 24883 (max. 10000000)
 

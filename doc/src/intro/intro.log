@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:28
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -620,7 +620,7 @@ Package hyperref Warning: old toc file detected, not used; run LaTeX again.
 [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<fig-intro/careach.png, id=77, 762.85pt x 666.49pt>
+<fig-intro/careach.png, id=73, 762.85pt x 666.49pt>
 File: fig-intro/careach.png Graphic file (type png)
 
 <use fig-intro/careach.png>
@@ -3281,7 +3281,7 @@ st/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
 ype1/public/lm/lmtt9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
 /lm/lmtti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on intro.pdf (29 pages, 522716 bytes).
+Output written on intro.pdf (29 pages, 522681 bytes).
 PDF statistics:
  332 PDF objects out of 1000 (max. 8388607)
  276 compressed objects within 3 object streams
