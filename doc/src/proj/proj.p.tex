@@ -97,6 +97,15 @@ final,                   % or draft (marks overfull hboxes, figures with paths)
 
 \newenvironment{doconceexercise}{}{}
 \newcounter{doconceexercisecounter}
+% --- begin definition of \listofexercises command ---
+\makeatletter
+\newcommand\listofexercises{\section*{List of Exercises and Projects}
+\@starttoc{loe}
+}
+\newcommand*{\l@doconceexercise}{\@dottedtocline{0}{0pt}{6.5em}}
+\makeatother
+% --- end definition of \listofexercises command ---
+
 
 
 % ------ header in subexercises ------
@@ -147,38 +156,11 @@ Projects and how do develop a numerical project
 % ----------------- author(s) -------------------------
 
 \begin{center}
-{\bf \href{{http://www.surrey.ac.uk/physics/people/carlo_barbieri/}}{Carlo Barbieri}${}^{1}$} \\ [0mm]
-\end{center}
-
-    
-\begin{center}
-{\bf \href{{https://www.physics.wustl.edu/people/dickhoff_willem-h}}{Wim Dickhoff}${}^{2}$} \\ [0mm]
-\end{center}
-
-    
-\begin{center}
-{\bf \href{{https://scholar.google.com/citations?user=n6JHe5sAAAAJ&hl=en}}{Gaute Hagen}${}^{3, 4}$} \\ [0mm]
-\end{center}
-
-    
-\begin{center}
-{\bf \href{{http://computationalphysics.no/}}{Morten Hjorth-Jensen}${}^{5, 6}$} \\ [0mm]
-\end{center}
-
-    
-\begin{center}
-{\bf \href{{http://www.ecm.ub.edu/~artur/}}{Artur Polls}${}^{7}$} \\ [0mm]
+{\bf Carlo Barbieri, Wim Dickhoff, Gaute Hagen, Morten Hjorth-Jensen, and Artur Polls${}^{}$} \\ [0mm]
 \end{center}
 
     \begin{center}
 % List of all institutions:
-\centerline{{\small ${}^1$Department of Physics, University of Surrey, United Kingdom}}
-\centerline{{\small ${}^2$Department of Physics, Washington University, St Louis, Missouri}}
-\centerline{{\small ${}^3$Physics Division, Oak Ridge National Laboratory, Oak Ridge}}
-\centerline{{\small ${}^4$Department of Physics and Astronomy, University of Tennessee, Knoxville, Tennessee, USA}}
-\centerline{{\small ${}^5$Department of Physics, University of Oslo, Norway}}
-\centerline{{\small ${}^6$Department of Physics and Astronomy and National Superconducting Cyclotron Laboratory, Michigan State University, USA}}
-\centerline{{\small ${}^7$Departament d'Estructura i Constituents de la Materia, Universitat de Barcelona, Barcelona, Spain}}
 \end{center}
     
 % ----------------- end author(s) -------------------------
@@ -188,6 +170,14 @@ July 6-24, Ganil, Caen, France
 \end{center}
 
 \vspace{1cm}
+
+
+\tableofcontents
+
+
+\vspace{1cm} % after toc
+
+
 
 
 \subsection{Plan for the Talent course}
@@ -454,7 +444,7 @@ atom or the atomic nucleus this is not the case.
 
 
 \begin{figure}[t]
-  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/simplemodel.pdf}}
+  \centerline{\includegraphics[width=0.7\linewidth]{fig-proj/simplemodel.pdf}}
   \caption{
   Schematic plot of the possible single-particle levels with double degeneracy.  The filled circles indicate occupied particle  states while the empty circles represent vacant particle(hole)  states.  The spacing between each level $p$ is constant in this picture.  The first two single-particle levels define our possible  model space, indicated by the label $\mathcal{P}$.  The remaining  states span the excluded space $\mathcal{Q}$.  The first state to  the left represents a possible ground state representation for a  four-fermion system. In the second state to the left, one pair is   broken. This possibility is however not included in our  interaction. \label{fig:schematic}
   }
@@ -640,7 +630,7 @@ shown in Fig.~ref{fig:diagrams}.
 
 
 \begin{figure}[t]
-  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/diagrams.pdf}}
+  \centerline{\includegraphics[width=1.0\linewidth]{fig-proj/diagrams.pdf}}
   \caption{
   Diagrams to third order in the interaction, including also non-canonical Hartree-Fock diagrams. The first order term is excluded. All interaction vertices represent anti-symmetrized matrix elements. \label{fig:diagrams}}
   }
@@ -661,6 +651,7 @@ various values of $g\in [-1,1]$.
 
 \subex{h)}
 We limit now the discussion to the canonical Hartree-Fock case only. To fourth order in perturbation theory we can produce diagrams with $1p-1h$ intermediate excitations as shown in Fig.~ref{fig:fourthorder1p1h}, $2p-2h$ excitations, see Fig.~ref{fig:fourthorder2p2h}, $3p-3h$ excitations as shown in Fig.~ref{fig:fourthorder3p3h} and finally so-called diagrams with intermediate four-particle-four-hole excitations, see Fig.~ref{fig:fourthorder4p4h}. 
+
 
 \begin{figure}[t]
   \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/1p1h.pdf}}
@@ -695,11 +686,15 @@ We limit now the discussion to the canonical Hartree-Fock case only. To fourth o
 \begin{figure}[t]
   \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/4p4h.pdf}}
   \caption{
-  Four-particle-four-hole excitations to fourth order. \label{fig:fourthorder4p4h} Define first linked and unlinked diagrams and explain briefly Goldstone's linked diagram theorem. Based on the linked diagram theorem and the form of the pairing Hamiltonian, which diagrams will contribute to fourth order?
+  Four-particle-four-hole excitations to fourth order. \label{fig:fourthorder4p4h}
   }
 \end{figure}
 %\clearpage % flush figures fig:fourthorder4p4h
 
+
+Define first linked and unlinked diagrams and explain briefly Goldstone's linked diagram theorem.
+Based on the linked diagram theorem and the form of the pairing Hamiltonian, which diagrams will contribute
+to fourth order? 
 
 Calculate the energy to fourth order with a canonical Hartree-Fock basis for $g\in [-1,1]$ and compare
 with the full diagonalization case in exercise 2). Discuss the results.
@@ -915,6 +910,23 @@ show()
 \subsection*{Project \thedoconceexercisecounter: Coupled cluster calculations with doubles excitations only for the pairing model}
 
 
+This project serves as a continuation to the pairing model with the aim being to solve the same problem but now by developing
+a program that implements the coupled cluster method with double excitations only. In doing so you will find it convenient to write 
+classes which define the single-particle basis and the Hamiltonian. Your functions that solve the coupled cluster equations will then just need to set up variables which point to interaction elements and single-particle states with their pertinent quantum numbers. Use for example the setup discussed in the FCI lectures for the pairing model.
+
+
+\subex{a)}
+Explain why no single excitations are involved in this model.
+
+\subex{b)}
+Set up the coupled cluster equations for doubles excitations and convince yourself about their meaning and correctness.
+
+\subex{c)}
+Write a class which holds single-particle data like specific quantum numbers, single-particle Hamiltonian etc. Write also a class which sets up and stores two-body matrix elements defined by the single-particle states.  Write thereafter functions/classes which implement the coupled cluster method with doubles only.
+
+\subex{d)}
+Compare your results with those from the exact diagonalization with and without the $4p4h$ excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results.
+
 \end{doconceexercise}
 % --- end exercise ---
 
@@ -927,6 +939,28 @@ show()
 
 \subsection*{Project \thedoconceexercisecounter: Coupled cluster calculations with doubles excitations only for infinite nuclear matter}
 
+
+
+\subex{a)}
+Explain why we don't have single excitations in infinite matter.
+
+\subex{b)}
+Set up the relavent quantum numbers for a cartesian basis with plane waves in three dimensions. Make the according changes to the code you developed in connection with the pairing model. Implement periodic boundary conditions.
+
+\subex{c)}
+Replace the two-body interaction from the pairing model with the Minnesota potential model (to be inserted here later).
+
+\subex{d)}
+Use the program you developed in connection with the pairing model to perform coupled cluster calculations in infinite matter with doubles excitations.
+Perform coupled cluster calculations for infinite nuclear matter with the Minnesota interaction for different particle numbers (to be inserted later).
+Limit yourself to two-particle and two-hole intermediate excitations only.
+
+\subex{e)}
+Compare the two-particle only excitations with a finite number of particles with results obtained with Brueckner-Hartree-Fock calculations in the thermodynamic limit. Comment your results
+
+\subex{f)}
+The final challenge is to include particle-hole excitations and compare the results with those from Diffusion Monte Carlo calculations (insert ref here).
+This part can be included in the final project.
 
 \end{doconceexercise}
 % --- end exercise ---
@@ -941,6 +975,10 @@ show()
 \subsection*{Project \thedoconceexercisecounter: Coupled cluster calculations with doubles excitations only for finite nuclei}
 
 
+
+\subex{a)}
+Add material here
+
 \end{doconceexercise}
 % --- end exercise ---
 
@@ -953,6 +991,19 @@ show()
 
 \subsection*{Project \thedoconceexercisecounter: Green's function calculations with doubles excitations only for the pairing model}
 
+
+
+\subex{a)}
+Explain why no single excitations are involved in this model.
+
+\subex{b)}
+Set up the Green's function equations for doubles excitations and convince yourself about their meaning and correctness.
+
+\subex{c)}
+Write a class which holds single-particle data like specific quantum numbers, single-particle Hamiltonian etc. Write also a class which sets up and stores two-body matrix elements defined by the single-particle states.  Write thereafter functions/classes which implement the Green's function method with doubles only.
+
+\subex{d)}
+Compare your results with those from the exact diagonalization with and without the $4p4h$ excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other groups are solving the same problem with the coupled cluster method, discuss these results as well.
 
 \end{doconceexercise}
 % --- end exercise ---
@@ -967,6 +1018,24 @@ show()
 \subsection*{Project \thedoconceexercisecounter: Green's function calculations with doubles excitations only for infinite nuclear matter}
 
 
+
+\subex{a)}
+Explain why we don't have single excitations in infinite matter.
+
+\subex{b)}
+Set up the relavent quantum numbers for a cartesian basis with plane waves in three dimensions. Make the according changes to the code you developed in connection with the pairing model. Implement periodic boundary conditions.
+
+\subex{c)}
+Replace the two-body interaction from the pairing model with the Minnesota potential model (to be inserted here later).
+
+\subex{d)}
+Use the program you developed in connection with the pairing model to perform Green's function calculations in infinite matter with doubles excitations.
+Perform Green's function calculations for infinite nuclear matter with the Minnesota interaction for different particle numbers (to be inserted later).
+Limit yourself to two-particle and two-hole intermediate excitations only.
+
+\subex{e)}
+Compare the two-particle only excitations with a finite number of particles with results obtained with Brueckner-Hartree-Fock calculations in the thermodynamic limit. Comment your results
+
 \end{doconceexercise}
 % --- end exercise ---
 
@@ -978,6 +1047,34 @@ show()
 \refstepcounter{doconceexercisecounter}
 
 \subsection*{Project \thedoconceexercisecounter: Green's function calculations with doubles excitations only for finite nuclei}
+
+
+
+\subex{a)}
+Add material here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{doconceexercise}
