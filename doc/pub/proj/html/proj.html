@@ -215,7 +215,7 @@ Here we propose the following  paths that can be studied with either coupled clu
 
 <ul>
   <li> During the three weeks of the course we will mainly focus on two-particle and two-hole excitations</li> 
-  <li> Focusing only on two-particle correlations in a finite cartesian basis, these can be compared with Brueckner-Hartree-Fock calculations in the infinite limit. The latter should represent numerically exactly two-particle correlations to infinite order. A simple model for the nuclear force will be used.</li>
+  <li> Focusing only on two-particle correlations in a finite cartesian basis, these can be compared with Brueckner-Hartree-Fock calculations in the infinite limit. The latter should represent exactly two-particle correlations to infinite order. A simple model for the nuclear force will be used.</li>
   <li> For the final project the code can be extended to include particle-hole correlations as well</li>
 </ul>
 
@@ -321,10 +321,8 @@ We limit ourselves to at most two-body interactions, our Hamiltonian
 is then represented by the following operators
 $$
 \hat{H} = \sum_{\alpha\beta}\langle \alpha |h_0|\beta\rangle
-a_{\alpha}^{\dagger}a_{\beta}
-+\frac{1}{4}\sum_{\alpha\beta\gamma\delta}\langle \alpha\beta|
-V|\gamma\delta\rangle
-a_{\alpha}^{\dagger}a_{\beta}^{\dagger}a_{\delta}a_{\gamma},
+a_{\alpha}^{\dagger}a_{\beta}+\frac{1}{4}\sum_{\alpha\beta\gamma\delta}\langle \alpha\beta|
+V|\gamma\delta\rangle a_{\alpha}^{\dagger}a_{\beta}^{\dagger}a_{\delta}a_{\gamma},
 $$
 
 where \( a_{\alpha}^{\dagger} \) and \( a_{\alpha} \) etc.&nbsp;are standard
@@ -430,7 +428,7 @@ Show that the unperturbed Hamiltonian \( \hat{H}_0 \) and \( \hat{V} \)
   \( \hat{S}^2 \), given by
 $$
   \hat{S}_z := \frac{1}{2}\sum_{p\sigma} \sigma
-  a^\dag_{p\sigma}a_{p\sigma}
+  a^{\dagger}_{p\sigma}a_{p\sigma}
 $$
 
 and
@@ -441,7 +439,7 @@ $$
 
 where
 $$
-  \hat{S}_\pm := \sum_{p} a^\dag_{p\pm} a_{p\mp}.
+  \hat{S}_\pm := \sum_{p} a^{\dagger}_{p\pm} a_{p\mp}.
 $$
 
 This is an important feature of our system that allows us to
@@ -449,7 +447,7 @@ block-diagonalize the full Hamiltonian. We will focus on total spin
 \( S=0 \).  In this case, it is convenient to define the so-called pair
 creation and pair annihilation operators
 $$
-\hat{P}^{+}_p = a^\dag_{p+}a^\dag_{p-},
+\hat{P}^{+}_p = a^{\dagger}_{p+}a^{\dagger}_{p-},
 $$
 
 and
@@ -487,10 +485,20 @@ Construct thereafter the Hamiltonian matrix for a system with no
 <p>
 <!-- --- begin solution of exercise --- -->
 <b>Solution.</b>
-When calculating the matrix elements, we see that we can either have no non-coincidences, two non-coincidences or four non-coincidences. Another way to state this is to say that there can a mismatch of zero, one or two pairs.
+We give first the final Hamiltonian matrix
+$$
+H = \left ( 
+\begin{array}{cccccc}
+2\delta -g & -g/2 & -g/2 & -g/2 & -g/2 & 0 \\
+ -g/2 & 4\delta -g & -g/2 & -g/2 & -0 & -g/2 \\
+-g/2 & -g/2 & 6\delta -g & 0 & -g/2 & -g/2 \\
+ -g/2 & -g/2 & 0 & 6\delta-g & -g/2 & -g/2 \\
+ -g/2 & 0 & -g/2 & -g/2 & 8\delta-g & -g/2 \\
+0 & -g/2 & -g/2 & -g/2 & -g/2 & 10\delta -g 
+\end{array} \right )
+$$
 
-<p>
-The following python program diagonalizes the above Hamiltonian matrix for a given span of interaction strength values.
+The following python program diagonalizes the above Hamiltonian matrix for a given span of interaction strength values, performing both a full configuration interaction calculation and a truncated one. For the truncated case we leave out the \( 4p4h \) state. This means that in addition to the ground state we include the four possible \( 2p2h \) states. Such a calculation is normally called a configuration interaction calculation. 
 <p>
 
 
@@ -498,7 +506,6 @@ The following python program diagonalizes the above Hamiltonian matrix for a giv
 from numpy import *
 from sympy import *
 from matplotlib.pyplot import *
-
 
 g_array = linspace(-1, 1, 1001)
 e1_array = []
@@ -548,20 +555,41 @@ show()
 
 </script></div>
 <p>
+Numerically, we find the eigenvalues and eigenvectors of this
+matrix. The lowest eigenvalue then corresponds to the ground state
+energy. Numerically, we can generate the Hamiltonian matrix and find
+the eigenvalue for any value of \( g \), effectively giving us the ground
+state energy as a function of the strength of the interaction. We will
+refer to that energy as the <em>exact</em> energy of the system.
+
+<p>
+From our results, we now see some important differences between FCI
+and CI. Full configuration interaction is an exact method, but is only
+possible if and only if we have a complete and finite SD basis for our
+system. In practice, we usually don't have this. Non-complete
+CI however, is always possible, but gives the only  approximative
+results. The method is variational however, so we are always
+guaranteed that the approximation will be equal or bigger to the true
+result. 
+Perturbation theory however, is non-variational and there is no guarantee that including higher orders in the 
+perturbation gives an improved result, as we will see below.
+
+<p>
+In an FCI case, we are including all possible exictations to infinite
+order, meaning we have all possible 1p1h SDs, all possible 2p2h SDs
+and so on. In the CI case, we truncate those excitations somewhere. In
+our example we limited the excitations to at most 2p2h. We still got
+the contribution from those 2p2h excitation to infinite order. If we
+were to draw the diagrams of the interactions that contribute to this
+CI case, there would be an infinite number of them, as we can have
+arbitrarily long chains of operators that still only have at most 2p2h
+intermediate states.
+
+<p>
 <!-- --- end solution of exercise --- -->
 
 <p>
 <b>c)</b>
-Instead of setting up all possible Slater determinants, construct only
-an approximation to the ground state (where we assume that the four
-particles are in the two lowest single-particle orbits only) which
-includes at most two-particle-two-hole excitations. Diagonalize this
-matrix and compare with the exact calculation and comment your
-results. Can you set up which diagrams this approximation corresponds
-to?
-
-<p>
-<b>d)</b>
 We switch now to approximative methods, in our case Hartree-Fock
   theory and many-body perturbation theory. Hereafter we will define
   our model space to consist of the single-particle levels \( p=1,2 \).
@@ -577,7 +605,7 @@ We switch now to approximative methods, in our case Hartree-Fock
   Hamiltonian and draw the diagrammatic form of the Hamiltonian for all three cases.
 
 <p>
-<b>e)</b>
+<b>d)</b>
 We will now set up the Hartree-Fock equations by varying the
 coefficients of the single-particle functions. The single-particle
 basis functions are defined as
@@ -595,7 +623,7 @@ can be affected by a Hartree-Fock basis. Compute the total binding
 energy using a Hartree-Fock basis and comment your results.
 
 <p>
-<b>f)</b>
+<b>e)</b>
 We will now study the system using non-degenerate
 Rayleigh-Schroedinger perturbation theory to third order in the
 interaction.  If we exclude the first order contribution, all possible
@@ -618,12 +646,12 @@ these results with those you obtained from the exact diagonalization with and wi
 Discuss your results for a canonical Hartree-Fock basis and a non-canonical Hartree-Fock basis.
 
 <p>
-<b>g)</b>
+<b>f)</b>
 Diagram 1 in Fig.&nbsp;<a href="#fig:diagrams">2</a> represents a second-order contribution to the energy and a so-called \( 2p-2h \) contribution to the intermediate states. Write down the expression for the wave operator in this case and compare the possible contributions with the configuration interaction calculations without the \( 4p-4h \) Slater determinant. Comment your results for 
 various values of \( g\in [-1,1] \).
 
 <p>
-<b>h)</b>
+<b>g)</b>
 We limit now the discussion to the canonical Hartree-Fock case only. To fourth order in perturbation theory we can produce diagrams with \( 1p-1h \) intermediate excitations as shown in Fig.&nbsp;<a href="#fig:fourthorder1p1h">3</a>, \( 2p-2h \) excitations, see Fig.&nbsp;<a href="#fig:fourthorder2p2h">4</a>, \( 3p-3h \) excitations as shown in Fig.&nbsp;<a href="#fig:fourthorder3p3h">5</a> and finally so-called diagrams with intermediate four-particle-four-hole excitations, see Fig.&nbsp;<a href="#fig:fourthorder4p4h">6</a>.
 
 <p>
@@ -661,12 +689,66 @@ to fourth order?
 
 <p>
 Calculate the energy to fourth order with a canonical Hartree-Fock basis for \( g\in [-1,1] \) and compare
-with the full diagonalization case in exercise 2). Discuss the results.
+with the full diagonalization case in exercise b). Discuss the results.
 
 <p>
 <!-- --- begin solution of exercise --- -->
 <b>Solution.</b>
-The following Python program gives us the final results.
+We now turn to MBPT to the fourth order. We now get a lot of diagrams
+that can contribute to the energy, so we limit our discussion to the
+canonical HF-case only. All of the diagrams in the canonical case are
+shown in figures 3, 4, 5 and 6 above. In our case howeber, due the
+nature of the pairign Hamiltonian, only few of these diagrams give
+non-zero contributions. Using also the linked diagram theorem, where a
+diagram is called unlinked if and only if it has a disconnected part
+that is closed, we can eliminate some of the diagrams. Goldstones
+linked-diagram theorem states that all unliked diagrams will cancel
+agains the renormalization terms in RSPT, meaning that we can define
+the energy and wave function in each order as a sum of linked diagrams
+only. We can then disregard diagram 33 and 41.
+
+<p>
+Let us now go through all the diagrams and find those that vanish due
+to having broken pairs, i.e., the diagrams that vanish due to our
+specific interaction. Take for example diagram 1, which vanishes due
+to having a term \( \langle ab\vert \hat{v} \vert ci\rangle \). From this
+argument, we see that all four diagrams from figure 3 vanish. Similar
+arguments shows that most diagrams in figure 4 also dissapear. Going
+through all the diagrams, we see that 5, 6, 14 and 15 are the ones
+that do not vanish for figure 4. For figure 5 we actually see that all
+diagrams vanish again. For figure 6 we already found that 33 and 41
+vanished due to being unlinked&mdash;the rest contribute to the
+perturbation.
+
+<p>
+All diagrams for figure 3 and 5 vanished for our interaction, this is
+definitly not a surprise, as those figures correspond to 1p1h and 3p3h
+excitations respectively. As our reference state already has the four
+particles positioned in two pairs, it goes without saying that and odd
+number of particle excitations requires broken pairs and will
+vanish. The same argument also explained why there were no diagrams
+that vanished for figure 6. That figure shows the four-particle-four
+hole excited states, but as we only have four particles in our system,
+exciting all the particles will keep them collected in pairs, so we
+get no ubroken pairs. For the diagrams in figure 4 however, we have
+2p2h excitations. The diagrams that vanish correspond to the cases
+where we excite one particle from either pair, or excite both
+particles in one pair, but into different levels, leaving us with a
+broken pair.
+
+<p>
+The expressions for these diagrams can easily be written in terms of a
+simple Python program. Note however that for every diagram we do
+actually perform loops over every single-particle state. As we will
+see later this is extremely inefficient from a computational point
+view. In our discussions of the projects below, we will rewrite the
+computations of most diagrams in terms of efficient matrix-matrix
+multiplications or matrix-vector multiplications.  The following
+Python program gives us the final results for perturbation to fourth
+order, where we also make a plot of the relative error in the
+correlation energy. That is, we compare the computed correlation in
+perturbation theory with the result from the exact diagonalization.
+
 <p>
 
 
@@ -862,6 +944,33 @@ savefig("logerror.pdf")
 show()
 
 </script></div>
+<p>
+Running the Python program shows us 
+the approximation to both second and third order are very
+good when the interaction is weaker \( g\in[-0.5,0.5] \), but as the
+interaction gets stronger the approximation worsens. We also
+note that the third-order is actually worse than the second order for
+a strong interaction! This result illuminates the difference between
+perturbation theory and configuration interaction we noted earlier,
+including higher-order terms can possibly give a worse result
+for perturbation theory. For CI however, including more excitations
+will never give a worse result. We also see the consequences of
+perturbation theory not being a variational method, as both
+approximations undershoot the true ground state correlation energy of
+the system.
+
+<p>
+From the results, we note also that the fourth order MBPT approximation to
+the correlation energy is better than the lower orders for \( g < 0 \), but
+worse than the lower orders for \( g>0 \). Again this shows us an the
+important point of MBPT. There is no guarantee that the approximation
+will converge to the exact solution as we increase the order. In fact,
+as we see in our case, increasing the order of the approximation might
+actually give you a worse result! Also, we see that MBPT is not
+variational, so we can't simply calculate the approximation of many
+different orders and choose the smallest one, as we then run the risk
+of undershooting the real ground state energy.
+
 <p>
 <!-- --- end solution of exercise --- -->
 
