@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 23:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 23:28
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1490,13 +1490,13 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-<fig-proj/diagrams.pdf, id=219, 614.295pt x 794.97pt>
+<fig-proj/diagrams.pdf, id=219, 692.5875pt x 498.86375pt>
 File: fig-proj/diagrams.pdf Graphic file (type pdf)
 
 <use fig-proj/diagrams.pdf>
 Package pdftex.def Info: fig-proj/diagrams.pdf used on input line 629.
-(pdftex.def)             Requested size: 207.0021pt x 267.88443pt.
-
+(pdftex.def)             Requested size: 207.0021pt x 149.09698pt.
+ [10 <./fig-proj/diagrams.pdf>]
 ! Missing number, treated as zero.
 <to be read again> 
                    p
@@ -1829,43 +1829,42 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-<fig-proj/fourthorder1p1h.png, id=220, 443.6575pt x 129.48375pt>
+<fig-proj/fourthorder1p1h.png, id=237, 443.6575pt x 129.48375pt>
 File: fig-proj/fourthorder1p1h.png Graphic file (type png)
 
 <use fig-proj/fourthorder1p1h.png>
 Package pdftex.def Info: fig-proj/fourthorder1p1h.png used on input line 653.
 (pdftex.def)             Requested size: 207.0021pt x 60.41281pt.
 
-<fig-proj/fourthorder2p2h.png, id=222, 442.65375pt x 216.81pt>
+<fig-proj/fourthorder2p2h.png, id=239, 442.65375pt x 216.81pt>
 File: fig-proj/fourthorder2p2h.png Graphic file (type png)
 
 <use fig-proj/fourthorder2p2h.png>
 Package pdftex.def Info: fig-proj/fourthorder2p2h.png used on input line 663.
 (pdftex.def)             Requested size: 207.0021pt x 101.39124pt.
 
-<fig-proj/fourthorder3p3h.png, id=223, 449.68pt x 515.9275pt>
+<fig-proj/fourthorder3p3h.png, id=240, 449.68pt x 515.9275pt>
 File: fig-proj/fourthorder3p3h.png Graphic file (type png)
 
 <use fig-proj/fourthorder3p3h.png>
 Package pdftex.def Info: fig-proj/fourthorder3p3h.png used on input line 673.
 (pdftex.def)             Requested size: 207.0021pt x 237.49484pt.
 
-<fig-proj/fourthorder4p4h.png, id=224, 437.635pt x 206.7725pt>
+<fig-proj/fourthorder4p4h.png, id=241, 437.635pt x 206.7725pt>
 File: fig-proj/fourthorder4p4h.png Graphic file (type png)
 
 <use fig-proj/fourthorder4p4h.png>
 Package pdftex.def Info: fig-proj/fourthorder4p4h.png used on input line 683.
 (pdftex.def)             Requested size: 207.0021pt x 97.80463pt.
- [10] [11 <./fig-proj/diagrams.pdf> <./fig-proj/fourthorder1p1h.png>] [12 <./fi
-g-proj/fourthorder2p2h.png> <./fig-proj/fourthorder3p3h.png>]
+ [11 <./fig-proj/fourthorder1p1h.png> <./fig-proj/fourthorder2p2h.png>] [12 <./
+fig-proj/fourthorder3p3h.png> <./fig-proj/fourthorder4p4h.png>]
 \openout3 = `proj.pyg'.
 
 runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape       
 -P "verboptions= ,fontsize=\fontsize {9pt}{9pt},baselinestretch=1.0,fontfamily=
 tt,xleftmargin=7mm" -o proj.out.pyg proj.pyg)...executed.
 
- (./proj.out.pyg [13 <./fig-proj/fourthorder4p4h.png>] [14]
-[15])
+ (./proj.out.pyg [13] [14] [15])
 runsystem(rm proj.out.pyg)...executed.
 
 runsystem(rm proj.pyg)...executed.
@@ -2701,7 +2700,6 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-[17]
 ! Missing number, treated as zero.
 <to be read again> 
                    p
@@ -2868,6 +2866,7 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
+[17]
 ! Missing number, treated as zero.
 <to be read again> 
                    p
@@ -5557,10 +5556,10 @@ pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/
 local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texli
 ve/2012/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2012/t
 exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on proj.pdf (19 pages, 378250 bytes).
+Output written on proj.pdf (19 pages, 391674 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 318 compressed objects within 4 object streams
+ 379 PDF objects out of 1000 (max. 8388607)
+ 325 compressed objects within 4 object streams
  92 named destinations out of 1000 (max. 500000)
  19711 words of extra memory for PDF output out of 20736 (max. 10000000)
 
