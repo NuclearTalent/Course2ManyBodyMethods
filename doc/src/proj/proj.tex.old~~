@@ -626,9 +626,9 @@ shown in Fig.~ref{fig:diagrams}.
 
 
 \begin{figure}[t]
-  \centerline{\includegraphics[width=1.0\linewidth]{fig-proj/diagrams.pdf}}
+  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/diagrams.pdf}}
   \caption{
-  Diagrams to third order in the interaction, including also non-canonical Hartree-Fock diagrams. The first order term is excluded. All interaction vertices represent anti-symmetrized matrix elements. \label{fig:diagrams}}
+  Diagrams to third order in the interaction, including also non-canonical Hartree-Fock diagrams. The first order term is excluded. All interaction vertices represent anti-symmetrized matrix elements. \label{fig:diagrams}
   }
 \end{figure}
 %\clearpage % flush figures fig:diagrams
@@ -650,7 +650,7 @@ We limit now the discussion to the canonical Hartree-Fock case only. To fourth o
 
 
 \begin{figure}[t]
-  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/1p1h.pdf}}
+  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/fourthorder1p1h.png}}
   \caption{
   One-particle-one-hole excitations to fourth order. \label{fig:fourthorder1p1h}
   }
@@ -660,7 +660,7 @@ We limit now the discussion to the canonical Hartree-Fock case only. To fourth o
 
 
 \begin{figure}[t]
-  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/2p2h.pdf}}
+  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/fourthorder2p2h.png}}
   \caption{
   Two-particle-two-hole excitations to fourth order. \label{fig:fourthorder2p2h}
   }
@@ -670,7 +670,7 @@ We limit now the discussion to the canonical Hartree-Fock case only. To fourth o
 
 
 \begin{figure}[t]
-  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/3p3h.pdf}}
+  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/fourthorder3p3h.png}}
   \caption{
   Three-particle-three-hole excitations to fourth order. \label{fig:fourthorder3p3h}
   }
@@ -680,7 +680,7 @@ We limit now the discussion to the canonical Hartree-Fock case only. To fourth o
 
 
 \begin{figure}[t]
-  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/4p4h.pdf}}
+  \centerline{\includegraphics[width=0.6\linewidth]{fig-proj/fourthorder4p4h.png}}
   \caption{
   Four-particle-four-hole excitations to fourth order. \label{fig:fourthorder4p4h}
   }

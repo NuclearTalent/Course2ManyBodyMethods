@@ -442,7 +442,7 @@ interaction.  If we exclude the first order contribution, all possible
 diagrams (so-called anti-symmetric Goldstone diagrams) are
 shown in Fig.~ref{fig:diagrams}.
 
-FIGURE: [fig-proj/diagrams.pdf, width=600 frac=1.0] Diagrams to third order in the interaction, including also non-canonical Hartree-Fock diagrams. The first order term is excluded. All interaction vertices represent anti-symmetrized matrix elements. label{fig:diagrams}}
+FIGURE: [fig-proj/diagrams.pdf, width=500 frac=0.6] Diagrams to third order in the interaction, including also non-canonical Hartree-Fock diagrams. The first order term is excluded. All interaction vertices represent anti-symmetrized matrix elements. label{fig:diagrams}
 
 Based on the form of the interaction, which diagrams contribute to the
 binding energy of the ground state?  Write down the expressions for
@@ -460,13 +460,13 @@ various values of $g\in [-1,1]$.
 !bsubex
 We limit now the discussion to the canonical Hartree-Fock case only. To fourth order in perturbation theory we can produce diagrams with $1p-1h$ intermediate excitations as shown in Fig.~ref{fig:fourthorder1p1h}, $2p-2h$ excitations, see Fig.~ref{fig:fourthorder2p2h}, $3p-3h$ excitations as shown in Fig.~ref{fig:fourthorder3p3h} and finally so-called diagrams with intermediate four-particle-four-hole excitations, see Fig.~ref{fig:fourthorder4p4h}. 
 
-FIGURE: [fig-proj/1p1h.pdf, width=500 frac=0.6] One-particle-one-hole excitations to fourth order. label{fig:fourthorder1p1h}
+FIGURE: [fig-proj/fourthorder1p1h.png, width=500 frac=0.6] One-particle-one-hole excitations to fourth order. label{fig:fourthorder1p1h}
 
-FIGURE: [fig-proj/2p2h.pdf, width=500 frac=0.6] Two-particle-two-hole excitations to fourth order. label{fig:fourthorder2p2h}
+FIGURE: [fig-proj/fourthorder2p2h.png, width=500 frac=0.6] Two-particle-two-hole excitations to fourth order. label{fig:fourthorder2p2h}
 
-FIGURE: [fig-proj/3p3h.pdf, width=500 frac=0.6] Three-particle-three-hole excitations to fourth order. label{fig:fourthorder3p3h}
+FIGURE: [fig-proj/fourthorder3p3h.png, width=500 frac=0.6] Three-particle-three-hole excitations to fourth order. label{fig:fourthorder3p3h}
 
-FIGURE: [fig-proj/4p4h.pdf, width=500 frac=0.6] Four-particle-four-hole excitations to fourth order. label{fig:fourthorder4p4h}
+FIGURE: [fig-proj/fourthorder4p4h.png, width=500 frac=0.6] Four-particle-four-hole excitations to fourth order. label{fig:fourthorder4p4h}
 
 Define first linked and unlinked diagrams and explain briefly Goldstone's linked diagram theorem.
 Based on the linked diagram theorem and the form of the pairing Hamiltonian, which diagrams will contribute
