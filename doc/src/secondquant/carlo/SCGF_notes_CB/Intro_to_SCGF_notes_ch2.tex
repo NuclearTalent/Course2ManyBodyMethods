@@ -1,0 +1,474 @@
+
+\chapter[Basics GF]{Basic Properties and Definitions in Many-Body Green's Function Theory}
+
+
+\section{Propagation of One Particle}
+\label{OnaPartProp}
+
+Let us consider a particle in free space described by a single particle Hamiltonian $h_1$. Its eigenstates  and eigenenergies are
+\begin{equation}
+h_1 \vert \phi_n \rangle = \varepsilon_n \vert \phi_n \rangle  \; .
+\end{equation}
+
+In general, if we put the particle in one of its $\vert \phi_n \rangle$ orbits, it will remain in the same state forever. Instead, we immagine to prepare the system in a generic state $\vert\psi_{tr}\rangle$ ($tr$ stands for `trial') and then follow its time evolution. If the trial state is created at time $t$=0, the wavefunction at a later time $t$ is given by [see Eq.~(\ref{PhiSP})]
+\begin{eqnarray}
+\vert \psi(t) \rangle &=& e^{- i h_1 t /\hbar} \vert \psi_{tr} \rangle
+\nonumber \\
+                        &=& \sum_n \vert \phi_n \rangle e^{- i \varepsilon_n t /\hbar} \langle \phi_n \vert \psi_{tr} \rangle \; .
+\label{psievol}
+\end{eqnarray}
+
+The second line shows that if one knows the eigentstates $\vert \phi_n \rangle$, it is relatively simple to compute the time evution: one expands $\vert\psi_{tr}\rangle$ in this basis and let every component propagate independently. Eventually, at time $t$, we want to know the probability amplitude that a measurement would find the particle at position {\bf r},
+\begin{eqnarray}
+\langle {\bf r} \vert \psi(t) \rangle &=& \langle {\bf r} \vert e^{- i h_1 t /\hbar} \vert \psi_{tr} \rangle
+\nonumber \\
+             &=& \int d{\bf r}' \langle {\bf r} \vert e^{- i h_1 t /\hbar} \vert {\bf r}' \rangle \langle {\bf r}' \vert  \psi_{tr} \rangle
+\nonumber \\
+             &=&\int d{\bf r}'  \sum_n \langle {\bf r} \vert \phi_n \rangle e^{- i \varepsilon_n t /\hbar} 
+             \langle \phi_n \vert {\bf r}' \rangle \langle {\bf r}' \vert  \psi_{tr} \rangle
+\label{G1freepart} \\
+             &\equiv& \int d{\bf r}' G({\bf r}, {\bf r}'; t) \psi_{tr}({\bf r}') \; ,
+\nonumber 
+\end{eqnarray}
+which defines the propagator $G$. Obviously, once $G({\bf r}, {\bf r}'; t)$ is known it can be used to calculate the evolution of any initial state.
+However,there is more information included in the propagator. This is apparent from the expansion in the third line of Eq~(\ref{G1freepart}): first, the braket $\langle \phi_n \vert {\bf r} \rangle=\langle \phi_n \vert \psi^\dag({\bf r}) \vert 0 \rangle$ gives us the probability that putting a particle at position ${\bf r}$ and mesuring its energy rgiht away, would make the system to collapse into the eigenstate~$\vert\phi_n\rangle$.  Second, the time evolution is a superposition of waves propagating with different energies and could be inverted to find the eigenspectrum.
+Immagine an experiment  in which the particle is put at position ${\bf r}$ and picked up at ${\bf r}'$ after some time t. If one can do this for different positions and elapsed times--and with good resolution--then a Fourier transform would simply give back the full eigenvalue spectrum. Such an experiment is a lot of work to carry out! But would give us complete information on our particle.
+
+We now want to apply the above ideas to see what we can learn by adding and removing a particle in an environment when many others are present. This can cause the particle to behave in an unxepected way, induce collective excitations of the full systems, and so on.   Moreover, the role played by the physical vacuum in the above example, is now taken by an many-body state (usually its ground state). Thus, it is also possible to probe the system by removing particles.
+
+\section{One-Body Green's Function}
+
+In the following we consider the Heisenberg description of the field operators,
+\begin{equation}
+\psi^\dag_s({\bf r}, t) = e^{iHt/\hbar}  \; \psi^\dag_s({\bf r})  \; e^{-iHt/\hbar} \; ,
+\label{psiH+}
+\end{equation}
+where the subscript $s$ serves to indicate possible internal degrees of freedom (spin, isospin, etc...).
+We omit the superscrips H (Hiesenberg) and S (Scr\"odinger) from the operators since the two pictures can be distinguished from the presence of the time variable, which appears only in the first case.
+Similarly,
+\begin{equation}
+\psi_s({\bf r}, t) = e^{iHt/\hbar}  \; \psi_s({\bf r}) \;  e^{-iHt/\hbar} \; ,
+\label{psiH-}
+\end{equation}
+For the case of a general single-particle basis \{$u_\alpha({\bf r})$\} one uses the following creation and annihilation operators
+\begin{eqnarray}
+c^\dag_\alpha(t) &=& e^{iHt/\hbar}  \; c^\dag_\alpha  \; e^{-iHt/\hbar} \; ,
+\label{cH+}
+\\
+c_\alpha(t)      &=& e^{iHt/\hbar}  \; c_\alpha  \; e^{-iHt/\hbar} \; ,
+\label{cH-}
+\end{eqnarray}
+which are related to $\psi^\dag_s({\bf r}, t)$ and $\psi_s({\bf r}, t)$ through Eqs.~(\ref{psi_vs_a}) and~(\ref{a_vs_psi}).
+
+In most applications the Hamiltonian is split in a unperturbed part $H_0$ and a residual interaction
+\begin{equation}
+ H = H_0 + V\; .
+\end{equation}
+The N-body eigenstates of the full Hamiltonian are indicated with $\vert\Psi^N_n\rangle$, while $\vert\Phi^N_n\rangle$ are the unperturbed ones
+\begin{eqnarray}
+ H \; \vert \Psi^N_n \rangle &=& E^N_n \; \vert \Psi^N_n \rangle \; ,
+\label{DefPsi}
+\\
+ H_0 \; \vert \Phi^N_n \rangle &=& E^{(0),N}_n \; \vert \Phi^N_n \rangle \; ,
+\label{DefPhi}
+\end{eqnarray}
+
+
+The definitions given in the following are general and do not depend on the type of interaction being used. Thus, most properties of Green's functions result from genaral principles of quantum mechanics and are valid for any system.
+
+
+\subsection{Definitions}
+
+The two-points Green's function describies the propagation of one particle or one hole on top of the ground state $\vert\Psi^N_0\rangle$. This is defined by
+\begin{equation}
+g_{s s'}({\bf r}, t; {\bf r}', t') = -\frac{i}{\hbar} 
+\langle \Psi^N_0 \vert T [\psi_s({\bf r}, t) \psi^\dag_{s'}({\bf r}', t')  ] \vert \Psi^N_0 \rangle \; ,
+\label{grr1tt_def}
+\end{equation}
+where $T[\cdots]$ is the time ordering operator that imposes a change of sing for each exchange of two fermion operators
+\begin{equation}
+T [\psi_s({\bf r}, t) \psi^\dag_{s'}({\bf r}', t')] =
+\left\{
+ \begin{array}{lll}
+      \psi_s({\bf r}, t) \psi^\dag_{s'}({\bf r}', t') \; , &    & t > t' \; ,\\
+  \pm \psi^\dag_{s'}({\bf r}', t') \psi_s({\bf r}, t) \; , & ~  & t' > t \; ,
+ \end{array}
+\right.
+\end{equation}
+where the upper~(lower) sign is for bosons~(fermions).
+%
+A similar definition can be given for the non interacting state $\vert\Phi^N_0\rangle$, in this case the Heisenberg operators (\ref{psiH+}) to~(\ref{cH-}) must evolve only according to $H_0$ and the notation $g^{(0)}$ is used.
+
+
+If the Hamiltonian does not depend on time, the propagator (\ref{grr1tt_def}) depends only on the difference $t-t'$
+\begin{eqnarray}
+ g_{s s'}({\bf r}, {\bf r}'; t - t') &=& -\frac{i}{\hbar} \theta(t-t') \langle \Psi^N_0 \vert \psi_s({\bf r}) e^{-i(H - E^N_0)(t-t')/\hbar} \psi^\dag_{s'}({\bf r}')  \vert \Psi^N_0 \rangle 
+\nonumber \\
+ &&\mp\frac{i}{\hbar} \theta(t'-t) \langle \Psi^N_0 \vert \psi^\dag_{s'}({\bf r}') e^{i(H - E^N_0)(t-t')/\hbar}  \psi_s({\bf r}) \vert \Psi^N_0 \rangle \; . \qquad \quad
+\label{grr1dt}
+\end{eqnarray}
+In this case it is useful to Froutier transform with respect to time and define
+\begin{equation}
+g_{s s'}({\bf r}, {\bf r}'; \omega) = \int d\tau e^{i\omega\tau} g_{s s'}({\bf r}, {\bf r}'; \tau) \; .
+\label{grr1w_FT}
+\end{equation}
+By using the relation
+\begin{equation}
+\theta(\pm\tau) = \mp \; \hbox{lim}_{\eta \rightarrow 0^+} ~ \frac{1}{2 \pi i}
+                     \int^{+\infty}_{-\infty} d\omega  \frac{e^{-i\omega \tau}}{\omega \pm i \eta} \; ,
+\label{thetaFT}
+\end{equation}
+one obtains
+\begin{eqnarray}
+g_{s s'}({\bf r}, {\bf r}'; \omega) &=& g^p_{s s'}({\bf r}, {\bf r}'; \omega)
+                                       + g^h_{s s'}({\bf r}, {\bf r}'; \omega)
+\nonumber \\
+ &=& \langle \Psi^N_0 \vert \psi_s({\bf r}) \frac{1}{\hbar\omega - (H - E^N_0) + i\eta} \psi^\dag_{s'}({\bf r}')  \vert \Psi^N_0 \rangle 
+\label{grr1w_H} \\
+ &&\mp \langle \Psi^N_0 \vert \psi^\dag_{s'}({\bf r}') \frac{1}{\hbar\omega + (H - E^N_0) - i\eta}  \psi_s({\bf r}) \vert \Psi^N_0 \rangle \; ,  \qquad 
+\nonumber
+\end{eqnarray}
+In Eq.~(\ref{grr1w_H}), $g^p$ propagates a particle from ${\bf r}'$ to ${\bf r}$, while $g^h$ propagates a hole from ${\bf r}$ to ${\bf r}'$. Note that the interpretation is that a particle is added at ${\bf r}'$, and later on some (indistiguishable) particle is removed from ${\bf r}'$ (and similarly for holes). In the mean time, it is the fully correlated ($N\pm 1$)-body system that propagates. We will discuss in the next chapter that in many cases--and especially in the vicinity of the Fermi surface--this motion mantains many characteristics that are typical of a particle moving in free space, even if the motion itself could actually be a collective excitation of many constituents. But since it looks like a single particle state we may still refer to it as {\em quasiparticle}.
+
+The same definitions can be made for {\em any} orthonormal basis \{$\alpha$\}, leading to the realtions
+\begin{equation}
+g_{\alpha \beta}(t, t') = -\frac{i}{\hbar} 
+\langle \Psi^N_0 \vert T [c_\alpha(t) c_\beta^\dag(t')  ] \vert \Psi^N_0 \rangle \; ,
+\label{g1tt_def}
+\end{equation}
+where
+\begin{equation}
+g_{s s'}({\bf r}, t; {\bf r}', t') = \sum_{\alpha \beta} u_\alpha({\bf r},s) g_{\alpha \beta}(t, t') u^*_\beta({\bf r}',s') \; ,
+\label{grr1tt_vs_gab1tt}
+\end{equation}
+and 
+\begin{eqnarray}
+g_{\alpha \beta}(\omega) 
+ &=& \langle \Psi^N_0 \vert c_\alpha \frac{1}{\hbar\omega - (H - E^N_0) + i\eta} c_\beta^\dag  \vert \Psi^N_0 \rangle 
+\label{g1w_H} \\
+ &&\mp \langle \Psi^N_0 \vert c_\beta^\dag \frac{1}{\hbar\omega + (H - E^N_0) - i\eta}  c_\alpha \vert \Psi^N_0 \rangle \; . \qquad 
+\nonumber
+\end{eqnarray}
+Equations~(\ref{g1tt_def}) and~(\ref{g1w_H}) are completely equivalent to the previous ones. These may look a bit more abstract than the corresponding Eqs.~(\ref{grr1tt_def}) and~(\ref{grr1w_H}) but are more {\em general} since they show that the formalism can be developed and applied in any orthonormal basis, without restricting oneself to coordindate space.
+
+
+
+
+\subsection{Lehmann Representation}
+
+As discussed in Sec.~\ref{OnaPartProp} for the one particle case, the information contained in the propagators becomes more clear if one Fourier transforms the time variable and inserts a completness for the intermediate states. This is so because it makes the spectrum and the transition amplitudes to apper explicitely. Using the completeness relations for the ($N\pm1$)-body systems in Eq.~(\ref{g1w_H}), one has
+\begin{eqnarray}
+g_{\alpha \beta}(\omega) 
+ &=& \sum_n \frac{ \langle \Psi^N_0 \vert c_\alpha  \vert  \Psi^{N+1}_n  \rangle \langle\Psi^{N+1}_n \vert  c_\beta^\dag  \vert \Psi^N_0 \rangle}
+ {\hbar\omega - (E^{N+1}_n - E^N_0) + i\eta}
+\label{g1w_Leh} \\
+ &&\mp \sum_k \frac{ \langle \Psi^N_0 \vert c_\beta^\dag  \vert \Psi^{N-1}_k  \rangle \langle\Psi^{N-1}_k \vert  c_\alpha \vert \Psi^N_0 \rangle}
+ {\hbar\omega - (E^N_0 - E^{N-1}_k) - i\eta}
+  \; . \qquad 
+\nonumber
+\end{eqnarray}
+which is known as the {\em Lehmann} repressentation of a many-body Green's function%
+\footnote{\label{Leh.54} H.~Lehmann, {\em Nuovo Cimento} {\bf 11}, 324 (1954).}.
+Here, the first and second terms on the left hand side describe the propagation of a (quasi)particle and a (quasi)hole excitations.
+
+The poles in Eq.~(\ref{g1w_Leh}) are the energies relatives to the $\vert \Psi^N_0 \rangle$ ground state. Hence they give the  energies actually relased in a capture reaction experiment to a bound state of $\vert \Psi^{N+1}_n \rangle$. The residues are transition amplitudes for the addition of a particle and take the name of {\em spectroscopic amplitudes}. They play the same role of the $\langle \phi_n \vert {\bf r} \rangle$ wave function in Eq.~(\ref{G1freepart}). In fact these energies and amplitudes are solutions of a Schr\"odinger-like equation: the Dyson equation.
+%
+The hole part of the propagator gives instead information on the process of particle emission, the poles being the exact energy absorbed in the process. 
+%
+For example, in the single particle Green's function of a molecule, the quasiparticle and quasihole poles are respectively  the electron affinities an ionization energies.
+
+ We will look at the physical significance of spectroscopic amplitudes in the next Chapter and derive the Dyson equation (which is the fundamental equation in many-body Green's function theory) only later on, when developin the formalism.
+
+
+\subsection{Spectral function and dispersive relation}
+
+As a last definition, we rewrite the contents of Eq.~(\ref{g1w_Leh}) in a form that can compared more easily to experiments. By using the relation
+\begin{equation}
+\frac{1}{x \pm i \eta} = {\cal P} \frac{1}{x} ~ \mp ~ i \pi \delta(x) \; ,
+\end{equation}
+it is immediate to extract the one-body spectral function
+\begin{equation}
+ S_{\alpha \beta} (\omega) =  S^p_{\alpha \beta} (\omega) +  S^h_{\alpha \beta} (\omega) \; ,
+\label{S1_ab} 
+\end{equation}
+where the partcle and hole components are
+\begin{eqnarray}
+ S^p_{\alpha \beta} (\omega) &=& - \frac{1}{\pi} ~ \hbox{Im} \;g^p_{\alpha \beta} (\omega) 
+\nonumber \\
+            &=&  \sum_n \langle \Psi^N_0 \vert c_\alpha  \vert  \Psi^{N+1}_n  \rangle \langle\Psi^{N+1}_n \vert  c_\beta^\dag  \vert \Psi^N_0 \rangle
+             \; \delta \left( \hbar\omega - (E^{N+1}_n - E^N_0) \right) \; , \qquad
+\label{S1p_ab} \\
+ S^h_{\alpha \beta} (\omega) &=& ~ \frac{1}{\pi} ~ \hbox{Im} \;g^h_{\alpha \beta} (\omega) 
+\nonumber  \\
+            &=&  \mp \sum_k \langle \Psi^N_0 \vert c_\beta^\dag  \vert \Psi^{N-1}_k  \rangle \langle\Psi^{N-1}_k \vert  c_\alpha \vert \Psi^N_0 \rangle
+             \; \delta \left( \hbar\omega - (E^N_0 - E^{N-1}_k) \right) \; . \qquad \quad
+\label{S1h_ab} 
+\end{eqnarray}
+The diagonal part of the spectral function is interpreted as the probability of adding [$S^p_{\alpha \alpha} (\omega)$] or removing [$S^h_{\alpha \alpha} (\omega)$] one particle in the state $\alpha$ leaving the residual system in a state of energy $\omega$.
+
+By comparing Eqs.~(\ref{S1p_ab}) and~(\ref{S1h_ab}) to the Lehmann representation~(\ref{g1w_Leh}), it is seen that the propagator is completely constrained by its imaginary part. Indeed,
+\begin{equation}
+g_{\alpha \beta}(\omega) 
+ = \int d\omega' \frac{ S^p_{\alpha \beta}(\omega')  } {\omega - \omega' + i \eta} 
+ ~+~ \int d\omega' \frac{ S^h_{\alpha \beta}(\omega')  } {\omega - \omega' - i \eta}  \; .
+\label{g1_disp} 
+\end{equation}
+
+In general the single particle propagator of a finite system has isolated poles in correspondence to the bound eigenstates of the ($N+1$)-body system. For larger enegies, where $\vert \Psi^{N+1}_n \rangle$ are states in the continuum, it develops a branch cut. The particle propagator $g^p(\omega)$ is analytic in the upper half of the complex plane, and so is the full propagator~(\ref{grr1w_H}) for $\omega\geq E^{N+1}_0-E^N_0$.
+ Analogously, the hole propagator has poles for $\omega\leq E^N_0-E^{N-1}_0$ and is analytic in the lower complex plane. Note that high excitation energies in the (N-1)-body system correspond to negative values of the poles $E^N_0-E^{N-1}_k$, so $g^h(\omega)$ develops a branch cut for large negative energies.
+
+
+\newpage
+
+\section{Observables from $g_{\alpha \beta}$}
+
+\subsection{Calculation of Expectation Values}
+\label{g1_ExpVal}
+
+The one-body density matrix~(\ref{OBRDM}) can be obtained from the one-body propagator. One simply chooses the 
+appropriate time ordering in Eq.~(\ref{g1tt_def})
+\begin{equation}
+ \rho_{\alpha \beta} = \langle \Psi^N_0 \vert c_\beta^\dag c_\alpha \vert \Psi^N_0 \rangle 
+     = \pm i\hbar ~  \hbox{lim}_{t' \rightarrow t^+} ~ g_{\alpha \beta}(t,t')
+\label{rho_vs_g1tt}
+\end{equation}
+ (where the upper sign is for bosons and the lower one is for fermions).
+Alternatively, the hole spectral function can be used
+\begin{equation}
+ \rho _{\alpha \beta} = \mp \int d\omega \; S^h_{\alpha \beta}(\omega) \; .
+\end{equation}
+Thus, the expectation value of a one-body operator, Eq.~(\ref{RhoExpVal}), on the ground states $\vert \Psi^N_0 \rangle$ is usually written in one the following ways
+\begin{eqnarray}
+ \langle \Psi^N_0 \vert O \vert \Psi^N_0 \rangle &=&
+ \mp \sum_{\alpha \beta}  \int d\omega \; o_{\alpha \beta} \; S^h_{\beta \alpha}(\omega)
+\nonumber \\
+ &=&  \pm i\hbar ~  \hbox{lim}_{t' \rightarrow t^+} 
+\sum_{\alpha \beta}  ~  o_{\alpha \beta} \; g_{\beta \alpha}(t,t')
+\label{g1ExpVal}
+\end{eqnarray}
+which are equivalent.
+
+From the particle spectral function, one can extract the quantity
+\begin{equation}
+ d_{\alpha \beta} = \langle \Psi^N_0 \vert c_\alpha c^\dag_\beta \vert \Psi^N_0 \rangle
+ = \int d\omega \; S^p_{\beta \alpha}(\omega)
+\end{equation}
+which leads to the following sum rule
+\begin{equation}
+ \int d\omega S_{\alpha \beta} (\omega) = d_{\alpha \beta} \mp \rho _{\alpha \beta} = 
+ \langle \Psi^N_0 \vert [c_\alpha,   c_\beta^\dag]_\mp \vert \Psi^N_0 \rangle   = \delta_{\alpha \beta} \; .
+\end{equation}
+
+
+\subsection{Sum Rule for the Energy}
+
+
+For the case of an Hamiltonian containing only two-body interactions,
+\begin{eqnarray}
+ H &=& U ~+~ V
+\nonumber \\
+ &=& \sum_{\alpha \beta} t_{\alpha \beta} \; c_\alpha^\dag c_\beta
+   ~+~  \frac{1}{4} \sum_{\alpha \beta \gamma \delta}  v_{\alpha \beta, \gamma \delta} \, c^\dag_\alpha c^\dag_\beta  c_\delta c_\gamma \; ,
+\end{eqnarray}
+there exist an important sum rule that relates the total energy of the state $\vert \Psi^N_0 \rangle$ to its one-body Green's function.
+%
+To derive this, one makes use of the equation of motion for Heisenberg operators~(\ref{HPTimeEvol}), which gives
+\begin{equation}
+ i \hbar \frac{d}{d t} c_\alpha(t) = e^{iHt/\hbar}  \; [ c_\alpha , H ]  \; e^{-iHt/\hbar} \; ,
+\end{equation}
+with%
+\footnote{We use the relation $[A,BC]_- = [A,B] C - B [C,A] = \{A,B\} C - B \{C,A\}$ which is valid for both commutators and anticommutators}
+\begin{equation}
+ [ c_\alpha , H ] = \sum_\beta t_{\alpha \beta} \; c_\beta 
+~+~ \frac{1}{2} \sum_{\beta \gamma \delta}  v_{\alpha \beta \gamma \delta} c^\dag_\beta  c_\delta c_\gamma \; ,
+\label{aH_commutator}
+\end{equation}
+which is valid for both fermions and bosons.
+
+If one uses Eq.~(\ref{aH_commutator}) and derives the propagator~(\ref{g1tt_def}) with respect to time,
+\begin{eqnarray}
+ i\hbar \frac{\partial}{\partial t}g_{\alpha \beta}(t - t') 
+    ~&=&~ \delta(t - t') \delta_{\alpha \beta} ~+~
+          \sum_\gamma t_{\alpha \gamma} g_{\gamma \beta}(t - t')
+ \nonumber \\
+ & & - \frac{i}{\hbar} \;  \sum_{\eta \gamma \zeta} \frac{1}{2} v_{\alpha \eta , \gamma \zeta}
+   \; \langle \Psi^N_0 \vert
+             ~T [ c^{\dag}_\eta(t) c_\zeta(t) c_\gamma(t) 
+                 c^{\dag}_\beta(t') ]
+              \vert \Psi^N_0 \rangle \;   .  \qquad  \quad
+\label{g_derivative}
+\end{eqnarray}
+The braket in the last line contains the four points Green's function [see Eq.~(\ref{g4pt_t_def})], which can describe the simultaneous propagation of two particles. Thus, one sees that applying the equation of motion to a propagator leads to relations which contain Green's functions of higher order. This result is particularly important because it shows there exist a hierarchy between propagators, so that the exact equations that determine the one-body function will depend on the two-body one, the two-body function will contain contributions from three-body propagators, and so on.
+
+For the moment we just want to select a particular order of the operators in
+Eq.~(\ref{g_derivative}) in order to extract the one- and two-body density
+matrices. To do this, we chose $t'$ to be a later time than $t$ and take its
+limit to the latter from above. This yields 
+\begin{equation}
+ \pm i\hbar \;  \hbox{lim}_{t' \rightarrow t^+} \sum_\alpha \frac{\partial}{\partial t}g_{\alpha \alpha}(t - t') =
+ \langle T \rangle + 2 \langle V \rangle  
+\label{lim_T_2V}
+\end{equation}
+ (note that for $t \neq t'$, the term $\delta(t - t')$=0 and it does not contribute to the limit).
+This result can also be expressed in energy representation by inverting the Fourier transformation~(\ref{grr1w_FT}), which gives
+\begin{equation}
+  lim_{\tau\rightarrow  0^-} ~  \frac{\partial}{\partial \tau} \; g_{\alpha \beta}(\tau)
+     = - \int d\omega \; \omega \; S^h_{\alpha \beta}(\omega)
+\end{equation}
+
+
+By combining~(\ref{lim_T_2V}) with Eq.~(\ref{g1ExpVal}) one finally obtains
+\begin{eqnarray}
+ \langle H \rangle = \langle U \rangle + \langle V \rangle  &=&
+  \pm  i\hbar  \; \frac{1}{2} \hbox{lim}_{t' \rightarrow t^+} \sum_{\alpha \beta} 
+    \left\{ \delta_{\alpha \beta}  \frac{\partial}{\partial t}  + t_{\alpha \beta} \right\}
+      g_{\beta \alpha }(t - t')
+ \nonumber \\
+   &=& \mp  \frac{1}{2} \sum_{\alpha \beta} \int d\omega \; \left\{ \delta_{\alpha \beta}\omega + t_{\alpha \beta} \right\}
+      S^h_{\beta \alpha }(\omega) \; .
+\label{dgdt_U_2V}
+\end{eqnarray}
+Surprisingly, for an Hamiltonian containing only two-body forces it is possible to extract the ground state energy by knowing only the one-body propagator. This result  was derived independently by Galitski and Migdal%
+\footnote{V. M. Galitski and A. B. Migdal, Sov.~Phys.-JEPT {\bf 7}, 96 (1958).}
+and by Kolutn%
+\footnote{D. S. Koltun, Phys. Rev. Lett. {\bf 28}, 182 (1972); Phys. Rev. C {\bf 9}, 484 (1974)}.
+When interactions among three or more particles are present, this relation has to be augmented to include additional terms. In these cases higher order Green's functions will appear explicitly.
+
+
+\section{Higher Order Green's Functions}
+
+The definition~(\ref{g1tt_def}) can be extended to Green's functions for the propagation of more than one particle.
+In general, for each additional particle it will be necessary to introduce one additional creation and one annihilation operator. Thus a $2n$-points Green's function will propagate a maximum of $n$ quasiparticles.
+The explicit definition of the 4-points propagator is
+\begin{equation}
+g^{4-pt}_{\alpha \beta, \gamma \delta}(t_1, t_2; t_1', t_2') = -\frac{i}{\hbar} 
+\langle \Psi^N_0 \vert T [c_\beta(t_2) c_\alpha(t_1) c_\gamma^\dag(t_1')  c_\delta^\dag(t_2') ] \vert \Psi^N_0 \rangle \; ,
+\label{g4pt_t_def}
+\end{equation}
+while the 6-point case is
+\begin{eqnarray}
+\lefteqn{
+g^{6-pt}_{\alpha \beta \gamma, \mu \nu \lambda}(t_1, t_2, t_3; t_1', t_2', t_3') =
+} & & 
+\nonumber \\
+\qquad  & & -\frac{i}{\hbar} 
+\langle \Psi^N_0 \vert T [  c_\gamma(t_3) c_\beta(t_2) c_\alpha(t_1)
+        c_\mu^\dag(t_1')  c_\nu^\dag(t_2')  c_\lambda^\dag(t_3')] \vert \Psi^N_0 \rangle \; ,
+\qquad
+\label{g6pt_t_def}
+\end{eqnarray}
+It should be noted that the actual number of particles that are propagated by these objects depends on the ordering of the time variables. Therefore the information on transitions between eigenstates of the systems with $N$, $N\pm1$ and $N\pm2$ bodies are all encoded in Eq.~(\ref{g4pt_t_def}), while additional states of $N\pm3$-body states are included in Eq.~(\ref{g4pt_t_def}).
+%
+Obviously, the presence of so many time variables makes the use of these functions extremely difficult (and even impossible, in many cases). However, it is still useful to consider only certain time orderings which allow to extract the information not included in the 2-point propagator.
+
+\subsection{Two-particles--two-holes Propagator}
+
+The Two-particle--two-hole propagator is a two-times Green's function defined as
+\begin{equation}
+g^{II}_{\alpha \beta, \gamma \delta}(t, t') = -\frac{i}{\hbar} 
+\langle \Psi^N_0 \vert T [c_\beta(t) c_\alpha(t) c_\gamma^\dag(t')  c_\delta^\dag(t') ] \vert \Psi^N_0 \rangle \; ,
+\label{gII_t_def}
+\end{equation}
+which corresponds to the limit $t_1'=t_2'^+$ and $t_2=t_1^+$ of $g^{4-pt}$.
+
+As for the case of $g_{\alpha \beta}(t,t')$, if the Hamiltonian is time-independent, Eq.~(\ref{gII_t_def}) is a function of the time difference only. Therefore it has a Lehmann representation containing the exact spectrum of the ($N\pm2$)-body systems
+\begin{eqnarray}
+ g^{II}_{\alpha \beta , \gamma \delta}(\omega) &=& 
+ \sum_n  \frac{\langle \Psi^N_0 \vert 
+                c_\beta c_\alpha \vert \Psi^{N+2}_n \rangle  \;
+                 \langle \Psi^{N+2_n} \vert
+         c^{\dag}_\gamma c^{\dag}_\delta \vert \Psi^N_0 \rangle }{\omega - ( E^{N+2}_n - E^N_0 ) + i \eta }
+\nonumber \\  
+&-& \sum_k  \frac{  \langle {\Psi^N_0} \vert 
+    c^{\dag}_\gamma c^{\dag}_\delta \vert {\Psi^{N-2}_k} \rangle \;
+                 \langle {\Psi^{N-2}_k} \vert 
+                  c_\beta c_\alpha \vert {\Psi^N_0} \rangle }
+            {\omega - \left( E^N_0 - E^{N-2}_k \right) - i \eta } \; .
+\label{eq:gII_Leh}
+\end{eqnarray}
+
+Similarly one defines the two-particle and two-hole spectral functions
+\begin{equation}
+ S^{II}_{\alpha \beta}, \gamma \delta (\omega) =  S^{pp}_{\alpha \beta, \gamma \delta} (\omega) +  S^{hh}_{\alpha \beta, \gamma \delta} (\omega) \; ,
+\label{S2_ab} 
+\end{equation}
+and
+\begin{eqnarray}
+ S^{pp}_{\alpha \beta, \gamma \delta} (\omega) &=& - \frac{1}{\pi} ~ \hbox{Im} \;g^{pp}_{\alpha \beta, \gamma \delta} (\omega) 
+\nonumber \\
+            &=&  \sum_n \langle \Psi^N_0     \vert  c_\beta         c_\alpha         \vert \Psi^{N+2}_n \rangle
+                        \langle \Psi^{N+2}_n \vert  c^{\dag}_\gamma c^{\dag}_\delta  \vert \Psi^N_0     \rangle
+             \; \delta \left( \hbar\omega - (E^{N+2}_n - E^N_0) \right) \; , \qquad
+\label{S2pp_ab} \\
+ S^{hh}_{\alpha \beta, \gamma \delta} (\omega) &=& ~ \frac{1}{\pi} ~ \hbox{Im} \;g^{hh}_{\alpha \beta, \gamma \delta} (\omega) 
+\nonumber  \\
+            &=&  - \sum_k \langle \Psi^N_0     \vert  c^{\dag}_\gamma c^{\dag}_\delta \vert \Psi^{N-2}_k  \rangle
+                          \langle \Psi^{N-2}_k \vert  c_\beta         c_\alpha        \vert \Psi^N_0 \rangle
+             \; \delta \left( \hbar\omega - (E^N_0 - E^{N-2}_k) \right) \; . \qquad \quad
+\label{S2hh_ab} 
+\end{eqnarray}
+
+
+\vskip .5cm
+
+Following the demonstration of Sec.~\ref{g1_ExpVal}, it is immediate to obtain relations for the two-body density matrix~(\ref{TBRDM})
+\begin{equation}
+\Gamma_{\alpha \beta, \gamma \delta} = \langle\Psi^N\vert c^{\dag}_\gamma c^{\dag}_\delta  c_\beta  c_\alpha \vert\Psi^N\rangle 
+ = -  \int d\omega S^{hh}_{\alpha \beta, \gamma \delta}(\omega) 
+\end{equation}
+and, hence, for the expectation value of any two-body operator
+\begin{eqnarray}
+ \langle \Psi^N_0 \vert V \vert \Psi^N_0 \rangle &=&
+- \sum_{\alpha \beta \gamma \delta}  \int d\omega v_{\alpha \beta, \gamma \delta} S^{h}_{\gamma \delta, \alpha \beta}(\omega)
+\nonumber \\
+ &=&  + i\hbar ~  \hbox{lim}_{t' \rightarrow t^+} 
+\frac{1}{4} \sum_{\alpha \beta \gamma \delta}  ~  v_{\alpha \beta, \gamma \delta} g^{II}_{\gamma \delta, \alpha \beta}(t,t') \; .
+\label{g2ExpVal}
+\end{eqnarray}
+
+
+\subsection{Polarization Propagator}
+
+The polarization propagator $\Pi_{\alpha \beta, \gamma \delta}$ corresponds to the time ordering of $g^{4-pt}$ in which a particle-hole excitation is created at one single time. Therefore, no process involving particle transfer in included. However it describes transition to the excitations of the system, as long as they can be reached with a one-body operator. For example, this includes collective modes of a nucleus.
+This is defined as
+\begin{eqnarray}
+ \Pi_{\alpha \beta , \gamma \delta}(t, t') &=&  -\frac{i}{\hbar} 
+\langle \Psi^N_0 \vert T [c^\dag_\beta(t) c_\alpha(t) c_\gamma^\dag(t')  c_\delta(t') ] \vert \Psi^N_0 \rangle 
+\nonumber \\
+ & & ~ +\frac{i}{\hbar}  \langle \Psi^N_0 \vert c^\dag_\beta    c_\alpha  \vert \Psi^N_0 \rangle
+         \langle \Psi^N_0 \vert c_\gamma^\dag  c_\delta \vert \Psi^N_0 \rangle \; .
+\label{eq:Pi_t_def}
+\end{eqnarray}
+
+After including a completeness of $\vert \Psi^N_n \rangle$ states in~(\ref{eq:Pi_t_def}), the contribution of to the ground states (at zero energy) is cancelled by the last term in the equation. Thus one can Fourier transform to the Lehmann representation
+\begin{eqnarray}
+ \Pi_{\alpha \beta , \gamma \delta}(\omega) &=& 
+ \sum_{n \ne 0}  \frac{  {\mbox{$\langle {\Psi^N_0} \vert $}}
+            c^{\dag}_\beta c_\alpha {\mbox{$\vert {\Psi^N_n} \rangle$}} \;
+             {\mbox{$\langle {\Psi^N_n} \vert $}}
+            c^{\dag}_\gamma c_\delta {\mbox{$\vert {\Psi^N_0} \rangle$}} }
+            {\omega - \left( E^N_n - E^N_0 \right) + i \eta } 
+\nonumber \\
+ &-& \sum_{n \ne 0} \frac{  {\mbox{$\langle {\Psi^N_0} \vert $}}
+              c^{\dag}_\gamma c_\delta {\mbox{$\vert {\Psi^N_n} \rangle$}} \;
+                 {\mbox{$\langle {\Psi^N_n} \vert $}}
+             c^{\dag}_\beta c_\alpha {\mbox{$\vert {\Psi^N_0} \rangle$}} }
+            {\omega + \left( E^N_n - E^N_0 \right) - i \eta } \; ,
+\label{eq:Pi_Leh}
+\end{eqnarray}
+Note that $\Pi_{\alpha \beta , \gamma \delta}(\omega)=\Pi_{\delta \gamma , \beta \alpha}(-\omega)$ due to time reversal symmetry. Also the forward and backward parts carry the same information.
+
+Once again, the residues of the propagator~(\ref{eq:Pi_Leh}) can be used to calculate expectation values. In this case, given a one-body operator~(\ref{O1SecQuant}) on obtains the transition matrix elements to any excited state
+\begin{equation}
+ \langle \Psi^N_n \vert O \vert \Psi^N_0 \rangle =
+   \sum_{\alpha \beta} o_{\beta \alpha} \langle \Psi^N_n \vert c^\dag_\beta c_\alpha  \vert \Psi^N_0 \rangle  \; .
+\end{equation}
+
+
+%
+%\section{Examples Of Simple Cases}
+%
+%\subsection{Unperturbed $g^{(0)}(\omega)$}
+%
+%\subsection{Unperturbed $\Pi^{(0)}(\omega)$}
+%

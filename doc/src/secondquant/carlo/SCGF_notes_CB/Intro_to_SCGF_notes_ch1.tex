@@ -1,0 +1,607 @@
+
+\section*{Literature}
+
+A modern and compresensive monography is
+\begin{itemize}
+\item  W.~H.~Dickhoff and D.~Van~Neck, {\em Many-Body Theory Exposed!}, 2nd ed. (World Scientific, Singapore, 2007).
+\end{itemize}
+This book covers several applications of Green's functions done in recent years, including nuclear and electroncic systems. Most the material of these lectures can be found here.
+
+\vskip .3cm
+
+\noindent
+Two popular textbooks, that cover the almost complete formalism, are
+\begin{itemize}
+\item  A.~L.~Fetter and J.~D.~Walecka, {\em Quantum Theory of Many-Particle Physics} (McGraw-Hill, New York, 1971),
+\item  A.~A.~Abrikosov, L.~P.~Gorkov and I.~E.~Dzyaloshinski, {\em Methods of Quantum Field Theory in Statistical Physics} (Dover, New York, 1975).
+\end{itemize}
+
+\noindent
+Other useful books on many-body Green's functions theory, include
+\begin{itemize}
+\item  R. D. Mattuck, {\em A Guide to Feynmnan Diagrams in the Many-Body Problem}, (McGraw-Hill, 1976)  [reprinted by Dover, 1992],
+\item  J.~P.~Blaizot and G.~Ripka, {\em Quantum Theory of Finite Systems} (MIT Press, Cambridge MA, 1986),
+\item  J.~W.~Negele and H.~Orland, {\em Quantum Many-Particle Systems} (Benjamin, Redwood City CA, 1988).
+\end{itemize}
+
+
+
+%\chapter*{Basic Formulae of Second Quantization and Pictures}
+\chapter[Basic Formulae]{Preliminaries: Basic Formulae of Second Quantization and Pictures}
+
+
+Many-body Green's functions (MBGF) are a set of techniques that originated in quantum field theory but have also found wide applications to the many-body problem. In this case, the focus are complex systems such as crystals, molecules, or atomic nuclei. However, many-body Green's functions still share the same language with elementary particles theory, and have several concepts in common.
+To apply this formalism, one needs to use of the creation/destruction operators of second quantization and the Heisenberg and interaction pictures of quantum mechanics.
+
+The purpose of this chapter is to gather the basic results of second quantization and pictures, so that they can be used for reference later on.
+One the way, we will introduce some of the notation to be used in our discussions.
+%
+%
+%Green's functions will be introduced in the next chapter.
+
+
+
+
+\section{A Note on Single-Particle Indices}
+
+The following conventions will be used in most of these notes.
+
+When needed, the boldface {\bf r} will be used to refer to the position of particles in coordinate space and {\bf k} for momentum space. When internal degrees of freedom are present, {\bf x}$\equiv$({\bf r}, $\sigma$, $\tau$, ...) will be used.
+%
+However, most of the results to be discussed are valid for any general single particle basis. Thus, we will use greek indices, $\alpha$,$\beta$,$\gamma$,$\ldots$, to refer to {\em all} the states in the baisis.
+%
+In general, \{$\alpha_i$\} is a complete set of orthonormalized one-body wave functions and will be assumed to be discrete, unless it implies a loss of generality.%
+\footnote{What the \{$\alpha_i$\} represent depends on the systems one wants to study (e.g., harmonic oscillator wave functions for nucleons in a nucleus or atoms in a trap, orthogonalized gaussian orbits in a molecule, Bloch vectors in a crystal, and so on...).}
+
+In many-body theory one often starts from a product wave function decribing a set of non interacting particles that occupy given orbits (called the {\em reference} state). This could be a Slater determinant for fermions or a macroscopic condensate orbit for bosons.
+ It is customary to reserve the latin letters $h$,$i$,$j$,$k$,$l$ for the levels occupied in the reference state (which are called {\em hole} orbits) and $m$,$n$,$p$,$q$,$\ldots$ for the unoccupied orbits of the basis (the {\em particle} orbits).
+
+
+Since removing a hole orbit from the reference state leads to a systems with fewer particles, we extend the use latin hole indices to indicate states of $N-1$,$N-2$,$\ldots$ particles. Here, $N$ is the number of particles in the referecnce state.
+Analogously, particle indices will be used to distinguish states of $N$,$N+1$,$N+2$,$\ldots$ particles.
+ This notation will include labelling exact many-body eigenstates of the Hamiltoninan. It should not be felt as unnatural: the eigenstates of $N-1$ and $N+1$ bodies can be seen as excitations of the systems and directly are related to {\em quasiholes} and {\em suasiparticle} in the Landau sense.
+
+
+\section{Second Quantization}
+
+
+Most of the processes described by many-body Green's functions involve the transfer of particles to/from the intital sysytem. Thus it is useful to extend the Hilbert space to allow for states with different particle numbers. In fact we will use the Fock space which includes a complete basis set for each possible number of particles, from zero (the vacuum) to infinity.
+%
+The basis states of the Fock space can be taken to be product of one-body wave functions and must be automatically symmetrized or antisymmetrized (for bosons and fermions, respectively).
+Using Dirac's bra and ket notation one can specify the basis states just by saying how many particles $n_\alpha$ are contained in each single particle orbit~$\alpha$. For example, the state%
+\footnote{In this case the corresponding product wave function would be the symmetrized
+${\cal S}[\phi_{\alpha_1}({\bf r}_1)\phi_{\alpha_1}({\bf r}_2)\phi_{\alpha_1}({\bf r}_3)
+          \phi_{\alpha_3}({\bf r}_4)\phi_{\alpha_3}({\bf r}_5)\phi_{\alpha_4}({\bf r}_6)\phi_{\alpha_4}({\bf r}_7)].$}
+\begin{equation}
+ \vert  n_{\alpha_1}=3, ~ n_{\alpha_2}=0, ~ n_{\alpha_3}=2,
+        n_{\alpha_4}=2, ~ n_{\alpha_5}=0, ~ \ldots ~ \rangle \; ,
+\end{equation}
+contains a total of $N$=$\sum_i n_{\alpha_i}$=7 particles, distributed over the orbits $\alpha_1$,  $\alpha_3$ and $\alpha_4$. Obviously this must be a bosons state, or it would violate the Pauli exclusion principle with disastrous consequences. Note that, also due to Pauli, we can only say how many particles are in each orbit but not ``which'' particles.
+
+The completeness relation in Fock space is
+\begin{eqnarray}
+ {\bf I} &=& \sum^{n_{max}}_{n_1=0}  ~ \sum^{n_{max}}_{n_2=0}  ~ 
+           \sum^{n_{max}}_{n_3=0}  ~ \cdots ~ \sum^{n_{max}}_{n_\alpha=0}  ~ \cdots 
+ \label{IFock}
+\\
+         & & ~ \vert    n_1, \; n_2, \; n_3, \; \ldots \; n_\alpha, \; \ldots \; \rangle 
+               \langle  n_1, \; n_2, \; n_3, \; \ldots \; n_\alpha, \; \ldots \; \vert 
+ ~
+\nonumber 
+%%\\  &=& \vert0\rangle \langle 0 \vert ~+~ \sum ...
+\end{eqnarray}
+and includes the vacuum state $\vert0\rangle\equiv\vert n_\alpha = 0, \forall \alpha\rangle$.
+$n_{max}$ is 1 for fermions and $\infty$ for bososns.
+States with different number of particles are orthogonal by definition.
+
+
+The second quantization formalism introduces the {\em creation} operator $c^\dag_\alpha$ which adds a particle in state $\alpha$ to a vector of the Fock space. Its self-adjoint
+$c_\alpha$ removes a particle from the same state and is called {\em destruction} or {\em annihilation} operator.
+ Their effect on Fock states is the same as that for the cration and annihilation of harmonic oscillator quanta in the linear oscillator problem
+\begin{eqnarray}
+ c^\dag_\alpha \vert  n_1, \; n_2, \ldots \;  n_\alpha, \ldots  \rangle & = &
+ \sqrt{n_\alpha+1} \; \vert  n_1, \; n_2, \ldots \;  n_\alpha+1, \ldots  \rangle \; , 
+ \label{def_c+}
+\\
+ c_\alpha \vert  n_1, \; n_2, \ldots \;  n_\alpha, \ldots  \rangle & = &
+ ~ ~ ~ ~ \sqrt{n_\alpha} ~ ~ \vert  n_1, \; n_2, \ldots \;  n_\alpha-1, \ldots  \rangle \; ,
+ \label{def_c-}
+\end{eqnarray}
+where we momentarily neglect a conventional signs that appears for fermions [see Eqs.~(\ref{phase_c+}) and~(\ref{phase_c-}) below].
+Note that destroying and empty states ($c_\alpha\vert  n_\alpha=0 \rangle=0$) gives the c-numer zero, and not the vacuum state $\vert0\rangle$.
+%
+From these relations it follows that $c^\dag_\alpha c_\alpha\vert n_\alpha\rangle=n_\alpha\vert n_\alpha\rangle$ yields the number of particles the state $\alpha$. The operator for the total number of particles is then,
+\begin{equation}
+ N = \sum_\alpha c^\dag_\alpha c_\alpha \; .
+ \label{N_Op}
+\end{equation}
+The eigenvalues of $N$ are non negative integers and its eigenstates are wave functions with a definite number of particle. By applying Eqs.~(\ref{def_c+}) and~(\ref{def_c-}) to these states, one can see that the following commutation relations must apply,
+\begin{equation}
+ \left[ N , c_\alpha      \right] = - c_\alpha \; , ~ ~ 
+ \left[ N , c^\dag_\alpha \right] =   c^\dag_\alpha \; .
+\label{Ncomm}
+\end{equation}
+
+
+Equations from~(\ref{IFock}) to~(\ref{Ncomm}) are valid for both boson and fermions. Eq.~(\ref{def_c-}) makes it impossible to create Fock states by removing a particle from an alredy empty orbit. However, there is still no restriction on the nuber of particles that can be added in the case of Fermions. The correct Pauli statistics is imposed by choosing different commutation and anticommutation relations%
+\footnote{Here, $\left[ A, B \right]\equiv AB-BA$ and $\left\{ A, B \right\}\equiv AB-BA$ are the
+commutator and anticommutors, respectively. Later on we will also use the more compact notation
+$\left[ A, B \right]_\mp \equiv AB \mp BA$ to indicate both at the same time.
+Otherwise, $\left[ ~~ , ~~ \right]$ without sign will always be a commutator. },
+\begin{eqnarray}
+  \left[ c_\alpha , c^\dag_\beta \right] = \delta_{\alpha,\beta} \; , ~ ~ 
+ &\left[ c_\alpha , c_\beta \right] = \left[ c^\dag_\alpha , c^\dag_\beta \right] = 0  \; ,
+ &  ~ ~  \hbox{for bososns}
+ \label{comm_rel}
+\\
+  \left\{ c_\alpha , c^\dag_\beta \right\} = \delta_{\alpha,\beta} \; , ~ ~ 
+ &\left\{ c_\alpha , c_\beta \right\} = \left\{ c^\dag_\alpha , c^\dag_\beta \right\} = 0  \; ,
+ &  ~ ~  \hbox{for fermions}
+ \label{anticomm_rel}
+\end{eqnarray}
+With both these relations, Eq.~(\ref{Ncomm}) is still valid. At the same time the anticommutator
+$c^\dag_\alpha c^\dag_\beta = - c^\dag_\beta c^\dag_\alpha$ ($\Rightarrow c^\dag_\alpha c^\dag_\alpha$=0)
+imposes the antisymmetrization of fermionic wave functions and restrict the occupation of each orbit to $n_\alpha$=0,1 only.
+
+
+To create the basis~(\ref{IFock}), one simply acts several times on $\vert0\rangle$ with creation
+operators. The normalized many-body states are given by
+\begin{equation}
+\vert  n_1, \; n_2, \cdots, \;  n_\alpha, \cdots  \rangle
+ = \frac{1}{\sqrt{n_1! \; n_2! \ldots  n_\alpha! \ldots}}
+ (c^\dag_1)^{n_1} (c^\dag_2)^{n_2}  \cdots (c^\dag_\alpha)^{n_\alpha}  \cdots \vert 0 \rangle \; ,
+\label{FockBasis}
+\end{equation}
+which simplifies in the fermion case because it can only be $n_\alpha !$=1,
+\begin{equation}
+\vert  n_1, \; n_2, \cdots, \;  n_\alpha, \cdots  \rangle = 
+ (c^\dag_1)^{n_1} (c^\dag_2)^{n_2}  \cdots (c^\dag_\alpha)^{n_\alpha}  \cdots \vert 0 \rangle \; .
+ \label{FockBasis_f}
+\end{equation}
+Note that only for the case of bosons Eq.~(\ref{FockBasis}) is independent on the order in which the creations operators are applied. For Fermoins a phase sign is introduced by changing the order and one must put extra care to avoid confusions. 
+Ususally one chooses a specific order in the \{$\alpha$\} and then stick to it. 
+Once this is done the correct fermionic version of Eqs.~(\ref{def_c+}) and~(\ref{def_c-})
+\begin{eqnarray}
+ c^\dag_\alpha \vert  n_1, n_2, \ldots   n_\alpha, \ldots  \rangle&=&\delta_{0,n_\alpha} (-)^{s_\alpha}
+ \sqrt{n_\alpha+1}  \vert  n_1,  n_2, \ldots   n_\alpha+1, \ldots  \rangle \; , \quad \qquad
+ \label{phase_c+}
+\\
+ c_\alpha \vert  n_1,  n_2, \ldots  n_\alpha, \ldots  \rangle &=&
+ \delta_{1,n_\alpha} (-)^{s_\alpha}
+  ~ ~ ~  \sqrt{n_\alpha} ~ ~ \vert  n_1,  n_2, \ldots   n_\alpha-1, \ldots  \rangle \; ,
+ \label{phase_c-}
+\end{eqnarray}
+with
+\begin{equation}
+ s_\alpha = n_1 + n_2 + n_3 + \cdots + n_{\alpha-1} \; .
+ \label{FockFermionPhase}
+\end{equation}
+
+The creation operator for a particle in position {\bf r} of coordinate space is indicated by $\psi({\bf r})$. If \{$u_\alpha({\bf r})$\} are the single particle wave functions of a general orthonormal basis, the 
+ creation (and annihilation) operators in the two representation are related via a unitary transormation,
+\begin{eqnarray}
+ \psi^\dag({\bf r}) &=& \sum_\alpha \;  c^\dag_\alpha  u^*_\alpha({\bf r})   \; ,
+\label{psi_vs_a}
+\\
+ c^\dag_\alpha  &=& \int d{\bf r}   \;  \psi^\dag({\bf r}) u_\alpha({\bf r}) \; .
+\label{a_vs_psi}
+\end{eqnarray}
+
+It follows that to create a particle in a state $\alpha$ one simply superimposes eigenstates of position with weights given by the corresponding wave function, 
+\begin{equation}
+  \vert\alpha\rangle = c^\dag_\alpha  \vert0\rangle  
+   = \int d{\bf r}  \; u_\alpha({\bf r})  \vert{\bf r}\rangle  \; .
+\label{a_state}
+\end{equation}
+where
+\begin{equation}
+  \vert{\bf r}\rangle = \psi^\dag({\bf r})  \vert0\rangle 
+ \label{r_state} \; .
+\end{equation}
+is a particle localized in {\bf r}.
+Analogously, one can extract the wave funcion corresponding to a one-body Fock state by
+\begin{equation}
+  u_\alpha({\bf r}) = \langle {\bf r}  \vert \alpha \rangle
+ \label{ua_wf} \; .
+\end{equation}
+
+These relations are extentded to states of any particle number, where
+\begin{equation}
+  \vert{\bf r}_1, {\bf r}_2, \ldots \; {\bf r}_N \rangle =
+  \frac{1}{\sqrt{N!}} \psi^\dag({\bf r}_1)  \psi^\dag({\bf r}_2) \cdots \psi^\dag({\bf r}_N) \vert0\rangle 
+ \label{rN_state} \; .
+\end{equation}
+and the first quantization wave function of an N-body Fock state is
+\begin{equation}
+  \langle{\bf r_1}, {\bf r}_2, \ldots \; {\bf r}_N \vert n_1, n_2, \ldots  \rangle
+  = \Phi({\bf r_1}, {\bf r}_2, \ldots \; {\bf r}_N; \{n\}) 
+ \label{PhiN_wf}\; .
+\end{equation}
+
+
+
+\subsection{Examples}
+
+\begin{itemize}
+\item
+ If $\vert{\bf r}'\rangle$ and $\vert{\bf p}\rangle$ are eigenstates of position and momentum
+one has
+\begin{eqnarray}
+  \langle {\bf r}' \vert {\bf r} \rangle &=& \delta({\bf r} - {\bf r}') \; ,
+\\
+  \langle {\bf r}
+   \vert {\bf p} \rangle &=& \frac{1}{(2\pi\hbar)^{3/2}}e^{i {\bf r} {\bf p}/\hbar} \; .
+\end{eqnarray}
+
+\item
+ Given the Fock state $\vert \alpha \beta \rangle$=$c^\dag_\alpha c^\dag_\beta \vert0\rangle$, the corresponding antisymmetrized wave function in first quantization is
+\begin{eqnarray}
+  \Phi_{\alpha \beta}({\bf r}_1, {\bf r}_2)
+     &=&\langle {\bf r}_1 {\bf r}_2 \vert \alpha \beta\rangle 
+  \\
+    &=& \frac{1}{\sqrt{2}} \langle 0 \vert \psi({\bf r}_2) \psi({\bf r}_1)  c^\dag_\alpha c^\dag_\beta \vert0\rangle
+  \\
+    &=&  \frac{1}{\sqrt{2}}  \sum_{\gamma \delta} u_{\gamma}({\bf r}_1) u_{\delta}({\bf r}_2)
+    \langle 0 \vert c_\delta c_\gamma  c^\dag_\alpha c^\dag_\beta \vert0\rangle \; .
+\end{eqnarray}
+Using the (anti)commutator relations~(\ref{comm_rel}) and ~(\ref{anticomm_rel}) one finds that \\
+$c_\delta c_\gamma c^\dag_\alpha c^\dag_\beta \vert0\rangle$=$\left(\delta_{\alpha,\gamma}\delta_{\beta,\delta}
+\pm\delta_{\alpha,\gamma}\delta_{\beta,\delta}\right)\vert0\rangle$,
+with the upper~(lower) sign referring to bosons~(fermions). This leads
+to the usual symmetrized and antisymmetrized product wave functions of 
+Slater type,
+\begin{equation}
+  \Phi_{\alpha \beta}({\bf r}_1, {\bf r}_2)
+    = \frac{1}{\sqrt{2}} \{ u_{\alpha}({\bf r}_1) u_{\beta}({\bf r}_2) 
+                          \pm  u_{\beta}({\bf r}_1) u_{\alpha}({\bf r}_2) \}  \; .
+\end{equation}
+
+
+\end{itemize}
+
+
+
+
+\section{Operators in Fock Space}
+
+\subsection{Operators}
+
+Let ${O}=O({\bf r})$ be a one-body operator that acts independently on each particle
+of the systems. The expression for its matrix elements in coordinate systems
+depends on the number of particles $N$ and is
+\begin{equation}
+\langle {\bf r}'_1, {\bf r}'_2, \ldots \; {\bf r}'_N \vert {O}
+\vert {\bf r}_1, {\bf r}_2, \ldots \; {\bf r}_N \rangle
+ = \left( \prod_{j=1}^N  \delta({\bf r}_i - {\bf r'}_i) \right) \sum_{i=1}^N O({\bf r}_i)  \; .
+\end{equation}
+
+The corresponding results for a generic Fock states can be related to the latter by inserting a completeness relation based on the position states~(\ref{rN_state}),
+\begin{eqnarray}
+\lefteqn{
+  \langle n'_1, n'_2, \ldots \vert {O} \vert n_1, n_2, \ldots  \rangle
+} & &
+\nonumber \\ 
+ &=&  \sum_{i=1}^N \int d{\bf r}_1 \int d{\bf r}_2 \cdots \int d{\bf r}_N 
+     \langle n'_1, n'_2, \ldots \vert {\bf r}_1, {\bf r}_2, \ldots \; {\bf r}_N \rangle 
+\nonumber \\
+ & &  \hspace{2.0cm}  \times O({\bf r}_i) 
+    \langle  {\bf r}_1, {\bf r}_2, \ldots \; {\bf r}_N \vert n_1, n_2, \ldots  \rangle 
+\\ 
+ &=& \frac{1}{N!} \sum_{i=1}^N \int d{\bf r}_1 \int d{\bf r}_2 \cdots \int d{\bf r}_N 
+    \langle n'_1, n'_2, \ldots \vert  \psi^\dag({\bf r}_1) \psi^\dag({\bf r}_2) \cdots \; \psi^\dag({\bf r}_N)
+    \vert 0 \rangle
+\nonumber \\
+ & &  \hspace{2.0cm}  \times O({\bf r}_i)  
+     \langle 0 \vert \psi({\bf r})_N \cdots \psi({\bf r})_2  \psi({\bf r})_1
+     \vert n_1, n_2, \ldots  \rangle 
+\nonumber \\ 
+ &=& \frac{1}{(N-1)!} \int d{\bf r}_1 \int d{\bf r}_2 \cdots \int d{\bf r}_N 
+    \langle n'_1, n'_2, \ldots \vert  \psi^\dag({\bf r}_1) \psi^\dag({\bf r}_2) \cdots \; \psi^\dag({\bf r}_N)
+\nonumber \\
+ & &  \hspace{2.0cm}  \times O({\bf r}_1)  
+      \psi({\bf r})_N \cdots \psi({\bf r})_2  \psi({\bf r})_1
+     \vert n_1, n_2, \ldots  \rangle 
+\nonumber
+\end{eqnarray}
+In the last line we have removed the sum over the interacting particle since it gives N times the same contribution. The projection on the vacuum state $\vert0\rangle \langle 0 \vert$ can be subsituted with
+the identity becose the operators $\psi({\bf r})$~($\psi({\bf r})^\dag$) have already annihilated all the particle contained in the ket~(bra) vectors.
+
+We still need to perform the integration on the coordinates ${\bf r}_2$ to ${\bf r}_N$. This is easlily done remembering that $\int d{\bf r} \psi({\bf r})^\dag \psi({\bf r})$ is the particle number operator in coordinate space~(\ref{N_Op}). One starts integrating over ${\bf r}_N$ to get a factor of 1, then the integral over ${\bf r}_{N-1}$ gives 2, and so on up to cancelling the factor $(N-1)!$ at the denomonator. Finally,
+\begin{equation}
+ \langle n'_1, n'_2, \ldots \vert {O} \vert n_1, n_2, \ldots  \rangle = \int d{\bf r} \;
+  \langle n'_1, n'_2, \ldots \vert 
+   \psi({\bf r})^\dag O({\bf r}) \psi({\bf r}) 
+    \vert n_1, n_2, \ldots  \rangle \; .
+\end{equation}
+
+The one-body operator in second quantization representation is therefore 
+\begin{eqnarray}
+ {O} &=& \int d{\bf r}  \; \psi({\bf r})^\dag O({\bf r}) \psi({\bf r})
+\nonumber \\
+  &=& \sum_{\alpha \beta } \; o_{\alpha \beta} \; c^\dag_\alpha c_\beta \; ,
+\label{O1SecQuant}
+\end{eqnarray}
+where $o_{\beta \alpha}$ are the metrix elements in the generic basis \{$\alpha$\}, as can be verified inseting Eq.~(\ref{psi_vs_a}) in the latter equation
+\begin{equation}
+ o_{\alpha \beta} = \int d{\bf r} \; u^*_{\alpha}({\bf r}) O({\bf r}) u_{\beta}({\bf r})  \; .
+\label{O1me} \\
+\end{equation}
+
+For a two body operator (symmetric in the exchange of ${\bf r}_i$ and ${\bf r}_j$),
+\begin{equation}
+  V = \sum_{i < j}^N V({\bf r}_i, {\bf r}_j) \; ,
+\label{V2}
+\end{equation}
+one obtains 
+\begin{eqnarray}
+   V &=&  \int d{\bf r}_1 \int d{\bf r}_2 \psi({\bf r}_1)^\dag \psi({\bf r}_2)^\dag
+             V({\bf r}_i, {\bf r}_2) \psi({\bf r}_2)  \psi({\bf r}_1)
+\nonumber \\
+&=& \frac{1}{2} \sum_{\alpha \beta \gamma \delta} {\tilde v}_{\alpha \beta, \gamma \delta}
+      \; c^\dag_\alpha c^\dag_\beta c_\delta c_\gamma
+\label{V2SecQuant} \\
+&=& \frac{1}{4} \sum_{\alpha \beta \gamma \delta}         v_{\alpha \beta, \gamma \delta}
+      \; c^\dag_\alpha c^\dag_\beta c_\delta c_\gamma  \; ,
+\nonumber
+\end{eqnarray}
+with the matrix elements
+\begin{equation}
+ {\tilde v}_{\alpha \beta, \gamma \delta} =
+    \int d{\bf r}_1 \int d{\bf r}_2 u^*_\alpha({\bf r}_1) u^*_\beta({\bf r}_2)
+             V({\bf r}_1, {\bf r}_2)  u_\gamma({\bf r}_1) u_\delta({\bf r}_2)\; ,
+\label{V2me} \\
+\end{equation}
+Note the particular order of the destruction operators in Eq.~(\ref{V2SecQuant}), which is inverted with respect to the creation ones. Attention must be paied to this in case of fermionic systems since this introduces an extra phase (for bososn the ordering is irrelevant).
+ In many case is turns out to be more convenient including the $\frac{1}{4}$ factor and employing the (anti)symmetrized form to the matrix elements
+\begin{equation}
+ v_{\alpha \beta, \gamma \delta} =
+    \int d{\bf r}_1 \int d{\bf r}_2 u^*_\alpha({\bf r}_1) u^*_\beta({\bf r}_2)
+             V({\bf r}_1, {\bf r}_2)  
+  \left[ u_\gamma({\bf r}_1) u_\delta({\bf r}_2) \pm u_\delta({\bf r}_1) u_\gamma({\bf r}_2) \right] \; ,
+\label{V2me_a} \\
+\end{equation}
+where +~(-) refer to bosons~(fermions).
+
+When also a three-body interaction (symmetric in the particle indeces) is necessary,
+\begin{equation}
+ W = \sum_{i < j < k}^N W({\bf r}_i, {\bf r}_j, {\bf r}_k) \; ,
+\label{W3}
+\end{equation}
+the corresponding operator in second quantization is
+\begin{equation}
+ W = \frac{1}{3!} \sum_{\alpha \beta \gamma \mu \nu \lambda}
+    {\tilde w}_{\alpha \beta \gamma, \mu \nu \lambda}
+      \; c^\dag_\alpha c^\dag_\beta c^\dag_\gamma  c_\lambda c_\nu c_\mu \; ,
+\label{W3SecQuant}
+\end{equation}
+with
+\begin{eqnarray}
+\lefteqn{
+ {\tilde w}_{\alpha \beta \gamma, \mu \nu \lambda} =
+  \int d{\bf r}_1 \int d{\bf r}_2 \int d{\bf r}_3
+} & &
+\nonumber \\
+ & & \times u^*_\alpha({\bf r}_1) u^*_\beta({\bf r}_2) u^*_\gamma({\bf r}_3)
+             W({\bf r}_1, {\bf r}_2, {\bf r}_3) 
+                 u_\mu({\bf r}_1) u_\nu({\bf r}_2) u_\lambda({\bf r}_3) \; .
+\label{W3me} \\
+\end{eqnarray}
+
+
+\subsection{Expectation values}
+
+
+Let's asume that that we have a state $\vert\Psi^N\rangle$ of a system of N particles. This does not need to be a basis vector and can be any Fock state, for example, an exact solution of the Scr\"odinger equation. The expectation value of a one-body operator $O$ can be calculated with a simple sum involving the one-body {\em reduced density matrix}, which is defined as
+\begin{equation}
+\rho_{\alpha \beta} = \langle \Psi^N\vert c^\dag_\beta c_\alpha \vert\Psi^N\rangle \; .
+\label{OBRDM}
+\end{equation}
+By comparing to Eq.~(\ref{O1SecQuant}), it is easily seen that
+\begin{equation}
+\langle \Psi^N\vert O \vert\Psi^N\rangle = \sum_{\alpha \beta} \rho_{\beta \alpha}  o_{\alpha \beta} =
+  Tr\left( \rho O \right)  \; .
+\label{RhoExpVal}
+\end{equation}
+
+%In general reduced transition matrices can also be defined for transition between different states.
+The diagonal matrix elements of the density matrix $\rho_{\alpha \alpha}$ give the expecteation value of the operator $c^\dag_\alpha c_\alpha$, which is interpreted as quantifying of the occupation of the single particle orbit $\alpha$ in the state $\vert\Psi^N\rangle$. From Eq.~(\ref{N_Op}) one finds the obvious results that summing over all occupations must give the total number of particles,
+\begin{equation}
+ Tr\left( \rho \right)  = \sum_\alpha \rho_{\alpha \alpha}  = N \; .
+ \label{RhoOccN}
+\end{equation}
+
+These results are particularly interesting since the theory of many-body Green's functions does not attempt any calculation of the full many-body wave function. Rather the focus is on determining directly quantities ralted to the density matrices, which are calculated in terms of basic excitation modes of the system.
+ Thus, even if one does not compute the complete ground state wave function, Eqs.~(\ref{RhoExpVal}) and ~(\ref{RhoOccN}) tell us that it is still possible to extract the expectation values of interesting observables.
+
+It is also useful to insert the complete set of eigenstates \{$\vert\Psi_k^{N-1}\rangle$\} of the (N-1)-particle system into~(\ref{OBRDM})
+\begin{equation}
+ \rho_{\alpha \alpha}  = \langle c^\dag_\alpha c_\alpha \rangle =
+   \sum_k \left| \langle \Psi_k^{N-1} \vert c_\alpha \vert\Psi^N\rangle \right|^2 \; .
+\label{Rho_vs_Ovlp}
+\end{equation}
+This result is interesting because the {\em overlap function} $\langle \Psi_k^{N-1} \vert c_\alpha \vert\Psi^N\rangle$ gives the probablility amplitude that the system collapses into a state $\vert \Psi_k^{N-1}\rangle$ after a particle has been removed from the state $\alpha$. This quantity can be probed in a measurment that involves the suddend ejection of a particle.%
+\footnote{This is only a first order approximation to the measured cross section and care must be taken to undertsand additional effects, such as final state interactions. Nevertheless, knock out experiments are one of the best tools available to understand the many-body dynamics of a system.}
+One also sees that what is observed in particle emission experiments to one final state should not be directly interpreted as occupation numbers, since Eq.~(\ref{Rho_vs_Ovlp}) requires a sum over all possible final states.
+
+
+
+In an analogous way, we introduce the two-body reduced density matrix 
+\begin{equation}
+\Gamma_{\gamma \delta, \alpha \beta} = \langle\Psi^N\vert c^\dag_\alpha c^\dag_\beta c_\delta c_\gamma \vert\Psi^N\rangle \; . 
+\label{TBRDM}
+\end{equation}
+With this definition the expectation value of a two-body Hamiltonian becomes%
+\footnote{Note that the factor $\frac{1}{4}$ appears since we are using fully symmetrized~(or antisymmetrized) matrix elements of $V$, Eq.~(\ref{V2me_a}).}
+\begin{eqnarray}
+\langle \Psi^N\vert H \vert\Psi^N\rangle &=&
+  \sum_{\alpha \beta} \rho_{\beta \alpha}  t_{\alpha \beta}
+  + \frac{1}{4} \sum_{\alpha \beta \gamma \delta} \Gamma_{\gamma \delta,\alpha \beta}
+       v_{\alpha \beta, \gamma \delta}
+\nonumber \\
+  &=& Tr \left( \rho T \right) + \frac{1}{4} Tr \left( \Gamma V \right) \; .
+\end{eqnarray}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Exemples}
+%
+%\begin{itemize}
+%\item
+%Consider a finite system of N fermions (such as an atomic nucleus or a molecule)
+%described by the generic Hamiltonian
+%\begin{equation}
+%H = \sum_{\alpha \beta } \; t_{\alpha \beta} \; c^\dag_\alpha c_\beta ~+~
+%\frac{1}{4} \sum_{\alpha \beta \gamma \delta}         v_{\alpha \beta, \gamma \delta}
+%      \; c^\dag_\alpha c^\dag_\beta c_\delta c_\gamma \; .
+%\end{equation}
+%Let us assume that in first approximation the system can be approximated as a set of non interacting particles in separate orbits. A proper set of orbits can be generated for example by solvign the Hartree-Fock equations. We take this orbit to be part of our single particle basis \{$u_\alpha({\bf r})$\} and otderit in such a way the first N orbits are those that better approximate the ground state.
+%We can the write the reference state for our system as (cfr. Eq.(\ref{FockBasis_f})
+%\begin{equation}
+%\vert \Phi^N_0 \rangle = c^\dag_1 c^\dag_2 c^\dag_3 \cdots c^\dag_N \vert 0 \rangle \; 
+%\end{equation}
+%%The last occupied orbit will define the Fermi level (or Fermi surface) for this state.
+%
+%Starting from this reference state, we want to describe the states of the (N+1)-particle system.
+%These can be created simply by adding a particle to one of the occupied orbits. However, we want to be
+%a bit more accurate than this and account for the fact the particles can inceract with each other. 
+%The simplest process is to create an additional particle-hole excitation. We therfore take for
+%a basis in the N+1 Hilbert space both the particle (p) and two-particle--one-hole (2p1h) states,
+%\begin{eqnarray}
+% \vert \Phi^m \rangle         &=& c^\dag_m \vert \Phi^N_0 \rangle \; ,
+%\nonumber \\
+% \vert \Phi^{m n}_{j} \rangle &=& c^\dag_m c^\dag_n c_i \vert \Phi^N_0 \rangle \; ,
+%\label{basis2p1h}
+%\end{eqnarray}
+%where we use the notation $\vert \Phi^{m n p \ldots}_{i j k \ldots} \rangle$ to indicate which orbit have been added to particle or removed from hole states.
+%This basis is not complete but it already includes correlations that arise from the interaction between particles.
+%
+%1) using the anticommutation rules, derive the latrix elements of the Hamiltonian $H$ between the p and 2p1h states.
+%
+%
+%In the {\em configuration interaction} method (which also is called {\em shell model} in nuclear physics) one solves the many-body problem by diagonalising the Hamiltoninan between the states (\ref{basis2p1h})
+%and higher configurations. 
+%Of course Eq.~(\ref{basis2p1h}) is not complete bsis but it already includes correlations that arise from the interaction between particles. The cosserponding secular matrix is 
+%\begin{equation}
+%\left(  \begin{array}{cc}
+%  V^{HF}  &  m  \\
+%  m^\dag  &  W
+%\end{array} \right)
+%\label{CI2p1h}
+%\end{equation}
+%
+%Note that $V^{HF}$ is the Hartree-Fock potential but limited here to only particle states (above the Fermi level).
+%Besides being derived from configuration interaction, Eq.~(\ref{CI2p1h}) is also completely included in the Dyson equations, which is the central equation of propagator theory. The main missingingredient is the lack of description of the hole states.
+% 
+%\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Pictures in Quantum Mechanics}
+
+The time evolution of a quantum mechanical system is determined by the Scr\"odinger equation. There exist different approaches to keep track of time dependence, which are commonly referred to as {\em pictures}.
+The three most relevant are the {\em Schr\"odinger},  the {\em Heisenberg} and  the {\em interaction} (also called {\em Dirac}) pictures. The last two are important for our discussions because they are used in the definition of Green's functions and to develop their expansion in Feynman diagrams.
+
+In the Scr\"odinger picture the wave function carries all the time dependence, as described by the corresponding equation,
+\begin{equation}
+  i \hbar \frac{d}{d t} \vert\Psi^S(t)\rangle = H \; \vert\Psi^S(t)\rangle \; .
+\label{Schoedeq}
+\end{equation}
+If one knows the state of the system $\vert\Psi_{t_0}\rangle=\vert\Psi^S(t=t_0)\rangle$ at time $t_0$ the evolution at later times is fixed by Eq.~(\ref{Schoedeq}). This can be formally solved to give the result
+\begin{equation}
+ \vert\Psi^S(t)\rangle = U \vert\Psi_{t_0} \rangle \; ,
+\label{PhiSP}
+\end{equation}
+where $U$ is the time evolution operator
+\begin{equation}
+ U \equiv U(t, t_0) = e^{-i H (t-t_0)/\hbar} \; .
+\label{UTimeEvol}
+\end{equation}
+
+
+The idea of the Heisenberg picture is simply the opposite: keeping the wave function constant at the time $t_0$ while the operators evolve. Since $U$ is a unitary operator, one simply inverts the time propagation of the Schr\"odinger state and instead applies it to the operator,
+\begin{eqnarray}
+\vert\Psi^H\rangle &=& U^\dag \; \vert\Psi^S(t)\rangle = \vert\Psi_{t_0} \rangle  \; ,
+\label{PhiHP}
+\\
+ O^H(t) &=& U^\dag \; O^S \; U  \; .
+\label{OpHP}
+\end{eqnarray}
+With these definitions the expectation values of Heisenberg operators remain unchanged and commutation rules evolve according to Eq.~(\ref{OpHP}), as long as they are evaluated {\em at equal times} $[A^H(t),B^H(t)]_\mp=U^\dag \; [A^S,B^S]_\mp \; U $.
+The evolution of Heisenberg operators is given by
+\begin{equation}
+ i \hbar \frac{d}{d t}  O^H(t) = \left[ O^H(t) , H \right] \; .
+\label{HPTimeEvol}
+\end{equation}
+which is valid only for time-independent Schr\"odinger operators ($O^S\neq O^S(t)$). Note that the Heisenberg Hamiltonian does not depend of the time since it commutes with itself.
+
+
+In the interaction picture is a hybrid between the former two. In this case one splits the hamiltonian in two parts, $H=H_0+H_1$. One drives the evolution of the operators and the other the evolution of wave functions.
+Let $H_0$ be the part that applies to the operators. Thus one defines the corresponding time evolution operator
+\begin{equation}
+ U_0 \equiv U_0(t, t_0) = e^{-i H_0 (t-t_0)/\hbar} \; ,
+\label{IPTimeEvol}
+\end{equation}
+which is applied to the operators and used to partially invert the evolution of the Schr\"odinger state (the correct expression for $\tilde{U}$ is given further below),
+\begin{eqnarray}
+\vert\Psi^I(t)\rangle &=& U_0^\dag \; \vert\Psi^S(t)\rangle = \tilde{U} \vert\Psi_{t_0} \rangle \; ,
+\label{PhiIP}
+\\
+ O^I(t) &=& U_0^\dag \; O^S \; U_0  \; .
+\label{OpIP}
+\end{eqnarray}
+The corresponding equations for time evolution are
+\begin{eqnarray}
+i \hbar \frac{d}{d t} \vert\Psi^I(t)\rangle&=&H^I_1(t) \; \vert\Psi^I(t)\rangle
+ \; ,
+\label{PhiIPEvol} \\
+ i \hbar \frac{d}{d t}  O^I(t)&=&\left[ O^I(t) , H_0\right]
+ \; ,
+ \label{OpIPEvol}
+\end{eqnarray}
+where $H_0$ reamins time independent but $H^I_1(t)$ evolves according to
+\begin{equation}
+ H^I_1(t) = U_0^\dag \; H_1 \; U_0  \; .
+\label{HITimeEvol}
+\end{equation}
+
+
+Normally is it assumed that $H_0$ is simple enough to allow for an exact solution of the many-body problem.  The remaining part $H^I_1(t)$ (possibly a small perturbation) may then be used to evolve  $\vert\Psi^I(t)\rangle$. This last correction leads to the exact solution of the problem. However, $H^I_1(t)$ is now dependent of time and Eq.~(\ref{PhiIPEvol}) one cannot be solved for $\tilde{U}$ by simply exponentiating as done for $U$ and $U_0$. 
+ The formal solution for the time evolution operator of a state in interaction pictue can be found in standard textboooks. Here, we just show the result,
+\begin{eqnarray}
+\lefteqn{ \tilde{U}(t-t_0) } & &
+\nonumber \\
+&=& 1 + 
+  \sum_{n=1}^\infty \frac{1}{n!} \left( \frac{-i}{\hbar}\right)^n
+   \int^t_{t_0} d t_1 \int^t_{t_0} d t_2 \cdots \int^t_{t_0} d t_n 
+      T \left[ H^I_1(t_1) H^I_1(t_2) \cdots H^I_1(t_n) \right]
+\nonumber \\
+&=&  exp \left\{\frac{-i}{\hbar} \int^t_{t_0} d t' T \left[ H^I_1(t')\right] \right\} \; ,
+\label{HIPertTheor}
+\end{eqnarray}
+where the last line is used as a symbolic notation for the one above and $T[\cdots]$ is the time ordering operator, defined in such a way that the latest time apperas at the far left.
+
+The expansion~(\ref{HIPertTheor}) is of particular importance since it is central in applying perturbation theory to  Green's functions and to derive the corresponding rules for Feynman diagrams.
+The interaction picture has also another powerful application in quantum field theory: by applying a small fictitious external perturbation to the system, it is possible to derive useful relations among Green's functions. This apporach leads to self-consistent equations for the propagators and shows how to construct approximations of propagators that satisfy conservation laws.
+ We will discuss these points in better details later on.
+
+
+
+
+\section{Exercises}
+
+\begin{itemize}
+\item
+Derive equations~(\ref{V2SecQuant}) for the two-body operator in second quantization.
+
+\item
+Derive the Hartee-Fock equations in second quantization
+
+\item
+Derive the matrix elements of the Hamiltonian $H$ between the 1p and 2p1h configurations. %, Eqs.~() to~().
+%%(Hint: use the anticommutation rules~(\ref{Ncomm}) and the fact that $C_\alpha\vert n_\alpha=0 \rangle$=0).
+
+\item
+Derive the matrix elements of $H$ between the 1h and 2h1p states.
+\end{itemize}
+
+
