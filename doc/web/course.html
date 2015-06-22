@@ -40,16 +40,18 @@ div { text-align: justify; text-justify: inter-word; }
                '___sec0'),
               (' Introduction and motivation ', 2, None, '___sec1'),
               (' Reminder on second quantization ', 2, None, '___sec2'),
-              (' Hartree-Fock theory ', 2, None, '___sec3'),
               (' How to build a numerical project and project proposals for the course ',
                2,
                None,
-               '___sec4'),
+               '___sec3'),
+              (' Hartree-Fock theory ', 2, None, '___sec4'),
               (' Full configuration interaction theory ', 2, None, '___sec5'),
               (' Many-body perturbation theory ', 2, None, '___sec6'),
               (' Coupled cluster theory ', 2, None, '___sec7'),
-              (' Simple overview of nuclear forces ', 2, None, '___sec8'),
-              (' Infinite nuclear matter ', 2, None, '___sec9')]}
+              (' Greens function theory ', 2, None, '___sec8'),
+              (' Infinite nuclear matter ', 2, None, '___sec9'),
+              (' Dispersive optical model ', 2, None, '___sec10'),
+              (' Simple overview of nuclear forces ', 2, None, '___sec11')]}
 end of tocinfo -->
 
 <body>
@@ -145,6 +147,11 @@ formulas in HTML or ipython notebook files.
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/pdf/secondquant-print.pdf" target="_self">Standard one-page format</a></li>
 </ul>
 
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/pdf/WimDickhofPreparatory.pdf" target="_self">Wim Dickhoff's preparatory material</a></li>
+</ul>
+
+
  <li> HTML:</li>
 
 <ul>
@@ -160,31 +167,7 @@ formulas in HTML or ipython notebook files.
 
 </ul>
 
-<h2 id="___sec3">Hartree-Fock theory </h2>
-
-<ul>
- <li> LaTeX PDF for printing/viewing:</li>
-
-<ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/pdf/hfock-print.pdf" target="_self">Standard one-page format</a></li>
-</ul>
-
- <li> HTML:</li>
-
-<ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
-</ul>
-
- <li> iPython notebook (useful for running codes interactively):</li>
-
-<ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/ipynb/hfock.ipynb" target="_self">ipynb file</a></li>
-</ul>
-
-</ul>
-
-<h2 id="___sec4">How to build a numerical project and project proposals for the course </h2>
+<h2 id="___sec3">How to build a numerical project and project proposals for the course </h2>
 
 <ul>
  <li> LaTeX PDF for printing/viewing:</li>
@@ -204,6 +187,30 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/ipynb/proj.ipynb" target="_self">ipynb file</a></li>
+</ul>
+
+</ul>
+
+<h2 id="___sec4">Hartree-Fock theory </h2>
+
+<ul>
+ <li> LaTeX PDF for printing/viewing:</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/pdf/hfock-print.pdf" target="_self">Standard one-page format</a></li>
+</ul>
+
+ <li> HTML:</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html" target="_self">Solarized style</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+</ul>
+
+ <li> iPython notebook (useful for running codes interactively):</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/ipynb/hfock.ipynb" target="_self">ipynb file</a></li>
 </ul>
 
 </ul>
@@ -262,8 +269,23 @@ formulas in HTML or ipython notebook files.
  <li> LaTeX PDF for printing/viewing:</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/cc-print.pdf" target="_self">Standard one-page format</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/cc-print.pdf" target="_self">Morten Hjorth-jensen's first lecture</a></li>
 </ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/Lecture3_TALENT_Ab-Initio+3NFs_GH.pdf" target="_self">Gaute Hagen's lecture 3</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/Lecture4_TALENT_CCEI_GH.pdf" target="_self">Gaute Hagen's lecture 4</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/Lecture5_TALENT_OQS_Reactions_GH.pdf" target="_self">Gaute Hagen's lecture 5</a></li>
+</ul>
+
+
 
  <li> HTML:</li>
 
@@ -280,7 +302,114 @@ formulas in HTML or ipython notebook files.
 
 </ul>
 
-<h2 id="___sec8">Simple overview of nuclear forces </h2>
+<h2 id="___sec8">Green's function theory </h2>
+
+<ul>
+ <li> LaTeX PDF for printing/viewing:</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlobg.pdf" target="_self">Carlo Barbieri's background material</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo1.pdf" target="_self">Carlo Barbieri's first lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo2.pdf" target="_self">Carlo Barbieri's second lecture</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo3.pdf" target="_self">Carlo Barbieri's third lecture</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo4.pdf" target="_self">Carlo Barbieri's fourth lecture</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo5.pdf" target="_self">Carlo Barbieri's fifth lecture</a></li>
+</ul>
+
+
+</ul>
+
+<h2 id="___sec9">Infinite nuclear matter </h2>
+
+<ul>
+ <li> LaTeX PDF for printing/viewing:</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/inf-print.pdf" target="_self">Morten Hjorth-Jensen's background material on infinite systems</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf" target="_self">Gaute Hagen's first and second lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur1.pdf" target="_self">Artur Polls' first lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur2.pdf" target="_self">Artur Polls' second lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur3.pdf" target="_self">Artur Polls' third lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur4.pdf" target="_self">Artur Polls' fourth lecture</a></li>
+</ul>
+
+
+
+ <li> HTML:</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf.html" target="_self">Solarized style</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+</ul>
+
+ <li> iPython notebook (useful for running codes interactively):</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/ipynb/inf.ipynb" target="_self">ipynb file</a></li>
+</ul>
+
+</ul>
+
+<h2 id="___sec10">Dispersive optical model and correlations and experiment</h2>
+
+<ul>
+ <li> LaTeX PDF for printing/viewing:</li>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim1.pdf" target="_self">Wim Dickhoff's first lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim2.pdf" target="_self">Wim Dickhoff's second lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim3.pdf" target="_self">Wim Dickhoff's third lecture</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim4.pdf" target="_self">Wim Dickhoff's fourth lecture</a></li>
+</ul>
+
+
+</ul>
+
+<h2 id="___sec11">Simple overview of nuclear forces </h2>
 
 <ul>
  <li> LaTeX PDF for printing/viewing:</li>
@@ -300,30 +429,6 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/ipynb/forces.ipynb" target="_self">ipynb file</a></li>
-</ul>
-
-</ul>
-
-<h2 id="___sec9">Infinite nuclear matter </h2>
-
-<ul>
- <li> LaTeX PDF for printing/viewing:</li>
-
-<ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/inf-print.pdf" target="_self">Standard one-page format</a></li>
-</ul>
-
- <li> HTML:</li>
-
-<ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
-</ul>
-
- <li> iPython notebook (useful for running codes interactively):</li>
-
-<ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/ipynb/inf.ipynb" target="_self">ipynb file</a></li>
 </ul>
 
 </ul>
