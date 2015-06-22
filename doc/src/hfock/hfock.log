@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  22 JUN 2015 17:23
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  22 JUN 2015 17:27
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -629,14 +629,15 @@ it/10 i\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 ;
 LaTeX Warning: Reference `eq:newbasis' on page 15 undefined on input line 954.
 
 
-Overfull \hbox (8.73358pt too wide) detected at line 970
+Overfull \hbox (16.51157pt too wide) detected at line 970
 \OML/lmm/m/it/10 E\OT1/lmr/m/n/10 [^^H[](\OML/lmm/m/it/10 N\OT1/lmr/m/n/10 )] \
 OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 E\OT1/lmr/m/n/10 [^^H[](\OML/lmm/m/it/10 N
  \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1)] = \OMS/lmsy/m/n/10 h\OML/lmm/m/it/10 
 k\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 k\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 + []
  []\OMS/lmsy/m/n/10 h\OML/lmm/m/it/10 ik\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 i
-k\OMS/lmsy/m/n/10 i[][] []h\OML/lmm/m/it/10 kj\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/i
-t/10 kj\OMS/lmsy/m/n/10 i[]\OML/lmm/m/it/10 ;
+k\OMS/lmsy/m/n/10 i[] \OT1/lmr/m/n/10 + [] []\OMS/lmsy/m/n/10 h\OML/lmm/m/it/10
+ kj\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 kj\OMS/lmsy/m/n/10 i[]\OML/lmm/m/it/10
+ ;
  []
 
 [15]
@@ -645,14 +646,15 @@ LaTeX Warning: Reference `eq:newbasis' on page 16 undefined on input line 1013.
 
 
 
-Overfull \hbox (5.48367pt too wide) detected at line 1030
+Overfull \hbox (13.26166pt too wide) detected at line 1030
 \OML/lmm/m/it/10 E\OT1/lmr/m/n/10 [^^H[](\OML/lmm/m/it/10 A\OT1/lmr/m/n/10 )] \
 OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 E\OT1/lmr/m/n/10 [^^H[](\OML/lmm/m/it/10 A
  \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1)] = \OMS/lmsy/m/n/10 h\OML/lmm/m/it/10 
 k\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 k\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 + []
  []\OMS/lmsy/m/n/10 h\OML/lmm/m/it/10 ik\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 i
-k\OMS/lmsy/m/n/10 i[][] []h\OML/lmm/m/it/10 kj\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/i
-t/10 kj\OMS/lmsy/m/n/10 i[]\OML/lmm/m/it/10 ;
+k\OMS/lmsy/m/n/10 i[] \OT1/lmr/m/n/10 + [] []\OMS/lmsy/m/n/10 h\OML/lmm/m/it/10
+ kj\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 kj\OMS/lmsy/m/n/10 i[]\OML/lmm/m/it/10
+ ;
  []
 
 [16] [17]
@@ -804,7 +806,7 @@ local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texl
 ive/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2012/t
 exmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/f
 onts/type1/public/lm/lmsy7.pfb>
-Output written on hfock.pdf (18 pages, 271550 bytes).
+Output written on hfock.pdf (18 pages, 271541 bytes).
 PDF statistics:
  193 PDF objects out of 1000 (max. 8388607)
  157 compressed objects within 2 object streams
