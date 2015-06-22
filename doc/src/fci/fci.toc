@@ -1,2 +1,0 @@
-\contentsline {paragraph}{Many-body perturbation theory, in short.}{16}{section*.9}
-\contentsline {paragraph}{A quick tour of Coupled Cluster theory.}{19}{section*.10}
