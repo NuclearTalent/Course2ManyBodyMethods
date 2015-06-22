@@ -1,11 +1,11 @@
 # Slides for PHY981
 TITLE: Hartree-Fock methods
-AUTHOR:   Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA & Department of Physics, University of Oslo, Oslo, Norway 
+AUTHOR:   "Morten Hjorth-Jensen":"http://computationalphysics.no", National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA & Department of Physics, University of Oslo, Oslo, Norway 
 DATE: July 6-24 2015
 
 TOC: on
 
-======= Why Hartree-Fock? Derivation of Hartree-Fock equations in coordinate space =======
+===== Why Hartree-Fock? Derivation of Hartree-Fock equations in coordinate space =====
 
 Hartree-Fock (HF) theory is an algorithm for finding an approximative expression for the ground state of a given Hamiltonian. The basic ingredients are
  *  Define a single-particle basis $\{\psi_{\alpha}\}$ so that
