@@ -323,8 +323,103 @@ being the third-order contribution.
 
 <h2 id="___sec1">Interpreting the correlation energy and the wave operator </h2>
 
+<p>
+In the shell-model lectures we showed that we could rewrite the exact state function for say the ground state, as a linear expansion in terms of all possible Slater determinants. That is, we 
+define the ansatz for the ground state as 
+$$
+|\Phi_0\rangle = \left(\prod_{i\le F}\hat{a}_{i}^{\dagger}\right)|0\rangle,
+$$
+
+where the index \( i \) defines different single-particle states up to the Fermi level. We have assumed that we have \( N \) fermions. 
+A given one-particle-one-hole (\( 1p1h \)) state can be written as
+$$
+|\Phi_i^a\rangle = \hat{a}_{a}^{\dagger}\hat{a}_i|\Phi_0\rangle,
+$$
+
+while a \( 2p2h \) state can be written as
+$$
+|\Phi_{ij}^{ab}\rangle = \hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_j\hat{a}_i|\Phi_0\rangle,
+$$
+
+and a general \( ApAh \) state as 
+$$
+|\Phi_{ijk\dots}^{abc\dots}\rangle = \hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_{c}^{\dagger}\dots\hat{a}_k\hat{a}_j\hat{a}_i|\Phi_0\rangle.
+$$
+
+<p>
+We use letters \( ijkl\dots \) for states below the Fermi level and \( abcd\dots \) for states above the Fermi level. A general single-particle state is given by letters \( pqrs\dots \).
+
+<p>
+We can then expand our exact state function for the ground state 
+as
+$$
+|\Psi_0\rangle=C_0|\Phi_0\rangle+\sum_{ai}C_i^a|\Phi_i^a\rangle+\sum_{abij}C_{ij}^{ab}|\Phi_{ij}^{ab}\rangle+\dots
+=(C_0+\hat{C})|\Phi_0\rangle,
+$$
+
+where we have introduced the so-called correlation operator 
+$$
+\hat{C}=\sum_{ai}C_i^a\hat{a}_{a}^{\dagger}\hat{a}_i  +\sum_{abij}C_{ij}^{ab}\hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_j\hat{a}_i+\dots
+$$
+
+Since the normalization of \( \Psi_0 \) is at our disposal and since \( C_0 \) is by hypothesis non-zero, we may arbitrarily set \( C_0=1 \) with 
+corresponding proportional changes in all other coefficients. Using this so-called intermediate normalization we have
+$$
+\langle \Psi_0 | \Phi_0 \rangle = \langle \Phi_0 | \Phi_0 \rangle = 1, 
+$$
+
+resulting in 
+$$
+|\Psi_0\rangle=(1+\hat{C})|\Phi_0\rangle.
+$$
+
+<p>
+In a shell-model calculation, the unknown coefficients in \( \hat{C} \) are the 
+eigenvectors which result from the diagonalization of the Hamiltonian matrix.
+
+<p>
+How can we use perturbation theory to determine the same coefficients? Let us study the contributions to second order in the interaction, namely
+$$
+\Delta E^{(2)}=\langle\Phi_0\vert \hat{H}_I\frac{\hat{Q}}{W_0-\hat{H}_0}\hat{H}_I\vert \Phi_0\rangle.
+$$
+
+<p>
+The intermediate states given by \( \hat{Q} \) can at most be of a \( 2p-2h \) nature if we have a two-body Hamiltonian. This means that second order in the perturbation theory can have \( 1p-1h \) and \( 2p-2h \) at most as intermediate states. When we diagonalize, these contributions are included to infinite order. This means that higher-orders in perturbation theory bring in more complicated correlations.
+
+<p>
+If we limit the attention to a Hartree-Fock basis, then we have that
+\( \langle\Phi_0\vert \hat{H}_I \vert 2p-2h\rangle \) is the only contribution and the contribution to the energy reduces to
+$$
+\Delta E^{(2)}=\frac{1}{4}\sum_{abij}\langle ij\vert \hat{v}\vert ab\rangle \frac{\langle ab\vert \hat{v}\vert ij\rangle}{\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b}.
+$$
+
+<p>
+If we compare this to the correlation energy obtained from full configuration interaction theory with a Hartree-Fock basis, we found that
+$$
+E-E_0 =\Delta E=
+\sum_{abij}\langle ij | \hat{v}| ab \rangle C_{ij}^{ab},
+$$
+
+where the energy \( E_0 \) is the reference energy and \( \Delta E \) defines the so-called correlation energy.
+
+<p>
+We see that if we set
+$$
+C_{ij}^{ab} =\frac{1}{4}\frac{\langle ab \vert \hat{v} \vert ij \rangle}{\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b},
+$$
+
+we have a perfect agreement between FCI and MBPT. However, FCI includes such \( 2p-2h \) correlations to infinite order. In order to make a meaningful comparison we would at least need to sum such correlations to infinite order in perturbation theory.
+
+<p>
+Summing up, we can see that
+
 <ul>
-<li> TO DO: add material about the relation between the correlated wave operator and FCI and HF calculations</li>
+<li> MBPT introduces order-by-order specific correlations and we make comparisons with exact calculations like FCI</li>
+<li> At every order, we can calculate all contributions since they are well-known and either tabulated or calculated on the fly.</li>
+<li> MBPT is a non-variational theory and there is no guarantee that higher orders will improve the convergence.</li> 
+<li> However, since FCI calculations are limited by the size of the Hamiltonian matrices to diagonalize (today's most efficient codes can attach dimensionalities of ten billion basis states, MBPT can function as an approximative method which gives a straightforward (but tedious) calculation recipe.</li> 
+<li> MBPT has been widely used to compute effective interactions for the nuclear shell-model.</li>
+<li> But there are better methods which sum to infinite order important correlations. Coupled cluster theory is one of these methods.</li> 
 </ul>
 
 

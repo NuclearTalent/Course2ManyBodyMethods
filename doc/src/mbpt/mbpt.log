@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  3 JUN 2015 10:04
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  22 JUN 2015 16:46
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -495,13 +495,16 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 (/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write5
 \openout5 = `mbpt.toc'.
 
- [1
+[1
 
-{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+[2] [3]
 Overfull \hbox (74.02579pt too wide) detected at line 267
 \OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j [] j\OT1/lmr/m/n/10 ^
 ^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 :
@@ -523,20 +526,27 @@ MS/lmsy/m/n/10 j[]j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i[][]j\OT1/lmr/m/n/10
 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 ;
  []
 
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 309.
+[5]
+Overfull \hbox (1.42906pt too wide) in paragraph at lines 360--362
+[]\T1/lmr/m/n/10 (-20) If we limit the at-ten-tion to a Hartree-Fock ba-sis, th
+en we have that $\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 (-20) ^^H[]\OMS/lmsy/m/n/10 
+j[]j\OT1/lmr/m/n/10 (-20) 2\OML/lmm/m/it/10 p \OMS/lmsy/m/n/10 ^^@
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 381.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 309.
-
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 381.
+ [6]
 No file mbpt.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 319.
-[5]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 319.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 401.
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 401.
  (./mbpt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 319.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 401.
 
 
  *File List*
@@ -621,19 +631,19 @@ gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
   omslmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 319.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 401.
 Package rerunfilecheck Info: File `mbpt.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 319.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 401.
  ) 
 Here is how much of TeX's memory you used:
- 8061 strings out of 493488
- 122133 string characters out of 3141326
+ 8073 strings out of 493488
+ 122251 string characters out of 3141326
  255695 words of memory out of 3000000
  11183 multiletter control sequences out of 15000+200000
- 45166 words of font info for 69 fonts, out of 3000000 for 9000
+ 45581 words of font info for 74 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,6n,35p,426b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,6n,35p,426b,392s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
 cal/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texliv
 e/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/tex
@@ -647,10 +657,10 @@ mf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2012/texmf-dist/fon
 ts/type1/public/lm/lmr7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pub
 lic/lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lms
 y7.pfb>
-Output written on mbpt.pdf (5 pages, 137949 bytes).
+Output written on mbpt.pdf (7 pages, 152009 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
+ 88 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
  11777 words of extra memory for PDF output out of 12000 (max. 10000000)
 
