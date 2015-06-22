@@ -61,20 +61,6 @@ formulas in HTML or ipython notebook files.
 
 
 
-===== Hartree-Fock theory =====
-
-
-
- * LaTeX PDF for printing/viewing:
-   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/pdf/hfock-print.pdf"
- * HTML:
-   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html"
-   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock-bs.html"
- * iPython notebook (useful for running codes interactively):
-   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/ipynb/hfock.ipynb"
-
-
-
 ===== How to build a numerical project and project proposals for the course =====
 
 
@@ -86,6 +72,20 @@ formulas in HTML or ipython notebook files.
    * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj-bs.html"
  * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/ipynb/proj.ipynb"
+
+
+
+===== Hartree-Fock theory =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/pdf/hfock-print.pdf"
+ * HTML:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock-bs.html"
+ * iPython notebook (useful for running codes interactively):
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/ipynb/hfock.ipynb"
 
 
 
@@ -131,17 +131,17 @@ formulas in HTML or ipython notebook files.
 
 
 
-===== Simple overview of nuclear forces =====
+===== Greens function theory =====
 
 
 
  * LaTeX PDF for printing/viewing:
-   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/pdf/forces-print.pdf"
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/gf-print.pdf"
  * HTML:
-   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces.html"
-   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces-bs.html"
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/html/gf.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/html/gf-bs.html"
  * iPython notebook (useful for running codes interactively):
-   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/ipynb/forces.ipynb"
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/ipynb/gf.ipynb"
 
 
 
@@ -156,6 +156,34 @@ formulas in HTML or ipython notebook files.
    * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf-bs.html"
  * iPython notebook (useful for running codes interactively):
    * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/ipynb/inf.ipynb"
+
+
+
+===== Dispersive optical model =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/dom-print.pdf"
+ * HTML:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/html/dom.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/html/dom-bs.html"
+ * iPython notebook (useful for running codes interactively):
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/ipynb/dom.ipynb"
+
+
+
+===== Simple overview of nuclear forces =====
+
+
+
+ * LaTeX PDF for printing/viewing:
+   * "Standard one-page format": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/pdf/forces-print.pdf"
+ * HTML:
+   * "Solarized style": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces.html"
+   * "Bootstrap style (also for mobile devices)": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces-bs.html"
+ * iPython notebook (useful for running codes interactively):
+   * "ipynb file": "http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/ipynb/forces.ipynb"
 
 
 

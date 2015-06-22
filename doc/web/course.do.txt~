@@ -9,17 +9,19 @@ DATE: July  6-24, 2015, GANIL, Caen, France
 
 <%
 pub_url = 'http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub'
-published = ['intro', 'secondquant', 'hfock', 'proj', 'fci', 'mbpt', 'cc', 'forces', 'inf',]
+published = ['intro', 'secondquant', 'proj', 'hfock', 'fci', 'mbpt', 'cc', 'gf', 'inf', 'dom', 'forces',]
 chapters = {
  'intro': 'Introduction and motivation',
  'secondquant': 'Reminder on second quantization',
- 'hfock': 'Hartree-Fock theory',
  'proj': 'How to build a numerical project and project proposals for the course',
+ 'hfock': 'Hartree-Fock theory',
  'fci': 'Full configuration interaction theory',
  'mbpt': 'Many-body perturbation theory',
  'cc': 'Coupled cluster theory',
- 'forces': 'Simple overview of nuclear forces',
+ 'gf': 'Green's function theory',
  'inf': 'Infinite nuclear matter',
+ 'dom': 'Dispersive optical model',
+ 'forces': 'Simple overview of nuclear forces',
 }
 %>
 
@@ -32,8 +34,9 @@ chapters = {
  * LaTeX PDF for printing/viewing:
    * "Standard one-page format": "${pub_url}/${name}/pdf/${name}-print.pdf"
  * HTML:
-   * "solarized style": "${pub_url}/${name}/html/${name}.html"
- * iPython notebook:
+   * "Solarized style": "${pub_url}/${name}/html/${name}.html"
+   * "Bootstrap style (also for mobile devices)": "${pub_url}/${name}/html/${name}-bs.html"
+ * iPython notebook (useful for running codes interactively):
    * "ipynb file": "${pub_url}/${name}/ipynb/${name}.ipynb"
 
 </%def>
