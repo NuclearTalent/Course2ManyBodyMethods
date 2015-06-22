@@ -21,16 +21,30 @@ Automatically generated HTML file from DocOnce source
 
 <!-- tocinfo
 {'highest level': 2,
- 'sections': [(' Slater determinants as basis states, Repetition ',
+ 'sections': [(' Slater determinants as basis states ', 2, None, '___sec0'),
+              (' Full Configuration Interaction Theory ', 2, None, '___sec1'),
+              ('  Example of a Hamiltonian matrix ', 2, None, '___sec2'),
+              (' A non-practical way of solving the eigenvalue problem ',
                2,
                None,
-               '___sec0'),
-              (' Full Configuration Interaction Theory ', 2, None, '___sec1'),
-              (' Building a many-body basis ', 2, None, '___sec2'),
+               '___sec3'),
+              (' Summarizing FCI and bringing in approximative methods ',
+               2,
+               None,
+               '___sec4'),
+              (' Building a many-body basis ', 2, None, '___sec5'),
               (' Example case: pairing Hamiltonian, the warm-up project ',
                2,
                None,
-               '___sec3')]}
+               '___sec6'),
+              ('  Many-body perturbation theory, in short ',
+               3,
+               None,
+               '___sec7'),
+              (' A quick tour of Coupled Cluster theory ',
+               3,
+               None,
+               '___sec8')]}
 end of tocinfo -->
 
 <body>
@@ -67,10 +81,15 @@ MathJax.Hub.Config({
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
-     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 80%;">Slater determinants as basis states, Repetition</a></li>
-     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 80%;">Full Configuration Interaction Theory</a></li>
-     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 80%;">Building a many-body basis</a></li>
-     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 80%;">Example case: pairing Hamiltonian, the warm-up project</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec0" style="font-size: 80%;"><b>Slater determinants as basis states</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec1" style="font-size: 80%;"><b>Full Configuration Interaction Theory</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec2" style="font-size: 80%;"><b>Example of a Hamiltonian matrix</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec3" style="font-size: 80%;"><b>A non-practical way of solving the eigenvalue problem</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec4" style="font-size: 80%;"><b>Summarizing FCI and bringing in approximative methods</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec5" style="font-size: 80%;"><b>Building a many-body basis</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec6" style="font-size: 80%;"><b>Example case: pairing Hamiltonian, the warm-up project</b></a></li>
+     <!-- navigation toc: --> <li><a href="#___sec7" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Many-body perturbation theory, in short</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec8" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;A quick tour of Coupled Cluster theory</a></li>
 
         </ul>
       </li>
@@ -107,15 +126,18 @@ MathJax.Hub.Config({
 <h2>Table of contents</h2>
 
 <p>
-<a href="#___sec0"> Slater determinants as basis states, Repetition </a><br>
+<a href="#___sec0"> Slater determinants as basis states </a><br>
 <a href="#___sec1"> Full Configuration Interaction Theory </a><br>
-<a href="#___sec2"> Building a many-body basis </a><br>
-<a href="#___sec3"> Example case: pairing Hamiltonian, the warm-up project </a><br>
+<a href="#___sec2">  Example of a Hamiltonian matrix </a><br>
+<a href="#___sec3"> A non-practical way of solving the eigenvalue problem </a><br>
+<a href="#___sec4"> Summarizing FCI and bringing in approximative methods </a><br>
+<a href="#___sec5"> Building a many-body basis </a><br>
+<a href="#___sec6"> Example case: pairing Hamiltonian, the warm-up project </a><br>
 </p>
 <p>
 </div> <!-- end jumbotron -->
 
-<h2 id="___sec0">Slater determinants as basis states, Repetition </h2>
+<h2 id="___sec0">Slater determinants as basis states </h2>
 
 <p>
 The simplest possible choice for many-body wavefunctions are <b>product</b> wavefunctions.
@@ -135,11 +157,10 @@ integrals factorize.
 
 <p>
 The price we pay is the lack of correlations, which we must build up by using many, many product 
-wavefunctions. (Thus we have a trade-off: compact representation of correlations but 
-difficult integrals versus easy integrals but many states required.)
+wavefunctions.
 
 <p>
-Because we have fermions, we are required to have antisymmetric wavefunctions, e.g.
+Because we have fermions, we are required to have antisymmetric wavefunctions, that is
 $$
 \Psi(x_1, x_2, x_3, \ldots, x_A) = - \Psi(x_2, x_1, x_3, \ldots, x_A)
 $$
@@ -158,24 +179,12 @@ $$
 \right |
 $$
 
-Product wavefunction + antisymmetry = Slater determinant. 
+Product wavefunction + antisymmetry (Pauli principle) = Slater determinant.
 
-$$
-\Psi(x_1, x_2, \ldots, x_A) 
-= \frac{1}{\sqrt{N!}} 
-\det \left | 
-\begin{array}{cccc}
-\phi_1(x_1) & \phi_1(x_2) & \ldots & \phi_1(x_A) \\
-\phi_2(x_1) & \phi_2(x_2) & \ldots & \phi_2(x_A) \\
- \vdots & & &  \\
-\phi_A(x_1) & \phi_A(x_2) & \ldots & \phi_A(x_A) 
-\end{array}
-\right |
-$$
-
+<p>
 Properties of the determinant (interchange of any two rows or 
 any two columns yields a change in sign; thus no two rows and no 
-two columns can be the same) lead to the Pauli principle:
+two columns can be the same) lead to the following consequence of the Pauli principle:
 
 <ul>
 <li> No two particles can be at the same place (two columns the same); and</li>
@@ -261,10 +270,13 @@ $$
 |\Phi_{ij}^{ab}\rangle = \hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_j\hat{a}_i|\Phi_0\rangle,
 $$
 
-and a general \( NpNh \) state as 
+and a general \( ApAh \) state as 
 $$
 |\Phi_{ijk\dots}^{abc\dots}\rangle = \hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_{c}^{\dagger}\dots\hat{a}_k\hat{a}_j\hat{a}_i|\Phi_0\rangle.
 $$
+
+<p>
+We use letters \( ijkl\dots \) for states below the Fermi level and \( abcd\dots \) for states above the Fermi level. A general single-particle state is given by letters \( pqrs\dots \).
 
 <p>
 We can then expand our exact state function for the ground state 
@@ -304,31 +316,32 @@ $$
 where \( H \) stands for \( 0,1,\dots,n \) hole states and \( P \) for \( 0,1,\dots,n \) particle states. 
 Our requirement of unit normalization gives
 $$
-\langle \Psi_0 | \Phi_0 \rangle = \sum_{PH}|C_H^P|^2= 1,
+\langle \Psi_0 | \Psi_0 \rangle = \sum_{PH}|C_H^P|^2= 1,
 $$
 
 and the energy can be written as 
 $$
-E= \langle \Psi_0 | \hat{H} |\Phi_0 \rangle= \sum_{PP'HH'}C_H^{*P}\langle \Phi_H^P | \hat{H} |\Phi_{H'}^{P'} \rangle C_{H'}^{P'}.
+E= \langle \Psi_0 | \hat{H} |\Psi_0 \rangle= \sum_{PP'HH'}C_H^{*P}\langle \Phi_H^P | \hat{H} |\Phi_{H'}^{P'} \rangle C_{H'}^{P'}.
 $$
 
 <p>
 Normally 
 $$
-E= \langle \Psi_0 | \hat{H} |\Phi_0 \rangle= \sum_{PP'HH'}C_H^{*P}\langle \Phi_H^P | \hat{H} |\Phi_{H'}^{P'} \rangle C_{H'}^{P'},
+E= \langle \Psi_0 | \hat{H} |\Psi_0 \rangle= \sum_{PP'HH'}C_H^{*P}\langle \Phi_H^P | \hat{H} |\Phi_{H'}^{P'} \rangle C_{H'}^{P'},
 $$
 
 is solved by diagonalization setting up the Hamiltonian matrix defined by the basis of all possible Slater determinants. A diagonalization
-<!-- to do: add text about Rayleigh-Ritz -->
 is equivalent to finding the variational minimum   of 
 $$
- \langle \Psi_0 | \hat{H} |\Phi_0 \rangle-\lambda \langle \Psi_0 |\Phi_0 \rangle,
+ \langle \Psi_0 | \hat{H} |\Psi_0 \rangle-\lambda \langle \Psi_0 |\Psi_0 \rangle,
 $$
 
 where \( \lambda \) is a variational multiplier to be identified with the energy of the system.
+
+<p>
 The minimization process results in 
 $$
-\delta\left[ \langle \Psi_0 | \hat{H} |\Phi_0 \rangle-\lambda \langle \Psi_0 |\Phi_0 \rangle\right]=
+\delta\left[ \langle \Psi_0 | \hat{H} |\Psi_0 \rangle-\lambda \langle \Psi_0 |\Psi_0 \rangle\right]=
 $$
 
 $$
@@ -366,15 +379,112 @@ $$
 (\hat{H} -E)|\Psi_0\rangle = (\hat{H} -E)\sum_{P'H'}C_{H'}^{P'}|\Phi_{H'}^{P'} \rangle=0, 
 $$
 
-and if this equation is successively projected against all \( \Phi_H^P \) in the expansion of \( \Psi \), then the last equation on the previous slide
-results.   As stated previously, one solves this equation normally by diagonalization. If we are able to solve this equation exactly (that is
+and if this equation is successively projected against all \( \Phi_H^P \) in the expansion of \( \Psi \), we end up with Eq.&nbsp;<a href="#mjx-eqn-1">(1)</a>.
+
+<p>
+One solves this equation normally by diagonalization. If we are able to solve this equation exactly (that is
 numerically exactly) in a large Hilbert space (it will be truncated in terms of the number of single-particle states included in the definition
 of Slater determinants), it can then serve as a benchmark for other many-body methods which approximate the correlation operator
 \( \hat{C} \).
 
+<h2 id="___sec2">Example of a Hamiltonian matrix </h2>
+
+<p>
+Suppose, as an example, that we have six fermions below the Fermi level.
+This means that we can make at most \( 6p-6h \) excitations. If we have an infinity of single particle states above the Fermi level, we will obviously have an infinity of say \( 2p-2h \) excitations. Each such way to configure the particles is called a <b>configuration</b>. We will always have to truncate in the basis of single-particle states.
+This gives us a finite number of possible Slater determinants. Our Hamiltonian matrix would then look like (where each block can have a large dimensionalities):
+
+<p>
+
+<div class="row">
+  <div class="col-xs-10">
+    <table class="table table-striped table-hover table-condensed">
+<thead>
+<tr><td align="center"><b>           </b></td> <td align="center">\( 0p-0h \)</td> <td align="center">\( 1p-1h \)</td> <td align="center">\( 2p-2h \)</td> <td align="center">\( 3p-3h \)</td> <td align="center">\( 4p-4h \)</td> <td align="center">\( 5p-5h \)</td> <td align="center">\( 6p-6h \)</td> </tr>
+</thead>
+<tbody>
+<tr><td align="center">   \( 0p-0h \)    </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   0              </td> </tr>
+<tr><td align="center">   \( 1p-1h \)    </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   0              </td> </tr>
+<tr><td align="center">   \( 2p-2h \)    </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   0              </td> <td align="center">   0              </td> </tr>
+<tr><td align="center">   \( 3p-3h \)    </td> <td align="center">   0              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   0              </td> </tr>
+<tr><td align="center">   \( 4p-4h \)    </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> </tr>
+<tr><td align="center">   \( 5p-5h \)    </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> </tr>
+<tr><td align="center">   \( 6p-6h \)    </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   x              </td> <td align="center">   x              </td> <td align="center">   x              </td> </tr>
+</tbody>
+    </table>
+  </div>
+</div> <!-- col-xs-10 -->
+<p>
+with a two-body force. Why are there non-zero blocks of elements? 
+If we use a Hartree-Fock basis, this corresponds to a particular unitary transformation where matrix elements of the type \( \langle 0p-0h \vert \hat{H} \vert 1p-1h\rangle =\langle \Phi_0 | \hat{H}|\Phi_{i}^{a}\rangle=0 \) and our Hamiltonian matrix becomes
+
+<p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-striped table-hover table-condensed">
+<thead>
+<tr><td align="center"><b>           </b></td> <td align="center">  \( 0p-0h \)  </td> <td align="center">  \( 1p-1h \)  </td> <td align="center">  \( 2p-2h \)  </td> <td align="center">  \( 3p-3h \)  </td> <td align="center">  \( 4p-4h \)  </td> <td align="center">  \( 5p-5h \)  </td> <td align="center">  \( 6p-6h \)  </td> </tr>
+</thead>
+<tbody>
+<tr><td align="center">   \( 0p-0h \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 1p-1h \)    </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 2p-2h \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 3p-3h \)    </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 4p-4h \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> </tr>
+<tr><td align="center">   \( 5p-5h \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> </tr>
+<tr><td align="center">   \( 6p-6h \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> </tr>
+</tbody>
+    </table>
+  </div>
+</div> <!-- col-xs-12 -->
+<p>
+If we do not make any truncations in the possible sets of Slater determinants (many-body states) we can make by distributing \( A \) nucleons among \( n \) single-particle states, we call such a calculation for 
+
+<ul>
+<li> Full configuration interaction theory</li>
+</ul>
+
+If we make truncations, we have different possibilities
+
+<ul>
+<li> The standard nuclear shell-model. Here we define an effective Hilbert space with respect to a given core. The calculations are normally then performed for all many-body states that can be constructed from the effective Hilbert spaces. This approach requires a properly defined effective Hamiltonian</li>
+<li> We can truncate in the number of excitations. For example, we can limit the possible Slater determinants to only \( 1p-1h \) and \( 2p-2h \) excitations. This is called a configuration interaction calculation at the level of singles and doubles excitations, or just CISD.</li> 
+<li> We can limit the number of excitations in terms of the excitation energies. If we do not define a core, this defines normally what is called the no-core shell-model approach.</li> 
+</ul>
+
+What happens if we have a three-body interaction and a Hartree-Fock basis?
+
+<p>
+Full configuration interaction theory calculations provide in principle, if we can diagonalize numerically, all states of interest. The dimensionality of the problem explodes however quickly.
+
+<p>
+The total number of Slater determinants which can be built with say \( N \) neutrons distributed among \( n \) single particle states is
+$$
+\left (\begin{array}{c} n \\ N\end{array} \right) =\frac{n!}{(n-N)!N!}. 
+$$
+
+<p>
+For a model space which comprises the first for major shells only \( 0s \), \( 0p \), \( 1s0d \) and \( 1p0f \) we have \( 40 \) single particle states for neutrons and protons.  For the eight neutrons of oxygen-16 we would then have
+$$
+\left (\begin{array}{c} 40 \\ 8\end{array} \right) =\frac{40!}{(32)!8!}\sim 10^{9}, 
+$$
+
+and multiplying this with the number of proton Slater determinants we end up with approximately witha dimensionality \( d \) of \( d\sim 10^{18} \).
+
+<p>
+This number can be reduced if we look at specific symmetries only. However, the dimensionality explodes quickly!
+
+<ul>
+<li> For Hamiltonian matrices of dimensionalities  which are smaller than \( d\sim 10^5 \), we would use so-called direct methods for diagonalizing the Hamiltonian matrix</li>
+<li> For larger dimensionalities iterative eigenvalue solvers like Lanczos' method are used. The most efficient codes at present can handle matrices of \( d\sim 10^{10} \).</li> 
+</ul>
+
+<h2 id="___sec3">A non-practical way of solving the eigenvalue problem </h2>
+
 <p>
 For reasons to come (links with Coupled-Cluster theory and Many-Body perturbation theory), 
-we will rewrite Eq.&nbsp;( ref{eq:fullci}) as a set of coupled non-linear equations in terms of the unknown coefficients \( C_H^P \). 
+we will rewrite Eq.&nbsp;<a href="#mjx-eqn-1">(1)</a> as a set of coupled non-linear equations in terms of the unknown coefficients \( C_H^P \). 
 To obtain the eigenstates and eigenvalues in terms of non-linear equations is not a very practical approach. However, it serves the scope of linking FCI theory with approximative solutions to the many-body problem.
 
 <p>
@@ -406,9 +516,9 @@ where the energy \( E_0 \) is the reference energy and \( \Delta E \) defines th
 The single-particle basis functions  could be the results of a Hartree-Fock calculation or just the eigenstates of the non-interacting part of the Hamiltonian.
 
 <p>
-In our chapter on Hartree-Fock calculations, 
+In our notes on Hartree-Fock calculations, 
 we have already computed the matrix \( \langle \Phi_0 | \hat{H}|\Phi_{i}^{a}\rangle  \) and \( \langle \Phi_0 | \hat{H}|\Phi_{ij}^{ab}\rangle \).  If we are using a Hartree-Fock basis, then the matrix elements
-\( \langle \Phi_0 | \hat{H}|\Phi_{i}^{a}\rangle  \) and we are left with a correlation energy given by
+\( \langle \Phi_0 | \hat{H}|\Phi_{i}^{a}\rangle=0 \) and we are left with a <em>correlation energy</em> given by
 $$
 E-E_0 =\Delta E^{HF}=\sum_{abij}\langle \Phi_0 | \hat{H}|\Phi_{ij}^{ab} \rangle C_{ij}^{ab}. 
 $$
@@ -432,31 +542,17 @@ as this equation will allow us to find an expression for the coefficents \( C_i^
 $$
 \langle i | \hat{f}| a\rangle +\langle \Phi_i^a | \hat{H}|\Phi_{i}^{a} \rangle C_{i}^{a}+ \sum_{bj\ne ai}\langle \Phi_i^a | \hat{H}|\Phi_{j}^{b} \rangle C_{j}^{b}+
 \sum_{bcjk}\langle \Phi_i^a | \hat{H}|\Phi_{jk}^{bc} \rangle C_{jk}^{bc}+
-\sum_{bcdjkl}\langle \Phi_i^a | \hat{H}|\Phi_{jkl}^{bcd} \rangle C_{jkl}^{bcd}=0.
+\sum_{bcdjkl}\langle \Phi_i^a | \hat{H}|\Phi_{jkl}^{bcd} \rangle C_{jkl}^{bcd}=EC_i^a.
 $$
 
 <p>
-We rewrite this equation as
+We see that on the right-hand side we have the energy \( E \). This leads to a non-linear equation in the unknown coefficients. 
+These equations are normally solved iteratively ( that is we can start with a guess for the coefficients \( C_i^a \)). A common choice is to use perturbation theory for the first guess, setting thereby
 $$
-C_{i}^{a}=-(\langle \Phi_i^a | \hat{H}|\Phi_{i}^{a})^{-1}
-$$
-
-$$
-\times\left(\langle i | \hat{f}| a\rangle+ \sum_{bj\ne ai}\langle \Phi_i^a | \hat{H}|\Phi_{j}^{b} \rangle C_{j}^{b}+\sum_{bcjk}\langle \Phi_i^a | \hat{H}|\Phi_{jk}^{bc} \rangle C_{jk}^{bc}+
-\sum_{bcdjkl}\langle \Phi_i^a | \hat{H}|\Phi_{jkl}^{bcd} \rangle C_{jkl}^{bcd}\right).
+ C_{i}^{a}=\frac{\langle i | \hat{f}| a\rangle}{\epsilon_i-\epsilon_a}.
 $$
 
-Since these equations are solved iteratively ( that is we can start with a guess for the coefficients \( C_i^a \)), it is common to start the  iteration 
-by setting 
-$$
- C_{i}^{a}=-\frac{\langle i | \hat{f}| a\rangle}{\langle \Phi_i^a | \hat{H}|\Phi_{i}^{a}\rangle},
-$$
-
-and the denominator can be written as
-$$
-  C_{i}^{a}=\frac{\langle i | \hat{f}| a\rangle}{\langle i | \hat{f}| i\rangle-\langle a | \hat{f}| a\rangle+\langle ai | \hat{v}| ai\rangle}.
-$$
-
+<p>
 The observant reader will however see that we need an equation for \( C_{jk}^{bc} \) and \( C_{jkl}^{bcd} \) as well.
 To find equations for these coefficients we need then to continue our multiplications from the left with the various
 \( \Phi_{H}^P \) terms.
@@ -472,62 +568,75 @@ $$
 $$
 
 and we can isolate the coefficients \( C_{kl}^{cd} \) in a similar way as we did for the coefficients \( C_{i}^{a} \). 
-At the end we can rewrite our solution of the Schr\"odinger equation in terms of \( n \) coupled equations for the coefficients \( C_H^P \).
+A standard choice for the first iteration is to set 
+$$
+C_{ij}^{ab} =\frac{\langle ij \vert \hat{v} \vert ab \rangle}{\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b}.
+$$
+
+At the end we can rewrite our solution of the Schroedinger equation in terms of \( n \) coupled equations for the coefficients \( C_H^P \).
 This is a very cumbersome way of solving the equation. However, by using this iterative scheme we can illustrate how we can compute the
 various terms in the wave operator or correlation operator \( \hat{C} \). We will later identify the calculation of the various terms \( C_H^P \)
-as parts of different many-body approximations to full CI. In particular, ww can  relate this non-linear scheme with Coupled Cluster theory and
-many-body perturbation theory. .
+as parts of different many-body approximations to full CI. In particular, we can  relate this non-linear scheme with Coupled Cluster theory and
+many-body perturbation theory.
+
+<h2 id="___sec4">Summarizing FCI and bringing in approximative methods </h2>
 
 <p>
-If we use a Hartree-Fock basis, we simplify this equation
+If we can diagonalize large matrices, FCI is the method of choice since:
+
+<ul>
+<li> It gives all eigenvalues, ground state and excited states</li>
+<li> The eigenvectors are obtained directly from the coefficients \( C_H^P \) which result from the diagonalization</li>
+<li> We can compute easily expectation values of other operators, as well as transition probabilities</li>
+<li> Correlations are easy to understand in terms of contributions to a given operator beyond the Hartree-Fock contribution. This is the standard approach in  many-body theory.</li> 
+</ul>
+
+The correlation energy is defined as, with a two-body Hamiltonian,  
 $$
 \Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle C_{i}^{a}+
 \sum_{abij}\langle ij | \hat{v}| ab \rangle C_{ij}^{ab}.
 $$
 
-What about
+<p>
+The coefficients \( C \) result from the solution of the eigenvalue problem. 
+The energy of say the ground state is then
 $$
-\langle \Phi_i^a | \hat{H} -E| \Phi_0\rangle + \sum_{bj}\langle \Phi_i^a | \hat{H} -E|\Phi_{j}^{b} \rangle C_{j}^{b}+
-\sum_{bcjk}\langle \Phi_i^a | \hat{H} -E|\Phi_{jk}^{bc} \rangle C_{jk}^{bc}+
-\sum_{bcdjkl}\langle \Phi_i^a | \hat{H} -E|\Phi_{jkl}^{bcd} \rangle C_{jkl}^{bcd}=0,
-$$
-
-and
-$$
-\langle \Phi_{ij}^{ab} | \hat{H} -E| \Phi_0\rangle + \sum_{kc}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{k}^{c} \rangle C_{k}^{c}+
-\sum_{cdkl}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{kl}^{cd} \rangle C_{kl}^{cd}+
+E=E_{ref}+\Delta E,
 $$
 
+where the so-called reference energy is the energy we obtain from a Hartree-Fock calculation, that is
 $$
-\sum_{cdeklm}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{klm}^{cde} \rangle C_{klm}^{cde}+\sum_{cdefklmn}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{klmn}^{cdef} \rangle C_{klmn}^{cdef}=0?
+E_{ref}=\langle \Phi_0 \vert \hat{H} \vert \Phi_0 \rangle.
 $$
 
+<p>
+However, as we have seen, even for a small case like the four first major shells and a nucleus like oxygen-16, the dimensionality becomes quickly intractable. If we wish to include single-particle states that reflect weakly bound systems, we need a much larger single-particle basis. We need thus approximative methods that sum specific correlations to infinite order.
+
+<p>
+Popular methods are
 
 <ul>
-<li> TO DO: finish this discussion and discuss truncations like CISD, prepare the ground for MBPT and CC theories</li>
+<li> Many-body perturbation theory (in essence a Taylor expansion)</li>
+<li> Coupled cluster theory (coupled non-linear equations)</li>
+<li> Green's function approaches (matrix inversion)</li>
+<li> Similarity group transformation methods (coupled ordinary differential equations</li>
 </ul>
 
-<h2 id="___sec2">Building a many-body basis </h2>
+All these methods start normally with a Hartree-Fock basis as the calculational basis.
 
-<ul>
-<li> TO DO: make figures of various approaches to the basis:</li>
+<h2 id="___sec5">Building a many-body basis </h2>
+
+<p>
+Here we will discuss how we can set up a single-particle basis which we can use in the various parts of our projects, from the simple pairing model to infinite nuclear matter. We will use here the simple pairing model to illustrate in particular how to set up a single-particle basis. We will also use this do discuss standard FCI approaches like:
 
 <ol>
  <li> Standard shell-model basis in one or two major shells</li>
  <li> Full CI in a given basis and no truncations</li>
- <li> CISD and CISDT (prepare for link to CC theory)</li>
+ <li> CISD and CISDT approximations</li>
  <li> No-core shell model and truncation in excitation energy</li>
 </ol>
 
-</ul>
-
-Let us now sketch how  construct a working code that constructs the 
-many-body Hamiltonian matrix in a basis of Slater determinants and allows us to find the low-lying eigenenergies. 
-This is referred to as the configuration-interaction method or shell-model diagonalization 
-(or the interacting shell model).
-
-<p>
-The first step in such codes is to construct the many-body basis.
+An important step in an FCI code  is to construct the many-body basis.
 
 <p>
 While the formalism is independent of the choice of basis, the <b>effectiveness</b> of a calculation 
@@ -541,9 +650,7 @@ First, the single-particle basis has angular momentum as a good quantum number. 
 imagine the single-particle wavefunctions being generated by a one-body Hamiltonian, 
 for example a harmonic oscillator.  Modifications include harmonic oscillator plus 
 spin-orbit splitting, or self-consistent mean-field potentials, or the Woods-Saxon potential which mocks 
-up the self-consistent mean-field.
-
-<p>
+up the self-consistent mean-field. 
 For nuclei, the harmonic oscillator, modified by spin-orbit splitting, provides a useful language 
 for describing single-particle states.
 
@@ -555,9 +662,12 @@ Each single-particle state is labeled by the following quantum numbers:
 <li> Intrinsic spin \( s \) = 1/2 for protons and neutrons</li>
 <li> Angular momentum \( j = l \pm 1/2 \)</li>
 <li> \( z \)-component \( j_z \) (or \( m \))</li>
-<li> Some labeling of the radial wavefunction, typically \( n \) the number of nodes in  the radial wavefunction, but in the case of harmonic oscillator one can also use the principal quantum number \( N \), where the harmonic oscillator energy is \( (N+3/2)\hbar \omega \).</li> 
+<li> Some labeling of the radial wavefunction, typically \( n \) the number of nodes in  the radial wavefunction, but in the case of harmonic oscillator one can also use the principal quantum number \( N \), where the harmonic oscillator energy is \( (N+3/2)\hbar \omega \).  For our nuclear matter projects, you will need to change the quantum numbers to those relevant for calculations</li>
 </ul>
 
+in three-dimensional cartesian basis, see the relevante <a href="https://github.com/NuclearTalent/Course2ManyBodyMethods/blob/master/doc/pub/cc/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf" target="_self">lectures</a>.
+
+<p>
 In this format one labels states by \( n(l)_j \), with \( (l) \) replaced by a letter:
 \( s \) for \( l=0 \), \( p \) for \( l=1 \), \( d \) for \( l=2 \), \( f \) for \( l=3 \), and thenceforth alphabetical.
 
@@ -590,10 +700,7 @@ There are different kinds of truncations.
 <li> Finally, for particular use in nuclear physics, there is the <em>energy</em> truncation, also  called the \( N\hbar\Omega \) or \( N_{max} \) truncation.</li> 
 </ul>
 
- Here one works in a harmonic oscillator basis, with each major oscillator shell assigned 
-a principal quantum number \( N=0,1,2,3,... \).
-
-<p>
+Here one works in a harmonic oscillator basis, with each major oscillator shell assigned  a principal quantum number \( N=0,1,2,3,... \). 
 The \( N\hbar\Omega \) or \( N_{max} \) truncation: Any configuration is given an noninteracting energy, which is the sum 
 of the single-particle harmonic oscillator energies. (Thus this ignores 
 spin-orbit splitting.)
@@ -603,7 +710,7 @@ Excited state are labeled relative to the lowest configuration by the
 number of harmonic oscillator quanta.
 
 <p>
-This truncation is useful because: if one includes <em>all</em> configuration up to 
+This truncation is useful because if one includes <em>all</em> configuration up to 
 some \( N_{max} \), and has a translationally invariant interaction, then the intrinsic 
 motion and the center-of-mass motion factor. In other words, we can know exactly 
 the center-of-mass wavefunction.
@@ -622,8 +729,7 @@ Alternately, one can construct a many-body basis which has fixed \( J \), or a \
 basis.
 
 <p>
-The Hamiltonian matrix will have smaller dimensions (a factor of 10 or more)
- in the \( J \)-scheme than in the \( M \)-scheme. 
+The Hamiltonian matrix will have smaller dimensions (a factor of 10 or more) in the \( J \)-scheme than in the \( M \)-scheme. 
 On the other hand, as we'll show in the next slide, the \( M \)-scheme is very easy to 
 construct with Slater determinants, while the \( J \)-scheme basis states, and thus the 
 matrix elements, are more complicated, almost always being linear combinations of 
@@ -676,7 +782,7 @@ Example: two \( j=1/2 \) orbits
   </div>
 </div> <!-- col-xs-4 -->
 <p>
-Note: the order is arbitrary.
+Note that the order is arbitrary.
 There are \( \left ( \begin{array}{c} 4 \\ 2 \end{array} \right) = 6 \) two-particle states, 
 which we list with the total \( M \):
 
@@ -702,7 +808,7 @@ which we list with the total \( M \):
 and 1 each with \( M = \pm 1 \).
 
 <p>
-Example: consider using only single particle states from the \( 0d_{5/2} \) space. 
+As another example, consider using only single particle states from the \( 0d_{5/2} \) space. 
 They have the following quantum numbers
 
 <p>
@@ -747,7 +853,7 @@ which we list with the total \( M \):
   </div>
 </div> <!-- col-xs-5 -->
 
-<h2 id="___sec3">Example case: pairing Hamiltonian, the warm-up project </h2>
+<h2 id="___sec6">Example case: pairing Hamiltonian, the warm-up project </h2>
 
 <p>
 We consider a space with \( 2\Omega \) single-particle states, with each 
@@ -758,7 +864,7 @@ the state with \( k>0 \) has \( m = + 1/2 \) while \( -k \) has \( m = -1/2 \).
 <p>
 The Hamiltonian we consider is 
 $$
-\hat{H} = -G \hat{P}_+ \hat{P}_-,
+\hat{H} = -\frac{g}{2} \hat{P}_+ \hat{P}_-,
 $$
 
 where
@@ -816,7 +922,7 @@ values range of \( p \) range from \( |N-\Omega|/2 \) to \( \Omega/2 \) in steps
 (for an even number of particles)
 
 <p>
-Following Racah we introduce the notation
+We introduce the notation
 \( p = (\Omega - v)/2 \)
 where \( v = 0, 2, 4,..., \Omega - |N-\Omega| \) 
 With this it is easy to deduce that the eigenvalues of the pairing Hamiltonian are
@@ -919,8 +1025,7 @@ This is useful for our project.  One can by hand confirm
 that there are 3 eigenvalues \( -2G \) and 6 with value zero.
 
 <p>
-Another example
-Using the \( (1/2)^4 \) single-particle space, resulting in eight single-particle states
+Using the \( (1/2)^4 \) single-particle space, we have  eight single-particle states
 
 <p>
 
@@ -956,9 +1061,9 @@ determinants:
 <li> \( |            5        ,        6     ,           7     ,           8  \rangle  \)</li>
 </ul>
 
-Now we take the following Hamiltonian
+We define our Hamiltonian as
 $$
-\hat{H} = \sum_n n \delta \hat{N}_n  - G \hat{P}^\dagger \hat{P}
+\hat{H} = \sum_n n \delta \hat{N}_n  - \frac{g}{2} \hat{P}^\dagger \hat{P}
 $$
 
 where 
@@ -972,16 +1077,16 @@ $$
 \hat{P}^\dagger = \sum_{n} \hat{a}^\dagger_{n, m=+1/2} \hat{a}^\dagger_{n, m=-1/2} 
 $$
 
-We can write down the $ 6 \times 6$  Hamiltonian in the basis from the prior slide:
+For our example, the $ 6 \times 6$  Hamiltonian matrix becomes
 $$
 H = \left ( 
 \begin{array}{cccccc}
-2\delta -2G & -G & -G & -G & -G & 0 \\
- -G & 4\delta -2G & -G & -G & -0 & -G \\
--G & -G & 6\delta -2G & 0 & -G & -G \\
- -G & -G & 0 & 6\delta-2G & -G & -G \\
- -G & 0 & -G & -G & 8\delta-2G & -G \\
-0 & -G & -G & -G & -G & 10\delta -2G 
+2\delta -g & -g/2 & -g/2 & -g/2 & -g/2 & 0 \\
+ -g/2 & 4\delta -g & -g/2 & -g/2 & -0 & -g/2 \\
+-g/2 & -g/2 & 6\delta -g & 0 & -g/2 & -g/2 \\
+ -g/2 & -g/2 & 0 & 6\delta-g & -g/2 & -g/2 \\
+ -g/2 & 0 & -g/2 & -g/2 & 8\delta-g & -g/2 \\
+0 & -g/2 & -g/2 & -g/2 & -g/2 & 10\delta -g 
 \end{array} \right )
 $$
 
@@ -990,7 +1095,280 @@ $$
 <p>
 For \( \delta = 0 \) we have the closed form solution of  the g.s. energy given by \( -6G \).
 
+<h3 id="___sec7">Many-body perturbation theory, in short </h3>
+
 <p>
+If we are looking at the ground state energy only, we define an effective Hilbert space which comprises only this state. This space is called the <b>model space</b>.
+
+<p>
+We can express the correlation energy as a perturbative expression in terms
+of \( \hat{H}_I \) 
+$$
+\Delta E=\sum_{i=1}^{\infty}\Delta E^{(i)}.
+$$
+
+We get the following expression for \( \Delta E^{(i)} \)
+$$
+\Delta E^{(1)}=\langle \Phi_0\vert \hat{H}_I\vert \Phi_0\rangle,
+$$
+
+which is just the contribution to first order in perturbation theory,
+$$
+\Delta E^{(2)}=\langle\Phi_0\vert \hat{H}_I\frac{\hat{Q}}{W_0-\hat{H}_0}\hat{H}_I\vert \Phi_0\rangle, 
+$$
+
+which is the contribution to second order.
+
+$$
+\Delta E^{(3)}=\langle \Phi_0\vert \hat{H}_I\frac{\hat{Q}}{W_0-\hat{H}_0}\hat{H}_I\frac{\hat{Q}}{W_0-\hat{H}_0}\hat{H}_I\Phi_0\rangle-
+\langle\Phi_0\vert \hat{H}_I\frac{\hat{Q}}{W_0-\hat{H}_0}\langle \Phi_0\vert \hat{H}_I\vert \Phi_0\rangle\frac{\hat{Q}}{W_0-\hat{H}_0}\hat{H}_I\vert \Phi_0\rangle,
+$$
+
+being the third-order contribution.
+
+<p>
+In the shell-model we showed that we could rewrite the exact state function for say the ground state, as a linear expansion in terms of all possible Slater determinants. That is, we 
+define the ansatz for the ground state as 
+$$
+|\Phi_0\rangle = \left(\prod_{i\le F}\hat{a}_{i}^{\dagger}\right)|0\rangle,
+$$
+
+where the index \( i \) defines different single-particle states up to the Fermi level. We have assumed that we have \( N \) fermions. 
+A given one-particle-one-hole (\( 1p1h \)) state can be written as
+$$
+|\Phi_i^a\rangle = \hat{a}_{a}^{\dagger}\hat{a}_i|\Phi_0\rangle,
+$$
+
+while a \( 2p2h \) state can be written as
+$$
+|\Phi_{ij}^{ab}\rangle = \hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_j\hat{a}_i|\Phi_0\rangle,
+$$
+
+and a general \( ApAh \) state as 
+$$
+|\Phi_{ijk\dots}^{abc\dots}\rangle = \hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_{c}^{\dagger}\dots\hat{a}_k\hat{a}_j\hat{a}_i|\Phi_0\rangle.
+$$
+
+<p>
+We use letters \( ijkl\dots \) for states below the Fermi level and \( abcd\dots \) for states above the Fermi level. A general single-particle state is given by letters \( pqrs\dots \).
+
+<p>
+We can then expand our exact state function for the ground state 
+as
+$$
+|\Psi_0\rangle=C_0|\Phi_0\rangle+\sum_{ai}C_i^a|\Phi_i^a\rangle+\sum_{abij}C_{ij}^{ab}|\Phi_{ij}^{ab}\rangle+\dots
+=(C_0+\hat{C})|\Phi_0\rangle,
+$$
+
+where we have introduced the so-called correlation operator 
+$$
+\hat{C}=\sum_{ai}C_i^a\hat{a}_{a}^{\dagger}\hat{a}_i  +\sum_{abij}C_{ij}^{ab}\hat{a}_{a}^{\dagger}\hat{a}_{b}^{\dagger}\hat{a}_j\hat{a}_i+\dots
+$$
+
+Since the normalization of \( \Psi_0 \) is at our disposal and since \( C_0 \) is by hypothesis non-zero, we may arbitrarily set \( C_0=1 \) with 
+corresponding proportional changes in all other coefficients. Using this so-called intermediate normalization we have
+$$
+\langle \Psi_0 | \Phi_0 \rangle = \langle \Phi_0 | \Phi_0 \rangle = 1, 
+$$
+
+resulting in 
+$$
+|\Psi_0\rangle=(1+\hat{C})|\Phi_0\rangle.
+$$
+
+<p>
+In a shell-model calculation, the unknown coefficients in \( \hat{C} \) are the 
+eigenvectors which result from the diagonalization of the Hamiltonian matrix.
+
+<p>
+How can we use perturbation theory to determine the same coefficients? Let us study the contributions to second order in the interaction, namely
+$$
+\Delta E^{(2)}=\langle\Phi_0\vert \hat{H}_I\frac{\hat{Q}}{W_0-\hat{H}_0}\hat{H}_I\vert \Phi_0\rangle.
+$$
+
+<p>
+The intermediate states given by \( \hat{Q} \) can at most be of a \( 2p-2h \) nature if we have a two-body Hamiltonian. This means that second order in the perturbation theory can have \( 1p-1h \) and \( 2p-2h \) at most as intermediate states. When we diagonalize, these contributions are included to infinite order. This means that higher-orders in perturbation theory bring in more complicated correlations.
+
+<p>
+If we limit the attention to a Hartree-Fock basis, then we have that
+\( \langle\Phi_0\vert \hat{H}_I \vert 2p-2h\rangle \) is the only contribution and the contribution to the energy reduces to
+$$
+\Delta E^{(2)}=\frac{1}{4}\sum_{abij}\langle ij\vert \hat{v}\vert ab\rangle \frac{\langle ab\vert \hat{v}\vert ij\rangle}{\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b}.
+$$
+
+<p>
+If we compare this to the correlation energy obtained from full configuration interaction theory with a Hartree-Fock basis, we found that
+$$
+E-E_0 =\Delta E=\sum_{abij}\langle ij | \hat{v}| ab \rangle C_{ij}^{ab},
+$$
+
+where the energy \( E_0 \) is the reference energy and \( \Delta E \) defines the so-called correlation energy.
+
+<p>
+We see that if we set
+$$
+C_{ij}^{ab} =\frac{1}{4}\frac{\langle ab \vert \hat{v} \vert ij \rangle}{\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b},
+$$
+
+we have a perfect agreement between FCI and MBPT. However, FCI includes such \( 2p-2h \) correlations to infinite order. In order to make a meaningful comparison we would at least need to sum such correlations to infinite order in perturbation theory.
+
+<p>
+Summing up, we can see that
+
+<ul>
+<li> MBPT introduces order-by-order specific correlations and we make comparisons with exact calculations like FCI</li>
+<li> At every order, we can calculate all contributions since they are well-known and either tabulated or calculated on the fly.</li>
+<li> MBPT is a non-variational theory and there is no guarantee that higher orders will improve the convergence.</li> 
+<li> However, since FCI calculations are limited by the size of the Hamiltonian matrices to diagonalize (today's most efficient codes can attach dimensionalities of ten billion basis states, MBPT can function as an approximative method which gives a straightforward (but tedious) calculation recipe.</li> 
+<li> MBPT has been widely used to compute effective interactions for the nuclear shell-model.</li>
+<li> But there are better methods which sum to infinite order important correlations. Coupled cluster theory is one of these methods.</li> 
+</ul>
+
+<h3 id="___sec8">A quick tour of Coupled Cluster theory </h3>
+
+<p>
+The ansatz for the wavefunction (ground state) is given by
+$$
+\begin{equation*}
+   \vert \Psi\rangle = \vert \Psi_{CC}\rangle = e^{\hat{T}} \vert \Phi_0\rangle =  
+  \left( \sum_{n=1}^{A} \frac{1}{n!} \hat{T}^n \right) \vert \Phi_0\rangle,
+\end{equation*}
+$$
+
+where \( A \) represents the maximum number of particle-hole excitations and \( \hat{T} \) is the cluster operator defined as
+$$
+\begin{align*}
+            \hat{T} &= \hat{T}_1 + \hat{T}_2 + \ldots + \hat{T}_A \\
+            \hat{T}_n &= \left(\frac{1}{n!}\right)^2 
+                \sum_{\substack{
+                        i_1,i_2,\ldots i_n \\
+                        a_1,a_2,\ldots a_n}}
+                t_{i_1i_2\ldots i_n}^{a_1a_2\ldots a_n} a_{a_1}^\dagger a_{a_2}^\dagger \ldots a_{a_n}^\dagger a_{i_n} \ldots a_{i_2} a_{i_1}.
+        \end{align*}
+$$
+
+    The energy is given by
+$$
+    \begin{equation*}
+        E_{\mathrm{CC}} = \langle\Phi_0\vert  \overline{H}\vert \Phi_0\rangle,
+    \end{equation*}
+$$
+
+    where \( \overline{H} \) is a similarity transformed Hamiltonian
+$$
+    \begin{align*}
+        \overline{H}&= e^{-\hat{T}} \hat{H}_N e^{\hat{T}} \\
+        \hat{H}_N &= \hat{H} - \langle\Phi_0\vert \hat{H} \vert \Phi_0\rangle.
+    \end{align*}
+$$
+
+<p>
+    The coupled cluster energy is a function of the unknown cluster amplitudes \( t_{i_1i_2\ldots i_n}^{a_1a_2\ldots a_n} \),
+given by the solutions to the amplitude equations
+$$
+    \begin{equation*}
+        0 = \langle\Phi_{i_1 \ldots i_n}^{a_1 \ldots a_n}\vert \overline{H}\vert \Phi_0\rangle.
+    \end{equation*}
+$$
+
+The similarity transformed   Hamiltonian  \( \overline{H} \) is expanded using the Baker-Campbell-Hausdorff expression,
+$$
+    \begin{align*}
+        \overline{H}&= \hat{H}_N + \left[ \hat{H}_N, \hat{T} \right] + 
+            \frac{1}{2} \left[\left[ \hat{H}_N, \hat{T} \right], \hat{T}\right] + \ldots \\
+            & \quad \frac{1}{n!} \left[ \ldots \left[ \hat{H}_N, \hat{T} \right], \ldots \hat{T} \right] +\dots
+    \end{align*}
+$$
+
+and simplified using the connected cluster theorem
+$$
+    \begin{equation*}
+        \overline{H}= \hat{H}_N + \left( \hat{H}_N \hat{T}\right)_c + \frac{1}{2} \left( \hat{H}_N \hat{T}^2\right)_c
+            + \dots + \frac{1}{n!} \left( \hat{H}_N \hat{T}^n\right)_c +\dots
+    \end{equation*}
+$$
+
+<p>
+A much used approximation is to  truncate the cluster operator \( \hat{T} \) at the \( n=2 \) level. This defines the so-called approximation to the Coupled Cluster wavefunction.
+
+<p>
+The coupled cluster wavefunction is now given by
+$$
+\begin{equation*}
+            \vert \Psi_{CC}\rangle = e^{\hat{T}_1 + \hat{T}_2} \vert \Phi_0\rangle
+\end{equation*}
+$$
+
+where 
+$$
+        \begin{align*}
+            \hat{T}_1 &= 
+            \sum_{ia}
+                t_{i}^{a} a_{a}^\dagger a_i \\
+            \hat{T}_2 &= \frac{1}{4} 
+            \sum_{ijab}
+                t_{ij}^{ab} a_{a}^\dagger a_{b}^\dagger a_{j} a_{i}.
+        \end{align*}
+$$
+
+<p>
+The amplutudes \( t \) play a role similar to the coefficients \( C \) in the shell-model calculations. They are obtained by solving a set of non-linear equations
+similar to those discussed above in connection withe FCI discussion.
+
+<p>
+If we truncate our equations at the CCSD level, it corresponds to performing a transformation of the Hamiltonian matrix of the following type for a six particle problem (with a two-body Hamiltonian):
+
+<p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-striped table-hover table-condensed">
+<thead>
+<tr><td align="center"><b>           </b></td> <td align="center">  \( 0p-0h \)  </td> <td align="center">  \( 1p-1h \)  </td> <td align="center">  \( 2p-2h \)  </td> <td align="center">  \( 3p-3h \)  </td> <td align="center">  \( 4p-4h \)  </td> <td align="center">  \( 5p-5h \)  </td> <td align="center">  \( 6p-6h \)  </td> </tr>
+</thead>
+<tbody>
+<tr><td align="center">   \( 0p-0h \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 1p-1h \)    </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 2p-2h \)    </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 3p-3h \)    </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   0                  </td> </tr>
+<tr><td align="center">   \( 4p-4h \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> </tr>
+<tr><td align="center">   \( 5p-5h \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> </tr>
+<tr><td align="center">   \( 6p-6h \)    </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   0                  </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> <td align="center">   \( \tilde{x} \)    </td> </tr>
+</tbody>
+    </table>
+  </div>
+</div> <!-- col-xs-12 -->
+<p>
+In our FCI discussion the correlation energy is defined as, with a two-body Hamiltonian,  
+$$
+\Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle C_{i}^{a}+
+\sum_{abij}\langle ij | \hat{v}| ab \rangle C_{ij}^{ab}.
+$$
+
+<p>
+In Coupled cluster theory it becomes (irrespective of level of truncation of \( T \))
+$$
+\Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle t_{i}^{a}+
+\sum_{abij}\langle ij | \hat{v}| ab \rangle t_{ij}^{ab}.
+$$
+
+<p>
+Coupled cluster theory has several interesting computational features and is the method of choice in quantum chemistry. There are several interesting features:
+
+<ul>
+<li> With a truncation like CCSD or CCSDT, we can include to infinite order correlations like \( 2p-2h \).</li>
+<li> We can include a large basis of single-particle states, not possible in standard FCI calculations</li>
+</ul>
+
+However, Coupled Cluster theory is
+
+<ul>
+<li> non-variational</li>
+<li> if we want to find properties of excited states, additional calculations via for example equation of motion methods are needed</li>
+<li> if correlations are strong, a single-reference ansatz may not be the best starting point</li>
+<li> we cannot quantify properly the error we make when truncations are made in the cluster operator</li>
+</ul>
+
 
 <p>
 <!-- navigation buttons at the bottom of the page -->
