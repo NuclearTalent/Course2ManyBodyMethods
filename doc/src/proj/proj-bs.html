@@ -6,9 +6,9 @@ Automatically generated HTML file from DocOnce source
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
-<meta name="description" content="Projects and how do develop a numerical project">
+<meta name="description" content="Projects and how to develop a numerical project">
 
-<title>Projects and how do develop a numerical project</title>
+<title>Projects and how to develop a numerical project</title>
 
 <!-- Bootstrap style: bootstrap -->
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -67,7 +67,11 @@ $(function () {
               (" Project 7: Green's function calculations with doubles excitations only for finite nuclei ",
                2,
                None,
-               '___sec10')]}
+               '___sec10'),
+              (' Project 8: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter ',
+               2,
+               None,
+               '___sec11')]}
 end of tocinfo -->
 
 <body>
@@ -97,7 +101,7 @@ MathJax.Hub.Config({
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="proj-bs.html">Projects and how do develop a numerical project</a>
+    <a class="navbar-brand" href="proj-bs.html">Projects and how to develop a numerical project</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -115,6 +119,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="#___sec8" style="font-size: 80%;">Project 5: Green's function calculations with doubles excitations only for the pairing model</a></li>
      <!-- navigation toc: --> <li><a href="#___sec9" style="font-size: 80%;">Project 6: Green's function calculations with doubles excitations only for infinite nuclear matter</a></li>
      <!-- navigation toc: --> <li><a href="#___sec10" style="font-size: 80%;">Project 7: Green's function calculations with doubles excitations only for finite nuclei</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec11" style="font-size: 80%;">Project 8: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter</a></li>
 
         </ul>
       </li>
@@ -134,7 +139,7 @@ MathJax.Hub.Config({
 
 
 <div class="jumbotron">
-<center><h1>Projects and how do develop a numerical project</h1></center>  <!-- document title -->
+<center><h1>Projects and how to develop a numerical project</h1></center>  <!-- document title -->
 
 <p>
 <!-- author(s): Carlo Barbieri, Wim Dickhoff, Gaute Hagen, Morten Hjorth-Jensen, and Artur Polls -->
@@ -162,13 +167,14 @@ MathJax.Hub.Config({
 <a href="#___sec8"> Project 5: Green's function calculations with doubles excitations only for the pairing model </a><br>
 <a href="#___sec9"> Project 6: Green's function calculations with doubles excitations only for infinite nuclear matter </a><br>
 <a href="#___sec10"> Project 7: Green's function calculations with doubles excitations only for finite nuclei </a><br>
+<a href="#___sec11"> Project 8: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter </a><br>
 </p>
 <p>
 </div> <!-- end jumbotron -->
 
 <h2 id="___sec0">Plan for the Talent course </h2>
 An essential element of the Talent courses is to develop a large project(s) which allows you to study and understand
-teoretical concepts in nuclear physics.  
+theoretical concepts in nuclear physics.  
 These concepts will in turn allow you to interpret results from experiments and understand the pertinent physics in terms of the underlying forces and laws of motion.
 
 <p>
@@ -258,13 +264,13 @@ Here we propose the following  paths that can be studied with either coupled clu
 
 </ol>
 
-When working on the projects, we recommend strongly that you form teams of two-three participants. Every team
+When working on the projects, we recommend strongly that you form teams of two to three participants. Every team
 <b>must</b> have a <em>github account</em> where we can monitor your progress and give you appropriate feedback.
 
 <p>
 If you have not used version control before now, it is time to do so. 
 Proper version control is central to a good ethical scientific conduct. 
-We do require that you use some kind of version control software when working on the projects. We recommend strongly <a href="https://github.com/" target="_self">github</a>.
+We do require that you use some kind of version control software when working on the projects. We recommend strongly <a href="https://github.com/" target="_self">github</a>. All lectures and additional material is available at the github <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/web/course.html" target="_self">address of the course</a>
 
 <p>
 Furthermore, before coming to the course, we recommend that you refresh your knowledge on second quantization.
@@ -272,26 +278,29 @@ If your background in second quantization is rudimentary and mentioning of Wick'
 we recommend that you study the material at the course web site on <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant-bs.html" target="_self">second quantization</a>. Try in particular to do some of the exercises.
 
 <p>
-We will also require that you come with your own laptop and have installed either a
+We will also ask  you to come with your own laptop and have installed either a
 
 <ul>
 <li> Fortran compiler or a</li> 
 <li> c++ compiler</li>
 </ul>
 
+If you do not have your own laptop, there will be some PCs locally with the relevant compilers and software.
+
+<p>
 You can use Python as programming language as well, but normally the efficiency of Python for the problems addressed in this course is lower than for codes written in Fortran or c++. We recommend however that use Python as a scripting language for running codes and making plots, as well as using the ipython notebooks provided by us.
 
 <h2 id="___sec2">Some basic ingredients for a successful numerical project </h2>
 
 <p>
-In when building up a numerical project there are several elements you should think of
+When building up a numerical project there are several elements you should think of, amongst these we take the liberty of mentioning the following:
 
 <ol>
   <li> How to structure a code in terms of functions</li>
   <li> How to make a module</li>
   <li> How to read input data flexibly from the command line</li>
   <li> How to create graphical/web user interfaces</li>
-  <li> How to write unit tests (test functions or doctests)</li>
+  <li> How to write unit tests (test functions)</li>
   <li> How to refactor code in terms of classes (instead of functions only), in our case you think of a system and a solver class</li>
   <li> How to conduct and automate large-scale numerical experiments</li>
   <li> How to write scientific reports in various formats (LaTeX, HTML)</li>
@@ -323,7 +332,7 @@ need to solve an eigenvalue problem.
 <p>
 We define first the Hamiltonian, with a definition of the model space
 and the single-particle basis. Thereafter, we present the various
-exercises.
+exercises (some of them are solved).
 
 <p>
 The Hamiltonian acting in the complete Hilbert space (usually infinite
@@ -331,8 +340,8 @@ dimensional) consists of an unperturbed one-body part, \( \hat{H}_0 \),
 and a perturbation \( \hat{V} \).
 
 <p>
-We limit ourselves to at most two-body interactions, our Hamiltonian
-is then represented by the following operators
+We limit ourselves to at most two-body interactions and our Hamiltonian
+is represented by the following operators
 $$
 \hat{H} = \sum_{\alpha\beta}\langle \alpha |h_0|\beta\rangle
 a_{\alpha}^{\dagger}a_{\beta}+\frac{1}{4}\sum_{\alpha\beta\gamma\delta}\langle \alpha\beta|
@@ -577,20 +586,19 @@ show()
 
 </script></div>
 <p>
-Numerically, we find the eigenvalues and eigenvectors of this
-matrix. The lowest eigenvalue then corresponds to the ground state
-energy. Numerically, we can generate the Hamiltonian matrix and find
-the eigenvalue for any value of \( g \), effectively giving us the ground
-state energy as a function of the strength of the interaction. We will
-refer to that energy as the <em>exact</em> energy of the system.
+The eigenvalues and eigenvectors result from the diagonalization of the above Hamiltonian matrix.
+In the discussions below and in connection with the first stage of the numerical project, we will use these results to benchmark various approximative methods. 
+The lowest eigenvalue corresponds to the ground state
+energy and we will refer to it as the <em>exact energy</em> when no truncations in the space of possible Slater determinants are made..
 
 <p>
-From our results, we now see some important differences between FCI
-and CI. Full configuration interaction is an exact method, but is only
+From our results, we note some important differences between the full configuration interaction (FCI)
+calculation and the truncated configuration interaction calculation (CI).
+Full configuration interaction is an exact method, but is only
 possible if and only if we have a complete and finite SD basis for our
 system. In practice, we usually don't have this. Non-complete
-CI however, is always possible, but gives the only  approximative
-results. The method is variational however, so we are always
+CI however, is always possible, but yiels   approximative
+results only. The method is however still variational however, meaning that we 
 guaranteed that the approximation will be equal or bigger to the true
 result. 
 Perturbation theory however, is non-variational and there is no guarantee that including higher orders in the 
@@ -598,10 +606,11 @@ perturbation gives an improved result, as we will see below.
 
 <p>
 In an FCI case, we are including all possible exictations to infinite
-order, meaning we have all possible 1p1h SDs, all possible 2p2h SDs
-and so on. In the CI case, we truncate those excitations somewhere. In
-our example we limited the excitations to at most 2p2h. We still got
-the contribution from those 2p2h excitation to infinite order. If we
+order, meaning we have all possible \( 1p1h \) , \( 2p2h \) etc configurations, up to \( 4p4h \) 
+excitations for our selected model. Due to the nature of the pairing interaction and our selection
+of specific quantum numbers for the many-body states, we do not have any \( 1p1h \) or \( 3p3h \) excitations.
+In the above CI case, we truncate those excitations somewhere. 
+If we
 were to draw the diagrams of the interactions that contribute to this
 CI case, there would be an infinite number of them, as we can have
 arbitrarily long chains of operators that still only have at most 2p2h
@@ -729,17 +738,19 @@ with the full diagonalization case in exercise b). Discuss the results.
 <p><div class="collapse" id="exer_1_2">
 
 <p>
-We now turn to MBPT to the fourth order. We now get a lot of diagrams
-that can contribute to the energy, so we limit our discussion to the
-canonical HF-case only. All of the diagrams in the canonical case are
-shown in figures 3, 4, 5 and 6 above. In our case howeber, due the
-nature of the pairign Hamiltonian, only few of these diagrams give
-non-zero contributions. Using also the linked diagram theorem, where a
+To fourth order in the interaction there are several diagrams to consider. 
+Fortunately, due to the character of the pairing Hamiltonian, several of these contributions are
+zero. We limit our discussions also to include the 
+canonical HF-case only. 
+All of the diagrams in the canonical case are
+shown in figures 3, 4, 5 and 6 above. 
+Using also the linked diagram theorem, where a
 diagram is called unlinked if and only if it has a disconnected part
-that is closed, we can eliminate some of the diagrams. Goldstones
+that is closed, we can eliminate some further  diagrams. Goldstones
 linked-diagram theorem states that all unliked diagrams will cancel
-agains the renormalization terms in RSPT, meaning that we can define
-the energy and wave function in each order as a sum of linked diagrams
+against the renormalization terms in Rayleigh-Schroedinger perturbation theory, 
+meaning that we can define
+the energy to each order as a sum of linked diagrams
 only. We can then disregard diagram 33 and 41.
 
 <p>
@@ -750,39 +761,24 @@ to having a term \( \langle ab\vert \hat{v} \vert ci\rangle \). From this
 argument, we see that all four diagrams from figure 3 vanish. Similar
 arguments shows that most diagrams in figure 4 also dissapear. Going
 through all the diagrams, we see that 5, 6, 14 and 15 are the ones
-that do not vanish for figure 4. For figure 5 we actually see that all
+that do not vanish in figure 4. For figure 5 we actually see that all
 diagrams vanish again. For figure 6 we already found that 33 and 41
-vanished due to being unlinked&mdash;the rest contribute to the
-perturbation.
-
-<p>
-All diagrams for figure 3 and 5 vanished for our interaction, this is
-definitly not a surprise, as those figures correspond to 1p1h and 3p3h
-excitations respectively. As our reference state already has the four
-particles positioned in two pairs, it goes without saying that and odd
-number of particle excitations requires broken pairs and will
-vanish. The same argument also explained why there were no diagrams
-that vanished for figure 6. That figure shows the four-particle-four
-hole excited states, but as we only have four particles in our system,
-exciting all the particles will keep them collected in pairs, so we
-get no ubroken pairs. For the diagrams in figure 4 however, we have
-2p2h excitations. The diagrams that vanish correspond to the cases
-where we excite one particle from either pair, or excite both
-particles in one pair, but into different levels, leaving us with a
-broken pair.
+vanished due to being unlinked&mdash;the rest contribute to the perturbative expansion of the 
+energy.
+The diagrams of figures 3 and 5 vanish since they involve \( 1p1h \) and \( 3p3h \) excitations, respectively.
 
 <p>
 The expressions for these diagrams can easily be written in terms of a
 simple Python program. Note however that for every diagram we do
 actually perform loops over every single-particle state. As we will
-see later this is extremely inefficient from a computational point
-view. In our discussions of the projects below, we will rewrite the
+see later, this is extremely inefficient from a computational point
+of view. In our discussions of the projects below, we will rewrite the
 computations of most diagrams in terms of efficient matrix-matrix
 multiplications or matrix-vector multiplications.  The following
-Python program gives us the final results for perturbation to fourth
-order, where we also make a plot of the relative error in the
+Python program gives us the final results for perturbation theory to fourth
+order in the interaction. The resulting figures include also plots of the relative error in the
 correlation energy. That is, we compare the computed correlation in
-perturbation theory with the result from the exact diagonalization.
+perturbation theory with the result from the exact diagonalization discussed above.
 
 <p>
 
@@ -980,31 +976,18 @@ show()
 
 </script></div>
 <p>
-Running the Python program shows us 
+Running the Python program shows us that
 the approximation to both second and third order are very
-good when the interaction is weaker \( g\in[-0.5,0.5] \), but as the
+good when the interaction strength is small and contained in the interval  
+\( g\in[-0.5,0.5] \), but as the
 interaction gets stronger the approximation worsens. We also
-note that the third-order is actually worse than the second order for
-a strong interaction! This result illuminates the difference between
-perturbation theory and configuration interaction we noted earlier,
-including higher-order terms can possibly give a worse result
-for perturbation theory. For CI however, including more excitations
-will never give a worse result. We also see the consequences of
-perturbation theory not being a variational method, as both
-approximations undershoot the true ground state correlation energy of
-the system.
-
-<p>
-From the results, we note also that the fourth order MBPT approximation to
-the correlation energy is better than the lower orders for \( g < 0 \), but
-worse than the lower orders for \( g>0 \). Again this shows us an the
-important point of MBPT. There is no guarantee that the approximation
-will converge to the exact solution as we increase the order. In fact,
-as we see in our case, increasing the order of the approximation might
-actually give you a worse result! Also, we see that MBPT is not
-variational, so we can't simply calculate the approximation of many
-different orders and choose the smallest one, as we then run the risk
-of undershooting the real ground state energy.
+note that the third-order result is actually worse than the second order result 
+for larger values of the interaction strength, indicating that there is no guarantee that higher orders
+in many-body perturbation theory may reduce the relative error in a systematic way.
+This is seen in particular for the results to fourth order. For negative interaction strengths 
+fourth order gives a better result than second and third order, while for \( g>0 \) the relative error is 
+worse.
+We note also the non-variational character of many-body perturbation theory, with results at different undershooting the true ground state correlation energy.
 
 <p>
 </div></p>
@@ -1155,6 +1138,264 @@ Compare the two-particle only excitations with a finite number of particles with
 <p>
 <b>a)</b>
 Add material here
+
+<p>
+<!-- --- end exercise --- -->
+
+<p>
+<!-- --- begin exercise --- -->
+
+<h2 id="___sec11">Project 8: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter </h2>
+
+<p>
+<b>a)</b>
+We will use first the simple Minnesota model (defined in \( r \)-space) which will be used for comparisons with the Coupled cluster and Green's function calculations. The first part deals with setting up the real and imaginary part of \( T \)-matrix in free space using a partial wave decomposition. You will need to define integration points and weights in momentum space and treat properly the poles which arise. With a working program, compute the relevant phase shifts. Extract also the scattering lengths for \( s \) waves (orbital momentum \( l=0 \)).
+
+<p>
+<!-- --- begin solution of exercise --- -->
+
+<p>
+<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+ data-target="#exer_8_1" style="font-size: 80%;"></a>
+<b>Solution.</b>
+<div class="collapse-group">
+<p><div class="collapse" id="exer_8_1">
+
+<p>
+For scattering states, the energy is positive, \( E>0 \). 
+The Lippman-Schwinger equation (a rewrite of the Schroedinger equation)
+is an integral equation
+where we have to deal with the amplitude 
+\( R(k,k') \) (reaction matrix, which is the real part of  the full
+complex \( T \)-matrix)
+defined through the integral equation for one partial wave (no coupled-channels) 
+$$
+\begin{equation}
+    R_l(k,k') = V_l(k,k') +\frac{2}{\pi}{\cal P}
+                \int_0^{\infty}dqq^2V_l(k,q)\frac{1}{E-q^2/m}R_l(q,k').
+   \tag{1}
+\end{equation}
+$$
+
+For negative energies (bound states) and intermediate states scattering states blocked
+by  occupied states below the Fermi level.
+
+<p>
+The symbol \( {\cal P} \) indicates that Cauchy's principal-value prescription
+is used in order to avoid the singularity arising from the zero of the denominator.
+
+<p>
+The total kinetic energy of the two 
+incoming particles in the center-of-mass system
+is 
+$$
+    E=\frac{k_0^2}{m_n}.
+$$
+
+<p>
+The matrix \( R_l(k,k') \) relates to the 
+the  phase shifts through its diagonal elements as
+$$
+\begin{equation}
+     R_l(k_0,k_0)=-\frac{tan\delta_l}{mk_0}.
+     \tag{2}
+\end{equation}
+$$
+
+In order to solve the Lippman-Schwinger equation 
+in momentum space, we need first to write 
+a function which sets up the mesh points. 
+We need to do that since we are going to approximate an integral
+through 
+$$
+   \int_a^bf(x)dx\approx\sum_{i=1}^Nw_if(x_i),
+$$
+
+where we have fixed \( N \) lattice points through the corresponding weights
+\( w_i \) and points \( x_i \). Typically obtained via methods like Gaussian quadrature.
+
+<p>
+If you use Gauss-Legendre the points are determined for the interval \( x_i\in [-1,1] \)
+You map these points over to the limits in your integral. You can then
+use the following mapping
+$$
+  k_i=const\times tan\left\{\frac{\pi}{4}(1+x_i)\right\},
+$$
+
+and 
+$$
+   \omega_i= const\frac{\pi}{4}\frac{w_i}{cos^2\left(\frac{\pi}{4}(1+x_i)\right)}.
+$$
+
+If you choose units fm$^{-1}$ for \( k \), set \( const=1 \). If you choose to work
+with MeV, set \( const\sim 200 \) (\( \hbar c=197 \) MeVfm).
+
+<p>
+The principal value integral is rather tricky
+to evaluate numerically, mainly since computers have limited
+precision. We will here use a subtraction trick often used
+when dealing with singular integrals in numerical calculations.
+We introduce first the calculus relation
+$$
+  \int_{-\infty}^{\infty} \frac{dk}{k-k_0} =0.
+$$
+
+It means that the curve \( 1/(k-k_0) \) has equal and opposite
+areas on both sides of the singular point \( k_0 \). If we break
+the integral into one over positive \( k \) and one over 
+negative \( k \), a change of variable \( k\rightarrow -k \) 
+allows us to rewrite the last equation as
+$$
+  \int_{0}^{\infty} \frac{dk}{k^2-k_0^2} =0.
+$$
+
+<p>
+We can then express a principal values integral
+as
+$$
+\begin{equation}
+  {\cal P}\int_{0}^{\infty} \frac{f(k)dk}{k^2-k_0^2} =
+  \int_{0}^{\infty} \frac{(f(k)-f(k_0))dk}{k^2-k_0^2},
+   \tag{3}
+\end{equation}
+$$
+
+where the right-hand side is no longer singular at 
+\( k=k_0 \), it is proportional to the derivative \( df/dk \),
+and can be evaluated numerically as any other integral.
+
+<p>
+We can then use this trick to obtain
+$$
+\begin{equation}
+    R(k,k') = V(k,k') +\frac{2}{\pi}
+                \int_0^{\infty}dq
+                \frac{q^2V(k,q)R(q,k')-k_0^2V(k,k_0)R(k_0,k')  }
+                     {(k_0^2-q^2)/m}.
+   \tag{4}
+\end{equation}
+$$
+
+This is the equation to solve numerically in order
+to calculate the phase shifts. We are interested in obtaining
+\( R(k_0,k_0) \).
+
+<p>
+How do we proceed?
+
+<p>
+Using the mesh points \( k_j \) and the weights \( \omega_j \), we reach
+$$
+          R(k,k') = V(k,k') +\frac{2}{\pi}
+          \sum_{j=1}^N\frac{\omega_jk_j^2V(k,k_j)R(k_j,k')}
+                           {(k_0^2-k_j^2)/m}
+           -\frac{2}{\pi}k_0^2V(k,k_0)R(k_0,k')
+          \sum_{n=1}^N\frac{\omega_n}
+                           {(k_0^2-k_n^2)/m}.                
+$$
+
+This equation contains now the unknowns \( R(k_i,k_j) \)
+(with dimension \( N\times N \)) and \( R(k_0,k_0) \).
+
+<p>
+We can turn it into an equation
+with dimension \( (N+1)\times (N+1) \) with  a mesh
+which contains the original mesh points \( k_j \) for \( j=1,N \)
+and the point which corresponds to the energy \( k_0 \).
+Consider the latter as the 'observable' point.
+The mesh points become then \( k_j \) for \( j=1,n \) and
+\( k_{N+1}=k_0 \).
+
+<p>
+With these new mesh points we define the matrix
+$$
+\begin{equation}
+      A_{i,j}=\delta_{i,j}-V(k_i,k_j)u_j,
+      \tag{5}
+\end{equation}
+$$
+
+where \( \delta \) is the Kronecker \( \delta \)
+and
+$$
+     u_j=\frac{2}{\pi}\frac{\omega_jk_j^2}{(k_0^2-k_j^2)/m}\hspace{1cm} j=1,N
+$$
+
+and
+$$
+     u_{N+1}=-\frac{2}{\pi}\sum_{j=1}^N\frac{k_0^2\omega_j}{(k_0^2-k_j^2)/m}.
+$$
+
+The first task is then to 
+set up the matrix \( A \) for a given \( k_0 \). This is an
+\( (N+1)\times (N+1) \) matrix. It can be convenient
+to have an outer loop which runs over the chosen
+observable values for the energy \( k_0^2/m \).
+<em>Note that all mesh points \( k_j \) for \( j=1,N \) must be different from \( k_0 \). Note also that \( V(k_i,k_j) \) is an \( (N+1)\times (N+1) \) matrix</em>.
+
+<p>
+With the matrix \( A \) we can rewrite the problem as a matrix problem of dimension \( (N+1)\times (N+1) \).
+All matrices \( R \), \( A \) and \( V \) have this dimension and we get
+$$
+    A_{i,l}R_{l,j}=V_{i,j},
+$$
+
+or just
+$$
+    AR=V.
+$$
+
+<p>
+Since you already have defined \( A \) and \( V \)
+(these are stored as \( (N+1)\times (N+1) \) matrices) 
+The final equation involves only the unknown
+\( R \). We obtain it by matrix inversion, i.e.,
+$$
+\begin{equation}
+    R=A^{-1}V.
+    \tag{6}
+\end{equation}
+$$
+
+Thus, to obtain \( R \), you will need to set up the matrices
+\( A \) and \( V \) and invert the matrix \( A \). 
+With the inverse \( A^{-1} \), perform
+a matrix multiplication with \( V \) results in \( R \).
+
+<p>
+With \( R \) you can then evaluate the phase shifts
+by noting that 
+$$
+      R(k_{N+1},k_{N+1})=R(k_0,k_0)=-\frac{tan\delta}{mk_0},
+$$
+
+where \( \delta \) are the phase shifts.
+
+<p>
+</div></p>
+</div>
+</p>
+
+<p>
+<!-- --- end solution of exercise --- -->
+
+<p>
+<b>b)</b>
+Our next step consists in modifying the above program in order to include medium effects.
+Rewrite the \( T \)-matrix program by introducing a so-called angle-average Pauli operator
+and corresponding energy denominators. This results in the so-called \( G \)-matrix.
+Allow for the inclusion of single-particle self-energy contributions in the \( G \)-matrix energy denominators. Compute both the real and imaginary parts of the \( G \)-matrix and set up the self-consistency problem and compute the ground state energy per particle in the thermodynamical limit.
+
+<p>
+Compare your results with those obtained with Coupled Cluster theory
+and Green's function theory with a cartesian basis
+
+<p>
+<b>c)</b>
+In the final part of this project we are going to extend the formalism to finite temperature.
+Use the normalization condition of the density from the Fermi-Dirac momentum distribution 
+to calculate the chemical potential in the medium. Compute thereafter the equation of state 
+as function of temperature and discuss thermodynamical self-consistency requirements.
 
 <p>
 <!-- --- end exercise --- -->
