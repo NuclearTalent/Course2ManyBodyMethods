@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  22 JUN 2015 16:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  23 JUN 2015 16:34
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -629,7 +629,7 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 211.
  [2] [3] [4]
-<fig-proj/simplemodel.pdf, id=184, 614.295pt x 794.97pt>
+<fig-proj/simplemodel.pdf, id=175, 614.295pt x 794.97pt>
 File: fig-proj/simplemodel.pdf Graphic file (type pdf)
 
 <use fig-proj/simplemodel.pdf>
@@ -641,8 +641,7 @@ Package pdftex.def Info: fig-proj/simplemodel.pdf used on input line 398.
                    p
 l.416 \subex
             {a)}
-? s
-OK, entering \scrollmode...
+? 
 
 ! Package calc Error: `p' invalid at this point.
 
@@ -652,42 +651,32 @@ Type  H <return>  for immediate help.
                                                   
 l.416 \subex
             {a)}
-I expected to see one of: + - * / )
-
+? 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
 l.416 \subex
             {a)}
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
+? 
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
 l.416 \subex
             {a)}
-I was expecting to see `<', `=', or `>'. Didn't.
-
+? 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
 l.416 \subex
             {a)}
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
+? 
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
 l.416 \subex
             {a)}
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
+? s
+OK, entering \scrollmode...
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
@@ -1488,7 +1477,7 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-<fig-proj/diagrams.pdf, id=231, 692.5875pt x 498.86375pt>
+<fig-proj/diagrams.pdf, id=223, 692.5875pt x 498.86375pt>
 File: fig-proj/diagrams.pdf Graphic file (type pdf)
 
 <use fig-proj/diagrams.pdf>
@@ -1827,28 +1816,28 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-<fig-proj/fourthorder1p1h.png, id=232, 443.6575pt x 129.48375pt>
+<fig-proj/fourthorder1p1h.png, id=224, 443.6575pt x 129.48375pt>
 File: fig-proj/fourthorder1p1h.png Graphic file (type png)
 
 <use fig-proj/fourthorder1p1h.png>
 Package pdftex.def Info: fig-proj/fourthorder1p1h.png used on input line 634.
 (pdftex.def)             Requested size: 207.0021pt x 60.41281pt.
  [10 <./fig-proj/diagrams.pdf>]
-<fig-proj/fourthorder2p2h.png, id=251, 442.65375pt x 216.81pt>
+<fig-proj/fourthorder2p2h.png, id=243, 442.65375pt x 216.81pt>
 File: fig-proj/fourthorder2p2h.png Graphic file (type png)
 
 <use fig-proj/fourthorder2p2h.png>
 Package pdftex.def Info: fig-proj/fourthorder2p2h.png used on input line 644.
 (pdftex.def)             Requested size: 207.0021pt x 101.39124pt.
 
-<fig-proj/fourthorder3p3h.png, id=252, 449.68pt x 515.9275pt>
+<fig-proj/fourthorder3p3h.png, id=244, 449.68pt x 515.9275pt>
 File: fig-proj/fourthorder3p3h.png Graphic file (type png)
 
 <use fig-proj/fourthorder3p3h.png>
 Package pdftex.def Info: fig-proj/fourthorder3p3h.png used on input line 654.
 (pdftex.def)             Requested size: 207.0021pt x 237.49484pt.
 
-<fig-proj/fourthorder4p4h.png, id=253, 437.635pt x 206.7725pt>
+<fig-proj/fourthorder4p4h.png, id=245, 437.635pt x 206.7725pt>
 File: fig-proj/fourthorder4p4h.png Graphic file (type png)
 
 <use fig-proj/fourthorder4p4h.png>
@@ -5666,14 +5655,8 @@ fig-proj/fourthorder4p4h.png
 
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1282.
 
-
-Package rerunfilecheck Warning: File `proj.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `proj.out':
-(rerunfilecheck)             Before: 64F103517D4E218B27B498B3F6B80D94;1477
-(rerunfilecheck)             After:  A590277FA8100F85DC2C6D5E99875DF5;1381.
+Package rerunfilecheck Info: File `proj.out' has not changed.
+(rerunfilecheck)             Checksum: A590277FA8100F85DC2C6D5E99875DF5;1381.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -5712,47 +5695,38 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1282.
 ### semi simple group (level 1) entered at line 409 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 9536 strings out of 493488
- 144663 string characters out of 3141326
+ 9531 strings out of 493488
+ 144604 string characters out of 3141326
  274647 words of memory out of 3000000
- 12386 multiletter control sequences out of 15000+200000
+ 12384 multiletter control sequences out of 15000+200000
  68881 words of font info for 120 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,7n,35p,767b,1315s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section*.47} has been referenced bu
-t does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.46} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.44} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/te
-xlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2012/tex
-mf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dv
-ips/lm/lm-mathex.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx10.
-pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texl
-ive/2012/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2012/t
-exmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2012/texmf-dist/f
-onts/type1/public/lm/lmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
-public/lm/lmr7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lm
-ri10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/
-texlive/2012/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/20
-12/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2012/texmf-di
-st/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2012/texmf-dist/fo
-nts/type1/public/cm-super/sfrm1000.pfb>
-Output written on proj.pdf (22 pages, 417776 bytes).
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.en
+c}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
+texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
+12/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2012/texmf-d
+ist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/local/texlive/2012/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/p
+ublic/lm/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/l
+mbx12.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmex10.pfb>
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/loca
+l/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2
+012/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2012/texmf-d
+ist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
+pe1/public/lm/lmri10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
+/lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy7.
+pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
+12/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on proj.pdf (22 pages, 417805 bytes).
 PDF statistics:
- 418 PDF objects out of 1000 (max. 8388607)
- 360 compressed objects within 4 object streams
- 102 named destinations out of 1000 (max. 500000)
- 19735 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 351 compressed objects within 4 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 19719 words of extra memory for PDF output out of 20736 (max. 10000000)
 
