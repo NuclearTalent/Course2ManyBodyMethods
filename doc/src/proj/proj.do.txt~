@@ -55,23 +55,17 @@ This exercise will allow us to start writing our first skeleton for a coupled cl
 starting point for developing the skeleton of a program for this method. The aim is to finish this part of the program during the first week.
 
 With a program which then benchmarks the simple pairing model, we will turn our attention to more realistic systems.
-Here we propose the following  paths that can be studied with either coupled cluster theory or Green's function theory. Many of the technicalities will be discussed at the lectures and the afternoon sessions during the last two weeks.
+Here we propose the following  paths that can be studied with either coupled cluster theory or Green's function theory. Many of the technicalities will be discussed at the lectures and the afternoon sessions during the last two weeks.   
 
 o Studies of nuclear matter with a cartesian basis using coupled cluster theory at the level of doubles excitations
   * During the three weeks of the course we will mainly focus on two-particle and two-hole excitations 
   * Focusing only on two-particle correlations in a finite cartesian basis, these can be compared with Brueckner-Hartree-Fock calculations in the infinite limit. The latter should represent exactly two-particle correlations to infinite order. A simple model for the nuclear force will be used.
   * For the final project the code can be extended to include particle-hole correlations as well
-o Studies of finite nuclei using coupled cluster theory at the level of doubles excitations only
-  * Here we will provide Hartree-Fock based single-particle states and two-body interactions in an uncoupled scheme.
-  * The system to be studied is that of neutrons in harmonic oscillator traps. 
-  * For the final project, one can include singles excitations as well.
 o The two above paths can be performed using Green's function as well.
   * Studies of infinite nuclear matter including two-particle and two-hole correlations using a cartesian basis.
   * Comparison of two-particle correlations from Brueckner-Hartree-Fock calculations in the infinite limit
-o Studies of finite nuclei with the Green's function method
-  * Again we will provide Hartree-Fock based single-particle states and two-body interactions in an uncoupled scheme.
-  * The system to be studied is that of neutrons in harmonic oscillator traps. 
-  * For the final project, one can include self-consistently calculated single-particle energies as well.
+If there is enough interest, we can also develop projects where Coupled Cluster theory and Green's function theories are applied to finite systems. In this case we would like to propose a simple system of neutrons in a harmonic oscillator trap since these calculations can be benchmarked agains "existing results":"http://journals.aps.org/prc/abstract/10.1103/PhysRevC.84.044306". 
+
 
 When working on the projects, we recommend strongly that you form teams of two to three participants. Every team
 _must_ have a *github account* where we can monitor your progress and give you appropriate feedback.
@@ -726,7 +720,7 @@ We note also the non-variational character of many-body perturbation theory, wit
 !esubex
 
 =====  Project: Coupled cluster calculations with doubles excitations only for the pairing model =====
-This project serves as a continuation to the pairing model with the aim being to solve the same problem but now by developing
+This project serves as a continuation of the pairing model with the aim being to solve the same problem but now by developing
 a program that implements the coupled cluster method with double excitations only. In doing so you will find it convenient to write 
 classes which define the single-particle basis and the Hamiltonian. Your functions that solve the coupled cluster equations will then just need to set up variables which point to interaction elements and single-particle states with their pertinent quantum numbers. Use for example the setup discussed in the FCI lectures for the pairing model. 
 !bsubex
@@ -739,33 +733,7 @@ Set up the coupled cluster equations for doubles excitations and convince yourse
 Write a class which holds single-particle data like specific quantum numbers, single-particle Hamiltonian etc. Write also a class which sets up and stores two-body matrix elements defined by the single-particle states.  Write thereafter functions/classes which implement the coupled cluster method with doubles only.
 !esubex
 !bsubex
-Compare your results with those from the exact diagonalization with and without the $4p4h$ excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results.
-!esubex
-=====  Project: Coupled cluster calculations with doubles excitations only for infinite nuclear matter =====
-!bsubex
-Explain why we don't have single excitations in infinite matter.
-!esubex
-!bsubex
-Set up the relavent quantum numbers for a cartesian basis with plane waves in three dimensions. Make the according changes to the code you developed in connection with the pairing model. Implement periodic boundary conditions. 
-!esubex
-!bsubex
-Replace the two-body interaction from the pairing model with the Minnesota potential model (to be inserted here later).
-!esubex
-!bsubex
-Use the program you developed in connection with the pairing model to perform coupled cluster calculations in infinite matter with doubles excitations.
-Perform coupled cluster calculations for infinite nuclear matter with the Minnesota interaction for different particle numbers (to be inserted later).
-Limit yourself to two-particle and two-hole intermediate excitations only.
-!esubex
-!bsubex
-Compare the two-particle only excitations with a finite number of particles with results obtained with Brueckner-Hartree-Fock calculations in the thermodynamic limit. Comment your results
-!esubex
-!bsubex
-The final challenge is to include particle-hole excitations and compare the results with those from Diffusion Monte Carlo calculations (insert ref here).
-This part can be included in the final project.
-!esubex
-=====  Project: Coupled cluster calculations with doubles excitations only for finite nuclei =====
-!bsubex
-Add material here
+Compare your results with those from the exact diagonalization with and without the $4p4h$ excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results.  If other students are solving the same problem using Green's function theory, you can also compare your results with those obtained from Green's function theory. The aim is to finalize this part during the first week. The codes you will develop can be used as a starting point for the second part of the project. In the second part you can focus on either infinite nuclear matter in a cartesian basis or finite nuclei.
 !esubex
 
 =====  Project: Green's function calculations with doubles excitations only for the pairing model =====
@@ -779,10 +747,15 @@ Set up the Green's function equations for doubles excitations and convince yours
 Write a class which holds single-particle data like specific quantum numbers, single-particle Hamiltonian etc. Write also a class which sets up and stores two-body matrix elements defined by the single-particle states.  Write thereafter functions/classes which implement the Green's function method with doubles only.
 !esubex
 !bsubex
-Compare your results with those from the exact diagonalization with and without the $4p4h$ excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other groups are solving the same problem with the coupled cluster method, discuss these results as well.
+Compare your results with those from the exact diagonalization with and without the $4p4h$ excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other groups are solving the same problem with the coupled cluster method, discuss these results as well. The aim is to finalize this part during the first week. The codes you will develop can be used as a starting point for the second part of the project. In the second part you can focus on either infinite nuclear matter in a cartesian basis or finite nuclei.
 !esubex
 
-=====  Project: Green's function calculations with doubles excitations only for infinite nuclear matter =====
+
+
+
+=====  Project: Coupled cluster calculations with doubles excitations only for infinite nuclear matter =====
+This project forms one possible final path for the remaining two weeks. It can also be extended in order to define the final project.  You should be able to use the program you developed in connection with the 
+solution of the pairing model.
 !bsubex
 Explain why we don't have single excitations in infinite matter.
 !esubex
@@ -790,27 +763,50 @@ Explain why we don't have single excitations in infinite matter.
 Set up the relavent quantum numbers for a cartesian basis with plane waves in three dimensions. Make the according changes to the code you developed in connection with the pairing model. Implement periodic boundary conditions. 
 !esubex
 !bsubex
-Replace the two-body interaction from the pairing model with the Minnesota potential model (to be inserted here later).
+Replace the two-body interaction from the pairing model with the Minnesota potential model discussed during the "lectures":"https://github.com/NuclearTalent/Course2ManyBodyMethods/blob/master/doc/pub/cc/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf". 
 !esubex
 !bsubex
-Use the program you developed in connection with the pairing model to perform Green's function calculations in infinite matter with doubles excitations.
-Perform Green's function calculations for infinite nuclear matter with the Minnesota interaction for different particle numbers (to be inserted later).
+Use the program you developed in connection with the pairing model to perform coupled cluster calculations in infinite matter with doubles excitations.
+Perform coupled cluster calculations for infinite nuclear matter with the Minnesota interaction for different particle numbers (to be inserted later).
 Limit yourself to two-particle and two-hole intermediate excitations only.
 !esubex
 !bsubex
 Compare the two-particle only excitations with a finite number of particles with results obtained with Brueckner-Hartree-Fock calculations in the thermodynamic limit. Comment your results
 !esubex
-
-=====  Project: Green's function calculations with doubles excitations only for finite nuclei =====
 !bsubex
-Add material here
+
+The final challenge is to include particle-hole excitations and
+compare the results with those from Diffusion Monte Carlo calculations
+discussed during the "lectures":"https://github.com/NuclearTalent/Course2ManyBodyMethods/blob/master/doc/pub/cc/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf".
+This part can be included in the final project.  
 !esubex
 
+
+=====  Project: Green's function calculations with doubles excitations only for infinite nuclear matter =====
+This project forms one possible final path for the remaining two weeks. It can also be extended in order to define the final project.  You should be able to use the program you developed in connection with the 
+solution of the pairing model.
+!bsubex
+Explain why we don't have single excitations in infinite matter.
+!esubex
+!bsubex
+Set up the relavent quantum numbers for a cartesian basis with plane waves in three dimensions. Make the according changes to the code you developed in connection with the pairing model. Implement periodic boundary conditions. 
+!esubex
+!bsubex
+Replace the two-body interaction from the pairing model with the Minnesota potential model discussed during the "lectures":"https://github.com/NuclearTalent/Course2ManyBodyMethods/blob/master/doc/pub/cc/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf". 
+!esubex
+!bsubex
+Use the program you developed in connection with the pairing model to perform Green's function calculations in infinite matter with doubles excitations.
+Perform Green's function calculations for infinite nuclear matter with the Minnesota interaction for different particle numbers 
+Limit yourself to two-particle and two-hole intermediate excitations only.
+!esubex
+!bsubex
+Compare the two-particle only excitations with a finite number of particles with results obtained with Brueckner-Hartree-Fock calculations in the thermodynamic limit. Comment your results.
+!esubex
 
 
 =====  Project: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter =====
 !bsubex 
-We will use first the simple Minnesota model (defined in $r$-space) which will be used for comparisons with the Coupled cluster and Green's function calculations. The first part deals with setting up the real and imaginary part of $T$-matrix in free space using a partial wave decomposition. You will need to define integration points and weights in momentum space and treat properly the poles which arise. With a working program, compute the relevant phase shifts. Extract also the scattering lengths for $s$ waves (orbital momentum $l=0$).  
+We will use  the simple Minnesota model discussed during the "lectures":"https://github.com/NuclearTalent/Course2ManyBodyMethods/blob/master/doc/pub/cc/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf". This will allow us to make detailed comparisons  with the Coupled cluster and the Green's function calculations. The first part deals with setting up the real and imaginary part of $T$-matrix in free space using a partial wave decomposition. You will need to define integration points and weights in momentum space and treat properly the poles which arise. With a working program, compute the relevant phase shifts. Extract also the scattering lengths for $s$ waves (orbital momentum $l=0$).  
 
 !bsol
 For scattering states, the energy is positive, $E>0$. 
@@ -1040,10 +1036,6 @@ to calculate the chemical potential in the medium. Compute thereafter the equati
 as function of temperature and discuss thermodynamical self-consistency requirements. 
 
 !esubex
-
-
-
-
 
 
 
