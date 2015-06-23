@@ -147,6 +147,11 @@ formulas in HTML or ipython notebook files.
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/pdf/secondquant-print.pdf" target="_self">Standard one-page format</a></li>
 </ul>
 
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/pdf/WimDickhofPreparatory.pdf" target="_self">Wim Dickhoff's preparatory material</a></li>
+</ul>
+
+
  <li> HTML:</li>
 
 <ul>
@@ -264,8 +269,23 @@ formulas in HTML or ipython notebook files.
  <li> LaTeX PDF for printing/viewing:</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/cc-print.pdf" target="_self">Standard one-page format</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/cc-print.pdf" target="_self">Morten Hjorth-jensen's first lecture</a></li>
 </ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/Lecture3_TALENT_Ab-Initio+3NFs_GH.pdf" target="_self">Gaute Hagen's lecture 3</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/Lecture4_TALENT_CCEI_GH.pdf" target="_self">Gaute Hagen's lecture 4</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/pdf/Lecture5_TALENT_OQS_Reactions_GH.pdf" target="_self">Gaute Hagen's lecture 5</a></li>
+</ul>
+
+
 
  <li> HTML:</li>
 
@@ -282,27 +302,39 @@ formulas in HTML or ipython notebook files.
 
 </ul>
 
-<h2 id="___sec8">Greens function theory </h2>
+<h2 id="___sec8">Green's function theory </h2>
 
 <ul>
  <li> LaTeX PDF for printing/viewing:</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/gf-print.pdf" target="_self">Standard one-page format</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlobg.pdf" target="_self">Carlo Barbieri's background material</a></li>
 </ul>
 
- <li> HTML:</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/html/gf.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/html/gf-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo1.pdf" target="_self">Carlo Barbieri's first lecture</a></li>
 </ul>
-
- <li> iPython notebook (useful for running codes interactively):</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/ipynb/gf.ipynb" target="_self">ipynb file</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo2.pdf" target="_self">Carlo Barbieri's second lecture</a></li>
 </ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo3.pdf" target="_self">Carlo Barbieri's third lecture</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo4.pdf" target="_self">Carlo Barbieri's fourth lecture</a></li>
+</ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/gf/pdf/carlo5.pdf" target="_self">Carlo Barbieri's fifth lecture</a></li>
+</ul>
+
 
 </ul>
 
@@ -312,8 +344,30 @@ formulas in HTML or ipython notebook files.
  <li> LaTeX PDF for printing/viewing:</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/inf-print.pdf" target="_self">Standard one-page format</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/inf-print.pdf" target="_self">Morten Hjorth-Jensen's background material on infinite systems</a></li>
 </ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf" target="_self">Gaute Hagen's first and second lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur1.pdf" target="_self">Artur Polls' first lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur2.pdf" target="_self">Artur Polls' second lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur3.pdf" target="_self">Artur Polls' third lecture</a></li>
+</ul>
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/pdf/artur4.pdf" target="_self">Artur Polls' fourth lecture</a></li>
+</ul>
+
+
 
  <li> HTML:</li>
 
@@ -330,27 +384,28 @@ formulas in HTML or ipython notebook files.
 
 </ul>
 
-<h2 id="___sec10">Dispersive optical model </h2>
+<h2 id="___sec10">Dispersive optical model and correlations and experiment</h2>
 
 <ul>
  <li> LaTeX PDF for printing/viewing:</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/dom-print.pdf" target="_self">Standard one-page format</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim1.pdf" target="_self">Wim Dickhoff's first lecture</a></li>
 </ul>
-
- <li> HTML:</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/html/dom.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/html/dom-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim2.pdf" target="_self">Wim Dickhoff's second lecture</a></li>
 </ul>
-
- <li> iPython notebook (useful for running codes interactively):</li>
 
 <ul>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/ipynb/dom.ipynb" target="_self">ipynb file</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim3.pdf" target="_self">Wim Dickhoff's third lecture</a></li>
 </ul>
+
+
+<ul>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/dom/pdf/wim4.pdf" target="_self">Wim Dickhoff's fourth lecture</a></li>
+</ul>
+
 
 </ul>
 
