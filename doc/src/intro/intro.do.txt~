@@ -65,7 +65,7 @@ information about correlations in nuclear systems. In particular, we will start 
 
 
 With a mean- or average-field picture we mean that a given nucleon (either a proton or a neutron) moves in an average potential field which is set up by all other nucleons in the system. Consider for example a nucleus like $\,{}^{17}\mbox{O}$ with nine neutrons and eight protons. Many properties  of this nucleus can be interpreted in terms of a picture where we can view it as
-one neutron on top of $\,{}^{16}\mbox{O}$. We infer from data and our theoretical interpretations that this additional neutron behaves almost as an individual neutron which *sees* an average interaction set up by the remaining 16 nucleons in   $\,{}^{16}\mbox{O}$. A nucleus like $\,{}^{16}\mbox{O}$ is an example of what we in this course will denote as a good closed-shell nucleus. We will come back to what this means later.
+one neutron on top of $\,{}^{16}\mbox{O}$. We infer from data and our theoretical interpretations that this additional neutron behaves almost as an individual neutron which *sees* an average interaction set up by the remaining 16 nucleons in   $\,{}^{16}\mbox{O}$. A nucleus like $\,{}^{16}\mbox{O}$ is an example of what we in these lectures will denote as a good closed-shell nucleus. We will come back to what this means later.
 
 Since we want to develop a theory capable of interpreting data in terms of our laws of motion and the pertinent forces,
 we can think of this neutron as a particle which moves in a potential field. We can hence attempt at solving our equations of motion (Schroedinger's equation in our case) for this system along the same lines as we did in atomic physics when we solved Schroedinger's equation for the hydrogen atom. We just need to define a model for our effective single-particle potential. 
@@ -88,10 +88,10 @@ An important difference between these methods and the simpler parametrized mean-
  
 The aim of this section is to present some of the experimental data we will confront theory with. In particular, we will focus on separation and shell-gap energies and use these to build a picture of nuclei in terms of (from a philosophical stand we would call this  a reductionist approach) a single-particle picture. The harmonic oscillator will serve as an excellent starting point in building nuclei from the bottom and up. Here we will neglect nuclear forces, these are introduced in the next section when we discuss the Hartree-Fock method. 
 
-The aim of this course is to develop our physics intuition of nuclear systems using  a theoretical approach  where we describe data in terms of 
+The aim of these lectures is to develop our physics intuition of nuclear systems using  a theoretical approach  where we describe data in terms of 
 the motion of individual nucleons and their mutual interactions. 
 
-_How our theoretical pictures and models can be used to interpret data is in essence what this course is about_. Our narrative will lead us along a path where we start with single-particle models and end with the theory of the nuclear shell-model. The latter will be used to understand and analyze excitation spectra and decay patterns of nuclei, linking our theoretical understanding with interpretations of experiment. The way we build up our theoretical descriptions and interpretations follows what we may call a standard reductionistic approach, that is we start with what we believe are our effective degrees of freedom (nucleons in our case) and interactions amongst these and solve thereafter the underlying equations of motions. This defines the nuclear many-body problem, and mean-field approaches like Hartree-Fock theory and the nuclear shell-model represent different approaches to our solutions of Schroedinger's equation. 
+_How our theoretical pictures and models can be used to interpret data is in essence what these lectures is about_. Our narrative will lead us along a path where we start with single-particle models and end with the theory of the nuclear shell-model. The latter will be used to understand and analyze excitation spectra and decay patterns of nuclei, linking our theoretical understanding with interpretations of experiment. The way we build up our theoretical descriptions and interpretations follows what we may call a standard reductionistic approach, that is we start with what we believe are our effective degrees of freedom (nucleons in our case) and interactions amongst these and solve thereafter the underlying equations of motions. This defines the nuclear many-body problem, and mean-field approaches like Hartree-Fock theory and the nuclear shell-model represent different approaches to our solutions of Schroedinger's equation. 
 
 
 
@@ -142,7 +142,7 @@ where $u$ is the Atomic Mass Unit
 u = M(^{12}\mathrm{C})/12 = 931.49386 \hspace{0.1cm} \mathrm{MeV}/c^2.
 \]
 !et
-In this course we will mainly use 
+Here we will mainly use 
 data from the 2003 compilation of "Audi, Wapstra and Thibault":"http://www.sciencedirect.com/science/journal/03759474/729/1".
 
 
@@ -651,7 +651,7 @@ E_\lambda  \Psi_\lambda(x_1, x_2, \dots , x_A), label{eq:basicSE1}
 \end{equation}
 !et
 where the vector $x_i$ represents the coordinates (spatial, spin and isospin) of particle $i$, $\lambda$ stands  for all the quantum
-numbers needed to classify a given $A$-particle state and $\Psi_{\lambda}$ is the pertaining eigenfunction.  Throughout this course,
+numbers needed to classify a given $A$-particle state and $\Psi_{\lambda}$ is the pertaining eigenfunction.  Throughout these notes,
 $\Psi$ refers to the exact eigenfunction, unless otherwise stated.
 
 
