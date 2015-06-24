@@ -1058,24 +1058,20 @@ Use the above classes to solve the ADC(2) euqatoions in the following three step
 <ul>
  <li> write the ADC(2) Dyson matrix</li>
  <li> diagonalise it (with a Lapack or an eigensolver of your choice)</li>
+ <li> normalize the eigenvalues, separate them in hole and particle states, and store them in a new propagator object.</li>
 </ul>
 
- *normalize the eigenvalues, separate them in hole and particle states, and store them in a new propagator object.
-
-<p>
 <b>f)</b>
 Now you can use your ADC(2) code to have some fun:
 
-<ol>
- <li> Plot the spectral functions for the HF (reference) propagator and the final (dressed) result. Compare them. This is the most fun part&#8230;  otherwise why should you write a SCGF code for?</li>
-</ol>
+<ul>
+  <li> Plot the spectral functions for the HF (reference) propagator and the final (dressed) result. Compare them. This is the most fun part&#8230;  otherwise why should you write a SCGF code for?</li>
+  <li> Use your solution (the dressed propagator) to recalculate the first order diagram and and implement a partial 
+     self-consistency loop. See what changes.</li>
+  <li> Use the Koltun sum rule to calculate the binding energy and compare your results with those from the exact diagonalization with and without the 4p4h excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other students are solving the same problem using CCD theory, you can also compare your results with theirs.</li>
+  <li> How do your results change by increasing the coupling \( g \)? When is ADC(2)  breaking down for this particular model?</li>
+</ul>
 
- s o Use your solution (the dressed propagator) to recalculate the first order diagram and and implement a partial 
-     self-consistency loop. See what changes.
- <li> Use the Koltun sum rule to calculate the binding energy and compare your results with those from the exact diagonalization with and without the 4p4h excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other students are solving the same problem using CCD theory, you can also compare your results with theirs.</li>
- <li> How do your results change my increasing the coupling 'g'? When is ADC(2)  breaking down for this particular model?
-
-<p>
  The aim is to finalize this part, up to point e), during the first week. The codes you will develop can be used as a starting point for the second part of the project. In the second part we will focus on infinite matter.
 
 <p>
@@ -1139,7 +1135,7 @@ Explain why we don't have single excitations in infinite matter.
 
 <p>
 <b>b)</b>
-Set up the relavent quantum numbers for your problem:</li>
+Set up the relavent quantum numbers for your problem:
 
 <ol>
  <li> For FN:  use and harmonic oscillator basis in m-scheme</li>

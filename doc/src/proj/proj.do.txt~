@@ -795,7 +795,7 @@ Now you can use your ADC(2) code to have some fun:
 
 
  The aim is to finalize this part, up to point e), during the first week. The codes you will develop can be used as a starting point for the second part of the project. In the second part we will focus on infinite matter.
-
+!esubex
 
 
 =====  Project: Coupled cluster calculations with doubles excitations only for infinite nuclear matter =====
