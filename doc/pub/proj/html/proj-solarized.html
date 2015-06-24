@@ -61,7 +61,7 @@ $(function () {
                2,
                None,
                '___sec5'),
-              (" Project 3: Green's function calculations with two-particle and two-hole correlations only for the pairing model ",
+              (" Project 3: Green's function calculations with a second order self-energy for the pairing model ",
                2,
                None,
                '___sec6'),
@@ -69,7 +69,7 @@ $(function () {
                2,
                None,
                '___sec7'),
-              (" Project 5: Green's function calculations with two-particle and two-hole correlations only for infinite nuclear matter ",
+              (" Project 5: Green's function calculations for finite nuclei and infinite nuclear matter ",
                2,
                None,
                '___sec8'),
@@ -127,9 +127,9 @@ MathJax.Hub.Config({
 <a href="#___sec3">  The pairing model as warm-up problem </a><br>
 <a href="#___sec4"> Exercise 1: Pairing Hamiltonian </a><br>
 <a href="#___sec5"> Project 2: Coupled cluster calculations with doubles excitations only for the pairing model </a><br>
-<a href="#___sec6"> Project 3: Green's function calculations with two-particle and two-hole correlations only for the pairing model </a><br>
+<a href="#___sec6"> Project 3: Green's function calculations with a second order self-energy for the pairing model </a><br>
 <a href="#___sec7"> Project 4: Coupled cluster calculations with doubles excitations only for infinite nuclear matter </a><br>
-<a href="#___sec8"> Project 5: Green's function calculations with two-particle and two-hole correlations only for infinite nuclear matter </a><br>
+<a href="#___sec8"> Project 5: Green's function calculations for finite nuclei and infinite nuclear matter </a><br>
 <a href="#___sec9"> Project 6: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter </a><br>
 </p>
 
@@ -928,9 +928,16 @@ We note also the non-variational character of many-body perturbation theory, wit
 <h2 id="___sec5">Project 2: Coupled cluster calculations with doubles excitations only for the pairing model </h2>
 
 <p>
-This project serves as a continuation of the pairing model with the aim being to solve the same problem but now by developing
-a program that implements the coupled cluster method with double excitations only. In doing so you will find it convenient to write 
-classes which define the single-particle basis and the Hamiltonian. Your functions that solve the coupled cluster equations will then just need to set up variables which point to interaction elements and single-particle states with their pertinent quantum numbers. Use for example the setup discussed in the FCI lectures for the pairing model.
+This project serves as a continuation
+of the pairing model with the aim being to solve the same problem but
+now by developing a program that implements the coupled cluster method
+with double excitations only. In doing so you will find it convenient
+to write classes which define the single-particle basis and the
+Hamiltonian. Your functions that solve the coupled cluster equations
+will then just need to set up variables which point to interaction
+elements and single-particle states with their pertinent quantum
+numbers. Use for example the setup discussed in the FCI lectures for
+the pairing model.
 
 <p>
 <b>a)</b>
@@ -938,15 +945,29 @@ Explain why no single excitations are involved in this model.
 
 <p>
 <b>b)</b>
-Set up the coupled cluster equations for doubles excitations and convince yourself about their meaning and correctness.
+Set up the coupled cluster equations for doubles excitations and convince yourself about their
+meaning and correctness.
 
 <p>
 <b>c)</b>
-Write a class which holds single-particle data like specific quantum numbers, single-particle Hamiltonian etc. Write also a class which sets up and stores two-body matrix elements defined by the single-particle states.  Write thereafter functions/classes which implement the coupled cluster method with doubles only.
+Write a class which holds
+single-particle data like specific quantum numbers, single-particle
+Hamiltonian etc. Write also a class which sets up and stores two-body
+matrix elements defined by the single-particle states.  Write
+thereafter functions/classes which implement the coupled cluster
+method with doubles only.
 
 <p>
 <b>d)</b>
-Compare your results with those from the exact diagonalization with and without the \( 4p4h \) excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results.  If other students are solving the same problem using Green's function theory, you can also compare your results with those obtained from Green's function theory. The aim is to finalize this part during the first week. The codes you will develop can be used as a starting point for the second part of the project. In the second part you can focus on either infinite nuclear matter in a cartesian basis or finite nuclei.
+Compare your results with
+those from the exact diagonalization with and without the \( 4p4h \)
+excitation. Compare also your results to perturbation theory at
+different orders, in particular to second order. Discuss your results.
+If other students are solving the same problem using Green's function
+theory, you can also compare your results with those obtained from
+Green's function theory. The aim is to finalize this part during the
+first week. The codes you will develop can be used as a starting point
+for the second part of the project.
 
 <p>
 <!-- --- end exercise --- -->
@@ -954,23 +975,55 @@ Compare your results with those from the exact diagonalization with and without 
 <p>
 <!-- --- begin exercise --- -->
 
-<h2 id="___sec6">Project 3: Green's function calculations with two-particle and two-hole correlations only for the pairing model </h2>
+<h2 id="___sec6">Project 3: Green's function calculations with a second order self-energy for the pairing model </h2>
+
+<p>
+This project serves as a continuation of the pairing model with the aim being to solve the same problem but now by developing a program that implements the self-consistent Green's function method with a second order self energy. This is what is called the ADC(2) approximation scheme. In doing so you will find it convenient to write classes which define the single-particle basis and the Hamiltonian. One more, important, class will be needed to store the one-body propagator. Your functions that solve the ADC(3) will then just need to set up variables which point to interaction elements, single-particle states and Dyson states with their pertinent quantum numbers. Use for example the setup discussed in the FCI lectures for the pairing model.
 
 <p>
 <b>a)</b>
-Explain why no single excitations are involved in this model.
+Write the diagrams for the self-energy at first and second order, using the Lehman representation for the latter and HF reference state. Write the first order diagrams also in terms of a fully dressed propagator.
 
 <p>
 <b>b)</b>
-Set up the Green's function equations for two-particle and two-hole correlations and convince yourself about their meaning and correctness.
+Set up the Dyson-ADC(2) equations and convince yourself about their meaning and correctness.
 
 <p>
 <b>c)</b>
-Write a class which holds single-particle data like specific quantum numbers, single-particle Hamiltonian etc. Write also a class which sets up and stores two-body matrix elements defined by the single-particle states.  Write thereafter functions/classes which implement the Green's function method with two-particle and two-hole correlations only.
+Write a class that holds the one-body propagator in Lehman representation. In this, the Dyson orbits (or overlap functions) are expanded in terms of the basis exactly as for the HF equations above. However, you will need to handle
+a much larger number of orbits and their respective energies. You will also need to store particle and hole orbits separately. 
+ Using the results of your HF calculations above, build a simple HF propagator. This will be your reference state.
 
 <p>
 <b>d)</b>
-Compare your results with those from the exact diagonalization with and without the \( 4p4h \) excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other groups are solving the same problem with the coupled cluster method, discuss these results as well. The aim is to finalize this part during the first week. The codes you will develop can be used as a starting point for the second part of the project. In the second part you can focus on either infinite nuclear matter in a cartesian basis or finite nuclei.
+Write a class which holds single-particle data like specific quantum numbers, single-particle Hamiltonian etc. Write also a class which sets up and stores two-body matrix elements defined by the single-particle states.
+
+<p>
+<b>e)</b>
+Use the above classes to solve the ADC(2) euqatoions in the following three steps:
+
+<ul>
+ <li> write the ADC(2) Dyson matrix</li>
+ <li> diagonalise it (with a Lapack or an eigensolver of your choice)</li>
+</ul>
+
+ *normalize the eigenvalues, separate them in hole and particle states, and store them in a new propagator object.
+
+<p>
+<b>f)</b>
+Now you can use your ADC(2) code to have some fun:
+
+<ol>
+ <li> Plot the spectral functions for the HF (reference) propagator and the final (dressed) result. Compare them. This is the most fun part&#8230;  otherwise why should you write a SCGF code for?</li>
+</ol>
+
+ s o Use your solution (the dressed propagator) to recalculate the first order diagram and and implement a partial 
+     self-consistency loop. See what changes.
+ <li> Use the Koltun sum rule to calculate the binding energy and compare your results with those from the exact diagonalization with and without the 4p4h excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other students are solving the same problem using CCD theory, you can also compare your results with theirs.</li>
+ <li> How do your results change my increasing the coupling 'g'? When is ADC(2)  breaking down for this particular model?
+
+<p>
+ The aim is to finalize this part, up to point e), during the first week. The codes you will develop can be used as a starting point for the second part of the project. In the second part we will focus on infinite matter.
 
 <p>
 <!-- --- end exercise --- -->
@@ -1019,11 +1072,13 @@ This part can be included in the final project.
 <p>
 <!-- --- begin exercise --- -->
 
-<h2 id="___sec8">Project 5: Green's function calculations with two-particle and two-hole correlations only for infinite nuclear matter </h2>
+<h2 id="___sec8">Project 5: Green's function calculations for finite nuclei and infinite nuclear matter </h2>
 
 <p>
-This project forms one possible final path for the remaining two weeks. It can also be extended in order to define the final project.  You should be able to use the program you developed in connection with the 
-solution of the pairing model.
+The hard work in learning how to deal with SCGF was done in Project 2. Now, we make it fancy and extend it to some more real systems rather than a simple pairing model. This can be done very similarly either for finite nuclei or for infinite nuclear matter. However, you should choose only one this two paths and focus only on that: it is already a lot of work doing one. We will do this at the ADC(2) level and toward the end of the project we will consider an extended version of it to make useful comparison with the Brueckner-HF and CCD calculations done by others.
+
+<p>
+Either of the two path of this project forms one possible final path for the remaining two weeks. It can also be extended in order to define the final project. You should be able to use the program you developed in connection with the solution of the pairing model.
 
 <p>
 <b>a)</b>
@@ -1031,21 +1086,46 @@ Explain why we don't have single excitations in infinite matter.
 
 <p>
 <b>b)</b>
-Set up the relavent quantum numbers for a cartesian basis with plane waves in three dimensions. Make the according changes to the code you developed in connection with the pairing model. Implement periodic boundary conditions.
+Set up the relavent quantum numbers for your problem:</li>
+
+<ol>
+ <li> For FN:  use and harmonic oscillator basis in m-scheme</li>
+ <li> for INM: use a cartesian basis with plane waves in three dimensions and implement periodic boundary conditions.</li>
+</ol>
+
+In both cases, make the according changes to the code you developed in connection with the pairing model.
 
 <p>
 <b>c)</b>
-Replace the two-body interaction from the pairing model with the Minnesota potential model discussed during the <a href="https://github.com/NuclearTalent/Course2ManyBodyMethods/blob/master/doc/pub/cc/pdf/Lectures1-2_TALENT_NuclearMatter_GH.pdf" target="_blank">lectures</a>.
+Replace the two-body interaction from the pairing model with the Minnesota potential model discussed during the lectures (functions for matrix elements in harmonic oscillator basis will be provided).
 
 <p>
 <b>d)</b>
-Use the program you developed in connection with the pairing model to perform Green's function calculations in infinite matter with two-particle and two-hole correlations.
-Perform Green's function calculations for infinite nuclear matter with the Minnesota interaction for different particle numbers 
-Limit yourself to two-particle and two-hole intermediate excitations only.
+Use the program you developed in connection with the pairing model to perform SCGF calculations at second order. Perform calculations with the Minnesota interaction as follows:
+
+<ol>
+ <li> for finite nuclei chose closed shell systems (He4, C12, O16)</li>  
+</ol>
+
+  ofor infinite nuclear matter chose different particle numbers (to be inserted later).
+
+<p>
+At this point, limit yourself to the ADC(2) scheme only.
 
 <p>
 <b>e)</b>
-Compare the two-particle only excitations with a finite number of particles with results obtained with Brueckner-Hartree-Fock calculations in the thermodynamic limit. Comment your results.
+Add the two-particle interactions to the 2p1h sector of the Dyson-ADC(2) matrix and suppress the 2h1p sector: this
+should lead you to an approximation equivalent to the Brueckner-Hartree-Fock scheme. Compare your results obtained with
+those obetain in CCD with only twp-particle intermediate excitations. If you are doing infinite matter, compare to the  Brueckner-Hartree-Fock calculations in the thermodynamic limit (from project 6). Comment your results.
+
+<p>
+<b>f)</b>
+The final challenge is to keep both the 2p1h and the 2h1p sectors and fill the ADC(n) matrix with all the two-particle, the two-hole, and the particle-hole interactions.  This last change results in the so called 'Extended ADC(2)' approximation scheme. Investigate the effects that pp, hh and ph correlations. 
+This part can be included in the final project. And if you already got all the way to point e), this last part should be a relatively easy improvement to make!
+
+<p>
+<b>g)</b>
+Are you felling particularly ambitious? One can further modify the code by adding the missing 3rd order terms to the couplings between the single particle sector and the 2p1h/2h1p sectors. This will give you a full blown ADC(3) calculation. Study the effects of this last change on the energy of the main quasiparticle peaks&#8230;  chemist need this to obtain correct ionization potentials and affinities.
 
 <p>
 <!-- --- end exercise --- -->
