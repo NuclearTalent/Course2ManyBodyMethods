@@ -49,31 +49,31 @@ $(function () {
 
 <!-- tocinfo
 {'highest level': 2,
- 'sections': [(' Plan for the Talent course ', 2, None, '___sec0'),
-              ('  Outline of the project(s) ', 2, None, '___sec1'),
-              (' Some basic ingredients for a successful numerical project ',
+ 'sections': [('Plan for the Talent course', 2, None, '___sec0'),
+              ('Outline of the project(s)', 2, None, '___sec1'),
+              ('Some basic ingredients for a successful numerical project',
                2,
                None,
                '___sec2'),
-              ('  The pairing model as warm-up problem ', 2, None, '___sec3'),
-              (' Exercise 1: Pairing Hamiltonian ', 2, None, '___sec4'),
-              (' Project 2: Coupled cluster calculations with doubles excitations only for the pairing model ',
+              ('The pairing model as warm-up problem', 2, None, '___sec3'),
+              ('Exercise 1: Pairing Hamiltonian', 2, None, '___sec4'),
+              ('Project 2: Coupled cluster calculations with doubles excitations only for the pairing model',
                2,
                None,
                '___sec5'),
-              (" Project 3: Green's function calculations with a second order self-energy for the pairing model ",
+              ("Project 3: Green's function calculations with a second order self-energy for the pairing model",
                2,
                None,
                '___sec6'),
-              (' Project 4: Coupled cluster calculations with doubles excitations only for infinite nuclear matter ',
+              ('Project 4: Coupled cluster calculations with doubles excitations only for infinite nuclear matter',
                2,
                None,
                '___sec7'),
-              (" Project 5: Green's function calculations for finite nuclei and infinite nuclear matter ",
+              ("Project 5: Green's function calculations for finite nuclei and infinite nuclear matter",
                2,
                None,
                '___sec8'),
-              (' Project 6: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter ',
+              ('Project 6: Brueckner-Hartree-Fock calculations for infinite nuclear and neutron matter',
                2,
                None,
                '___sec9')]}
@@ -135,7 +135,7 @@ MathJax.Hub.Config({
 
 <h2 id="___sec0">Plan for the Talent course </h2>
 An essential element of the Talent courses is to develop a large project(s) which allows you to study and understand
-theoretical concepts in nuclear physics.  
+theoretical concepts in nuclear physics.
 These concepts will in turn allow you to interpret results from experiments and understand the pertinent physics in terms of the underlying forces and laws of motion.
 
 <p>
@@ -149,7 +149,7 @@ hope is that the lectures and the computational projects will together
 allow you to achieve these goals. For those of you who would like to
 get credits to be transferred to your home university, the project(s)
 can be extended upon allowing you to include further elements to the
-many-body methods. The load of the final project is estimated to be 
+many-body methods. The load of the final project is estimated to be
 80 hours. In total, attendence at the course and doing
 the final project amounts to seven ECTS. There is no credit transfer
 for Northern-American students.
@@ -163,39 +163,39 @@ we will focus on two widely used many-body methods, coupled cluster
 theory with its various approximations and Green's function theory.
 
 <p>
-Before we begin, we would however like to present a warm-up problem which 
+Before we begin, we would however like to present a warm-up problem which
 contains
-many of the basic elements of the many-body methods exposed in this course. Furthermore, the simple pairing 
-model described below, provides us with  benchmark results to which we can compare 
+many of the basic elements of the many-body methods exposed in this course. Furthermore, the simple pairing
+model described below, provides us with  benchmark results to which we can compare
 the different many-body methods. The basic elements of the model (single-particle basis and Hamiltonian)
-can easily be (if structured properly in your program) extended to studies of more realistic systems, either 
+can easily be (if structured properly in your program) extended to studies of more realistic systems, either
 finite systems like nuclei or infinite nuclear matter.
 
 <p>
-The first part of the project is a traditional paper and pencil part, where the aim is to 
+The first part of the project is a traditional paper and pencil part, where the aim is to
 apply second quantization in order to set up the Hamiltonian matrix to be diagonalized.
 We will study this model the first two afternoons of the school.
 
 <p>
 At most, with four particles in four doubly degenerate single particle states and no broken pairs,
 you will have a \( 6 \times 6 \) Hamiltonian matrix to diagonalize. Below, you will find a simple python program
-which performs the diagonalization and plots the eigenvalues. Parts of this warm-up exercise are solved below. 
+which performs the diagonalization and plots the eigenvalues. Parts of this warm-up exercise are solved below.
 These aspects will be discussed partly during the lectures but also during some of the afternoon sessions.
 Practical guidelines for code writing will also be discussed.
 
 <p>
-This exercise will allow us to start writing our first skeleton for a coupled cluster theory program at the so-called doubles level of truncation. It will also, for those of you who will prefer  to study Green's functions, serve as a 
+This exercise will allow us to start writing our first skeleton for a coupled cluster theory program at the so-called doubles level of truncation. It will also, for those of you who will prefer  to study Green's functions, serve as a
 starting point for developing the skeleton of a program for this method. The aim is to finish this part of the program during the first week.
 
 <p>
 With a program which then benchmarks the simple pairing model, we will turn our attention to more realistic systems.
-Here we propose the following  paths that can be studied with either coupled cluster theory or Green's function theory. Many of the technicalities will be discussed at the lectures and the afternoon sessions during the last two weeks.   
+Here we propose the following  paths that can be studied with either coupled cluster theory or Green's function theory. Many of the technicalities will be discussed at the lectures and the afternoon sessions during the last two weeks.
 
 <ol>
 <li> Studies of nuclear matter with a cartesian basis using coupled cluster theory at the level of doubles excitations</li>
 
 <ul>
-  <li> During the three weeks of the course we will mainly focus on two-particle and two-hole excitations</li> 
+  <li> During the three weeks of the course we will mainly focus on two-particle and two-hole excitations</li>
   <li> Focusing only on two-particle correlations in a finite cartesian basis, these can be compared with Brueckner-Hartree-Fock calculations in the infinite limit. The latter should represent exactly two-particle correlations to infinite order. A simple model for the nuclear force will be used.</li>
   <li> For the final project the code can be extended to include particle-hole correlations as well</li>
 </ul>
@@ -216,8 +216,8 @@ When working on the projects, we recommend strongly that you form teams of two t
 <b>must</b> have a <em>github account</em> where we can monitor your progress and give you appropriate feedback.
 
 <p>
-If you have not used version control before now, it is time to do so. 
-Proper version control is central to a good ethical scientific conduct. 
+If you have not used version control before now, it is time to do so.
+Proper version control is central to a good ethical scientific conduct.
 We do require that you use some kind of version control software when working on the projects. We recommend strongly <a href="https://github.com/" target="_blank">github</a>. All lectures and additional material is available at the github <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/web/course.html" target="_blank">address of the course</a>
 
 <p>
@@ -229,7 +229,7 @@ we recommend that you study the material at the course web site on <a href="http
 We will also ask  you to come with your own laptop and have installed either a
 
 <ul>
-<li> Fortran compiler or a</li> 
+<li> Fortran compiler or a</li>
 <li> c++ compiler</li>
 </ul>
 
@@ -259,7 +259,7 @@ The conventions and techniques outlined here will save you a lot of time when yo
 <ol>
 <li> New code is added in a modular fashion to a library (modules)</li>
 <li> Programs are run through convenient user interfaces</li>
-<li> It takes one quick command to let all your code undergo heavy testing</li> 
+<li> It takes one quick command to let all your code undergo heavy testing</li>
 <li> Tedious manual work with running programs is automated,</li>
 <li> Your scientific investigations are reproducible, scientific reports with top quality typesetting are produced both for paper and electronic devices.</li>
 </ol>
@@ -300,14 +300,14 @@ where \( a_{\alpha}^{\dagger} \) and \( a_{\alpha} \) etc.&nbsp;are standard
 fermion creation and annihilation operators, respectively, and
 \( \alpha\beta\gamma\delta \) represent all possible single-particle
 quantum numbers.  The full single-particle space is defined by the
-completeness relation 
+completeness relation
 $$
 \hat{{\bf 1}} = \sum_{\alpha=1}^{\infty}|\alpha \rangle \langle \alpha|.
 $$
 
 In our calculations
 we will let the single-particle states \( |\alpha\rangle \) be
-eigenfunctions of the one-particle operator \( \hat{h}_0 \). Note that the two-body part of the Hamiltonian 
+eigenfunctions of the one-particle operator \( \hat{h}_0 \). Note that the two-body part of the Hamiltonian
 contains anti-symmetrized matrix elements.
 
 <p>
@@ -458,18 +458,18 @@ Construct thereafter the Hamiltonian matrix for a system with no
 <b>Solution.</b>
 We give first the final Hamiltonian matrix
 $$
-H = \left ( 
+H = \left (
 \begin{array}{cccccc}
 2\delta -g & -g/2 & -g/2 & -g/2 & -g/2 & 0 \\
  -g/2 & 4\delta -g & -g/2 & -g/2 & -0 & -g/2 \\
 -g/2 & -g/2 & 6\delta -g & 0 & -g/2 & -g/2 \\
  -g/2 & -g/2 & 0 & 6\delta-g & -g/2 & -g/2 \\
  -g/2 & 0 & -g/2 & -g/2 & 8\delta-g & -g/2 \\
-0 & -g/2 & -g/2 & -g/2 & -g/2 & 10\delta -g 
+0 & -g/2 & -g/2 & -g/2 & -g/2 & 10\delta -g
 \end{array} \right )
 $$
 
-The following python program diagonalizes the above Hamiltonian matrix for a given span of interaction strength values, performing both a full configuration interaction calculation and a truncated one. For the truncated case we leave out the \( 4p4h \) state. This means that in addition to the ground state we include the four possible \( 2p2h \) states. Such a calculation is normally called a configuration interaction calculation. 
+The following python program diagonalizes the above Hamiltonian matrix for a given span of interaction strength values, performing both a full configuration interaction calculation and a truncated one. For the truncated case we leave out the \( 4p4h \) state. This means that in addition to the ground state we include the four possible \( 2p2h \) states. Such a calculation is normally called a configuration interaction calculation.
 <p>
 
 
@@ -483,20 +483,20 @@ e1_array = []
 e2_array = []
 
 for g in g_array:
-	H1 = matrix([[2-g , -g/2.,  -g/2., -g/2., -g/2.,     0], 
+	H1 = matrix([[2-g , -g/2.,  -g/2., -g/2., -g/2.,     0],
 		        [-g/2.,   4-g,  -g/2., -g/2.,    0., -g/2.],
 		        [-g/2., -g/2.,    6-g,     0, -g/2., -g/2.],
 				[-g/2., -g/2.,      0,   6-g, -g/2., -g/2.],
 				[-g/2.,     0,  -g/2., -g/2.,   8-g, -g/2.],
-				[0    , -g/2.,  -g/2., -g/2., -g/2.,  10-g]]) 
+				[0    , -g/2.,  -g/2., -g/2., -g/2.,  10-g]])
 
-	H2 = matrix([[2-g , -g/2.,  -g/2., -g/2., -g/2.], 
+	H2 = matrix([[2-g , -g/2.,  -g/2., -g/2., -g/2.],
 		        [-g/2.,   4-g,  -g/2., -g/2.,    0.],
 		        [-g/2., -g/2.,    6-g,     0, -g/2.],
 				[-g/2., -g/2.,      0,   6-g, -g/2.],
-				[-g/2.,     0,  -g/2., -g/2.,   8-g]]) 
+				[-g/2.,     0,  -g/2., -g/2.,   8-g]])
 
-		
+
 
 	u1, v1 = linalg.eig(H1)
 	u2, v2 = linalg.eig(H2)
@@ -527,7 +527,7 @@ show()
 </script></div>
 <p>
 The eigenvalues and eigenvectors result from the diagonalization of the above Hamiltonian matrix.
-In the discussions below and in connection with the first stage of the numerical project, we will use these results to benchmark various approximative methods. 
+In the discussions below and in connection with the first stage of the numerical project, we will use these results to benchmark various approximative methods.
 The lowest eigenvalue corresponds to the ground state
 energy and we will refer to it as the <em>exact energy</em> when no truncations in the space of possible Slater determinants are made..
 
@@ -538,18 +538,18 @@ Full configuration interaction is an exact method, but is only
 possible if and only if we have a complete and finite SD basis for our
 system. In practice, we usually don't have this. Non-complete
 CI however, is always possible, but yiels   approximative
-results only. The method is however still variational however, meaning that we 
+results only. The method is however still variational however, meaning that we
 guaranteed that the approximation will be equal or bigger to the true
-result. 
-Perturbation theory however, is non-variational and there is no guarantee that including higher orders in the 
+result.
+Perturbation theory however, is non-variational and there is no guarantee that including higher orders in the
 perturbation gives an improved result, as we will see below.
 
 <p>
 In an FCI case, we are including all possible exictations to infinite
-order, meaning we have all possible \( 1p1h \) , \( 2p2h \) etc configurations, up to \( 4p4h \) 
+order, meaning we have all possible \( 1p1h \) , \( 2p2h \) etc configurations, up to \( 4p4h \)
 excitations for our selected model. Due to the nature of the pairing interaction and our selection
 of specific quantum numbers for the many-body states, we do not have any \( 1p1h \) or \( 3p3h \) excitations.
-In the above CI case, we truncate those excitations somewhere. 
+In the above CI case, we truncate those excitations somewhere.
 If we
 were to draw the diagrams of the interactions that contribute to this
 CI case, there would be an infinite number of them, as we can have
@@ -618,7 +618,7 @@ Discuss your results for a canonical Hartree-Fock basis and a non-canonical Hart
 
 <p>
 <b>f)</b>
-Diagram 1 in Fig.&nbsp;<a href="#fig:diagrams">2</a> represents a second-order contribution to the energy and a so-called \( 2p-2h \) contribution to the intermediate states. Write down the expression for the wave operator in this case and compare the possible contributions with the configuration interaction calculations without the \( 4p-4h \) Slater determinant. Comment your results for 
+Diagram 1 in Fig.&nbsp;<a href="#fig:diagrams">2</a> represents a second-order contribution to the energy and a so-called \( 2p-2h \) contribution to the intermediate states. Write down the expression for the wave operator in this case and compare the possible contributions with the configuration interaction calculations without the \( 4p-4h \) Slater determinant. Comment your results for
 various values of \( g\in [-1,1] \).
 
 <p>
@@ -665,17 +665,17 @@ with the full diagonalization case in exercise b). Discuss the results.
 <p>
 <!-- --- begin solution of exercise --- -->
 <b>Solution.</b>
-To fourth order in the interaction there are several diagrams to consider. 
+To fourth order in the interaction there are several diagrams to consider.
 Fortunately, due to the character of the pairing Hamiltonian, several of these contributions are
-zero. We limit our discussions also to include the 
-canonical HF-case only. 
+zero. We limit our discussions also to include the
+canonical HF-case only.
 All of the diagrams in the canonical case are
-shown in figures 3, 4, 5 and 6 above. 
+shown in figures 3, 4, 5 and 6 above.
 Using also the linked diagram theorem, where a
 diagram is called unlinked if and only if it has a disconnected part
 that is closed, we can eliminate some further  diagrams. Goldstones
 linked-diagram theorem states that all unliked diagrams will cancel
-against the renormalization terms in Rayleigh-Schroedinger perturbation theory, 
+against the renormalization terms in Rayleigh-Schroedinger perturbation theory,
 meaning that we can define
 the energy to each order as a sum of linked diagrams
 only. We can then disregard diagram 33 and 41.
@@ -690,7 +690,7 @@ arguments shows that most diagrams in figure 4 also dissapear. Going
 through all the diagrams, we see that 5, 6, 14 and 15 are the ones
 that do not vanish in figure 4. For figure 5 we actually see that all
 diagrams vanish again. For figure 6 we already found that 33 and 41
-vanished due to being unlinked&mdash;the rest contribute to the perturbative expansion of the 
+vanished due to being unlinked&mdash;the rest contribute to the perturbative expansion of the
 energy.
 The diagrams of figures 3 and 5 vanish since they involve \( 1p1h \) and \( 3p3h \) excitations, respectively.
 
@@ -726,7 +726,7 @@ g = Symbol('g')
 def h0(p,q):
 	if p == q:
 		p1, s1 = states[p]
-		return (p1 - 1)	
+		return (p1 - 1)
 	else:
 		return 0
 
@@ -767,7 +767,7 @@ def eps(holes, particles):
 
 
 # Diagram 3
-# s = 0 
+# s = 0
 # for a in above_fermi:
 # 	for b in above_fermi:
 # 		for c in above_fermi:
@@ -813,7 +813,7 @@ for a in above_fermi:
 						s5 += 0.125*assym(i,j,a,b)*assym(k,l,i,j)*assym(a,b,k,l)/eps((i,j),(a,b))/eps((k,l),(a,b))
 
 # Diagram 8 (simplified)
-s8 = 0 
+s8 = 0
 for a in above_fermi:
 	for b in above_fermi:
 		for i in below_fermi:
@@ -822,7 +822,7 @@ for a in above_fermi:
 					s8 -= 0.5*assym(i,j,a,b)*assym(a,b,i,k)*f(k,j)/eps((i,j),(a,b))/eps((i,k),(a,b))
 
 # Diagram 9 (simplified)
-s9 = 0 
+s9 = 0
 for a in above_fermi:
 	for b in above_fermi:
 		for c in above_fermi:
@@ -850,12 +850,12 @@ corr2 = []
 corr3 = []
 corr4 = []
 for g_val in ga:
-	H1 = matrix([[2-g_val , -g_val/2.,  -g_val/2., -g_val/2., -g_val/2.,     0], 
+	H1 = matrix([[2-g_val , -g_val/2.,  -g_val/2., -g_val/2., -g_val/2.,     0],
 		        [-g_val/2.,   4-g_val,  -g_val/2., -g_val/2.,    0., -g_val/2.],
 		        [-g_val/2., -g_val/2.,    6-g_val,     0, -g_val/2., -g_val/2.],
 				[-g_val/2., -g_val/2.,      0,   6-g_val, -g_val/2., -g_val/2.],
 				[-g_val/2.,     0,  -g_val/2., -g_val/2.,   8-g_val, -g_val/2.],
-				[0    , -g_val/2.,  -g_val/2., -g_val/2., -g_val/2.,  10-g_val]]) 
+				[0    , -g_val/2.,  -g_val/2., -g_val/2., -g_val/2.,  10-g_val]])
 
 	u1, v1 = linalg.eig(H1)
 	e1.append(min(u1))
@@ -905,14 +905,14 @@ show()
 <p>
 Running the Python program shows us that
 the approximation to both second and third order are very
-good when the interaction strength is small and contained in the interval  
+good when the interaction strength is small and contained in the interval
 \( g\in[-0.5,0.5] \), but as the
 interaction gets stronger the approximation worsens. We also
-note that the third-order result is actually worse than the second order result 
+note that the third-order result is actually worse than the second order result
 for larger values of the interaction strength, indicating that there is no guarantee that higher orders
 in many-body perturbation theory may reduce the relative error in a systematic way.
-This is seen in particular for the results to fourth order. For negative interaction strengths 
-fourth order gives a better result than second and third order, while for \( g>0 \) the relative error is 
+This is seen in particular for the results to fourth order. For negative interaction strengths
+fourth order gives a better result than second and third order, while for \( g>0 \) the relative error is
 worse.
 We note also the non-variational character of many-body perturbation theory, with results at different undershooting the true ground state correlation energy.
 
@@ -991,7 +991,7 @@ Set up the Dyson-ADC(2) equations and convince yourself about their meaning and 
 <p>
 <b>c)</b>
 Write a class that holds the one-body propagator in Lehman representation. In this, the Dyson orbits (or overlap functions) are expanded in terms of the basis exactly as for the HF equations above. However, you will need to handle
-a much larger number of orbits and their respective energies. You will also need to store particle and hole orbits separately. 
+a much larger number of orbits and their respective energies. You will also need to store particle and hole orbits separately.
  Using the results of your HF calculations above, build a simple HF propagator. This will be your reference state.
 
 <p>
@@ -1012,8 +1012,8 @@ Use the above classes to solve the ADC(2) euqatoions in the following three step
 Now you can use your ADC(2) code to have some fun:
 
 <ul>
-  <li> Plot the spectral functions for the HF (reference) propagator and the final (dressed) result. Compare them. This is the most fun part&#8230;  otherwise why should you write a SCGF code for?</li>
-  <li> Use your solution (the dressed propagator) to recalculate the first order diagram and and implement a partial 
+  <li> Plot the spectral functions for the HF (reference) propagator and the final (dressed) result. Compare them. This is the most fun part.  otherwise why should you write a SCGF code for?</li>
+  <li> Use your solution (the dressed propagator) to recalculate the first order diagram and and implement a partial
      self-consistency loop. See what changes.</li>
   <li> Use the Koltun sum rule to calculate the binding energy and compare your results with those from the exact diagonalization with and without the 4p4h excitation. Compare also your results to perturbation theory at different orders, in particular to second order. Discuss your results. If other students are solving the same problem using CCD theory, you can also compare your results with theirs.</li>
   <li> How do your results change by increasing the coupling \( g \)? When is ADC(2)  breaking down for this particular model?</li>
@@ -1030,7 +1030,7 @@ Now you can use your ADC(2) code to have some fun:
 <h2 id="___sec7">Project 4: Coupled cluster calculations with doubles excitations only for infinite nuclear matter </h2>
 
 <p>
-This project forms one possible final path for the remaining two weeks. It can also be extended in order to define the final project.  You should be able to use the program you developed in connection with the 
+This project forms one possible final path for the remaining two weeks. It can also be extended in order to define the final project.  You should be able to use the program you developed in connection with the
 solution of the pairing model.
 
 <p>
@@ -1100,7 +1100,7 @@ Replace the two-body interaction from the pairing model with the Minnesota poten
 Use the program you developed in connection with the pairing model to perform SCGF calculations at second order. Perform calculations with the Minnesota interaction as follows:
 
 <ol>
- <li> for finite nuclei chose closed shell systems (He4, C12, O16)</li>  
+ <li> for finite nuclei chose closed shell systems (He4, C12, O16)</li>
 </ol>
 
   ofor infinite nuclear matter chose different particle numbers (to be inserted later).
@@ -1116,12 +1116,12 @@ those obetain in CCD with only twp-particle intermediate excitations. If you are
 
 <p>
 <b>f)</b>
-The final challenge is to keep both the 2p1h and the 2h1p sectors and fill the ADC(n) matrix with all the two-particle, the two-hole, and the particle-hole interactions.  This last change results in the so called 'Extended ADC(2)' approximation scheme. Investigate the effects that pp, hh and ph correlations. 
+The final challenge is to keep both the 2p1h and the 2h1p sectors and fill the ADC(n) matrix with all the two-particle, the two-hole, and the particle-hole interactions.  This last change results in the so called 'Extended ADC(2)' approximation scheme. Investigate the effects that pp, hh and ph correlations.
 This part can be included in the final project. And if you already got all the way to point e), this last part should be a relatively easy improvement to make!
 
 <p>
 <b>g)</b>
-Are you felling particularly ambitious? One can further modify the code by adding the missing 3rd order terms to the couplings between the single particle sector and the 2p1h/2h1p sectors. This will give you a full blown ADC(3) calculation. Study the effects of this last change on the energy of the main quasiparticle peaks&#8230;  chemist need this to obtain correct ionization potentials and affinities.
+Are you felling particularly ambitious? One can further modify the code by adding the missing 3rd order terms to the couplings between the single particle sector and the 2p1h/2h1p sectors. This will give you a full blown ADC(3) calculation. Study the effects of this last change on the energy of the main quasiparticle peaks.  chemist need this to obtain correct ionization potentials and affinities.
 
 <p>
 <!-- --- end exercise --- -->
@@ -1138,13 +1138,13 @@ We will use  the simple Minnesota model discussed during the <a href="https://gi
 <p>
 <!-- --- begin solution of exercise --- -->
 <b>Solution.</b>
-For scattering states, the energy is positive, \( E>0 \). 
+For scattering states, the energy is positive, \( E>0 \).
 The Lippman-Schwinger equation (a rewrite of the Schroedinger equation)
 is an integral equation
-where we have to deal with the amplitude 
+where we have to deal with the amplitude
 \( R(k,k') \) (reaction matrix, which is the real part of  the full
 complex \( T \)-matrix)
-defined through the integral equation for one partial wave (no coupled-channels) 
+defined through the integral equation for one partial wave (no coupled-channels)
 $$
 \begin{equation}
     R_l(k,k') = V_l(k,k') +\frac{2}{\pi}{\cal P}
@@ -1161,15 +1161,15 @@ The symbol \( {\cal P} \) indicates that Cauchy's principal-value prescription
 is used in order to avoid the singularity arising from the zero of the denominator.
 
 <p>
-The total kinetic energy of the two 
+The total kinetic energy of the two
 incoming particles in the center-of-mass system
-is 
+is
 $$
     E=\frac{k_0^2}{m_n}.
 $$
 
 <p>
-The matrix \( R_l(k,k') \) relates to the 
+The matrix \( R_l(k,k') \) relates to the
 the  phase shifts through its diagonal elements as
 $$
 \begin{equation}
@@ -1178,11 +1178,11 @@ $$
 \end{equation}
 $$
 
-In order to solve the Lippman-Schwinger equation 
-in momentum space, we need first to write 
-a function which sets up the mesh points. 
+In order to solve the Lippman-Schwinger equation
+in momentum space, we need first to write
+a function which sets up the mesh points.
 We need to do that since we are going to approximate an integral
-through 
+through
 $$
    \int_a^bf(x)dx\approx\sum_{i=1}^Nw_if(x_i),
 $$
@@ -1198,7 +1198,7 @@ $$
   k_i=const\times tan\left\{\frac{\pi}{4}(1+x_i)\right\},
 $$
 
-and 
+and
 $$
    \omega_i= const\frac{\pi}{4}\frac{w_i}{cos^2\left(\frac{\pi}{4}(1+x_i)\right)}.
 $$
@@ -1218,8 +1218,8 @@ $$
 
 It means that the curve \( 1/(k-k_0) \) has equal and opposite
 areas on both sides of the singular point \( k_0 \). If we break
-the integral into one over positive \( k \) and one over 
-negative \( k \), a change of variable \( k\rightarrow -k \) 
+the integral into one over positive \( k \) and one over
+negative \( k \), a change of variable \( k\rightarrow -k \)
 allows us to rewrite the last equation as
 $$
   \int_{0}^{\infty} \frac{dk}{k^2-k_0^2} =0.
@@ -1236,7 +1236,7 @@ $$
 \end{equation}
 $$
 
-where the right-hand side is no longer singular at 
+where the right-hand side is no longer singular at
 \( k=k_0 \), it is proportional to the derivative \( df/dk \),
 and can be evaluated numerically as any other integral.
 
@@ -1267,7 +1267,7 @@ $$
                            {(k_0^2-k_j^2)/m}
            -\frac{2}{\pi}k_0^2V(k,k_0)R(k_0,k')
           \sum_{n=1}^N\frac{\omega_n}
-                           {(k_0^2-k_n^2)/m}.                
+                           {(k_0^2-k_n^2)/m}.
 $$
 
 This equation contains now the unknowns \( R(k_i,k_j) \)
@@ -1302,7 +1302,7 @@ $$
      u_{N+1}=-\frac{2}{\pi}\sum_{j=1}^N\frac{k_0^2\omega_j}{(k_0^2-k_j^2)/m}.
 $$
 
-The first task is then to 
+The first task is then to
 set up the matrix \( A \) for a given \( k_0 \). This is an
 \( (N+1)\times (N+1) \) matrix. It can be convenient
 to have an outer loop which runs over the chosen
@@ -1323,7 +1323,7 @@ $$
 
 <p>
 Since you already have defined \( A \) and \( V \)
-(these are stored as \( (N+1)\times (N+1) \) matrices) 
+(these are stored as \( (N+1)\times (N+1) \) matrices)
 The final equation involves only the unknown
 \( R \). We obtain it by matrix inversion, i.e.,
 $$
@@ -1334,13 +1334,13 @@ $$
 $$
 
 Thus, to obtain \( R \), you will need to set up the matrices
-\( A \) and \( V \) and invert the matrix \( A \). 
+\( A \) and \( V \) and invert the matrix \( A \).
 With the inverse \( A^{-1} \), perform
 a matrix multiplication with \( V \) results in \( R \).
 
 <p>
 With \( R \) you can then evaluate the phase shifts
-by noting that 
+by noting that
 $$
       R(k_{N+1},k_{N+1})=R(k_0,k_0)=-\frac{tan\delta}{mk_0},
 $$
@@ -1364,8 +1364,8 @@ and Green's function theory with a cartesian basis
 <p>
 <b>c)</b>
 In the final part of this project we are going to extend the formalism to finite temperature.
-Use the normalization condition of the density from the Fermi-Dirac momentum distribution 
-to calculate the chemical potential in the medium. Compute thereafter the equation of state 
+Use the normalization condition of the density from the Fermi-Dirac momentum distribution
+to calculate the chemical potential in the medium. Compute thereafter the equation of state
 as function of temperature and discuss thermodynamical self-consistency requirements.
 
 <p>

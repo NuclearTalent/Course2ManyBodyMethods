@@ -21,7 +21,6 @@ rm -f *.tar.gz
 opt="--encoding=utf-8"
 opt=
 
-rm -f *.aux
 
 
 html=${name}-reveal
@@ -50,11 +49,15 @@ system doconce format ipynb $name $opt
 
 
 # Ordinary plain LaTeX document
+rm -f *.aux
 system doconce format pdflatex $name --minted_latex_style=trac --latex_admon=paragraph $opt
 system doconce ptex2tex $name envir=minted
 # Add special packages
 doconce subst "% Add user's preamble" "\g<1>\n\\usepackage{simplewick}" $name.tex
-doconce replace 'section{' 'section*{' $name.tex
+doconce replace '\section{' '\section*{' $name.tex
+doconce replace '\subsection{' '\subsection*{' $name.tex
+pdflatex -shell-escape $name
+pdflatex -shell-escape $name
 pdflatex -shell-escape $name
 
 mv -f $name.pdf ${name}-print.pdf
@@ -90,4 +93,3 @@ EOF
 tar czf ${ipynb_tarfile} README.txt
 fi
 cp ${ipynb_tarfile} $dest/$name/ipynb
-
