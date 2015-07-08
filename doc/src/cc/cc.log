@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  8 JUL 2015 08:11
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  8 JUL 2015 12:37
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -397,7 +397,7 @@ Package hyperref Info: Option `pdftoolbar' set `true' on input line 44.
 
 
 Writing index file cc.idx
-(./cc.aux)
+No file cc.aux.
 \openout1 = `cc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
@@ -415,7 +415,7 @@ LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 63.
- (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -684,9 +684,9 @@ Package rerunfilecheck Info: File `cc.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
  ) 
 Here is how much of TeX's memory you used:
- 8356 strings out of 493488
- 126756 string characters out of 3141326
- 261867 words of memory out of 3000000
+ 8354 strings out of 493488
+ 126742 string characters out of 3141326
+ 261763 words of memory out of 3000000
  11433 multiletter control sequences out of 15000+200000
  50353 words of font info for 80 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
