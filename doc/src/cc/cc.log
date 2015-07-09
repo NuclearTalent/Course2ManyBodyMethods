@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  9 JUL 2015 12:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  9 JUL 2015 12:18
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -397,7 +397,7 @@ Package hyperref Info: Option `pdftoolbar' set `true' on input line 44.
 
 
 Writing index file cc.idx
-No file cc.aux.
+(./cc.aux)
 \openout1 = `cc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
@@ -415,7 +415,7 @@ LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 63.
-(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -579,35 +579,7 @@ Overfull \hbox (65.11981pt too wide) in paragraph at lines 321--334
 [][] 
  []
 
-[5] [6] [7]
-
-LaTeX Warning: Reference `eq:ccd' on page 8 undefined on input line 448.
-
-
-LaTeX Warning: Reference `eq:ccd1' on page 8 undefined on input line 454.
-
-
-LaTeX Warning: Reference `eq:ccd1' on page 8 undefined on input line 463.
-
-[8]
-
-LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 469.
-
-
-LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 470.
-
-
-LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 474.
-
-
-LaTeX Warning: Reference `eq:ccd' on page 9 undefined on input line 480.
-
-
-LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 485.
-
-
-LaTeX Warning: Reference `eq:ccd' on page 9 undefined on input line 485.
-
+[5] [6] [7] [8]
 No file cc.ind.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
 [9]
@@ -708,20 +680,14 @@ gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
 Package rerunfilecheck Info: File `cc.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
  ) 
 Here is how much of TeX's memory you used:
- 8396 strings out of 493488
- 127159 string characters out of 3141326
- 265763 words of memory out of 3000000
+ 8391 strings out of 493488
+ 127095 string characters out of 3141326
+ 266047 words of memory out of 3000000
  11436 multiletter control sequences out of 15000+200000
- 51266 words of font info for 91 fonts, out of 3000000 for 9000
+ 51100 words of font info for 89 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,14n,35p,465b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
@@ -739,10 +705,10 @@ blic/lm/lmr5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7
 .pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/tex
 live/2012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on cc.pdf (9 pages, 206636 bytes).
+Output written on cc.pdf (9 pages, 206621 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
+ 145 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
  13825 words of extra memory for PDF output out of 14400 (max. 10000000)
 
