@@ -400,10 +400,10 @@ leading to our first approximation for the correlation energy at the CCD level t
 
 With this starting point, we are now ready to solve Eq. (ref{eq:ccd}) iteratively. Before we attack the full equations, it is however instructive to study a truncated version of the equations. We will first study the following approximation where we take away all terms except the linear terms that involve the single-particle energies and the the two-particle intermediate excitations, that is
 !bt
-\begin{align}
+\begin{equation}
 0 = \langle ab \vert \hat{v} \vert ij \rangle + \left(\epsilon_a+\epsilon_b-\epsilon_i-\epsilon_j\right)t_{ij}^{ab}+\frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle t_{ij}^{cd}.
 label{eq:ccd1}
-\end{align}
+\end{equation}
 !et
 
 Setting the single-particle energies for the hole state equal to an energy variable $\omega = \epsilon_i+\epsilon_j$, Eq. (ref{eq:ccd1}) reduces to the
@@ -422,7 +422,7 @@ and inserting
 in the intermediate sums over $cd$ in Eq. (ref{eq:ccd1}), we can rewrite the latter equation as
 !bt
 \[
-\tau_{ij}^{ab}(\omega)= \langle ab \vert \hat{v} \vert ij \rangle + \frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle \frac{\omega-\epsilon_c-\epsilon_d},\tau_{ij}^{cd}(\omega),
+\tau_{ij}^{ab}(\omega)= \langle ab \vert \hat{v} \vert ij \rangle + \frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle \frac{1}{\omega-\epsilon_c-\epsilon_d},\tau_{ij}^{cd}(\omega),
 \]
 !et
 where we have indicated an explicit energy dependence. This equation, transforming a two-particle configuration into a single index, can be transformed into a matrix inversion problem.  Solving the equations for a fixed energy $\omega$ allows us to compare directly with results from Green's function theory when only two-particle intermediate states are included. 
@@ -435,10 +435,20 @@ A simple approach to the solution of  Eq. (ref{eq:ccd1}), is to thus to
 
 The next approximation is to include the two-hole term in Eq. (ref{eq:ccd}), a term which allow us to make a link with Green's function theory with two-particle and two-hole correlations. This means that we solve
 !bt
-\begin{align}
-0 = \langle ab \vert \hat{v} \vert ij \rangle + \left(\epsilon_a+\epsilon_b-\epsilon_i-\epsilon_j\right)t_{ij}^{ab} &\\
-+\frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle t_{ij}^{cd}+\frac{1}{2}\sum_{kl} \langle kl \vert \hat{v} \vert ij \rangle t_{kl}^{ab}.&
+\begin{equation}
+0 = \langle ab \vert \hat{v} \vert ij \rangle + \left(\epsilon_a+\epsilon_b-\epsilon_i-\epsilon_j\right)t_{ij}^{ab}+\frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle t_{ij}^{cd}+\frac{1}{2}\sum_{kl} \langle kl \vert \hat{v} \vert ij \rangle t_{kl}^{ab}.
 label{eq:ccd2}
-\end{align}
+\end{equation}
 !et
 This equation is solved the same way as we would do for Eq. (ref{eq:ccd1}). The final step is then to include all terms in Eq. (ref{eq:ccd}). 
+
+
+TO DO:
+=====  Formal derivation of the CCSD equations =====
+
+=====  Diagrammatic derivation of the CCSD equations =====
+
+=====  Practical approaches to solving the CCSD equations =====
+
+=====  Applications of CCSD equations =====
+
