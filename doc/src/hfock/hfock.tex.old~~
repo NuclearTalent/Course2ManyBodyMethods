@@ -8,7 +8,7 @@
 %-------------------- begin preamble ----------------------
 
 \documentclass[%
-twoside,                 % oneside: electronic viewing, twoside: printing
+oneside,                 % oneside: electronic viewing, twoside: printing
 final,                   % or draft (marks overfull hboxes, figures with paths)
 10pt]{article}
 
@@ -17,6 +17,8 @@ final,                   % or draft (marks overfull hboxes, figures with paths)
 \usepackage{relsize,makeidx,color,setspace,amsmath,amsfonts}
 \usepackage[table]{xcolor}
 \usepackage{bm,microtype}
+
+\usepackage[pdftex]{graphicx}
 
 \usepackage[T1]{fontenc}
 %\usepackage[latin1]{inputenc}
@@ -111,7 +113,7 @@ Hartree-Fock methods
 {\bf \href{{http://computationalphysics.no}}{Morten Hjorth-Jensen}, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
 \end{center}
 
-    \begin{center}
+\begin{center}
 % List of all institutions:
 \end{center}
     
@@ -970,8 +972,7 @@ Calculating the difference
 \]
 we obtain
 \[
-  E[\Phi^{\mathrm{HF}}(N)]-   E[\Phi^{\mathrm{HF}}(N-1)] = \langle k | \hat{h}_0 | k \rangle +
-  \frac{1}{2}\sum_{j=1}^N\langle kj|\hat{v}|kj\rangle_{AS}
+  E[\Phi^{\mathrm{HF}}(N)]-   E[\Phi^{\mathrm{HF}}(N-1)] = \langle k | \hat{h}_0 | k \rangle +\sum_{j=1}^N\langle kj|\hat{v}|kj\rangle_{AS}
 \]
 which is just our definition of the Hartree-Fock single-particle energy
 \[
@@ -1031,8 +1032,7 @@ Calculating the difference
 which becomes 
 \[
   E[\Phi^{\mathrm{HF}}(A)]-   E[\Phi^{\mathrm{HF}}(A-1)] 
-  = \langle k | \hat{h}_0 | k \rangle +
-  \frac{1}{2}\sum_{j=1}^A\langle kj|\hat{v}|kj\rangle_{AS}
+  = \langle k | \hat{h}_0 | k \rangle +\sum_{j=1}^A\langle kj|\hat{v}|kj\rangle_{AS}
 \]
 which is just our definition of the Hartree-Fock single-particle energy
 \[
