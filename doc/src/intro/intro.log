@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  22 JUN 2015 22:32
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  9 JUL 2015 16:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -479,7 +479,7 @@ Package: placeins 2005/04/18  v 2.2
 
 
 Writing index file intro.idx
-No file intro.aux.
+(./intro.aux)
 \openout1 = `intro.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
@@ -497,7 +497,7 @@ LaTeX Font Info:    ... okay on input line 106.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
 LaTeX Font Info:    ... okay on input line 106.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 106.
-(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -611,22 +611,145 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 (/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+(./intro.toc
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.1 ...s2\p@ minus\p@ \bfseries }{26}{section*.10}
+                                                  
+? s
+OK, entering \scrollmode...
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.2 ...s2\p@ minus\p@ \bfseries }{26}{section*.11}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.3 ...s2\p@ minus\p@ \bfseries }{26}{section*.12}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.4 ...s2\p@ minus\p@ \bfseries }{26}{section*.13}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.5 ...s2\p@ minus\p@ \bfseries }{27}{section*.15}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.6 ...s2\p@ minus\p@ \bfseries }{27}{section*.16}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.7 ...s2\p@ minus\p@ \bfseries }{27}{section*.17}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.8 ...s2\p@ minus\p@ \bfseries }{27}{section*.19}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.9 ...s2\p@ minus\p@ \bfseries }{27}{section*.20}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.10 ...2\p@ minus\p@ \bfseries }{27}{section*.21}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.11 ...2\p@ minus\p@ \bfseries }{28}{section*.23}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.12 ...2\p@ minus\p@ \bfseries }{28}{section*.24}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.13 ...2\p@ minus\p@ \bfseries }{28}{section*.25}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   \protect 
+l.14 ...2\p@ minus\p@ \bfseries }{28}{section*.26}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+)
 \tf@toc=\write7
 \openout7 = `intro.toc'.
 
-[1
+ [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<fig-intro/careach.png, id=73, 762.85pt x 666.49pt>
+<fig-intro/careach.png, id=88, 762.85pt x 666.49pt>
 File: fig-intro/careach.png Graphic file (type png)
 
 <use fig-intro/careach.png>
 Package pdftex.def Info: fig-intro/careach.png used on input line 208.
 (pdftex.def)             Requested size: 207.0021pt x 180.84964pt.
- [2 <./fig-intro/careach.png>] [3]
+ [2 <./fig-intro/careach.png>] [3] [4]
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 260.
 
 
@@ -635,7 +758,7 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 260.
- [4]
+
 Overfull \hbox (13.36768pt too wide) in paragraph at lines 280--281
 []\T1/lmr/m/n/10 (-20) Theory: Oxy-gen iso-topes with three-body forces, Ot-suk
 a \T1/lmr/m/it/10 (-20) et al\T1/lmr/m/n/10 (-20) ., Phys. Rev. Lett.
@@ -655,23 +778,12 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2.
-)
+ [6])
 runsystem(rm intro.out.pyg)...executed.
 
 runsystem(rm intro.pyg)...executed.
 
- [6]
-\openout3 = `intro.pyg'.
-
-runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape       
--P "verboptions= ,fontsize=\fontsize {9pt}{9pt},baselinestretch=1.0,fontfamily=
-tt,xleftmargin=7mm" -o intro.out.pyg intro.pyg)...executed.
-
- (./intro.out.pyg [7])
-runsystem(rm intro.out.pyg)...executed.
-
-runsystem(rm intro.pyg)...executed.
-
+ [7]
 \openout3 = `intro.pyg'.
 
 runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape       
@@ -683,7 +795,17 @@ runsystem(rm intro.out.pyg)...executed.
 
 runsystem(rm intro.pyg)...executed.
 
- [8]
+\openout3 = `intro.pyg'.
+
+runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape       
+-P "verboptions= ,fontsize=\fontsize {9pt}{9pt},baselinestretch=1.0,fontfamily=
+tt,xleftmargin=7mm" -o intro.out.pyg intro.pyg)...executed.
+
+ (./intro.out.pyg [8])
+runsystem(rm intro.out.pyg)...executed.
+
+runsystem(rm intro.pyg)...executed.
+
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 473.
  [9]
@@ -705,25 +827,25 @@ runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape
 tt,xleftmargin=7mm" -o intro.out.pyg intro.pyg)...executed.
 
 
-(./intro.out.pyg)
+(./intro.out.pyg [10])
 runsystem(rm intro.out.pyg)...executed.
 
 runsystem(rm intro.pyg)...executed.
 
- [10]
+
 Overfull \hbox (9.19235pt too wide) in paragraph at lines 583--584
 \T1/lmr/m/n/10 (-20) "Oxygen-26":"ournals.aps.org/prl/abstract/10.1103/PhysRevL
 ett.108.142503"
  []
 
-[11] [12] [13] [14] [15]
-<fig-intro/singleparticle.png, id=163, 642.4pt x 767.86874pt>
+[11] [12] [13] [14] [15] [16]
+<fig-intro/singleparticle.png, id=184, 642.4pt x 767.86874pt>
 File: fig-intro/singleparticle.png Graphic file (type png)
 
 <use fig-intro/singleparticle.png>
 Package pdftex.def Info: fig-intro/singleparticle.png used on input line 848.
 (pdftex.def)             Requested size: 207.0021pt x 247.43365pt.
- [16] [17 <./fig-intro/singleparticle.png>]
+ [17 <./fig-intro/singleparticle.png>]
 [18]
 \openout3 = `intro.pyg'.
 
@@ -731,41 +853,42 @@ runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape
 -P "verboptions= ,fontsize=\fontsize {9pt}{9pt},baselinestretch=1.0,fontfamily=
 tt,xleftmargin=7mm" -o intro.out.pyg intro.pyg)...executed.
 
- (./intro.out.pyg)
+ (./intro.out.pyg [19])
 runsystem(rm intro.out.pyg)...executed.
 
 runsystem(rm intro.pyg)...executed.
 
- [19] [20]
+ [20]
 Overfull \hbox (28.14056pt too wide) in paragraph at lines 1088--1088
 [][]\T1/lmr/bx/n/14.4 Numerical so-lu-tion of the single-particle Schroedinger
  []
 
-[21] [22]
+[21] [22] [23]
 Overfull \hbox (15.60367pt too wide) detected at line 1242
 [] [] [] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 ^^U []
  []
 
-[23]
 \openout3 = `intro.pyg'.
 
 runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape       
 -P "verboptions= ,fontsize=\fontsize {9pt}{9pt},baselinestretch=1.0,fontfamily=
 tt,xleftmargin=7mm" -o intro.out.pyg intro.pyg)...executed.
 
- (./intro.out.pyg [24])
+(./intro.out.pyg [24] [25])
 runsystem(rm intro.out.pyg)...executed.
 
 runsystem(rm intro.pyg)...executed.
 
- [25]
+
 ! Missing number, treated as zero.
 <to be read again> 
                    p
 l.1361 \subex
              {a)}
-? s
-OK, entering \scrollmode...
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
 
 ! Package calc Error: `p' invalid at this point.
 
@@ -3086,7 +3209,7 @@ A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-[28] <fig-intro/simplemodel.png, id=241, 1530.71875pt x 320.19624pt>
+[28] <fig-intro/simplemodel.png, id=257, 1530.71875pt x 320.19624pt>
 File: fig-intro/simplemodel.png Graphic file (type png)
 
 <use fig-intro/simplemodel.png>
@@ -3252,10 +3375,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1539.
 ### semi simple group (level 1) entered at line 1352 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 9502 strings out of 493488
- 144154 string characters out of 3141326
- 286119 words of memory out of 3000000
- 12366 multiletter control sequences out of 15000+200000
+ 9507 strings out of 493488
+ 144197 string characters out of 3141326
+ 286685 words of memory out of 3000000
+ 12367 multiletter control sequences out of 15000+200000
  71476 words of font info for 132 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,10n,35p,1242b,840s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3281,10 +3404,10 @@ st/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2012/texmf-dist/fonts/t
 ype1/public/lm/lmtt9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public
 /lm/lmtti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb>
-Output written on intro.pdf (29 pages, 522812 bytes).
+Output written on intro.pdf (29 pages, 523576 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 276 compressed objects within 3 object streams
+ 348 PDF objects out of 1000 (max. 8388607)
+ 292 compressed objects within 3 object streams
  69 named destinations out of 1000 (max. 500000)
  20096 words of extra memory for PDF output out of 20736 (max. 10000000)
 

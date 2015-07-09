@@ -33,7 +33,7 @@
 %-------------------- begin preamble ----------------------
 
 \documentclass[%
-twoside,                 % oneside: electronic viewing, twoside: printing
+oneside,                 % oneside: electronic viewing, twoside: printing
 final,                   % or draft (marks overfull hboxes, figures with paths)
 10pt]{article}
 
@@ -42,6 +42,8 @@ final,                   % or draft (marks overfull hboxes, figures with paths)
 \usepackage{relsize,makeidx,color,setspace,amsmath,amsfonts}
 \usepackage[table]{xcolor}
 \usepackage{bm,microtype}
+
+\usepackage[pdftex]{graphicx}
 
 \usepackage{ptex2tex}
 % #ifdef MINTED
@@ -142,7 +144,7 @@ Second Quantization
 {\bf \href{{http://computationalphysics.no}}{Morten Hjorth-Jensen}, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
 \end{center}
 
-    \begin{center}
+\begin{center}
 % List of all institutions:
 \end{center}
     
@@ -346,28 +348,28 @@ $\alpha$ or $\beta$ and finally none of them.
 
 
 The first case results in
-\begin{eqnarray}
+\begin{align}
 	a_\alpha^{\dagger} a_\beta |\alpha\beta\alpha_1\alpha_2 \dots \alpha_{n-2}\rangle = 0 \nonumber \\
 	a_\beta a_\alpha^{\dagger} |\alpha\beta\alpha_1\alpha_2 \dots \alpha_{n-2}\rangle = 0 \label{eq:2-18a}
-\end{eqnarray}
+\end{align}
 while the second case gives
-\begin{eqnarray}
-	 a_\alpha^{\dagger} a_\beta |\beta \underbrace{\alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq \alpha}\rangle &=& 
+\begin{align}
+	 a_\alpha^{\dagger} a_\beta |\beta \underbrace{\alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq \alpha}\rangle =& 
 	 	|\alpha \underbrace{\alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq  \alpha}\rangle \nonumber \\
-	a_\beta a_\alpha^{\dagger} |\beta \underbrace{\alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq \alpha}\rangle &=&
+	a_\beta a_\alpha^{\dagger} |\beta \underbrace{\alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq \alpha}\rangle =&
 		a_\beta |\alpha\beta\underbrace{\beta \alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq \alpha}\rangle \nonumber \\
-	&=& - |\alpha\underbrace{\alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq \alpha}\rangle \label{eq:2-18b}
-\end{eqnarray}
+	=& - |\alpha\underbrace{\alpha_1\alpha_2 \dots \alpha_{n-1}}_{\neq \alpha}\rangle \label{eq:2-18b}
+\end{align}
 
 
 
 
 Finally if the state vector does not contain $\alpha$ and $\beta$
-\begin{eqnarray}
+\begin{align}
 	a_\alpha^{\dagger} a_\beta |\underbrace{\alpha_1\alpha_2 \dots \alpha_{n}}_{\neq \alpha,\beta}\rangle &=& 0 \nonumber \\
 	a_\beta a_\alpha^{\dagger} |\underbrace{\alpha_1\alpha_2 \dots \alpha_{n}}_{\neq \alpha,\beta}\rangle &=& 
 		a_\beta |\alpha \underbrace{\alpha_1\alpha_2 \dots \alpha_{n}}_{\neq \alpha,\beta}\rangle = 0 \label{eq:2-18c}
-\end{eqnarray}
+\end{align}
 For all three cases we have
 \begin{equation}
 	\{a_\alpha^{\dagger},a_\beta \} = a_\alpha^{\dagger} a_\beta + a_\beta a_\alpha^{\dagger} = 0, \quad \alpha \neq \beta \label{eq:2-19}
@@ -487,7 +489,7 @@ Defining
 \end{equation}
 we can easily  evaluate the action of $\hat{H}_0$ on each product of one-particle functions in Slater determinant.
 From Eq.~(\ref{eq:2-25})  we obtain the following result without  permuting any particle pair 
-\begin{eqnarray}
+\begin{align}
 	&& \left( \sum_i \hat{h}_0(x_i) \right) \psi_{\alpha_1}(x_1)\psi_{\alpha_2}(x_2) \dots \psi_{\alpha_n}(x_n) \nonumber \\
 	& =&\sum_{\alpha_1'} \langle \alpha_1'|\hat{h}_0|\alpha_1\rangle 
 		\psi_{\alpha_1'}(x_1)\psi_{\alpha_2}(x_2) \dots \psi_{\alpha_n}(x_n) \nonumber \\
@@ -496,14 +498,14 @@ From Eq.~(\ref{eq:2-25})  we obtain the following result without  permuting any 
 	&+& \dots \nonumber \\
 	&+&\sum_{\alpha_n'} \langle \alpha_n'|\hat{h}_0|\alpha_n\rangle
 		\psi_{\alpha_1}(x_1)\psi_{\alpha_2}(x_2) \dots \psi_{\alpha_n'}(x_n) \label{eq:2-26}
-\end{eqnarray}
+\end{align}
 
 
 
 
 
 If we interchange particles $1$ and $2$  we obtain
-\begin{eqnarray}
+\begin{align}
 	&& \left( \sum_i \hat{h}_0(x_i) \right) \psi_{\alpha_1}(x_2)\psi_{\alpha_1}(x_2) \dots \psi_{\alpha_n}(x_n) \nonumber \\
 	& =&\sum_{\alpha_2'} \langle \alpha_2'|\hat{h}_0|\alpha_2\rangle 
 		\psi_{\alpha_1}(x_2)\psi_{\alpha_2'}(x_1) \dots \psi_{\alpha_n}(x_n) \nonumber \\
@@ -512,7 +514,7 @@ If we interchange particles $1$ and $2$  we obtain
 	&+& \dots \nonumber \\
 	&+&\sum_{\alpha_n'} \langle \alpha_n'|\hat{h}_0|\alpha_n\rangle
 		\psi_{\alpha_1}(x_2)\psi_{\alpha_1}(x_2) \dots \psi_{\alpha_n'}(x_n) \label{eq:2-27}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -521,7 +523,7 @@ We can continue by computing all possible permutations.
 We rewrite also our Slater determinant in its second quantized form and skip the dependence on the quantum numbers $x_i.$
 Summing up all contributions and taking care of all phases
 $(-1)^p$ we arrive at 
-\begin{eqnarray}
+\begin{align}
 	\hat{H}_0|\alpha_1,\alpha_2,\dots, \alpha_n\rangle &=& \sum_{\alpha_1'}\langle \alpha_1'|\hat{h}_0|\alpha_1\rangle
 		|\alpha_1'\alpha_2 \dots \alpha_{n}\rangle \nonumber \\
 	&+& \sum_{\alpha_2'} \langle \alpha_2'|\hat{h}_0|\alpha_2\rangle
@@ -529,7 +531,7 @@ $(-1)^p$ we arrive at
 	&+& \dots \nonumber \\
 	&+& \sum_{\alpha_n'} \langle \alpha_n'|\hat{h}_0|\alpha_n\rangle
 		|\alpha_1\alpha_2 \dots \alpha_{n}'\rangle \label{eq:2-28}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -545,7 +547,7 @@ on each primed quantum number, that is
 		a_{\alpha_k'}^{\dagger}  a_{\alpha_k} |\alpha_1\alpha_2 \dots \alpha_k \dots \alpha_{n}\rangle \label{eq:2-29}
 \end{equation}
 Inserting this in the right-hand side of Eq.~(\ref{eq:2-28}) results in
-\begin{eqnarray}
+\begin{align}
 	\hat{H}_0|\alpha_1\alpha_2 \dots \alpha_{n}\rangle &=& \sum_{\alpha_1'}\langle \alpha_1'|\hat{h}_0|\alpha_1\rangle
 		a_{\alpha_1'}^{\dagger}  a_{\alpha_1} |\alpha_1\alpha_2 \dots \alpha_{n}\rangle \nonumber \\
 	&+& \sum_{\alpha_2'} \langle \alpha_2'|\hat{h}_0|\alpha_2\rangle
@@ -555,7 +557,7 @@ Inserting this in the right-hand side of Eq.~(\ref{eq:2-28}) results in
 		a_{\alpha_n'}^{\dagger}  a_{\alpha_n} |\alpha_1\alpha_2 \dots \alpha_{n}\rangle \nonumber \\
 	&=& \sum_{\alpha, \beta} \langle \alpha|\hat{h}_0|\beta\rangle a_\alpha^{\dagger} a_\beta 
 		|\alpha_1\alpha_2 \dots \alpha_{n}\rangle \label{eq:2-30a}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -624,7 +626,7 @@ two single-particle functions is defined as
 
 
 We can now let $\hat{H}_I$ act on all terms in the linear combination for $|\alpha_1\alpha_2\dots\alpha_n\rangle$. Without any permutations we have
-\begin{eqnarray}
+\begin{align}
 	&& \left( \sum_{i < j} V(x_i,x_j) \right) \psi_{\alpha_1}(x_1)\psi_{\alpha_2}(x_2)\dots \psi_{\alpha_n}(x_n) \nonumber \\
 	&=& \sum_{\alpha_1'\alpha_2'} \langle \alpha_1'\alpha_2'|\hat{v}|\alpha_1\alpha_2\rangle
 		\psi_{\alpha_1}'(x_1)\psi_{\alpha_2}'(x_2)\dots \psi_{\alpha_n}(x_n) \nonumber \\
@@ -635,14 +637,14 @@ We can now let $\hat{H}_I$ act on all terms in the linear combination for $|\alp
 	&+& \sum_{\alpha_2'\alpha_n'} \langle \alpha_2'\alpha_n'|\hat{v}|\alpha_2\alpha_n\rangle
 		\psi_{\alpha_1}(x_1)\psi_{\alpha_2}'(x_2)\dots \psi_{\alpha_n}'(x_n) \nonumber \\
 	 & +& \dots \label{eq:2-33}
-\end{eqnarray}
+\end{align}
 where on the rhs we have a term for each distinct pairs. 
 
 
 
 
 For the other terms on the rhs we obtain similar expressions  and summing over all terms we obtain
-\begin{eqnarray}
+\begin{align}
 	H_I |\alpha_1\alpha_2\dots\alpha_n\rangle &=& \sum_{\alpha_1', \alpha_2'} \langle \alpha_1'\alpha_2'|\hat{v}|\alpha_1\alpha_2\rangle
 		|\alpha_1'\alpha_2'\dots\alpha_n\rangle \nonumber \\
 	&+& \dots \nonumber \\
@@ -652,13 +654,13 @@ For the other terms on the rhs we obtain similar expressions  and summing over a
 	&+& \sum_{\alpha_2', \alpha_n'} \langle \alpha_2'\alpha_n'|\hat{v}|\alpha_2\alpha_n\rangle
 		|\alpha_1\alpha_2'\dots\alpha_n'\rangle \nonumber \\
 	 &+& \dots \label{eq:2-34}
-\end{eqnarray}
+\end{align}
 
 
 
 
 We introduce second quantization via the relation
-\begin{eqnarray}
+\begin{align}
 	&& a_{\alpha_k'}^{\dagger} a_{\alpha_l'}^{\dagger} a_{\alpha_l} a_{\alpha_k} 
 		|\alpha_1\alpha_2\dots\alpha_k\dots\alpha_l\dots\alpha_n\rangle \nonumber \\
 	&=& (-1)^{k-1} (-1)^{l-2} a_{\alpha_k'}^{\dagger} a_{\alpha_l'}^{\dagger} a_{\alpha_l} a_{\alpha_k}
@@ -666,7 +668,7 @@ We introduce second quantization via the relation
 	&=& (-1)^{k-1} (-1)^{l-2} 
 	|\alpha_k'\alpha_l' \underbrace{\alpha_1\alpha_2\dots\alpha_n}_{\neq \alpha_k',\alpha_l'}\rangle \nonumber \\
 	&=& |\alpha_1\alpha_2\dots\alpha_k'\dots\alpha_l'\dots\alpha_n\rangle \label{eq:2-35}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -674,7 +676,7 @@ We introduce second quantization via the relation
 
 
 Inserting this in (\ref{eq:2-34}) gives
-\begin{eqnarray}
+\begin{align}
 	H_I |\alpha_1\alpha_2\dots\alpha_n\rangle
 	&=& \sum_{\alpha_1', \alpha_2'} \langle \alpha_1'\alpha_2'|\hat{v}|\alpha_1\alpha_2\rangle
 		a_{\alpha_1'}^{\dagger} a_{\alpha_2'}^{\dagger} a_{\alpha_2} a_{\alpha_1}
@@ -691,7 +693,7 @@ Inserting this in (\ref{eq:2-34}) gives
 	&=& \sum_{\alpha, \beta, \gamma, \delta} ' \langle \alpha\beta|\hat{v}|\gamma\delta\rangle
 		a^{\dagger}_\alpha a^{\dagger}_\beta a_\delta a_\gamma
 		|\alpha_1\alpha_2\dots\alpha_n\rangle \label{eq:2-36}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -706,13 +708,13 @@ run over all pairs of single-particle states. We wish to remove this restriction
 	\langle \alpha\beta|\hat{v}|\gamma\delta\rangle = \langle \beta\alpha|\hat{v}|\delta\gamma\rangle \label{eq:2-37}
 \end{equation}
 we get
-\begin{eqnarray}
+\begin{align}
 	\sum_{\alpha\beta} \langle \alpha\beta|\hat{v}|\gamma\delta\rangle a^{\dagger}_\alpha a^{\dagger}_\beta a_\delta a_\gamma &=& 
 		\sum_{\alpha\beta} \langle \beta\alpha|\hat{v}|\delta\gamma\rangle 
 		a^{\dagger}_\alpha a^{\dagger}_\beta a_\delta a_\gamma \label{eq:2-38a} \\
 	&=& \sum_{\alpha\beta}\langle \beta\alpha|\hat{v}|\delta\gamma\rangle
 		a^{\dagger}_\beta a^{\dagger}_\alpha a_\gamma a_\delta \label{eq:2-38b}
-\end{eqnarray}
+\end{align}
 where we  have used the anti-commutation rules.
 
 
@@ -753,7 +755,7 @@ space representation. We have
 
 
 Using the commutation relations we get 
-\begin{eqnarray}
+\begin{align}
 	&& a_{\alpha_2} a_{\alpha_1}a^{\dagger}_\alpha a^{\dagger}_\beta 
 		a_\delta a_\gamma a_{\beta_1}^{\dagger} a_{\beta_2}^{\dagger} \nonumber \\
 	&=& a_{\alpha_2} a_{\alpha_1}a^{\dagger}_\alpha a^{\dagger}_\beta 
@@ -767,13 +769,13 @@ Using the commutation relations we get
 		(\delta_{\gamma \beta_1} \delta_{\delta \beta_2} - \delta_{\gamma \beta_1} a_{\beta_2}^{\dagger} a_\delta \nonumber \\
 		&& \qquad - \delta_{\delta \beta_1} \delta_{\gamma \beta_2} + \delta_{\gamma \beta_2} a_{\beta_1}^{\dagger} a_\delta
 		+ a_\delta a_{\beta_1}^{\dagger} a_{\beta_2}^{\dagger} a_\gamma ) \label{eq:2-41}
-\end{eqnarray}
+\end{align}
 
 
 
 
 The vacuum expectation value of this product of operators becomes
-\begin{eqnarray}
+\begin{align}
 	&& \langle 0|a_{\alpha_2} a_{\alpha_1} a^{\dagger}_\alpha a^{\dagger}_\beta a_\delta a_\gamma 
 		a_{\beta_1}^{\dagger} a_{\beta_2}^{\dagger}|0\rangle \nonumber \\
 	&=& (\delta_{\gamma \beta_1} \delta_{\delta \beta_2} -
@@ -781,7 +783,7 @@ The vacuum expectation value of this product of operators becomes
 		\langle 0|a_{\alpha_2} a_{\alpha_1}a^{\dagger}_\alpha a^{\dagger}_\beta|0\rangle \nonumber \\
 	&=& (\delta_{\gamma \beta_1} \delta_{\delta \beta_2} -\delta_{\delta \beta_1} \delta_{\gamma \beta_2} )
 	(\delta_{\alpha \alpha_1} \delta_{\beta \alpha_2} -\delta_{\beta \alpha_1} \delta_{\alpha \alpha_2} ) \label{eq:2-42b}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -789,13 +791,13 @@ The vacuum expectation value of this product of operators becomes
 
 Insertion of 
 Eq.~(\ref{eq:2-42b}) in Eq.~(\ref{eq:2-40}) results in
-\begin{eqnarray}
+\begin{align}
 	\langle \alpha_1\alpha_2|\hat{H}_I|\beta_1\beta_2\rangle &=& \frac{1}{2} \big[ 
 		\langle \alpha_1\alpha_2|\hat{v}|\beta_1\beta_2\rangle- \langle \alpha_1\alpha_2|\hat{v}|\beta_2\beta_1\rangle \nonumber \\
 		&& - \langle \alpha_2\alpha_1|\hat{v}|\beta_1\beta_2\rangle + \langle \alpha_2\alpha_1|\hat{v}|\beta_2\beta_1\rangle \big] \nonumber \\
 	&=& \langle \alpha_1\alpha_2|\hat{v}|\beta_1\beta_2\rangle - \langle \alpha_1\alpha_2|\hat{v}|\beta_2\beta_1\rangle \nonumber \\
 	&=& \langle \alpha_1\alpha_2|\hat{v}|\beta_1\beta_2\rangle_{\mathrm{AS}}. \label{eq:2-43b}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -804,7 +806,7 @@ Eq.~(\ref{eq:2-42b}) in Eq.~(\ref{eq:2-40}) results in
 
 
 The two-body operator can also be expressed in terms of the anti-symmetrized matrix elements we discussed previously as
-\begin{eqnarray}
+\begin{align}
 	\hat{H}_I &=& \frac{1}{2} \sum_{\alpha\beta\gamma\delta}  \langle \alpha \beta|\hat{v}|\gamma \delta\rangle
 		a_\alpha^{\dagger} a_\beta^{\dagger} a_\delta a_\gamma \nonumber \\
 	&=& \frac{1}{4} \sum_{\alpha\beta\gamma\delta} \left[ \langle \alpha \beta|\hat{v}|\gamma \delta\rangle -
@@ -812,7 +814,7 @@ The two-body operator can also be expressed in terms of the anti-symmetrized mat
 		a_\alpha^{\dagger} a_\beta^{\dagger} a_\delta a_\gamma \nonumber \\
 	&=& \frac{1}{4} \sum_{\alpha\beta\gamma\delta} \langle \alpha \beta|\hat{v}|\gamma \delta\rangle_{\mathrm{AS}}
 		a_\alpha^{\dagger} a_\beta^{\dagger} a_\delta a_\gamma \label{eq:2-45}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -857,7 +859,7 @@ considerably the complexity and thereby the dimensionality of the many-body prob
 
 In the original particle representation these states are products of the creation operators  $a_{\alpha_i}^\dagger$ acting on the true vacuum $|0\rangle $.
 Following Eq.~(\ref{eq:2-2}) we have 
-\begin{eqnarray}
+\begin{align}
  |\alpha_1\alpha_2\dots\alpha_{n-1}\alpha_n\rangle &=& a_{\alpha_1}^\dagger a_{\alpha_2}^\dagger \dots
 					a_{\alpha_{n-1}}^\dagger a_{\alpha_n}^\dagger |0\rangle  \label{eq:2-47a} \\
 	|\alpha_1\alpha_2\dots\alpha_{n-1}\alpha_n\alpha_{n+1}\rangle &=&
@@ -865,7 +867,7 @@ Following Eq.~(\ref{eq:2-2}) we have
 		a_{\alpha_{n+1}}^\dagger |0\rangle  \label{eq:2-47b} \\
 	|\alpha_1\alpha_2\dots\alpha_{n-1}\rangle &=& a_{\alpha_1}^\dagger a_{\alpha_2}^\dagger \dots
 		a_{\alpha_{n-1}}^\dagger |0\rangle  \label{eq:2-47c}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -878,12 +880,12 @@ this state
 		a_{\alpha_1}^\dagger a_{\alpha_2}^\dagger \dots a_{\alpha_{n-1}}^\dagger a_{\alpha_n}^\dagger |0\rangle  \label{eq:2-48a}
 \end{equation}
 The new reference states for the $n+1$ and $n-1$ states can then be written as
-\begin{eqnarray}
+\begin{align}
 	|\alpha_1\alpha_2\dots\alpha_{n-1}\alpha_n\alpha_{n+1}\rangle &=& (-1)^n a_{\alpha_{n+1}}^\dagger |c\rangle 
 		\equiv (-1)^n |\alpha_{n+1}\rangle_c \label{eq:2-48b} \\
 	|\alpha_1\alpha_2\dots\alpha_{n-1}\rangle &=& (-1)^{n-1} a_{\alpha_n} |c\rangle  
 		\equiv (-1)^{n-1} |\alpha_{n-1}\rangle_c \label{eq:2-48c} 
-\end{eqnarray}
+\end{align}
 
 
 
@@ -905,11 +907,11 @@ $a_\alpha |0\rangle  = 0$ for all $\alpha$.
 
 The new reference state leads to the definition of new creation and annihilation operators
 which satisfy the following relations
-\begin{eqnarray}
+\begin{align}
 	b_\alpha |c\rangle  &=& 0 \label{eq:2-50a} \\
 	\{b_\alpha^\dagger , b_\beta^\dagger \} = \{b_\alpha , b_\beta \} &=& 0 \nonumber  \\
 	\{b_\alpha^\dagger , b_\beta \} &=& \delta_{\alpha \beta} \label{eq:2-50c}
-\end{eqnarray}
+\end{align}
 We assume also that the new reference state is properly normalized
 \begin{equation}
 	\langle c | c \rangle = 1 \label{eq:2-51}
@@ -990,7 +992,7 @@ where $n_{qp} = n_p + n_h$ is the total number of quasi-particles.
 
 
 We express the one-body operator $\hat{H}_0$ in terms of the quasi-particle creation and annihilation operators, resulting in
-\begin{eqnarray}
+\begin{align}
 	\hat{H}_0 &=& \sum_{\alpha\beta > F} \langle \alpha|\hat{h}_0|\beta\rangle  b_\alpha^\dagger b_\beta +
 		\sum_{\begin{array}{c} \alpha > F \\ \beta \leq F \end{array}} \left[
 		\langle \alpha|\hat{h}_0|\beta\rangle b_\alpha^\dagger b_\beta^\dagger + 
@@ -998,7 +1000,7 @@ We express the one-body operator $\hat{H}_0$ in terms of the quasi-particle crea
 	&+& \sum_{\alpha \leq F} \langle \alpha|\hat{h}_0|\alpha\rangle - 
 		\sum_{\alpha\beta \leq F} \langle \beta|\hat{h}_0|\alpha\rangle
 		b_\alpha^\dagger b_\beta \label{eq:2-63b}
-\end{eqnarray}
+\end{align}
 The first term  gives contribution only for particle states, while the last one
 contributes only for holestates. The second term can create or destroy a set of
 quasi-particles and 
@@ -1013,7 +1015,7 @@ text. It is inspired by the notation used in quantum chemistry.
 We reserve the labels $i,j,k,\dots$ for hole states and $a,b,c,\dots$ for states above $F$, viz.~particle states.
 This means also that we will skip the constraint $\leq F$ or $> F$ in the summation symbols. 
 Our operator $\hat{H}_0$  reads now 
-\begin{eqnarray}
+\begin{align}
 	\hat{H}_0 &=& \sum_{ab} \langle a|\hat{h}|b\rangle b_a^\dagger b_b +
 		\sum_{ai} \left[
 		\langle a|\hat{h}|i\rangle b_a^\dagger b_i^\dagger + 
@@ -1021,7 +1023,7 @@ Our operator $\hat{H}_0$  reads now
 	&+& \sum_{i} \langle i|\hat{h}|i\rangle - 
 		\sum_{ij} \langle j|\hat{h}|i\rangle
 		b_i^\dagger b_j \label{eq:2-63b}
-\end{eqnarray} 
+\end{align} 
 
 
 
@@ -1049,13 +1051,13 @@ The next term $\hat{H}_I^{(b)}$  reads
 This term conserves the number of quasiparticles but creates or removes a 
 three-particle-one-hole  state. 
 For $\hat{H}_I^{(c)}$  we have
-\begin{eqnarray}
+\begin{align}
 	\hat{H}_I^{(c)}& =& \frac{1}{4}
 		\sum_{abij}\left(\langle ab|\hat{V}|ij\rangle b_a^\dagger b_b^\dagger b_j^\dagger b_i^\dagger +
 		\langle ij|\hat{V}|ab\rangle b_a  b_b b_j b_i \right)+  \nonumber \\
 	&&	\frac{1}{2}\sum_{abij}\langle ai|\hat{V}|bj\rangle b_a^\dagger b_j^\dagger b_b b_i + 
 		\frac{1}{2}\sum_{abi}\langle ai|\hat{V}|bi\rangle b_a^\dagger b_b. \label{eq:2-68c}
-\end{eqnarray}
+\end{align}
 
 
 
@@ -1066,13 +1068,13 @@ while the last term represents a contribution to the particle single-particle en
 from the hole states, that is an interaction between the particle states and the hole states
 within the new vacuum  state.
 The fourth term reads
-\begin{eqnarray}
+\begin{align}
 	 \hat{H}_I^{(d)}& = &\frac{1}{4} 
 	 	\sum_{aijk}\left(\langle ai|\hat{V}|jk\rangle b_a^\dagger b_k^\dagger b_j^\dagger b_i+
 \langle ji|\hat{V}|ak\rangle b_k^\dagger b_j b_i b_a\right)+\nonumber \\
 &&\frac{1}{4}\sum_{aij}\left(\langle ai|\hat{V}|ji\rangle b_a^\dagger b_j^\dagger+
 \langle ji|\hat{V}|ai\rangle - \langle ji|\hat{V}|ia\rangle b_j b_a \right). \label{eq:2-69d} 
-\end{eqnarray}
+\end{align}
 The terms in the first line  stand for the creation of a particle-hole state 
 interacting with hole states, we will label this as a two-hole-one-particle contribution. 
 The remaining terms are a particle-hole state interacting with the holes in the vacuum state. 

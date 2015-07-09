@@ -53,6 +53,7 @@ system doconce ptex2tex $name envir=minted
 doconce subst "% Add user's preamble" "\g<1>\n\\usepackage{simplewick}" $name.tex
 doconce replace 'section{' 'section*{' $name.tex
 pdflatex -shell-escape $name
+pdflatex -shell-escape $name
 
 mv -f $name.pdf ${name}-print.pdf
 cp $name.tex ${name}-plain-print.tex
