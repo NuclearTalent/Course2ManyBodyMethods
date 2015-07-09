@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  8 JUL 2015 12:37
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  9 JUL 2015 12:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -529,7 +529,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 {/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (56.47595pt too wide) detected at line 147
+Overfull \hbox (56.47595pt too wide) detected at line 169
 \OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it/1
 0 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 + 
 []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it
@@ -543,7 +543,7 @@ t/10 ;
  []
 
 
-Overfull \hbox (64.14804pt too wide) detected at line 153
+Overfull \hbox (64.14804pt too wide) detected at line 175
 \OMS/lmsy/m/n/10 h\OML/lmm/m/it/10 i\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 a\OMS
 /lmsy/m/n/10 i \OT1/lmr/m/n/10 + \OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lm
 sy/m/n/10 j[]j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/
@@ -555,8 +555,8 @@ OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT
 OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 EC[]:
  []
 
-
-Overfull \hbox (57.09183pt too wide) detected at line 172
+[2]
+Overfull \hbox (57.09183pt too wide) detected at line 194
 []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it
 /10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 
 C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10
@@ -567,26 +567,53 @@ C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10
 t/10 ;
  []
 
-[2]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 190.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 212.
 
- (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 190.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 212.
  [3] [4]
-Overfull \hbox (65.11981pt too wide) in paragraph at lines 298--311
+Overfull \hbox (65.11981pt too wide) in paragraph at lines 321--334
 [][] 
  []
 
-[5]
+[5] [6] [7]
+
+LaTeX Warning: Reference `eq:ccd' on page 8 undefined on input line 448.
+
+
+LaTeX Warning: Reference `eq:ccd1' on page 8 undefined on input line 454.
+
+
+LaTeX Warning: Reference `eq:ccd1' on page 8 undefined on input line 463.
+
+[8]
+
+LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 469.
+
+
+LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 470.
+
+
+LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 474.
+
+
+LaTeX Warning: Reference `eq:ccd' on page 9 undefined on input line 480.
+
+
+LaTeX Warning: Reference `eq:ccd1' on page 9 undefined on input line 485.
+
+
+LaTeX Warning: Reference `eq:ccd' on page 9 undefined on input line 485.
+
 No file cc.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 392.
-[6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 392.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 503.
  (./cc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 392.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
 
 
  *File List*
@@ -678,19 +705,25 @@ gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
   omslmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 392.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
 Package rerunfilecheck Info: File `cc.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 392.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
  ) 
 Here is how much of TeX's memory you used:
- 8354 strings out of 493488
- 126742 string characters out of 3141326
- 261763 words of memory out of 3000000
- 11433 multiletter control sequences out of 15000+200000
- 50353 words of font info for 80 fonts, out of 3000000 for 9000
+ 8396 strings out of 493488
+ 127159 string characters out of 3141326
+ 265763 words of memory out of 3000000
+ 11436 multiletter control sequences out of 15000+200000
+ 51266 words of font info for 91 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,14n,35p,424b,390s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,14n,35p,465b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
 cal/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
 12/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-d
@@ -706,10 +739,10 @@ blic/lm/lmr5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7
 .pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/tex
 live/2012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on cc.pdf (6 pages, 191101 bytes).
+Output written on cc.pdf (9 pages, 206636 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
+ 139 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
  13825 words of extra memory for PDF output out of 14400 (max. 10000000)
 
