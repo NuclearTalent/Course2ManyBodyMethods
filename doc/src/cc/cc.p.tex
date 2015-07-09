@@ -497,7 +497,7 @@ A simple approach to the solution of  Eq. (\ref{eq:ccd1}), is to thus to
 \begin{enumerate}
 \item Start with a guess for the amplitudes and compute the zeroth approximation to the correlation energy
 
-\item Use the ansatz for the amplitudes to solve Eq. (\ref{eq:ccd1}) via for example your root-finding method of choice (Newton's method or modifications thereof can be used) and continue these iterations till the correlation energy does not change more than a prefixed quantity $\lambda$; $\Delta E_{\mathrm{CCD}}^{(i)}-\Delta E_{\mathrm{CCD}}^{(i-1)} \le lambda$.
+\item Use the ansatz for the amplitudes to solve Eq. (\ref{eq:ccd1}) via for example your root-finding method of choice (Newton's method or modifications thereof can be used) and continue these iterations till the correlation energy does not change more than a prefixed quantity $\lambda$; $\Delta E_{\mathrm{CCD}}^{(i)}-\Delta E_{\mathrm{CCD}}^{(i-1)} \le \lambda$.
 
 \item It is common during the iterations to scale the amplitudes with a parameter $\alpha$, with $\alpha \in (0,1]$ as  $t^{(i)}=\alpha t^{(i)}+(1-\alpha)t^{(i-1)}$.
 \end{enumerate}
