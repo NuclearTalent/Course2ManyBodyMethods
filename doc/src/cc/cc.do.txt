@@ -430,7 +430,7 @@ where we have indicated an explicit energy dependence. This equation, transformi
 To solve Eq. (ref{eq:ccd1}), we would thus start with a guess for the unknown amplitudes, typically using the wave operator defined by first order in perturbation theory, leading to a zeroth approximation to the energy given by second-order perturbation theory for the correlation energy.
 A simple approach to the solution of  Eq. (ref{eq:ccd1}), is to thus to
  o Start with a guess for the amplitudes and compute the zeroth approximation to the correlation energy
- o Use the ansatz for the amplitudes to solve Eq. (ref{eq:ccd1}) via for example your root-finding method of choice (Newton's method or modifications thereof can be used) and continue these iterations till the correlation energy does not change more than a prefixed quantity $\lambda$; $\Delta E_{\mathrm{CCD}}^{(i)}-\Delta E_{\mathrm{CCD}}^{(i-1)} \le lambda$.
+ o Use the ansatz for the amplitudes to solve Eq. (ref{eq:ccd1}) via for example your root-finding method of choice (Newton's method or modifications thereof can be used) and continue these iterations till the correlation energy does not change more than a prefixed quantity $\lambda$; $\Delta E_{\mathrm{CCD}}^{(i)}-\Delta E_{\mathrm{CCD}}^{(i-1)} \le \lambda$.
  o It is common during the iterations to scale the amplitudes with a parameter $\alpha$, with $\alpha \in (0,1]$ as  $t^{(i)}=\alpha t^{(i)}+(1-\alpha)t^{(i-1)}$.
 
 The next approximation is to include the two-hole term in Eq. (ref{eq:ccd}), a term which allow us to make a link with Green's function theory with two-particle and two-hole correlations. This means that we solve
