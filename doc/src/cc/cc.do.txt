@@ -406,7 +406,7 @@ label{eq:ccd1}
 \end{equation}
 !et
 
-Setting the single-particle energies for the hole state equal to an energy variable $\omega = \epsilon_i+\epsilon_j$, Eq. (ref{eq:ccd1}) reduces to the
+Setting the single-particle energies for the hole states equal to an energy variable $\omega = \epsilon_i+\epsilon_j$, Eq. (ref{eq:ccd1}) reduces to the
 well-known equations for the so-called $G$-matrix, widely used in "infinite matter and finite nuclei studies":"http://www.sciencedirect.com/science/journal/03701573/261/3-4". The equation can then be reordered and solved by matrix inversion.  To see this let us define the following quantity
 !bt
 \[
@@ -422,7 +422,7 @@ and inserting
 in the intermediate sums over $cd$ in Eq. (ref{eq:ccd1}), we can rewrite the latter equation as
 !bt
 \[
-\tau_{ij}^{ab}(\omega)= \langle ab \vert \hat{v} \vert ij \rangle + \frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle \frac{1}{\omega-\epsilon_c-\epsilon_d},\tau_{ij}^{cd}(\omega),
+\tau_{ij}^{ab}(\omega)= \langle ab \vert \hat{v} \vert ij \rangle + \frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle \frac{1}{\omega-\epsilon_c-\epsilon_d}\tau_{ij}^{cd}(\omega),
 \]
 !et
 where we have indicated an explicit energy dependence. This equation, transforming a two-particle configuration into a single index, can be transformed into a matrix inversion problem.  Solving the equations for a fixed energy $\omega$ allows us to compare directly with results from Green's function theory when only two-particle intermediate states are included. 
