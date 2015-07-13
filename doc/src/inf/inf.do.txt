@@ -1050,7 +1050,7 @@ The table illustrates  how single-particle energies
 
 
 
-===== Magic number for the two-dimensional electron gas =====
+===== Magic numbers for the two-dimensional electron gas =====
 
 
 |------------------------------------------------------------------------------------------------------|
@@ -1137,10 +1137,40 @@ simplications to our different many-body methods. In coupled cluster
 theory for example, all
 terms that involve single particle-hole excitations vanish. 
 
+===== Exercise: Magic numbers for the three-dimensional electron gas  =====
+
+|------------------------------------------------------------------------------------------------------|
+| $n_{x}^{2}+n_{y}^{2}+n_z^2$ | $n_{x}$ | $n_{y}$ |  $N_{\uparrow \downarrow }$ | $N_{\uparrow \uparrow }$   |
+|------------------------------------------------------------------------------------------------------|
+|    0                  | 0       | 0       | 2                           | 1                          |
+|------------------------------------------------------------------------------------------------------|
+|    1 | -1 |  0 | | |
+|    |  1 |  0 | | |
+|    |  0 | -1 | | |
+|    |  0 |  1 | 10 | 5 |
+|---------------------------|
+|    2  | -1 | -1 | | |
+|    | -1 |  1 | | |
+|    |  1 | -1 | | |
+|    |  1 |  1 | 18 | 9 |
+|---------------------------|
+|    4  | -2 | 0 | | |
+|    |  2 | 0 | | |
+|    |  0 | -2 | | |
+|    |  0 |  2 | 26 | 13 |
+|---------------------------|
+|    5  | -2 | -1 | | |
+|    |  2 | -1 | | |
+|    | -2 |  1 | | |
+|    |  2 |  1 | | |
+|    | -1 | -2 | | |
+|    | -1 |  2 | | |
+|    |  1 | -2 | | |
+|    |  1 |  2 | 42 | 21 |
+|---------------------------|
 
 
 =====  Add material about 3d electron gas and nuclear matter =====
 * Make table of magic numbers in 3d with ditto exercise
 * Discuss Bruekcner-Hartree-Fock theory and show the equations, provides the infinite limit
-* Link to Artur's lectures
 
