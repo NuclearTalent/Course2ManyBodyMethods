@@ -1349,7 +1349,16 @@ Calculate thereafter the Hartree-Fock total energy for the electron gas or infin
 <p>
 <b>e)</b>
 Compute now the contribution to the correlation energy for the electron gas at the level of second-order perturbation theory using a given number of electrons \( N \) and a given (defined by you) number of single-particle states above the Fermi level.
+<<<<<<< HEAD
 The following Python code shows an implementation for the electron gas in three dimensions for second perturbation theory using the Coulomb interaction. Here we have hard-coded a case which computes the energy for \( N=14 \) and a total of \( 5 \) major shells.
+=======
+The following Python code shows an implementation for the electron gas in three dimensions for second-order perturbation theory 
+$$
+\Delta E_{\mathrm{MBPT}} =  \frac{1}{4}\sum_{abij}\langle ij \vert \hat{v} \vert ab \rangle \frac{\langle ab \vert \hat{v} \vert ij \rangle }{\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b},
+$$
+
+using the Coulomb interaction. Here we have hard-coded a case which computes the energy for \( N=14 \) and a total of \( 5 \) major shells. For infinite nuclear matter, you can replace the Coulomb force with the Minnesota interaction.
+>>>>>>> master
 
 <p>
 <!-- --- begin solution of exercise --- -->
@@ -1531,6 +1540,13 @@ The following Python code shows an implementation for the electron gas in three 
     <span style="color: #008000; font-weight: bold">return</span> psum
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> master
 <span style="color: #408080; font-style: italic">#user input here</span>
 number_of_shells <span style="color: #666666">=</span> <span style="color: #666666">5</span>
 number_of_holes <span style="color: #666666">=</span> <span style="color: #666666">14</span> <span style="color: #408080; font-style: italic">#(particles)</span>
