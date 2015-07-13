@@ -154,9 +154,10 @@ MathJax.Hub.Config({
 <a href="#___sec11"> Antisymmetrized matrix elements in three dimensions </a><br>
 <a href="#___sec12"> Fock operator </a><br>
 <a href="#___sec13"> Periodic boundary conditions and single-particle states </a><br>
-<a href="#___sec14"> Magic number for the two-dimensional electron gas </a><br>
+<a href="#___sec14"> Magic numbers for the two-dimensional electron gas </a><br>
 <a href="#___sec15"> Hartree-Fock energies </a><br>
-<a href="#___sec16">  Add material about 3d electron gas and nuclear matter </a><br>
+<a href="#___sec16"> Exercise 3: Magic numbers for the three-dimensional electron gas </a><br>
+<a href="#___sec17">  Add material about Bruekcner-Hartree-Fock theory and nuclear matter </a><br>
 </p>
 
 <h2 id="___sec0">Introduction to studies of infinite matter </h2>
@@ -1333,7 +1334,7 @@ The table illustrates  how single-particle energies
   cumulated number of spin-orbitals in a spin-polarized
   system.
 
-<h2 id="___sec14">Magic number for the two-dimensional electron gas </h2>
+<h2 id="___sec14">Magic numbers for the two-dimensional electron gas </h2>
 
 <p>
 <table border="1">
@@ -1420,12 +1421,269 @@ simplications to our different many-body methods. In coupled cluster
 theory for example, all
 terms that involve single particle-hole excitations vanish.
 
-<h2 id="___sec16">Add material about 3d electron gas and nuclear matter </h2>
+<p>
+<!-- --- begin exercise --- -->
+
+<h2 id="___sec16">Exercise 3: Magic numbers for the three-dimensional electron gas </h2>
+
+<p>
+<b>a)</b>
+Set up the possible magic numbers for the electron gas in three dimensions using periodic boundary conditions..
+
+<p>
+<!-- --- begin hint in exercise --- -->
+
+<p>
+<b>Hint.</b>
+Follow the example for the two-dimensional electron gas and add the third dimension via the quantum number \( n_z \).
+
+<p>
+<!-- --- end hint in exercise --- -->
+
+<p>
+<b>b)</b>
+Extend the previous case to infinite symmetric nuclear matter. Every number of particles for filled shells defines also the number of particles to be used in a given calculation. Use the number of particles to define  the density of the system 
+<p>&nbsp;<br>
+$$
+\rho = g \frac{k_F^3}{6\pi^2},
+$$
+<p>&nbsp;<br>
+
+where you need to define \( k_F \) and the degeneracy \( g \), which is two for one type of spin-\( 1/2 \) particles and four for symmetric nuclear matter.
+
+<p>
+<b>c)</b>
+Use the density to find the length \( L \) of the box used with periodic boundary contributions, that is use the relation
+<p>&nbsp;<br>
+$$
+  V= L^3= \frac{A}{\rho}.
+$$
+<p>&nbsp;<br>
+
+You can use \( L \) to define the spacing to set up the spacing between varipus \( k \)-values, that is
+<p>&nbsp;<br>
+$$
+  \Delta k = \frac{2\pi}{L}.
+$$
+<p>&nbsp;<br>
+
+Here, \( A \) can be the number of nucleons. If we deal with the electron gas only,  this needs to be replaced by  the number of electrons \( N \).
+
+<p>
+<b>d)</b>
+Calculate thereafter the Hartree-Fock total energy for the electron gas or infinite nuclear matter using the Minnesota interaction discussed during the lectures. Compare the results with the exact Hartree-Fock results  for the electron gas as a function of the number of particles.
+
+<p>
+<b>e)</b>
+Compute now the contribution to the correlation energy for the electron gas at the level of second-order perturbation theory using a given number of electrons \( N \) and a given (defined by you) number of single-particle states above the Fermi level.
+The following Python code shows an implementation for the electron gas in three dimensions for second perturbation theory using the Coulomb interaction. Here we have hard-coded a case which computes the energy for \( N=14 \) and a total of \( 5 \) major shells.
+
+<p>
+<!-- --- begin solution of exercise --- -->
+<b>Solution.</b>
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "perldoc" -->
+<div class="highlight" style="background: #eeeedd"><pre style="font-size: 80%; line-height: 125%"><span style="color: #8B008B; font-weight: bold">from</span> <span style="color: #008b45; text-decoration: underline">numpy</span> <span style="color: #8B008B; font-weight: bold">import</span> *
+
+<span style="color: #8B008B; font-weight: bold">class</span> <span style="color: #008b45; font-weight: bold">electronbasis</span>():
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">__init__</span>(<span style="color: #658b00">self</span>, N, rs, Nparticles):
+        <span style="color: #228B22">############################################################</span>
+        <span style="color: #228B22">##</span>
+        <span style="color: #228B22">##  Initialize basis: </span>
+        <span style="color: #228B22">##  N = number of shells</span>
+        <span style="color: #228B22">##  rs = parameter for volume </span>
+        <span style="color: #228B22">##  Nparticles = Number of holes (conflicting naming, sorry)</span>
+        <span style="color: #228B22">##</span>
+        <span style="color: #228B22">###########################################################</span>
+        
+        <span style="color: #658b00">self</span>.rs = rs
+        <span style="color: #658b00">self</span>.states = []
+        <span style="color: #658b00">self</span>.nstates = <span style="color: #B452CD">0</span>
+        <span style="color: #658b00">self</span>.nparticles = Nparticles
+        <span style="color: #658b00">self</span>.nshells = N - <span style="color: #B452CD">1</span>
+        <span style="color: #658b00">self</span>.Nm = N + <span style="color: #B452CD">1</span>
+        
+        <span style="color: #658b00">self</span>.k_step = <span style="color: #B452CD">2</span>*(<span style="color: #658b00">self</span>.Nm + <span style="color: #B452CD">1</span>)
+        Nm = N
+        n = <span style="color: #B452CD">0</span> <span style="color: #228B22">#current shell</span>
+        ene_integer = <span style="color: #B452CD">0</span>
+        <span style="color: #8B008B; font-weight: bold">while</span> n &lt;= <span style="color: #658b00">self</span>.nshells:
+            is_shell = <span style="color: #658b00">False</span>
+            <span style="color: #8B008B; font-weight: bold">for</span> x <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(-Nm, Nm+<span style="color: #B452CD">1</span>):
+                <span style="color: #8B008B; font-weight: bold">for</span> y <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(-Nm, Nm+<span style="color: #B452CD">1</span>):
+                    <span style="color: #8B008B; font-weight: bold">for</span> z <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(-Nm,Nm+<span style="color: #B452CD">1</span>):
+                        e = x*x + y*y + z*z
+                        <span style="color: #8B008B; font-weight: bold">if</span> e   == ene_integer:
+                            is_shell = <span style="color: #658b00">True</span>
+                            <span style="color: #658b00">self</span>.nstates += <span style="color: #B452CD">2</span>
+                            <span style="color: #658b00">self</span>.states.append([e, x,y,z,<span style="color: #B452CD">1</span>])
+                            <span style="color: #658b00">self</span>.states.append([e, x,y,z, -<span style="color: #B452CD">1</span>])
+                            
+            <span style="color: #8B008B; font-weight: bold">if</span> is_shell:
+                n += <span style="color: #B452CD">1</span>
+            ene_integer += <span style="color: #B452CD">1</span>
+        <span style="color: #658b00">self</span>.L3 = (<span style="color: #B452CD">4</span>*pi*<span style="color: #658b00">self</span>.nparticles*<span style="color: #658b00">self</span>.rs**<span style="color: #B452CD">3</span>)/<span style="color: #B452CD">3.0</span>
+        <span style="color: #658b00">self</span>.L2 = <span style="color: #658b00">self</span>.L3**(<span style="color: #B452CD">2</span>/<span style="color: #B452CD">3.0</span>)
+        <span style="color: #658b00">self</span>.L = <span style="color: #658b00">pow</span>(<span style="color: #658b00">self</span>.L3, <span style="color: #B452CD">1</span>/<span style="color: #B452CD">3.0</span>)
+        
+        <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #658b00">self</span>.nstates):
+            <span style="color: #658b00">self</span>.states[i][<span style="color: #B452CD">0</span>] *= <span style="color: #B452CD">2</span>*(pi**<span style="color: #B452CD">2</span>)/<span style="color: #658b00">self</span>.L**<span style="color: #B452CD">2</span> <span style="color: #228B22">#Multiplying in the missing factors in the single particle energy</span>
+        <span style="color: #658b00">self</span>.states = array(<span style="color: #658b00">self</span>.states) <span style="color: #228B22">#converting to array to utilize vectorized calculations    </span>
+        
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">hfenergy</span>(<span style="color: #658b00">self</span>, nParticles):
+        <span style="color: #228B22">#Calculate the HF-energy (reference energy) for nParticles particles</span>
+        e0 = <span style="color: #B452CD">0.0</span>
+        <span style="color: #8B008B; font-weight: bold">if</span> nParticles&lt;=<span style="color: #658b00">self</span>.nstates:
+            <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(nParticles):
+                e0 += <span style="color: #658b00">self</span>.h(i,i)
+                <span style="color: #8B008B; font-weight: bold">for</span> j <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(nParticles):
+                    <span style="color: #8B008B; font-weight: bold">if</span> j != i:
+                        e0 += .<span style="color: #B452CD">5</span>*<span style="color: #658b00">self</span>.v(i,j,i,j)
+        <span style="color: #8B008B; font-weight: bold">else</span>:
+            <span style="color: #228B22">#Safety for cases where nParticles exceeds size of basis</span>
+            <span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;Not enough basis states.&quot;</span>
+            
+        <span style="color: #8B008B; font-weight: bold">return</span> e0
+                
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">h</span>(<span style="color: #658b00">self</span>, p,q):
+        <span style="color: #228B22">#Return single particle energy</span>
+        <span style="color: #8B008B; font-weight: bold">return</span> <span style="color: #658b00">self</span>.states[p,<span style="color: #B452CD">0</span>]*(p==q)
+
+    
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">v</span>(<span style="color: #658b00">self</span>,p,q,r,s):
+        <span style="color: #228B22">#Two body interaction for electron gas</span>
+        val = <span style="color: #B452CD">0</span>
+        terms = <span style="color: #B452CD">0.0</span>
+        term1 = <span style="color: #B452CD">0.0</span>
+        term2 = <span style="color: #B452CD">0.0</span>
+        kdpl = <span style="color: #658b00">self</span>.kdplus(p,q,r,s)
+        <span style="color: #8B008B; font-weight: bold">if</span> kdpl != <span style="color: #B452CD">0</span>:
+            val = <span style="color: #B452CD">1.0</span>/<span style="color: #658b00">self</span>.L3
+            <span style="color: #8B008B; font-weight: bold">if</span> <span style="color: #658b00">self</span>.kdspin(p,r)*<span style="color: #658b00">self</span>.kdspin(q,s)==<span style="color: #B452CD">1</span>:
+                <span style="color: #8B008B; font-weight: bold">if</span> <span style="color: #658b00">self</span>.kdwave(p,r) != <span style="color: #B452CD">1.0</span>:
+                    term1 = <span style="color: #658b00">self</span>.L2/(pi*<span style="color: #658b00">self</span>.absdiff2(r,p))
+            <span style="color: #8B008B; font-weight: bold">if</span> <span style="color: #658b00">self</span>.kdspin(p,s)*<span style="color: #658b00">self</span>.kdspin(q,r)==<span style="color: #B452CD">1</span>:
+                <span style="color: #8B008B; font-weight: bold">if</span> <span style="color: #658b00">self</span>.kdwave(p,s) != <span style="color: #B452CD">1.0</span>:
+                    term2 = <span style="color: #658b00">self</span>.L2/(pi*<span style="color: #658b00">self</span>.absdiff2(s,p))
+        <span style="color: #8B008B; font-weight: bold">return</span> val*(term1-term2)
+
+    
+    <span style="color: #228B22">#The following is a series of kroenecker deltas used in the two-body interactions. </span>
+    <span style="color: #228B22">#Just ignore these lines unless you suspect an error here</span>
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">kdi</span>(<span style="color: #658b00">self</span>,a,b):
+        <span style="color: #228B22">#Kroenecker delta integer</span>
+        <span style="color: #8B008B; font-weight: bold">return</span> <span style="color: #B452CD">1.0</span>*(a==b)
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">kda</span>(<span style="color: #658b00">self</span>,a,b):
+        <span style="color: #228B22">#Kroenecker delta array</span>
+        d = <span style="color: #B452CD">1.0</span>
+        <span style="color: #228B22">#print a,b,</span>
+        <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #658b00">len</span>(a)):
+            d*=(a[i]==b[i])
+        <span style="color: #8B008B; font-weight: bold">return</span> d
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">kdfullplus</span>(<span style="color: #658b00">self</span>,p,q,r,s):
+        <span style="color: #228B22">#Kroenecker delta wavenumber p+q,r+s</span>
+        <span style="color: #8B008B; font-weight: bold">return</span> <span style="color: #658b00">self</span>.kda(<span style="color: #658b00">self</span>.states[p][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">5</span>]+<span style="color: #658b00">self</span>.states[q][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">5</span>],<span style="color: #658b00">self</span>.states[r][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">5</span>]+<span style="color: #658b00">self</span>.states[s][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">5</span>])
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">kdplus</span>(<span style="color: #658b00">self</span>,p,q,r,s):
+        <span style="color: #228B22">#Kroenecker delta wavenumber p+q,r+s</span>
+        <span style="color: #8B008B; font-weight: bold">return</span> <span style="color: #658b00">self</span>.kda(<span style="color: #658b00">self</span>.states[p][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">4</span>]+<span style="color: #658b00">self</span>.states[q][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">4</span>],<span style="color: #658b00">self</span>.states[r][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">4</span>]+<span style="color: #658b00">self</span>.states[s][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">4</span>])
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">kdspin</span>(<span style="color: #658b00">self</span>,p,q):
+        <span style="color: #228B22">#Kroenecker delta spin</span>
+        <span style="color: #8B008B; font-weight: bold">return</span> <span style="color: #658b00">self</span>.kdi(<span style="color: #658b00">self</span>.states[p][<span style="color: #B452CD">4</span>], <span style="color: #658b00">self</span>.states[q][<span style="color: #B452CD">4</span>])
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">kdwave</span>(<span style="color: #658b00">self</span>,p,q):
+        <span style="color: #228B22">#Kroenecker delta wavenumber</span>
+        <span style="color: #8B008B; font-weight: bold">return</span> <span style="color: #658b00">self</span>.kda(<span style="color: #658b00">self</span>.states[p][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">4</span>],<span style="color: #658b00">self</span>.states[q][<span style="color: #B452CD">1</span>:<span style="color: #B452CD">4</span>])
+    <span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">absdiff2</span>(<span style="color: #658b00">self</span>,p,q):
+        val = <span style="color: #B452CD">0.0</span>
+        <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(<span style="color: #B452CD">1</span>,<span style="color: #B452CD">4</span>):
+            val += (<span style="color: #658b00">self</span>.states[p][i]-<span style="color: #658b00">self</span>.states[q][i])*(<span style="color: #658b00">self</span>.states[p][i]-<span style="color: #658b00">self</span>.states[q][i])
+        <span style="color: #8B008B; font-weight: bold">return</span> val
+
+        
+<span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">MBPT2</span>(bs):
+    <span style="color: #228B22">#2. order MBPT Energy </span>
+    Nh = bs.nparticles
+    Np = bs.nstates-bs.nparticles <span style="color: #228B22">#Note the conflicting notation here. bs.nparticles is number of hole states </span>
+    vhhpp = zeros((Nh**<span style="color: #B452CD">2</span>, Np**<span style="color: #B452CD">2</span>))
+    vpphh = zeros((Np**<span style="color: #B452CD">2</span>, Nh**<span style="color: #B452CD">2</span>))
+    <span style="color: #228B22">#manual MBPT(2) energy (Should be -0.525588309385 for 66 states, shells = 5, in this code)</span>
+    psum2 = <span style="color: #B452CD">0</span>
+    <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(Nh):
+        <span style="color: #8B008B; font-weight: bold">for</span> j <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(Nh):
+            <span style="color: #8B008B; font-weight: bold">for</span> a <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(Np):
+                <span style="color: #8B008B; font-weight: bold">for</span> b <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(Np):
+                    <span style="color: #228B22">#val1 = bs.v(i,j,a+Nh,b+Nh)</span>
+                    <span style="color: #228B22">#val2 = bs.v(a+Nh,b+Nh,i,j)</span>
+                    <span style="color: #228B22">#if val1!=val2:</span>
+                    <span style="color: #228B22">#    print val1, val2</span>
+                    vhhpp[i + j*Nh, a+b*Np] = bs.v(i,j,a+Nh,b+Nh)
+                    vpphh[a+b*Np,i + j*Nh] = bs.v(a+Nh,b+Nh,i,j)/(bs.states[i,<span style="color: #B452CD">0</span>] + bs.states[j,<span style="color: #B452CD">0</span>] - bs.states[a + Nh, <span style="color: #B452CD">0</span>] - bs.states[b+Nh,<span style="color: #B452CD">0</span>])
+    psum = .<span style="color: #B452CD">25</span>*<span style="color: #658b00">sum</span>(dot(vhhpp,vpphh).diagonal())
+    <span style="color: #8B008B; font-weight: bold">return</span> psum
+    
+<span style="color: #8B008B; font-weight: bold">def</span> <span style="color: #008b45">MBPT2_fast</span>(bs):
+    <span style="color: #228B22">#2. order MBPT Energy </span>
+    Nh = bs.nparticles
+    Np = bs.nstates-bs.nparticles <span style="color: #228B22">#Note the conflicting notation here. bs.nparticles is number of hole states </span>
+    vhhpp = zeros((Nh**<span style="color: #B452CD">2</span>, Np**<span style="color: #B452CD">2</span>))
+    vpphh = zeros((Np**<span style="color: #B452CD">2</span>, Nh**<span style="color: #B452CD">2</span>))
+    <span style="color: #228B22">#manual MBPT(2) energy (Should be -0.525588309385 for 66 states, shells = 5, in this code)</span>
+    psum2 = <span style="color: #B452CD">0</span>
+    <span style="color: #8B008B; font-weight: bold">for</span> i <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(Nh):
+        <span style="color: #8B008B; font-weight: bold">for</span> j <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(i):
+            <span style="color: #8B008B; font-weight: bold">for</span> a <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(Np):
+                <span style="color: #8B008B; font-weight: bold">for</span> b <span style="color: #8B008B">in</span> <span style="color: #658b00">range</span>(a):
+                    val = bs.v(i,j,a+Nh,b+Nh)
+                    eps = val/(bs.states[i,<span style="color: #B452CD">0</span>] + bs.states[j,<span style="color: #B452CD">0</span>] - bs.states[a + Nh, <span style="color: #B452CD">0</span>] - bs.states[b+Nh,<span style="color: #B452CD">0</span>])
+                    vhhpp[i + j*Nh, a+b*Np] = val 
+                    vhhpp[j + i*Nh, a+b*Np] = -val 
+                    vhhpp[i + j*Nh, b+a*Np] = -val
+                    vhhpp[j + i*Nh, b+a*Np] = val 
+        
+                    
+                    vpphh[a+b*Np,i + j*Nh] = eps
+                    vpphh[a+b*Np,j + i*Nh] = -eps
+                    vpphh[b+a*Np,i + j*Nh] = -eps
+                    vpphh[b+a*Np,j + i*Nh] = eps
+                    
+                    
+    psum = .<span style="color: #B452CD">25</span>*<span style="color: #658b00">sum</span>(dot(vhhpp,vpphh).diagonal())
+    <span style="color: #8B008B; font-weight: bold">return</span> psum
+
+
+<span style="color: #228B22">#user input here</span>
+number_of_shells = <span style="color: #B452CD">5</span>
+number_of_holes = <span style="color: #B452CD">14</span> <span style="color: #228B22">#(particles)</span>
+
+
+<span style="color: #228B22">#initialize basis    </span>
+bs = electronbasis(number_of_shells,<span style="color: #B452CD">1.0</span>,number_of_holes) <span style="color: #228B22">#shells, r_s = 1.0, holes</span>
+
+<span style="color: #228B22">#Print some info to screen</span>
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;Number of shells:&quot;</span>, number_of_shells
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;Number of states:&quot;</span>, bs.nstates
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;Number of holes :&quot;</span>, bs.nparticles
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;Reference Energy:&quot;</span>, bs.hfenergy(number_of_holes), <span style="color: #CD5555">&quot;hartrees &quot;</span>
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;                :&quot;</span>, <span style="color: #B452CD">2</span>*bs.hfenergy(number_of_holes), <span style="color: #CD5555">&quot;rydbergs &quot;</span>
+
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;Ref.E. per hole :&quot;</span>, bs.hfenergy(number_of_holes)/number_of_holes, <span style="color: #CD5555">&quot;hartrees &quot;</span>
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;                :&quot;</span>, <span style="color: #B452CD">2</span>*bs.hfenergy(number_of_holes)/number_of_holes, <span style="color: #CD5555">&quot;rydbergs &quot;</span>
+
+
+
+<span style="color: #228B22">#calculate MBPT2 energy</span>
+<span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;MBPT2 energy    :&quot;</span>, MBPT2_fast(bs), <span style="color: #CD5555">&quot; hartrees&quot;</span>
+</pre></div>
+<p>
+<!-- --- end solution of exercise --- -->
+
+<p>
+<!-- --- end exercise --- -->
+
+<h2 id="___sec17">Add material about Bruekcner-Hartree-Fock theory and nuclear matter </h2>
 
 <ul>
-<p><li> Make table of magic numbers in 3d with ditto exercise</li>
-<p><li> Discuss Bruekcner-Hartree-Fock theory and show the equations, provides the infinite limit</li>
-<p><li> Link to Artur's lectures</li>
+<p><li> See Arturo's note and the project notes on the Brueckner-Hartree-Fock calculations.</li>
 </ul>
 </section>
 
