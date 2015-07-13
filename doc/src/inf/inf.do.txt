@@ -1138,7 +1138,44 @@ theory for example, all
 terms that involve single particle-hole excitations vanish. 
 
 ===== Exercise: Magic numbers for the three-dimensional electron gas  =====
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+|------------------------------------------------------------------------------------------------------|
+| $n_{x}^{2}+n_{y}^{2}+n_z^2$ | $n_{x}$ | $n_{y}$ |  $N_{\uparrow \downarrow }$ | $N_{\uparrow \uparrow }$   |
+|------------------------------------------------------------------------------------------------------|
+|    0                  | 0       | 0       | 2                           | 1                          |
+|------------------------------------------------------------------------------------------------------|
+|    1 | -1 |  0 | | |
+|    |  1 |  0 | | |
+|    |  0 | -1 | | |
+|    |  0 |  1 | 10 | 5 |
+|---------------------------|
+|    2  | -1 | -1 | | |
+|    | -1 |  1 | | |
+|    |  1 | -1 | | |
+|    |  1 |  1 | 18 | 9 |
+|---------------------------|
+|    4  | -2 | 0 | | |
+|    |  2 | 0 | | |
+|    |  0 | -2 | | |
+|    |  0 |  2 | 26 | 13 |
+|---------------------------|
+|    5  | -2 | -1 | | |
+|    |  2 | -1 | | |
+|    | -2 |  1 | | |
+|    |  2 |  1 | | |
+|    | -1 | -2 | | |
+|    | -1 |  2 | | |
+|    |  1 | -2 | | |
+|    |  1 |  2 | 42 | 21 |
+|---------------------------|
+=======
+>>>>>>> gh-pages
+
+>>>>>>> master
 !bsubex
 Set up the possible magic numbers for the electron gas in three dimensions using periodic boundary conditions..
 !bhint
@@ -1370,6 +1407,17 @@ print "MBPT2 energy    :", MBPT2_fast(bs), " hartrees"
 !esol
 !esubex
 
+<<<<<<< HEAD
 =====  Add material about Bruekcner-Hartree-Fock theory and nuclear matter =====
 * See Arturo's note and the project notes on the Brueckner-Hartree-Fock calculations.
+=======
+<<<<<<< HEAD
+=====  Add material about 3d electron gas and nuclear matter =====
+* Make table of magic numbers in 3d with ditto exercise
+* Discuss Bruekcner-Hartree-Fock theory and show the equations, provides the infinite limit
+=======
+=====  Add material about Bruekcner-Hartree-Fock theory and nuclear matter =====
+* See Arturo's note and the project notes on the Brueckner-Hartree-Fock calculations.
+>>>>>>> gh-pages
+>>>>>>> master
 
