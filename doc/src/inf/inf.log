@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  13 JUL 2015 12:15
+=======
 This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  13 JUL 2015 12:29
+>>>>>>> master
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -3319,17 +3323,29 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
+<<<<<<< HEAD
+l.1387 \end{document}
+=======
 l.1395 \end{document}
+>>>>>>> master
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+<<<<<<< HEAD
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1387.
+[21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1387.
+ (./inf.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1387.
+=======
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1395.
 [21]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1395.
  (./inf.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1395.
+>>>>>>> master
 
 
  *File List*
@@ -3433,11 +3449,19 @@ gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
      inf.out.pyg
  ***********
 
+<<<<<<< HEAD
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1387.
+
+Package rerunfilecheck Info: File `inf.out' has not changed.
+(rerunfilecheck)             Checksum: 2E5B964BF7223F4A3B9FAD9937A5CB72;710.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1387.
+=======
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1395.
 
 Package rerunfilecheck Info: File `inf.out' has not changed.
 (rerunfilecheck)             Checksum: 2E5B964BF7223F4A3B9FAD9937A5CB72;710.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1395.
+>>>>>>> master
  )
 (\end occurred inside a group at level 15)
 
@@ -3458,11 +3482,19 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1395.
 ### semi simple group (level 1) entered at line 339 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
+ 9426 strings out of 493488
+ 142726 string characters out of 3141326
+ 284343 words of memory out of 3000000
+ 12320 multiletter control sequences out of 15000+200000
+ 71021 words of font info for 112 fonts, out of 3000000 for 9000
+=======
  9424 strings out of 493488
  142704 string characters out of 3141326
  284633 words of memory out of 3000000
  12320 multiletter control sequences out of 15000+200000
  70938 words of font info for 111 fonts, out of 3000000 for 9000
+>>>>>>> master
  957 hyphenation exceptions out of 8191
  41i,11n,35p,787b,1112s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.en
@@ -3486,7 +3518,11 @@ t/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
 pe1/public/lm/lmtt9.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/
 lm/lmtti10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb>
+<<<<<<< HEAD
+Output written on inf.pdf (21 pages, 354166 bytes).
+=======
 Output written on inf.pdf (21 pages, 356464 bytes).
+>>>>>>> master
 PDF statistics:
  328 PDF objects out of 1000 (max. 8388607)
  284 compressed objects within 3 object streams
