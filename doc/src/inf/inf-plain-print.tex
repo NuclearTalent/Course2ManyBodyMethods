@@ -1096,20 +1096,18 @@ r_0= \left(\frac{1}{\pi \rho}\right)^{1/2}.
 \]
 
 
-
-
 One can then express the reference energy per electron in terms of the
 dimensionless quantity $r_s=r_0/a_0$, where we have introduced the
 Bohr radius $a_0=\hbar^2/e^2m$. The energy per electron computed with
 the reference Slater determinant can then be written as
 (using hereafter only atomic units, meaning that $\hbar = m = e = 1$)
-\[
+\[g
 E_0/N=\frac{1}{2}\left[\frac{2.21}{r_s^2}-\frac{0.916}{r_s}\right],
 \]
 for the three-dimensional electron gas.  For the two-dimensional gas
 the corresponding expression is (show this)
 \[
-E_0/N=\frac{1}{r_s^2}-\frac{8\sqrt{2}}{3\pi r_s}.
+E_0/N=\frac{1}{r_s^2}-\frac{8\sqrt{2}}{3\pi r_s}.a
 \]
 
 
@@ -1120,7 +1118,7 @@ system has to be zero. Both the kinetic energy operator and the
 total Hamiltonian $\hat{H}$ are assumed to be diagonal in the total
 momentum $\mathbf{K}$. Hence, both the reference state $\Phi_{0}$ and
 the correlated ground state $\Psi$ must be eigenfunctions of the
-operator $\mathbf{\hat{K}}$ with the corresponding eigenvalue
+operator $\mathbf{\hat{K}}$ with the corresponding eigemnvalue
 $\mathbf{K} = \mathbf{0}$.  This leads to important
 simplications to our different many-body methods. In coupled cluster
 theory for example, all
@@ -1132,7 +1130,7 @@ terms that involve single particle-hole excitations vanish.
 \begin{doconceexercise}
 \refstepcounter{doconceexercisecounter}
 
-\subsection*{Exercise \thedoconceexercisecounter: Magic numbers for the three-dimensional electron gas}
+\subsection*{Exercise \thedoconceexercisecounter: Magic numbers for the three-dimensional electron gas and perturbation theory to second order}
 
 
 
@@ -1145,6 +1143,65 @@ Set up the possible magic numbers for the electron gas in three dimensions using
 Follow the example for the two-dimensional electron gas and add the third dimension via the quantum number $n_z$.
 
 % --- end hint in exercise ---
+
+
+% --- begin solution of exercise ---
+\paragraph{Solution.}
+Using the same approach as made with the two-dimensional electron gas with the single-particle kinetic energy defined as
+\[
+\frac{\hbar^2}{2m}\left(k_{n_x}^2+k_{n_y}^2k_{n_z}^2\right),
+\]
+and 
+\[
+k_{n_i}=\frac{2\pi n_i}{L} \hspace{0.1cm} n_i = 0, \pm 1, \pm 2, \dots, 
+\]
+we can set up a similar table and obtain (assuming identical particles one and including spin up and spin down solutions)  for energies less than or equal to $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}\le 3$
+
+
+\begin{quote}
+\begin{tabular}{ccccc}
+\hline
+\multicolumn{1}{c}{ $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}$ } & \multicolumn{1}{c}{ $n_{x}$ } & \multicolumn{1}{c}{ $n_{y}$ } & \multicolumn{1}{c}{ $n_{z}$ } & \multicolumn{1}{c}{ $N_{\uparrow \downarrow }$ } \\
+\hline
+0                               & 0       & 0       & 0       & 2                          \\
+\hline
+1                               & -1      & 0       & 0       &                            \\
+1                               & 1       & 0       & 0       &                            \\
+1                               & 0       & -1      & 0       &                            \\
+1                               & 0       & 1       & 0       &                            \\
+1                               & 0       & 0       & -1      &                            \\
+1                               & 0       & 0       & 1       & 14                         \\
+\hline
+2                               & -1      & -1      & 0       &                            \\
+2                               & -1      & 1       & 0       &                            \\
+2                               & 1       & -1      & 0       &                            \\
+2                               & 1       & 1       & 0       &                            \\
+2                               & -1      & 0       & -1      &                            \\
+2                               & -1      & 0       & 1       &                            \\
+2                               & 1       & 0       & -1      &                            \\
+2                               & 1       & 0       & 1       &                            \\
+2                               & 0       & -1      & -1      &                            \\
+2                               & 0       & -1      & 1       &                            \\
+2                               & 0       & 1       & -1      &                            \\
+2                               & 0       & 1       & 1       & 38                         \\
+\hline
+3                               & -1      & -1      & -1      &                            \\
+3                               & -1      & -1      & 1       &                            \\
+3                               & -1      & 1       & -1      &                            \\
+3                               & -1      & 1       & 1       &                            \\
+3                               & 1       & -1      & -1      &                            \\
+3                               & 1       & -1      & 1       &                            \\
+3                               & 1       & 1       & -1      &                            \\
+3                               & 1       & 1       & 1       & 54                         \\
+\hline
+\end{tabular}
+\end{quote}
+
+\noindent
+Continuing in this way we get for $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}=4$ $22$ additional states, resulting in $76$ as a new magic number. For the lowest six energy values the degeneracy in energy gives us $2$, $14$, $38$, $54$, $76$ and $114$ as magic numbers. These numbers will then define our Fermi level when we compute the energy in a Cartesian basis. When performing calculations based on many-body perturbation theory, Coupled cluster theory or other many-body methods, we need then to add states above the Fermi level in order to sum over single-particle states which are not occupied.  
+From the above numbers one can then extract subsequent
+
+% --- end solution of exercise ---
 
 \subex{b)}
 Extend the previous case to infinite symmetric nuclear matter. Every number of particles for filled shells defines also the number of particles to be used in a given calculation. Use the number of particles to define  the density of the system 
