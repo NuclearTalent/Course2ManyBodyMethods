@@ -50,6 +50,20 @@ final,                   % or draft (marks overfull hboxes, figures with paths)
 
 \setcounter{tocdepth}{2}  % number chapter, section, subsection
 
+% Tricks for having figures close to where they are defined:
+% 1. define less restrictive rules for where to put figures
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+% 2. ensure all figures are flushed before next section
+\usepackage[section]{placeins}
+% 3. enable begin{figure}[H] (often leads to ugly pagebreaks)
+%\usepackage{float}\restylefloat{figure}
+
 % prevent orhpans and widows
 \clubpenalty = 10000
 \widowpenalty = 10000
@@ -123,7 +137,7 @@ Infinite matter, from the electron gas to nuclear matter
 % ----------------- end author(s) -------------------------
 
 \begin{center} % date
-July 6-24
+July 2015
 \end{center}
 
 \vspace{1cm}
@@ -1428,11 +1442,673 @@ As we will see later, for the infinite electron gas, second-order perturbation t
 
 % --- end solution of exercise ---
 
+
+
 \end{doconceexercise}
 % --- end exercise ---
 
 
-\subsection{Brueckner-Hartree-Fock theory and nuclear matter}
+\subsection{Infinite nuclear matter and neutron star matter}
+
+Studies of dense baryonic matter are of central importance to our basic understanding 
+of the stability of nuclear matter, spanning from matter at high densities and temperatures
+to matter as found within dense astronomical objects  like neutron stars. 
+
+Neutron star matter
+at densities of  0.1 fm$^{-3}$ and greater, is often assumed to 
+be made of mainly neutrons, protons, electrons and 
+muons in beta equilibrium. However, other baryons like various hyperons may exist, as well as possible mesonic condensates and transitions to quark degrees of freedom at higher densities. 
+Here we focus on specific definitions of various phases and focus 
+on distinct phases of matter such as pure baryonic
+matter and/or quark matter.
+The composition of matter is then 
+determined by the requirements of chemical and electrical equilibrium.
+Furthermore, we will also consider matter at temperatures much lower
+than the typical Fermi energies.
+The equilibrium conditions are governed by the weak processes 
+(normally referred to as the processes
+for $\beta$-equilibrium)
+\begin{equation} 
+      b_1 \rightarrow b_2 + l +\bar{\nu}_l \hspace{1cm} b_2 +l \rightarrow b_1 
++\nu_l,
+      \label{eq:betadecay}
+\end{equation}
+where $b_1$ and $b_2$ refer to e.g.\  the baryons being a neutron and a proton, 
+respectively, 
+$l$ is either an electron or a muon and  $\bar{\nu}_l $
+and $\nu_l$ their respective anti-neutrinos and neutrinos. Muons typically 
+appear at
+a density close to nuclear matter saturation density, the latter being
+\[
+     n_0 \approx 0.16 \pm 0.02 \hspace{1cm} \mathrm{fm}^{-3},
+\]
+with a corresponding binding energy ${\cal E}_0$ 
+for symmetric nuclear matter (SNM) at saturation density of
+\[
+     {\cal E}_0 = B/A=-15.6\pm 0.2 \hspace{1cm} \mathrm{MeV}.
+\]
+In this work the energy per baryon ${\cal E}$ will always be in units of MeV, 
+while
+the energy density $\varepsilon$ will 
+be in units of MeVfm$^{-3}$ and the number density\footnote{We will often 
+loosely just use density in our discussions.}
+$n$ in units of fm$^{-3}$. The pressure $P$ is 
+defined through the relation
+\begin{equation}
+    P=n^2\frac{\partial {\cal E}}{\partial n}=
+      n\frac{\partial \varepsilon}{\partial n}-\varepsilon,
+\end{equation}
+with 
+dimension MeVfm$^{-3}$. 
+Similarly, the chemical potential for particle species $i$
+is given by
+\begin{equation}
+     \mu_i = \left(\frac{\partial \varepsilon}{\partial n_i}\right),
+     \label{eq:chemicalpotdef}
+\end{equation}
+with dimension MeV.
+In calculations of properties of neutron star matter in $\beta$-equilibrium,
+we will need to calculate the energy per baryon ${\cal E}$ for e.g.~several 
+proton fractions $x_p$, which corresponds to
+the ratio of protons as
+compared to the total nucleon number ($Z/A$), 
+ defined as
+\begin{equation}
+    x_p = \frac{n_p}{n},
+\end{equation}
+where $n=n_p+n_n$, the total baryonic density if neutrons and
+protons are the only baryons present. In that case,
+the total Fermi momentum $k_F$ and the Fermi momenta $k_{Fp}$,
+$k_{Fn}$ for protons and neutrons are related to the total nucleon density
+$n$ by
+\begin{align}
+     n = & \frac{2}{3\pi^2} k_F^3 \nonumber \\
+       = & x_p n + (1-x_p) n \nonumber \\
+       = & \frac{1}{3\pi^2} k_{Fp}^3 + \frac{1}{3\pi^2} k_{Fn}^3.
+    \label{eq:densi}
+\end{align}
+The energy per baryon will thus be
+labelled as ${\cal E}(n,x_p)$.
+${\cal E}(n,0)$ will then refer to the energy per baryon for pure neutron
+matter (PNM) while ${\cal E}(n,\frac{1}{2})$ is the corresponding value for 
+SNM. Furthermore, in this work, subscripts $n,p,e,\mu$
+will always refer to neutrons, protons, electrons and muons, respectively.
+
+
+Since the mean free path of a neutrino in a neutron star is bigger
+than the typical radius of such a star ($\sim 10$ km), 
+we will throughout assume that neutrinos escape freely from the neutron star,
+see for example  the work of Prakash et al.
+for a discussion
+on trapped neutrinos. Eq. (\ref{eq:betadecay}) yields then the following
+conditions for matter in $\beta$ equilibrium with for example  nucleonic degrees 
+freedom only
+\begin{equation}
+    \mu_n=\mu_p+\mu_e,
+     \label{eq:npebetaequilibrium}
+\end{equation}
+and 
+\begin{equation}
+     n_p = n_e,
+     \label{eq:chargeconserv}
+\end{equation}
+where $\mu_i$ and $n_i$ refer to the chemical potential and number density
+in fm$^{-3}$ of particle species $i$. 
+If muons are present as well,  we need to modify the equation for 
+charge conservation, Eq. (\ref{eq:chargeconserv}), to read 
+\[
+     n_p = n_e+n_{\mu},
+\]
+and require that $\mu_e = \mu_{\mu}$.
+With more particles present, the equations read
+\begin{equation}
+    \sum_i\left(n_{b_i}^+ +n_{l_i}^+\right) =   
+    \sum_i\left(n_{b_i}^- +n_{l_i}^-\right),
+    \label{eq:generalcharge}
+\end{equation}
+and 
+\begin{equation} 
+     \mu_n=b_i\mu_i+q_i\mu_l,
+     \label{eq:generalbeta}
+\end{equation}
+where $b_i$ is the baryon number, $q_i$ the lepton charge and the superscripts 
+$(\pm)$ on 
+number densities $n$ represent particles with positive or negative charge.
+To give an example, it is possible to have baryonic matter with hyperons like
+$\Lambda$ 
+and $\Sigma^{-,0,+}$ and isobars $\Delta^{-,0,+,++}$ as well in addition
+to the nucleonic degrees of freedom.
+In this case the chemical equilibrium condition of Eq. (\ref{eq:generalbeta}  ) 
+becomes,
+excluding muons,
+\begin{align}
+    \mu_{\Sigma^-} = \mu_{\Delta^-} = \mu_n + \mu_e , \nonumber \\ 
+    \mu_{\Lambda} = \mu_{\Sigma^0} = \mu_{\Delta^0} = \mu_n , \nonumber \\
+    \mu_{\Sigma^+} = \mu_{\Delta^+} = \mu_p = \mu_n - \mu_e ,\nonumber \\
+    \mu_{\Delta^{++}} = \mu_n - 2 \mu_e .
+    \label{eq:beta_baryonicmatter}
+\end{align}
+A transition from hadronic to quark matter is expected at high densities. 
+The high-density quark matter phase
+in the interior of neutron stars is also described by
+requiring the system to be locally neutral
+\begin{equation} 
+    \label{eq:quarkneut}
+    (2/3)n_u -(1/3)n_d - (1/3)n_s - n_e = 0,
+\end{equation}
+where $n_{u,d,s,e}$ 
+are the densities of the $u$, $d$ and $s$ quarks and of the
+electrons (eventually muons as well), respectively. 
+Morover, the system must be in $\beta$-equilibrium, i.e.\ 
+the chemical potentials have to satisfy the following equations:
+\begin{equation}
+      \label{eq:ud}
+      \mu_d=\mu_u+\mu_e,
+\end{equation}
+and
+\begin{equation}
+      \label{eq:us}
+      \mu_s=\mu_u+\mu_e .
+\end{equation}
+Equations (\ref{eq:quarkneut})-(\ref{eq:us}) have to be solved 
+self-consistently together with the field equations for quarks 
+at a fixed density $n=n_u+n_d+n_s$.
+
+An important ingredient in the discussion of the EoS and the criteria for
+matter in $\beta$-equilibrium is the so-called symmetry energy ${\cal S} (n)$, 
+defined as
+the difference in energy for symmetric nuclear matter
+and pure neutron matter 
+\begin{equation}
+      {\cal S} (n) = {\cal E} (n,x_p=0) - {\cal E} (n,x_p=1/2 ).
+      \label{eq:symenergy}
+\end{equation}
+If we expand the energy per baryon in the case of nucleonic degrees of freedom 
+only
+in the proton concentration $x_p$ about the value of the energy 
+for SNM ($x_p=\frac{1}{2}$), we obtain,
+\begin{equation}
+     {\cal E} (n,x_p)={\cal E} (n,x_p=\frac{1}{2})+
+     \frac{1}{2}\frac{d^2 {\cal E}}{dx_p^2} (n)\left(x_p-1/2\right)^2+\dots ,
+     \label{eq:energyexpansion}
+\end{equation}
+where the term $d^2 {\cal E}/dx_p^2$ 
+is to be associated with the symmetry energy ${\cal S} (n)$ in the empirical
+mass formula. If
+we assume that higher order derivatives in the above expansion are small
+(we will see examples of this in the next subsection), then through the 
+conditions
+for $\beta$-equilbrium of Eqs. (\ref{eq:npebetaequilibrium}) and 
+(\ref{eq:chargeconserv})
+and Eq. (\ref{eq:chemicalpotdef}) we can define the proton
+fraction by the symmetry energy as
+\begin{equation}  
+    \hbar c\left(3\pi^2nx_p\right)^{1/3} = 4{\cal S} (n)\left(1-2x_p\right),
+    \label{eq:crudeprotonfraction}
+\end{equation}
+where the electron chemical potential is given
+by $\mu_e = \hbar c k_F$, i.e.\  ultrarelativistic electrons are assumed.
+Thus, the symmetry energy is of paramount importance for studies 
+of neutron star matter in $\beta$-equilibrium.
+One can extract information about the value of the symmetry energy at saturation 
+density
+$n_0$ from systematic studies of the masses of atomic nuclei. However, these 
+results
+are limited to densities around $n_0$ and for proton fractions close to 
+$\frac{1}{2}$.
+Typical values for ${\cal S} (n)$ at $n_0$ are in the range $27-38$ MeV.
+For densities greater than $n_0$ it is more difficult to get a reliable 
+information on the symmetry energy, and thereby the related proton fraction.
+We will shed more light on this topic in the next subsection.
+
+
+Finally, another property of interest in the discussion of the various 
+equations of state  
+is the incompressibility modulus $K$ at non-zero pressure
+\begin{equation}
+    K=9\frac{\partial P}{\partial n}.
+    \label{eq:incompressibility}
+\end{equation}
+The sound speed $v_s$ depends as well on the density
+of the nuclear medium through the relation
+\begin{equation}
+    \left(\frac{v_s}{c}\right)^2=\frac{dP}{d\varepsilon}=
+    \frac{dP}{dn}\frac{dn}{d\varepsilon}=
+    \left(\frac{K}{9(m_nc^2+{\cal E}+P/n)}\right).
+    \label{eq:speedofsound}
+\end{equation}
+It is important to keep track of the dependence on density of $v_s$
+since a superluminal behavior can occur at higher densities for most
+non-relativistic EoS.
+Superluminal behavior would
+not occur with a fully relativistic theory, and it is necessary to
+gauge the magnitude of the effect it introduces at the higher densities.
+This will be discussed at the end of this section.
+The adiabatic constant $\Gamma$ can also be extracted from the EoS
+by 
+\begin{equation}
+    \Gamma = \frac{n}{P}\frac{\partial P}{\partial n}.
+    \label{eq:adiabaticconstant}
+\end{equation}
+
+
+
+
+
+\subsection{Brueckner-Hartree-Fock theory}
+
+
+The Brueckner $G$-matrix has historically been an important ingredient
+in many-body calculations of nuclear systems. In this section, we will
+briefly survey the philosophy behind the $G$-matrix.
+
+Historically, the $G$-matrix was developed in microscopic nuclear
+matter calculations using realistic nucleon-nucleon (NN) interactions.
+It is an ingenuous as well as an interesting method to overcome the
+difficulties caused by the strong, short-range repulsive core contained
+in all modern models for the NN interaction. The $G$-matrix method was
+originally developed by Brueckner, and further
+developed by Goldstone and Bethe, Brandow and Petschek. 
+In the literature it is generally referred to as the
+Brueckner theory or the Brueckner-Bethe-Goldstone theory.
+
+Suppose we want to calculate the nuclear matter ground-state
+energy $E_0$ using the non-relativistic Schr\"{o}dinger equation
+\begin{equation}
+      H\Psi_0(A)=E_0(A)\Psi_0(A),
+\end{equation}
+with $H=T+V$ where $A$ denotes the number of particles, $T$
+is the kinetic energy and $V$ is
+the nucleon-nucleon
+(NN)  potential. Models for the NN interaction are discussed in the chapter on nuclear forces.
+The corresponding unperturbed
+problem is
+\begin{equation}
+      H_0\psi_0(A)=W_0(A)\psi_0(A).
+\end{equation}
+Here $H_0$ is just kinetic energy $T$ and $\psi_0$ is a Slater
+determinant representing the Fermi sea, where all orbits through the
+Fermi momentum $k_F$ are filled. We write
+\begin{equation}
+      E_0=W_0+\Delta E_0,
+\end{equation}
+where $\Delta E_0$ is the ground-state energy shift or correlation energy as it was defined in many-body perturbation theory.
+If we know how to calculate $\Delta E_0$, then we know $E_0$, since
+$W_0$ is easily obtained. In the limit $A\rightarrow \infty$,
+the quantities $E_0$ and $\Delta E_0$ themselves are not well
+defined, but the ratios $E_0/A$ and $\Delta E_0/A$ are. The
+nuclear-matter binding energy per nucleon is commonly denoted
+by $BE/A$, which is just $-E_0/A$. In passing, we note that
+the empirical value for symmetric nuclear matter (proton number
+$Z$=neutron number $N$) is $\approx 16$ MeV.
+There exists a formal theory for the calculation of $\Delta E_0$.
+According to the well-known Goldstone linked-diagram theory, the energy shift $\Delta E_0$ is given exactly by the
+diagrammatic expansion shown in Fig.~\ref{fig:goldstone}. This theory,
+is a linked-cluster perturbation expansion for the ground state
+energy of a many-body system, and applies equally well to both
+nuclear matter and closed-shell nuclei such as the doubly magic
+nucleus $^{40}$Ca. 
+We will not discuss the Goldstone expansion, but rather discuss
+briefly how it is used in calculations.
+
+\begin{figure}[t]
+  \centerline{\includegraphics[width=0.6\linewidth]{fig-inf/goldstone.pdf}}
+  \caption{
+  Diagrams which enter the definition of the ground-state shift energy $\Delta E_0$. Diagram (i) is first order in the interaction $\hat{v}$, while diagrams (ii) and (iii) are examples of contributions to second and third order, respectively. \label{fig:goldstone}
+  }
+\end{figure}
+%\clearpage % flush figures fig:goldstone
+
+
+Using the standard diagram rules (see the discussion on coupled-cluster theory and many-body perturbation theory), the various
+diagrams contained in the above figure can be readily calculated (in an uncoupled scheme)
+\begin{equation}
+   (i)=\frac{(-)^{n_h+n_l}}{2^{n_{ep}}}\sum_{ij\leq k_F}
+       \langle ij\vert\hat{v}\vert ij\rangle_{AS},
+\end{equation}
+with $n_h=n_l=2$ and $n_{ep}=1$. As discussed  in connection with the diagram rules in the many-body perturbation theory chapter, $n_h$
+denotes the number of hole lines, $n_l$ the number of closed
+fermion loops and $n_{ep}$ is the number of so-called
+equivalent pairs.
+The factor $1/2^{n_{ep}}$ is needed since we want to count a pair 
+of particles only once. We will carry this factor $1/2$ with us
+in the equations below. 
+The subscript $AS$ denotes the antisymmetrized and normalized matrix element
+\begin{equation}
+     \langle ij\vert\hat{v}\vert ij}_{AS}=\langle ij \vert\hat{v}\vert ij\rangle-
+     \langle ji \vert\hat{v}\vert ij\rangle.
+\end{equation}
+Similarly, diagrams (ii) and (iii) read
+\begin{equation}
+   (ii)=\frac{(-)^{2+2}}{2^2}\sum_{ij\leq k_F}\sum_{ab>k_F}
+   \frac{\langle ij\vert\hat{v}\vert ab\rangle_{AS}
+   \langle ab\vert\hat{v}\vert ij\rangle_{AS}}
+   {\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b},
+\end{equation}
+and
+\begin{equation}
+   (iii)=\frac{(-)^{2+2}}{2^3}\sum_{k_i,k_j\leq k_F}\sum_{abcdk_F}
+   \frac{\langle ij\vert\hat{v}\vert ab\rangle_{AS}
+   \langle ab\vert\hat{v}\vert cd\rangle_{AS}
+   \langle cd\vert\hat{v}\vert ij\rangle_{AS}}
+   {(\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b)
+   (\varepsilon_i+\varepsilon_j-\varepsilon_c-\varepsilon_d)}.
+\end{equation}
+In the above, $\varepsilon$ denotes the sp energies defined by
+$H_0$.
+The steps leading to the above expressions for the various
+diagrams are rather straightforward. Though, if we wish to compute the
+matrix elements for the interaction $v$, a serious problem
+arises. Typically, the matrix elements will contain a term
+(see the next section for the formal details) $V(|{\mathbf r}|)$, which
+represents the interaction potential $V$ between two nucleons, where
+${\mathbf r}$ is the internucleon distance.
+All modern models
+for $V$ have a strong short-range repulsive core. Hence,
+matrix elements involving $V(|{\mathbf r}|)$, will result in large
+(or infinitely large for a potential with a hard core)
+and repulsive contributions to the ground-state energy. Thus, the
+diagrammatic expansion for the ground-state energy in terms of the
+potential $V(|{\mathbf r}|)$ becomes meaningless.
+
+One possible solution to  this problem is provided by the well-known
+Brueckner theory or the Brueckner $G$-matrix, or just the
+$G$-matrix. In fact, the $G$-matrix is an almost indispensable
+tool in almost every microscopic nuclear structure
+calculation. Its main idea may be paraphrased as follows.
+Suppose we want to calculate the function $f(x)=x/(1+x)$. If
+$x$ is small, we may expand the function $f(x)$ as a power series
+$x+x^2+x^3+\dots$ and it may be adequate to just calculate the first
+few terms. In other words, $f(x)$ may be calculated using a low-order
+perturbation method. But if $x$ is large
+(or infinitely large), the above
+power series is obviously meaningless.
+However, the exact function
+$x/(1+x)$ is still well defined in the limit
+of $x$ becoming very large.
+
+These arguments suggest that one should sum up the diagrams
+(i), (ii), (iii) in fig.~\ref{fig:goldstone} and the similar ones
+to all orders, instead of computing them one by one. Denoting this
+all-order sum as $1/2\tilde{G}_{ijij}$, where we have
+introduced the shorthand notation
+$\tilde{G}_{ijij}=\langle k_ik_j\vert \tilde{G}\vert k_ik_j\rangle_{AS}$
+(and similarly for $\tilde{v}$),
+we have that
+\begin{align}
+      \frac{1}{2}\tilde{G}_{ijij}=&{\displaystyle
+      \frac{1}{2\vert\hat{v}_{ijij}
+      +\sum_{ab>k_F}\frac{1}{2\hat{v}_{ijab}\frac{1}
+      {\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}}
+      \nonumber \\
+      & \times\left[\frac{1}{2\vert\hat{v}_{abij}+\sum_{cd>k_F}
+      \frac{1}{2\vert\hat{v}_{abcd}\frac{1}
+      {\varepsilon_i+\varepsilon_j-\varepsilon_c-\varepsilon_d}
+      \frac{1}{2}V_{cdij}+\dots  \right] }.
+\end{align}
+The factor $1/2$ is the same as that discussed above, namely we want 
+to count a pair of particles only once.
+The quantity inside the brackets is just
+$1/2\tilde{G}_{mnij}$ and the above equation can be
+rewritten as an integral equation
+\begin{equation}
+      \tilde{G}_{ijij}=\tilde{V}_{ijij}
+      +\sum_{ab>k_F}\frac{1}{2\vert\hat{v}_{ijab}\frac{1}
+      {\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
+      \tilde{G}_{abij}.
+\end{equation}
+Note that $\tilde{G}$ is the antisymmetrized $G$-matrix since
+the potential $\tilde{v}$ is also antisymmetrized. This means that
+$\tilde{G}$ obeys
+\begin{equation}
+  \tilde{G}_{ijij}=-\tilde{G}_{jiij}=-\tilde{G}_{ijji}.
+\end{equation}
+The $\tilde{G}$-matrix  is defined as
+\begin{equation}
+    \tilde{G}_{ijij}=G_{ijij}-G_{jiij},
+\end{equation}
+and the equation for $G$ is
+\begin{equation}
+      G_{ijij}=V_{ijij}
+      +\sum_{ab>k_F}V_{ijab}\frac{1}
+      {\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
+      G_{abij},
+      \label{eq:ggeneral}
+\end{equation}
+which is the familiar $G$-matrix equation. The above
+matrix is specifically designed to treat a class of diagrams
+contained in $\Delta E_0$, of which typical contributions
+were shown in fig.~\ref{fig:goldstone}. In fact the sum of the diagrams
+in fig.~\ref{fig:goldstone} is equal to $1/2(G_{ijij}-G_{jiij})$.
+
+Let us now define a more general $G$-matrix as
+\begin{equation}
+      G_{ijij}=V_{ijij}
+      +\sum_{mn>0}V_{ijmn}\frac{Q(mn)}
+      {\omega -\varepsilon_m-\varepsilon_n}
+      G_{mnij},
+      \label{eq:gwithq}
+\end{equation}
+which is an extension of Eq. (\ref{eq:ggeneral}). Note that 
+Eq. (\ref{eq:ggeneral}) has
+$\varepsilon_i+\varepsilon_j$ in the energy denominator, whereas
+in the latter equation we have a general energy variable $\omega$
+in the denominator. Furthermore, in Eq. (\ref{eq:ggeneral})
+we have a restricted
+sum over $mn$, while in Eq. (\ref{eq:gwithq})
+we sum over all $ab$ and we have
+introduced a weighting factor $Q(ab)$. In Eq. (\ref{eq:gwithq}) $Q(ab)$
+corresponds to the choice
+\begin{equation}
+   Q(a , b ) =
+    \left\{\begin{array}{cc}1,&min(a ,b ) > k_F\\
+    0,&\mathrm{else}.\end{array}\right. ,
+\end{equation}
+where $Q(ab)$ is usually referred to as the $G$-matrix Pauli
+exclusion operator. The role of $Q$ is to enforce a selection
+of the intermediate states allowed in the $G$-matrix equation. The above
+$Q$ requires that the intermediate particles $a$ and $b$
+must be both above the Fermi surface defined by $F$. We may enforce
+a different requirement by using a summation over intermediate states
+different from that in Eq. (\ref{eq:gwithq}).
+An example is the Pauli operator
+for the model-space Brueckner-Hartree-Fock method discussed below.
+
+
+Before ending this section, let us rewrite the $G$-matrix equation
+in a more compact form.
+The sp energies $\varepsilon$ and wave functions are defined
+by the unperturbed hamiltonian $H_0$ as
+\begin{equation}
+   H_0\vert \psi_a\psi_b}=(\varepsilon_a+\varepsilon_b)
+   \vert \psi_a\psi_b}.
+\end{equation}
+The $G$-matrix equation can then be rewritten in the following
+compact form
+\begin{equation}
+   G(\omega )=V+V\frac{\hat{Q}}{\omega -H_0}G(\omega ),
+\end{equation}
+with
+$\hat{Q}=\sum_{ab}\vert \psi_a\psi_b\langle\langle \psi_a\psi_b\vert$.
+In terms of diagrams, $G$ corresponds to an all-order sum of the
+"ladder-type" interactions between two particles with the
+intermediate states restricted by $Q$.
+
+The $G$-matrix equation has a very simple form. But its
+calculation is rather complicated, particularly for finite
+nuclear systems such as the nucleus $^{18}$O. There are a
+number of complexities. To mention a few, the Pauli operator
+$Q$ may not commute with the unperturbed hamiltonian
+$H_0$ and we have to make the replacement
+\[
+\frac{Q}{\omega -H_0}\rightarrow Q\frac{1}{\omega -QH_0Q}Q.
+\]
+The determination of the starting energy $\omega$ is also another
+problem. 
+
+
+In
+a medium such as nuclear 
+matter we must account
+for the fact that certain states are not available as intermediate
+states in the calculation of the $G$-matrix.
+Following the discussion above
+this is achieved by introducing the medium
+dependent Pauli operator $Q$. Further, the
+energy $\omega$ of the incoming particles, given by a pure kinetic
+term in a scattering problem between two unbound particles (for example two colliding protons), must be modified so as to allow
+for medium corrections.
+How to evaluate the Pauli operator for
+nuclear matter is, however, not straightforward.
+Before discussing how to evaluate the Pauli operator for nuclear matter,
+we note that the $G$-matrix
+is conventionally given in terms of partial waves and
+the coordinates of the relative and center-of-mass motion.
+If we assume that the $G$-matrix is diagonal in $\alpha$ ($\alpha$ is a shorthand
+notation for $J$, $S$, $L$ and $T$), we  write the equation for the $G$-matrix as a 
+coupled-channels equation in the relative and center-of-mass system
+\begin{equation}
+   G_{ll'}^{\alpha}(kk'K\omega )=V_{ll'}^{\alpha}(kk')
+   +\sum_{l''}\int \frac{d^3 q}{(2\pi )^3}V_{ll''}^{\alpha}(kq)
+   \frac{Q(q,K)}{\omega -H_0}
+   G_{l''l'}^{\alpha}(qk'K\omega).
+   \label{eq:gnonrel}
+\end{equation}
+This equation is similar in structure to the scattering
+equations discussed in connection with nuclear forces (see the chapter on models for nuclear forces), except that we now have
+introduced the Pauli operator $Q$ and a medium dependent two-particle
+energy $\omega$. The notations in this equation follow those of the chapter on nuclear forces
+where we discuss the solution of the scattering
+matrix $T$.
+The numerical details on how to solve the above $G$-matrix
+equation through matrix inversion techniques are discussed below
+Note however that the $G$-matrix may not be diagonal in $\alpha$.
+This is due to the fact that the
+Pauli operator $Q$ is not diagonal
+in the above representation in the relative and center-of-mass
+system. The Pauli operator depends on the
+angle between the relative momentum and the center of mass momentum.
+This angle dependence causes $Q$ to couple states with different
+relative angular
+momentum ${\cal J}$. A partial wave decomposition of Eq. (\ref{eq:gmat})
+becomes therefore rather difficult.
+The angle dependence of the Pauli operator
+can be eliminated by introducing the angle-average
+Pauli operator, where one replaces the exact Pauli operator $Q$
+by its average $\bar{Q}$ over all angles for fixed relative and center-of-mass
+momenta.
+The choice of Pauli operator is decisive to the determination of the
+sp
+spectrum. Basically, to first order in the reaction matrix $G$,
+there are three commonly used sp spectra, all
+defined by the solution of the following equations
+\begin{equation}
+   \varepsilon_{m} = \varepsilon (k_{m})
+   = t_{m} + u_{m}=\frac{k_{m}^2}{2M_N}
+   +u_{m},
+   \label{eq:spnrel}
+\end{equation}
+and
+\begin{equation}
+   \begin{array}{ccc}\\
+   u_{m} =& {\displaystyle \sum_{h \leq k_F}}
+   \left\langle m h \right| G(\omega = \varepsilon_{m} + \varepsilon_h )
+   \left| m h \right\rangle_{AS} & \hspace{3mm}k_m \leq k_M,  \\ \\
+   u_m=&0,& k_m > k_M. \end{array}
+   \label{eq:selfcon}
+\end{equation}
+For notational economy, we set $|{\bf k}_m|=k_m$.
+Here we employ antisymmetrized matrix elements (AS), and $k_M$ is a cutoff
+on the momentum. Further, $t_m$ is the sp kinetic
+energy and similarly $u_m$
+is the
+sp potential.
+The choice of cutoff $k_M$ is actually what determines the three
+commonly used sp spectra.
+In the conventional BHF approach one employs $k_M = k_F$,
+which leads
+to a Pauli operator $Q_{\mathrm{BHF}}$ (in the laboratory system) given by
+\begin{equation}
+   Q_{\mathrm{BHF}}(k_m , k_n ) =
+    \left\{\begin{array}{cc}1,&min(k_m ,k_n ) > k_F\\
+    0,&\mathrm{else}.\end{array}\right.
+    \label{eq:bhf},
+\end{equation}
+or, since we will define an
+angle-average Pauli operator in the relative and center-of-mass
+system, we have
+\begin{equation}
+     \bar{Q}_{\mathrm{BHF}}(k,K)=\left\{\begin{array}{cc}
+         0,&k\leq \sqrt{k_{F}^{2}-K^2/4}\\
+         1,&k\geq k_F + K/2\\
+	\frac{K^2/4+k^2 -k_{F}^2}{kK}&\mathrm{else},\end{array}\right.
+    \label{eq:qbhf}
+\end{equation}
+with $k_F$ the momentum at the Fermi surface.
+
+The BHF choice sets $u_k = 0$ for $k > k_F$, which leads
+to an unphysical, large gap at the Fermi surface, typically
+of the order of $50-60$ MeV. 
+To overcome the gap
+problem, Mahaux and collaborators 
+introduced a continuous sp spectrum
+for all values of $k$. The divergencies
+which then may occur in Eq. (\ref{eq:gnonrel}) are taken care of by
+introducing
+a principal value integration in Eq. (\ref{eq:gnonrel}),
+to retain only the
+real part contribution to the $G$-matrix.
+
+
+To define the energy denominators we will also make use of the
+angle-average approximation.
+The angle dependence is handled by the
+so-called effective mass approximation. The single-particle energies
+in nuclear matter are assumed to have the simple quadratic form
+\begin{equation}
+   \begin{array}{ccc}
+   \varepsilon (k_m)=&
+   {\displaystyle\frac{\hbar^{2}k_m^2}
+   {2M_{N}^{*}}}+\Delta ,&\hspace{3mm}k_m\leq k_F\\
+   &&\\
+   =&{\displaystyle\frac{\hbar^{2}
+   k_m^2}{2M_{N}}},&\hspace{3mm}k_m> k_F ,\\
+   \end{array}
+   \label{eq:spen}
+\end{equation}
+where $M_{N}^{*}$ is the effective mass of the nucleon and $M_{N}$ is the
+bare nucleon mass. For particle states above the Fermi sea we choose
+a pure kinetic energy term, whereas for hole states,
+the terms $M_{N}^{*}$ and $\Delta$, the latter being 
+an effective single-particle
+potential related to the $G$-matrix, are obtained through the
+self-consistent Brueckner-Hartree-Fock procedure.
+The sp potential is obtained through the same angle-average approximation
+\begin{align}
+  \label{eq:Uav}
+   U(k_m) & = & \sum_{l\alpha} (2T+1)(2J+1)
+   \left \{ \frac{8}{\pi}\int_{0}^{(k_F-k_m)/2}
+   k^2dk G_{ll}^{\alpha}(k,\bar{K}_1) \right.  \\
+   &    \left.
+    + \frac{1}{\pi k_m}\int_{(k_F-k_m)/2}^{(k_F+k_m)/2}
+   kdk (k_F ^2-(k_m-2k)^2)
+   G_{ll}^{\alpha}(k,\bar{K}_2)  \right \}  \nonumber,
+\end{align}
+where we have defined
+\begin{equation}
+    \bar{K}_1^2=4(k_m^2+k^2),
+\end{equation}
+and
+\begin{equation}
+    \bar{K}_2^2=4(k_m^2+k^2)-(2k+k_m-k_F)(2k+k_1+k_F).
+\end{equation}
+This
+self-consistency scheme consists in choosing adequate initial values of the
+effective mass and $\Delta$. The obtained $G$-matrix is in turn used to
+obtain new values for $M_{N}^{*}$ and $\Delta$. This procedure
+continues until these parameters vary little.
+
+
 
 
 % ------------------- end of main content ---------------
