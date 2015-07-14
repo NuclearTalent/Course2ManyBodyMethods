@@ -694,16 +694,85 @@ $$
 \hat{H} = \hat{T}+\hat{V}.
 $$
 
-<p>
-<b>a)</b>
-Show that the operator for the kinetic energy can be written as
+The operator for the kinetic energy is given by
 $$
 \hat{T}=\sum_{\mathbf{k}\sigma}\frac{\hbar^2k^2}{2m}a_{\mathbf{k}\sigma}^{\dagger}a_{\mathbf{k}\sigma}.
 $$
 
-Find also the number operator \( \hat{N} \) and find a corresponding expression for the interaction
+<p>
+<b>a)</b>
+Find the expression for the interaction
 \( \hat{V} \) expressed with creation and annihilation operators.   The expression for the interaction
-has to be written in  \( k \) space, even though \( V \) depends only on the relative distance. It means that you ned to set up the Fourier transform \( \langle \mathbf{k}_i\mathbf{k}_j| V | \mathbf{k}_m\mathbf{k}_n\rangle \).
+has to be written in  \( k \) space, even though \( V \) depends only on the relative distance. It means that you need to set up the Fourier transform \( \langle \mathbf{k}_i\mathbf{k}_j| V | \mathbf{k}_m\mathbf{k}_n\rangle \).
+
+<p>
+<!-- --- begin solution of exercise --- -->
+<b>Solution.</b>
+A general two-body interaction element is given by (not using anti-symmetrized matrix elements)
+$$ 
+\hat{V} = \frac{1}{2} \sum_{pqrs} \langle pq \hat{v} \vert rs\rangle a_p^\dagger a_q^\dagger a_s a_r ,  
+$$
+
+where \( \hat{v} \) is assumed to depend only on the relative distance between two interacting particles, that is
+\( \hat{v} = v(\vec r_1, \vec r_2) = v(|\vec r_1 - \vec r_2|) = v(r) \), with \( r = |\vec r_1 - \vec r_2| \)). 
+In our case we have, writing out explicitely the spin degrees of freedom as well
+$$
+\begin{equation}
+\hat{V} = \frac{1}{2} \sum_{\substack{\sigma_p \sigma_q \\ \sigma_r \sigma_s}}
+\sum_{\substack{\mathbf{k}_p \mathbf{k}_q \\ \mathbf{k}_r \mathbf{k}_s}}
+\langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_2\vert v \vert \mathbf{k}_r \sigma_3, \mathbf{k}_s \sigma_s\rangle
+a_{\mathbf{k}_p \sigma_p}^\dagger a_{\mathbf{k}_q \sigma_q}^\dagger a_{\mathbf{k}_s \sigma_s} a_{\mathbf{k}_r \sigma_r} .
+\tag{1}
+\end{equation}
+$$
+
+<p>
+Inserting plane waves as eigenstates we can rewrite the matrix element as
+$$ 
+\langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle =
+\frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s}
+\int\int \exp{-i\mathbf{k}_p \cdot \mathbf{r}_p}} \exp{-i \mathbf{k}_q \cdot \mathbf{r}_q} \hat{v}(r) \exp{i\mathbf{k}_r \cdot \mathbf{r}_p} \exp{i \mathbf{k}_s \cdot \mathbf{r}_q} d^3r_p d^3r_q , $$
+
+where we have used the orthogonality properties of the spin functions. We change now the variables of integration
+by defining \( \mathbf{r = \mathbf{r}_p - \mathbf{r}_q \), which gives \( \mathbf{r}_p = \mathbf{r} + \mathbf{r}_q \) and \( d^3 \mathbf{r} = d^3 \mathbf{r}_p \). 
+The limits are not changed since they are from \( -\infty \) to  \( \infty \) for all integrals. This results in
+$$
+\begin{align*}
+\langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle
+&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int
+\exp{i (\mathbf{k}_s - \mathbf{k}_q) \cdot \mathbf{r}_q} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot ( \mathbf{r + \mathbf{r}_q)} d^3r d^3r_q \\
+&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}}
+\int e^{i (\mathbf{k}_s - \mathbf{k}_q + \mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}_q} d^3r_q d^3r .
+\end{align*}
+$$
+
+We recognize the integral over \( \mathbf{r}_q \) as a \( \delta \)-function, resulting in
+$$ \langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle =
+\frac{1}{\Omega} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \delta_{(\mathbf{k}_p + \mathbf{k}_q),(\mathbf{k}_r + \mathbf{k}_s)} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}} d^3r . $$
+
+For this equation to be different from zero, we must have conservation of momenta, we need to satisfy
+\( \mathbf{k}_p + \mathbf{k}_q = \mathbf{k}_r + \mathbf{k}_s \). We can use the conservation of momenta to remove one of the summation variables in Eq. (ref{eq:V_orginal}, resulting in
+$$ \hat{V} =
+\frac{1}{2\Omega} \sum_{\sigma \sigma'} \sum_{\mathbf{k}_p \mathbf{k}_q \mathbf{k}_r} \left[ \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}} d^3r \right]
+a_{\mathbf{k}_p \sigma}^\dagger a_{\mathbf{k}_q \sigma'}^\dagger a_{\mathbf{k}_p + \mathbf{k}_q - \mathbf{k}_r, \sigma'} a_{\mathbf{k}_r \sigma}, $$
+
+which can be rewritten as 
+$$
+\begin{equation}
+\hat{V} =
+\frac{1}{2\Omega} \sum_{\sigma \sigma'} \sum_{\mathbf{k \mathbf{p \mathbf{q} \left[ \int v(r) \exp{-i \mathbf{q \cdot \mathbf{r}} d^3r \right]
+a_{\mathbf{k + \mathbf{q, \sigma}^\dagger a_{\mathbf{p - \mathbf{q, \sigma'}^\dagger a_{\mathbf{p \sigma'} a_{\mathbf{k \sigma},
+\tag{2}
+\end{equation}
+$$
+
+<p>
+This equation will be useful for our nuclear matter calculations as well. In the last equation we defined
+the quantities
+\( \mathbf{p = \mathbf{k}_p + \mathbf{k}_q - \mathbf{k}_r \), \( \mathbf{k = \mathbf{k}_r \) og \( \mathbf{q = \mathbf{k}_p - \mathbf{k}_r \).
+
+<p>
+<!-- --- end solution of exercise --- -->
 
 <p>
 The Hamiltonian operator is given by
@@ -1034,7 +1103,7 @@ included in the reference energy.
 In the three-dimensional electron gas, the antisymmetrized
 matrix elements are
 $$
-\begin{align} \tag{1}
+\begin{align} \tag{3}
   & \langle \mathbf{k}_{p}m_{s_{p}}\mathbf{k}_{q}m_{s_{q}}
   |\tilde{v}|\mathbf{k}_{r}m_{s_{r}}\mathbf{k}_{s}m_{s_{s}}\rangle_{AS} 
   \nonumber \\
@@ -1060,7 +1129,7 @@ contribution with zero momentum transfer vanishes.
 Similarly, the matrix elements for the two-dimensional
 electron gas are
 $$
-\begin{align} \tag{2}
+\begin{align} \tag{4}
   & \langle \mathbf{k}_{p}m_{s_{p}}\mathbf{k}_{q}m_{s_{q}}
   |v|\mathbf{k}_{r}m_{s_{r}}\mathbf{k}_{s}m_{s_{s}}\rangle_{AS} 
   \nonumber \\
@@ -1096,7 +1165,7 @@ $$
   \mathbf{k}_{q}} + \sum_{\mathbf{k}_{i}}\langle 
   \mathbf{k}_{p}\mathbf{k}_{i}|v|\mathbf{k}_{q}
   \mathbf{k}_{i}\rangle_{AS}.
-  \tag{3}
+  \tag{5}
 \end{align}
 $$
 
@@ -1574,7 +1643,7 @@ $$
 \begin{equation} 
       b_1 \rightarrow b_2 + l +\bar{\nu}_l \hspace{1cm} b_2 +l \rightarrow b_1 
 +\nu_l,
-      \tag{4}
+      \tag{6}
 \end{equation}
 $$
 
@@ -1615,7 +1684,7 @@ is given by
 $$
 \begin{equation}
      \mu_i = \left(\frac{\partial \varepsilon}{\partial n_i}\right),
-     \tag{5}
+     \tag{7}
 \end{equation}
 $$
 
@@ -1642,7 +1711,7 @@ $$
      n = & \frac{2}{3\pi^2} k_F^3 \nonumber \\
        = & x_p n + (1-x_p) n \nonumber \\
        = & \frac{1}{3\pi^2} k_{Fp}^3 + \frac{1}{3\pi^2} k_{Fn}^3.
-    \tag{6}
+    \tag{8}
 \end{align}
 $$
 
@@ -1659,13 +1728,13 @@ than the typical radius of such a star (\( \sim 10 \) km),
 we will throughout assume that neutrinos escape freely from the neutron star,
 see for example  the work of Prakash et al.
 for a discussion
-on trapped neutrinos. Eq. <a href="#mjx-eqn-4">(4)</a> yields then the following
+on trapped neutrinos. Eq. <a href="#mjx-eqn-6">(6)</a> yields then the following
 conditions for matter in \( \beta \) equilibrium with for example  nucleonic degrees 
 freedom only
 $$
 \begin{equation}
     \mu_n=\mu_p+\mu_e,
-     \tag{7}
+     \tag{9}
 \end{equation}
 $$
 
@@ -1673,14 +1742,14 @@ and
 $$
 \begin{equation}
      n_p = n_e,
-     \tag{8}
+     \tag{10}
 \end{equation}
 $$
 
 where \( \mu_i \) and \( n_i \) refer to the chemical potential and number density
 in fm$^{-3}$ of particle species \( i \). 
 If muons are present as well,  we need to modify the equation for 
-charge conservation, Eq. <a href="#mjx-eqn-8">(8)</a>, to read 
+charge conservation, Eq. <a href="#mjx-eqn-10">(10)</a>, to read 
 $$
      n_p = n_e+n_{\mu},
 $$
@@ -1691,7 +1760,7 @@ $$
 \begin{equation}
     \sum_i\left(n_{b_i}^+ +n_{l_i}^+\right) =   
     \sum_i\left(n_{b_i}^- +n_{l_i}^-\right),
-    \tag{9}
+    \tag{11}
 \end{equation}
 $$
 
@@ -1699,7 +1768,7 @@ and
 $$
 \begin{equation} 
      \mu_n=b_i\mu_i+q_i\mu_l,
-     \tag{10}
+     \tag{12}
 \end{equation}
 $$
 
@@ -1719,7 +1788,7 @@ $$
     \mu_{\Lambda} = \mu_{\Sigma^0} = \mu_{\Delta^0} = \mu_n , \nonumber \\
     \mu_{\Sigma^+} = \mu_{\Delta^+} = \mu_p = \mu_n - \mu_e ,\nonumber \\
     \mu_{\Delta^{++}} = \mu_n - 2 \mu_e .
-    \tag{11}
+    \tag{13}
 \end{align}
 $$
 
@@ -1729,7 +1798,7 @@ in the interior of neutron stars is also described by
 requiring the system to be locally neutral
 $$
 \begin{equation} 
-    \tag{12}
+    \tag{14}
     (2/3)n_u -(1/3)n_d - (1/3)n_s - n_e = 0,
 \end{equation}
 $$
@@ -1741,7 +1810,7 @@ Morover, the system must be in \( \beta \)-equilibrium, i.e.\
 the chemical potentials have to satisfy the following equations:
 $$
 \begin{equation}
-      \tag{13}
+      \tag{15}
       \mu_d=\mu_u+\mu_e,
 \end{equation}
 $$
@@ -1749,12 +1818,12 @@ $$
 and
 $$
 \begin{equation}
-      \tag{14}
+      \tag{16}
       \mu_s=\mu_u+\mu_e .
 \end{equation}
 $$
 
-Equations <a href="#mjx-eqn-12">(12)</a>-<a href="#mjx-eqn-14">(14)</a> have to be solved 
+Equations <a href="#mjx-eqn-14">(14)</a>-<a href="#mjx-eqn-16">(16)</a> have to be solved 
 self-consistently together with the field equations for quarks 
 at a fixed density \( n=n_u+n_d+n_s \).
 
@@ -1767,7 +1836,7 @@ and pure neutron matter
 $$
 \begin{equation}
       {\cal S} (n) = {\cal E} (n,x_p=0) - {\cal E} (n,x_p=1/2 ).
-      \tag{15}
+      \tag{17}
 \end{equation}
 $$
 
@@ -1779,7 +1848,7 @@ $$
 \begin{equation}
      {\cal E} (n,x_p)={\cal E} (n,x_p=\frac{1}{2})+
      \frac{1}{2}\frac{d^2 {\cal E}}{dx_p^2} (n)\left(x_p-1/2\right)^2+\dots ,
-     \tag{16}
+     \tag{18}
 \end{equation}
 $$
 
@@ -1789,14 +1858,14 @@ mass formula. If
 we assume that higher order derivatives in the above expansion are small
 (we will see examples of this in the next subsection), then through the 
 conditions
-for \( \beta \)-equilbrium of Eqs. <a href="#mjx-eqn-7">(7)</a> and 
-<a href="#mjx-eqn-8">(8)</a>
-and Eq. <a href="#mjx-eqn-5">(5)</a> we can define the proton
+for \( \beta \)-equilbrium of Eqs. <a href="#mjx-eqn-9">(9)</a> and 
+<a href="#mjx-eqn-10">(10)</a>
+and Eq. <a href="#mjx-eqn-7">(7)</a> we can define the proton
 fraction by the symmetry energy as
 $$
 \begin{equation}  
     \hbar c\left(3\pi^2nx_p\right)^{1/3} = 4{\cal S} (n)\left(1-2x_p\right),
-    \tag{17}
+    \tag{19}
 \end{equation}
 $$
 
@@ -1822,7 +1891,7 @@ is the incompressibility modulus \( K \) at non-zero pressure
 $$
 \begin{equation}
     K=9\frac{\partial P}{\partial n}.
-    \tag{18}
+    \tag{20}
 \end{equation}
 $$
 
@@ -1833,7 +1902,7 @@ $$
     \left(\frac{v_s}{c}\right)^2=\frac{dP}{d\varepsilon}=
     \frac{dP}{dn}\frac{dn}{d\varepsilon}=
     \left(\frac{K}{9(m_nc^2+{\cal E}+P/n)}\right).
-    \tag{19}
+    \tag{21}
 \end{equation}
 $$
 
@@ -1849,7 +1918,7 @@ by
 $$
 \begin{equation}
     \Gamma = \frac{n}{P}\frac{\partial P}{\partial n}.
-    \tag{20}
+    \tag{22}
 \end{equation}
 $$
 
@@ -2068,7 +2137,7 @@ $$
       +\sum_{ab>k_F}V_{ijab}\frac{1}
       {\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
       G_{abij},
-      \tag{21}
+      \tag{23}
 \end{equation}
 $$
 
@@ -2086,19 +2155,19 @@ $$
       +\sum_{mn>0}V_{ijmn}\frac{Q(mn)}
       {\omega -\varepsilon_m-\varepsilon_n}
       G_{mnij},
-      \tag{22}
+      \tag{24}
 \end{equation}
 $$
 
-which is an extension of Eq. <a href="#mjx-eqn-21">(21)</a>. Note that 
-Eq. <a href="#mjx-eqn-21">(21)</a> has
+which is an extension of Eq. <a href="#mjx-eqn-23">(23)</a>. Note that 
+Eq. <a href="#mjx-eqn-23">(23)</a> has
 \( \varepsilon_i+\varepsilon_j \) in the energy denominator, whereas
 in the latter equation we have a general energy variable \( \omega \)
-in the denominator. Furthermore, in Eq. <a href="#mjx-eqn-21">(21)</a>
+in the denominator. Furthermore, in Eq. <a href="#mjx-eqn-23">(23)</a>
 we have a restricted
-sum over \( mn \), while in Eq. <a href="#mjx-eqn-22">(22)</a>
+sum over \( mn \), while in Eq. <a href="#mjx-eqn-24">(24)</a>
 we sum over all \( ab \) and we have
-introduced a weighting factor \( Q(ab) \). In Eq. <a href="#mjx-eqn-22">(22)</a> \( Q(ab) \)
+introduced a weighting factor \( Q(ab) \). In Eq. <a href="#mjx-eqn-24">(24)</a> \( Q(ab) \)
 corresponds to the choice
 $$
 \begin{equation}
@@ -2114,7 +2183,7 @@ of the intermediate states allowed in the \( G \)-matrix equation. The above
 \( Q \) requires that the intermediate particles \( a \) and \( b \)
 must be both above the Fermi surface defined by \( F \). We may enforce
 a different requirement by using a summation over intermediate states
-different from that in Eq. <a href="#mjx-eqn-22">(22)</a>.
+different from that in Eq. <a href="#mjx-eqn-24">(24)</a>.
 An example is the Pauli operator
 for the model-space Brueckner-Hartree-Fock method discussed below.
 
@@ -2159,8 +2228,7 @@ The determination of the starting energy \( \omega \) is also another
 problem.
 
 <p>
-In
-a medium such as nuclear 
+In a medium such as nuclear 
 matter we must account
 for the fact that certain states are not available as intermediate
 states in the calculation of the \( G \)-matrix.
@@ -2185,7 +2253,7 @@ $$
    +\sum_{l''}\int \frac{d^3 q}{(2\pi )^3}V_{ll''}^{\alpha}(kq)
    \frac{Q(q,K)}{\omega -H_0}
    G_{l''l'}^{\alpha}(qk'K\omega).
-   \tag{23}
+   \tag{25}
 \end{equation}
 $$
 
@@ -2222,7 +2290,7 @@ $$
    \varepsilon_{m} = \varepsilon (k_{m})
    = t_{m} + u_{m}=\frac{k_{m}^2}{2M_N}
    +u_{m},
-   \tag{24}
+   \tag{26}
 \end{equation}
 $$
 
@@ -2234,7 +2302,7 @@ $$
    \left\langle m h \right| G(\omega = \varepsilon_{m} + \varepsilon_h )
    \left| m h \right\rangle_{AS} & \hspace{3mm}k_m \leq k_M,  \\ \\
    u_m=&0,& k_m > k_M. \end{array}
-   \tag{25}
+   \tag{27}
 \end{equation}
 $$
 
@@ -2254,7 +2322,7 @@ $$
    Q_{\mathrm{BHF}}(k_m , k_n ) =
     \left\{\begin{array}{cc}1,&min(k_m ,k_n ) > k_F\\
     0,&\mathrm{else}.\end{array}\right.
-    \tag{26},
+    \tag{28},
 \end{equation}
 $$
 
@@ -2267,7 +2335,7 @@ $$
          0,&k\leq \sqrt{k_{F}^{2}-K^2/4}\\
          1,&k\geq k_F + K/2\\
 	\frac{K^2/4+k^2 -k_{F}^2}{kK}&\mathrm{else},\end{array}\right.
-    \tag{27}
+    \tag{29}
 \end{equation}
 $$
 
@@ -2281,9 +2349,9 @@ To overcome the gap
 problem, Mahaux and collaborators 
 introduced a continuous sp spectrum
 for all values of \( k \). The divergencies
-which then may occur in Eq. <a href="#mjx-eqn-23">(23)</a> are taken care of by
+which then may occur in Eq. <a href="#mjx-eqn-25">(25)</a> are taken care of by
 introducing
-a principal value integration in Eq. <a href="#mjx-eqn-23">(23)</a>,
+a principal value integration in Eq. <a href="#mjx-eqn-25">(25)</a>,
 to retain only the
 real part contribution to the \( G \)-matrix.
 
@@ -2303,7 +2371,7 @@ $$
    =&{\displaystyle\frac{\hbar^{2}
    k_m^2}{2M_{N}}},&\hspace{3mm}k_m> k_F ,\\
    \end{array}
-   \tag{28}
+   \tag{30}
 \end{equation}
 $$
 
@@ -2317,7 +2385,7 @@ self-consistent Brueckner-Hartree-Fock procedure.
 The sp potential is obtained through the same angle-average approximation
 $$
 \begin{align}
-  \tag{29}
+  \tag{31}
    U(k_m) & = & \sum_{l\alpha} (2T+1)(2J+1)
    \left \{ \frac{8}{\pi}\int_{0}^{(k_F-k_m)/2}
    k^2dk G_{ll}^{\alpha}(k,\bar{K}_1) \right.  \\

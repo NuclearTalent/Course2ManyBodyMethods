@@ -567,16 +567,81 @@ The total Hamiltonian consists then of kinetic and potential energy
 \hat{H} = \hat{T}+\hat{V}.
 \]
 !et
-!bsubex
-Show that the operator for the kinetic energy can be written as
+The operator for the kinetic energy is given by
 !bt
 \[
 \hat{T}=\sum_{\mathbf{k}\sigma}\frac{\hbar^2k^2}{2m}a_{\mathbf{k}\sigma}^{\dagger}a_{\mathbf{k}\sigma}.
 \]
 !et
-Find also the number operator $\hat{N}$ and find a corresponding expression for the interaction
+!bsubex
+Find the expression for the interaction
 $\hat{V}$ expressed with creation and annihilation operators.   The expression for the interaction
-has to be written in  $k$ space, even though $V$ depends only on the relative distance. It means that you ned to set up the Fourier transform $\langle \mathbf{k}_i\mathbf{k}_j| V | \mathbf{k}_m\mathbf{k}_n\rangle$.
+has to be written in  $k$ space, even though $V$ depends only on the relative distance. It means that you need to set up the Fourier transform $\langle \mathbf{k}_i\mathbf{k}_j| V | \mathbf{k}_m\mathbf{k}_n\rangle$.
+!bsol
+A general two-body interaction element is given by (not using anti-symmetrized matrix elements)
+!bt
+\[ 
+\hat{V} = \frac{1}{2} \sum_{pqrs} \langle pq \hat{v} \vert rs\rangle a_p^\dagger a_q^\dagger a_s a_r ,  
+\]
+!et
+where $\hat{v}$ is assumed to depend only on the relative distance between two interacting particles, that is
+$\hat{v} = v(\vec r_1, \vec r_2) = v(|\vec r_1 - \vec r_2|) = v(r)$, with $r = |\vec r_1 - \vec r_2|$). 
+In our case we have, writing out explicitely the spin degrees of freedom as well
+!bt
+\begin{equation}
+\hat{V} = \frac{1}{2} \sum_{\substack{\sigma_p \sigma_q \\ \sigma_r \sigma_s}}
+\sum_{\substack{\mathbf{k}_p \mathbf{k}_q \\ \mathbf{k}_r \mathbf{k}_s}}
+\langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_2\vert v \vert \mathbf{k}_r \sigma_3, \mathbf{k}_s \sigma_s\rangle
+a_{\mathbf{k}_p \sigma_p}^\dagger a_{\mathbf{k}_q \sigma_q}^\dagger a_{\mathbf{k}_s \sigma_s} a_{\mathbf{k}_r \sigma_r} .
+label{eq:V_original}
+\end{equation}
+!et
+
+Inserting plane waves as eigenstates we can rewrite the matrix element as
+!bt
+\[ 
+\langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle =
+\frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s}
+\int\int \exp{-i\mathbf{k}_p \cdot \mathbf{r}_p}} \exp{-i \mathbf{k}_q \cdot \mathbf{r}_q} \hat{v}(r) \exp{i\mathbf{k}_r \cdot \mathbf{r}_p} \exp{i \mathbf{k}_s \cdot \mathbf{r}_q} d^3r_p d^3r_q , \]
+!et
+where we have used the orthogonality properties of the spin functions. We change now the variables of integration
+by defining $\mathbf{r = \mathbf{r}_p - \mathbf{r}_q$, which gives $\mathbf{r}_p = \mathbf{r} + \mathbf{r}_q$ and $d^3 \mathbf{r} = d^3 \mathbf{r}_p$. 
+The limits are not changed since they are from $-\infty$ to  $\infty$ for all integrals. This results in
+!bt
+\begin{align*}
+\langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle
+&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int
+\exp{i (\mathbf{k}_s - \mathbf{k}_q) \cdot \mathbf{r}_q} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot ( \mathbf{r + \mathbf{r}_q)} d^3r d^3r_q \\
+&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}}
+\int e^{i (\mathbf{k}_s - \mathbf{k}_q + \mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}_q} d^3r_q d^3r .
+\end{align*}
+!et
+We recognize the integral over $\mathbf{r}_q$ as a $\delta$-function, resulting in
+!bt
+\[ \langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle =
+\frac{1}{\Omega} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \delta_{(\mathbf{k}_p + \mathbf{k}_q),(\mathbf{k}_r + \mathbf{k}_s)} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}} d^3r . \]
+!et
+For this equation to be different from zero, we must have conservation of momenta, we need to satisfy
+$\mathbf{k}_p + \mathbf{k}_q = \mathbf{k}_r + \mathbf{k}_s$. We can use the conservation of momenta to remove one of the summation variables in Eq. (ref{eq:V_orginal}, resulting in
+!bt
+\[ \hat{V} =
+\frac{1}{2\Omega} \sum_{\sigma \sigma'} \sum_{\mathbf{k}_p \mathbf{k}_q \mathbf{k}_r} \left[ \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}} d^3r \right]
+a_{\mathbf{k}_p \sigma}^\dagger a_{\mathbf{k}_q \sigma'}^\dagger a_{\mathbf{k}_p + \mathbf{k}_q - \mathbf{k}_r, \sigma'} a_{\mathbf{k}_r \sigma}, \]
+!et
+which can be rewritten as 
+!bt
+\begin{equation}
+\hat{V} =
+\frac{1}{2\Omega} \sum_{\sigma \sigma'} \sum_{\mathbf{k \mathbf{p \mathbf{q} \left[ \int v(r) \exp{-i \mathbf{q \cdot \mathbf{r}} d^3r \right]
+a_{\mathbf{k + \mathbf{q, \sigma}^\dagger a_{\mathbf{p - \mathbf{q, \sigma'}^\dagger a_{\mathbf{p \sigma'} a_{\mathbf{k \sigma},
+\label{eq:V}
+\end{equation}
+!et
+
+This equation will be useful for our nuclear matter calculations as well. In the last equation we defined
+the quantities
+$\mathbf{p = \mathbf{k}_p + \mathbf{k}_q - \mathbf{k}_r$, $\mathbf{k = \mathbf{k}_r$ og $\mathbf{q = \mathbf{k}_p - \mathbf{k}_r$.
+!esol
 !esubex
 
 The Hamiltonian operator is given by
@@ -1994,8 +2059,7 @@ The determination of the starting energy $\omega$ is also another
 problem. 
 
  
-In
-a medium such as nuclear 
+In a medium such as nuclear 
 matter we must account
 for the fact that certain states are not available as intermediate
 states in the calculation of the $G$-matrix.
@@ -2172,6 +2236,8 @@ self-consistency scheme consists in choosing adequate initial values of the
 effective mass and $\Delta$. The obtained $G$-matrix is in turn used to
 obtain new values for $M_{N}^{*}$ and $\Delta$. This procedure
 continues until these parameters vary little.
+
+
 
 
 
