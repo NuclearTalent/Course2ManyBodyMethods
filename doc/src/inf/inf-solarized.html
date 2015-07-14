@@ -78,7 +78,7 @@ div { text-align: justify; text-justify: inter-word; }
                2,
                None,
                '___sec16'),
-              ('Add material about Bruekcner-Hartree-Fock theory and nuclear matter',
+              ('Brueckner-Hartree-Fock theory and nuclear matter',
                2,
                None,
                '___sec17')]}
@@ -142,7 +142,7 @@ MathJax.Hub.Config({
 <a href="#___sec14"> Magic numbers for the two-dimensional electron gas </a><br>
 <a href="#___sec15"> Hartree-Fock energies </a><br>
 <a href="#___sec16"> Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </a><br>
-<a href="#___sec17">  Add material about Bruekcner-Hartree-Fock theory and nuclear matter </a><br>
+<a href="#___sec17">  Brueckner-Hartree-Fock theory and nuclear matter </a><br>
 </p>
 
 <h2 id="___sec0">Introduction to studies of infinite matter </h2>
@@ -1287,15 +1287,17 @@ we can set up a similar table and obtain (assuming identical particles one and i
 </tbody>
 </table>
 <p>
-Continuing in this way we get for \( n_{x}^{2}+n_{y}^{2}+n_{z}^{2}=4 \) $22$ additional states, resulting in \( 76 \) as a new magic number. For the lowest six energy values the degeneracy in energy gives us \( 2 \), \( 14 \), \( 38 \), \( 54 \), \( 76 \) and \( 114 \) as magic numbers. These numbers will then define our Fermi level when we compute the energy in a Cartesian basis. When performing calculations based on many-body perturbation theory, Coupled cluster theory or other many-body methods, we need then to add states above the Fermi level in order to sum over single-particle states which are not occupied.  
-From the above numbers one can then extract subsequent
+Continuing in this way we get for \( n_{x}^{2}+n_{y}^{2}+n_{z}^{2}=4 \)  a total of 22 additional states, resulting in \( 76 \) as a new magic number. For the lowest six energy values the degeneracy in energy gives us \( 2 \), \( 14 \), \( 38 \), \( 54 \), \( 76 \) and \( 114 \) as magic numbers. These numbers will then define our Fermi level when we compute the energy in a Cartesian basis. When performing calculations based on many-body perturbation theory, Coupled cluster theory or other many-body methods, we need then to add states above the Fermi level in order to sum over single-particle states which are not occupied.
+
+<p>
+If we wish to study infinite nuclear matter with both protons and neutrons, the above magic numbers become \( 4, 28, 76, 108, 132, 228, \dots \).
 
 <p>
 <!-- --- end solution of exercise --- -->
 
 <p>
 <b>b)</b>
-Extend the previous case to infinite symmetric nuclear matter. Every number of particles for filled shells defines also the number of particles to be used in a given calculation. Use the number of particles to define  the density of the system 
+Every number of particles for filled shells defines also the number of particles to be used in a given calculation. Use the number of particles to define  the density of the system 
 $$
 \rho = g \frac{k_F^3}{6\pi^2},
 $$
@@ -1522,17 +1524,15 @@ bs = electronbasis(number_of_shells,<span style="color: #B452CD">1.0</span>,numb
 <span style="color: #8B008B; font-weight: bold">print</span> <span style="color: #CD5555">&quot;MBPT2 energy    :&quot;</span>, MBPT2_fast(bs), <span style="color: #CD5555">&quot; hartrees&quot;</span>
 </pre></div>
 <p>
+As we will see later, for the infinite electron gas, second-order perturbation theory diverges in the thermodynamical limit, a feature which can easily be noted if one lets the number of single-particle states above the Fermi level to increase. The resulting expression in a Cartesian basis will not converge.
+
+<p>
 <!-- --- end solution of exercise --- -->
 
 <p>
 <!-- --- end exercise --- -->
 
-<h2 id="___sec17">Add material about Bruekcner-Hartree-Fock theory and nuclear matter </h2>
-
-<ul>
-<li> See Arturo's note and the project notes on the Brueckner-Hartree-Fock calculations.</li>
-</ul>
-
+<h2 id="___sec17">Brueckner-Hartree-Fock theory and nuclear matter </h2>
 
 <p>
 <!-- begin bottom navigation -->

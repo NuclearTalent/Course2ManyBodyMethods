@@ -1198,13 +1198,14 @@ we can set up a similar table and obtain (assuming identical particles one and i
 \end{quote}
 
 \noindent
-Continuing in this way we get for $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}=4$ $22$ additional states, resulting in $76$ as a new magic number. For the lowest six energy values the degeneracy in energy gives us $2$, $14$, $38$, $54$, $76$ and $114$ as magic numbers. These numbers will then define our Fermi level when we compute the energy in a Cartesian basis. When performing calculations based on many-body perturbation theory, Coupled cluster theory or other many-body methods, we need then to add states above the Fermi level in order to sum over single-particle states which are not occupied.  
-From the above numbers one can then extract subsequent
+Continuing in this way we get for $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}=4$  a total of 22 additional states, resulting in $76$ as a new magic number. For the lowest six energy values the degeneracy in energy gives us $2$, $14$, $38$, $54$, $76$ and $114$ as magic numbers. These numbers will then define our Fermi level when we compute the energy in a Cartesian basis. When performing calculations based on many-body perturbation theory, Coupled cluster theory or other many-body methods, we need then to add states above the Fermi level in order to sum over single-particle states which are not occupied.  
+
+If we wish to study infinite nuclear matter with both protons and neutrons, the above magic numbers become $4, 28, 76, 108, 132, 228, \dots$.
 
 % --- end solution of exercise ---
 
 \subex{b)}
-Extend the previous case to infinite symmetric nuclear matter. Every number of particles for filled shells defines also the number of particles to be used in a given calculation. Use the number of particles to define  the density of the system 
+Every number of particles for filled shells defines also the number of particles to be used in a given calculation. Use the number of particles to define  the density of the system 
 \[
 \rho = g \frac{k_F^3}{6\pi^2},
 \]
@@ -1423,18 +1424,16 @@ print "                :", 2*bs.hfenergy(number_of_holes)/number_of_holes, "rydb
 print "MBPT2 energy    :", MBPT2_fast(bs), " hartrees"
 \end{minted}
 
+As we will see later, for the infinite electron gas, second-order perturbation theory diverges in the thermodynamical limit, a feature which can easily be noted if one lets the number of single-particle states above the Fermi level to increase. The resulting expression in a Cartesian basis will not converge.
+
 % --- end solution of exercise ---
 
 \end{doconceexercise}
 % --- end exercise ---
 
 
-\subsection*{Add material about Bruekcner-Hartree-Fock theory and nuclear matter}
-\begin{itemize}
-\item See Arturo's note and the project notes on the Brueckner-Hartree-Fock calculations.
-\end{itemize}
+\subsection*{Brueckner-Hartree-Fock theory and nuclear matter}
 
-\noindent
 
 % ------------------- end of main content ---------------
 
