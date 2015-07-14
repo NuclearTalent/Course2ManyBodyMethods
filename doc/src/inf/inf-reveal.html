@@ -156,7 +156,7 @@ MathJax.Hub.Config({
 <a href="#___sec13"> Periodic boundary conditions and single-particle states </a><br>
 <a href="#___sec14"> Magic numbers for the two-dimensional electron gas </a><br>
 <a href="#___sec15"> Hartree-Fock energies </a><br>
-<a href="#___sec16"> Exercise 3: Magic numbers for the three-dimensional electron gas </a><br>
+<a href="#___sec16"> Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </a><br>
 <a href="#___sec17">  Add material about Bruekcner-Hartree-Fock theory and nuclear matter </a><br>
 </p>
 
@@ -1394,7 +1394,7 @@ Bohr radius \( a_0=\hbar^2/e^2m \). The energy per electron computed with
 the reference Slater determinant can then be written as
 (using hereafter only atomic units, meaning that \( \hbar = m = e = 1 \))
 <p>&nbsp;<br>
-$$
+$$g
 E_0/N=\frac{1}{2}\left[\frac{2.21}{r_s^2}-\frac{0.916}{r_s}\right],
 $$
 <p>&nbsp;<br>
@@ -1403,7 +1403,7 @@ for the three-dimensional electron gas.  For the two-dimensional gas
 the corresponding expression is (show this)
 <p>&nbsp;<br>
 $$
-E_0/N=\frac{1}{r_s^2}-\frac{8\sqrt{2}}{3\pi r_s}.
+E_0/N=\frac{1}{r_s^2}-\frac{8\sqrt{2}}{3\pi r_s}.a
 $$
 <p>&nbsp;<br>
 
@@ -1415,7 +1415,7 @@ system has to be zero. Both the kinetic energy operator and the
 total Hamiltonian \( \hat{H} \) are assumed to be diagonal in the total
 momentum \( \mathbf{K} \). Hence, both the reference state \( \Phi_{0} \) and
 the correlated ground state \( \Psi \) must be eigenfunctions of the
-operator \( \mathbf{\hat{K}} \) with the corresponding eigenvalue
+operator \( \mathbf{\hat{K}} \) with the corresponding eigemnvalue
 \( \mathbf{K} = \mathbf{0} \).  This leads to important
 simplications to our different many-body methods. In coupled cluster
 theory for example, all
@@ -1424,7 +1424,7 @@ terms that involve single particle-hole excitations vanish.
 <p>
 <!-- --- begin exercise --- -->
 
-<h2 id="___sec16">Exercise 3: Magic numbers for the three-dimensional electron gas </h2>
+<h2 id="___sec16">Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </h2>
 
 <p>
 <b>a)</b>
@@ -1439,6 +1439,67 @@ Follow the example for the two-dimensional electron gas and add the third dimens
 
 <p>
 <!-- --- end hint in exercise --- -->
+
+<p>
+<!-- --- begin solution of exercise --- -->
+<b>Solution.</b>
+Using the same approach as made with the two-dimensional electron gas with the single-particle kinetic energy defined as
+<p>&nbsp;<br>
+$$
+\frac{\hbar^2}{2m}\left(k_{n_x}^2+k_{n_y}^2k_{n_z}^2\right),
+$$
+<p>&nbsp;<br>
+
+and 
+<p>&nbsp;<br>
+$$
+k_{n_i}=\frac{2\pi n_i}{L} \hspace{0.1cm} n_i = 0, \pm 1, \pm 2, \dots, 
+$$
+<p>&nbsp;<br>
+
+we can set up a similar table and obtain (assuming identical particles one and including spin up and spin down solutions)  for energies less than or equal to \( n_{x}^{2}+n_{y}^{2}+n_{z}^{2}\le 3 \)
+
+<p>
+<table border="1">
+<thead>
+<tr><td align="center">\( n_{x}^{2}+n_{y}^{2}+n_{z}^{2} \)</td> <td align="center">\( n_{x} \)</td> <td align="center">\( n_{y} \)</td> <td align="center">\( n_{z} \)</td> <td align="center">\( N_{\uparrow \downarrow } \)</td> </tr>
+</thead>
+<tbody>
+<tr><td align="center">   0                                      </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   2                                 </td> </tr>
+<tr><td align="center">   1                                      </td> <td align="center">   -1             </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   1                                      </td> <td align="center">   1              </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   1                                      </td> <td align="center">   0              </td> <td align="center">   -1             </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   1                                      </td> <td align="center">   0              </td> <td align="center">   1              </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   1                                      </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   1                                      </td> <td align="center">   0              </td> <td align="center">   0              </td> <td align="center">   1              </td> <td align="center">   14                                </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   -1             </td> <td align="center">   -1             </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   -1             </td> <td align="center">   1              </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   1              </td> <td align="center">   -1             </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   1              </td> <td align="center">   1              </td> <td align="center">   0              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   -1             </td> <td align="center">   0              </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   -1             </td> <td align="center">   0              </td> <td align="center">   1              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   1              </td> <td align="center">   0              </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   1              </td> <td align="center">   0              </td> <td align="center">   1              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   0              </td> <td align="center">   -1             </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   0              </td> <td align="center">   -1             </td> <td align="center">   1              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   0              </td> <td align="center">   1              </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   2                                      </td> <td align="center">   0              </td> <td align="center">   1              </td> <td align="center">   1              </td> <td align="center">   38                                </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   -1             </td> <td align="center">   -1             </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   -1             </td> <td align="center">   -1             </td> <td align="center">   1              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   -1             </td> <td align="center">   1              </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   -1             </td> <td align="center">   1              </td> <td align="center">   1              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   1              </td> <td align="center">   -1             </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   1              </td> <td align="center">   -1             </td> <td align="center">   1              </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   1              </td> <td align="center">   1              </td> <td align="center">   -1             </td> <td align="center">                                     </td> </tr>
+<tr><td align="center">   3                                      </td> <td align="center">   1              </td> <td align="center">   1              </td> <td align="center">   1              </td> <td align="center">   54                                </td> </tr>
+</tbody>
+</table>
+<p>
+Continuing in this way we get for \( n_{x}^{2}+n_{y}^{2}+n_{z}^{2}=4 \) $22$ additional states, resulting in \( 76 \) as a new magic number. For the lowest six energy values the degeneracy in energy gives us \( 2 \), \( 14 \), \( 38 \), \( 54 \), \( 76 \) and \( 114 \) as magic numbers. These numbers will then define our Fermi level when we compute the energy in a Cartesian basis. When performing calculations based on many-body perturbation theory, Coupled cluster theory or other many-body methods, we need then to add states above the Fermi level in order to sum over single-particle states which are not occupied.  
+From the above numbers one can then extract subsequent
+
+<p>
+<!-- --- end solution of exercise --- -->
 
 <p>
 <b>b)</b>
