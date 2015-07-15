@@ -51,25 +51,24 @@ Automatically generated HTML file from DocOnce source
                2,
                None,
                '___sec11'),
-              ('Fock operator', 2, None, '___sec12'),
               ('Periodic boundary conditions and single-particle states',
                2,
                None,
-               '___sec13'),
+               '___sec12'),
               ('Magic numbers for the two-dimensional electron gas',
                2,
                None,
-               '___sec14'),
-              ('Hartree-Fock energies', 2, None, '___sec15'),
+               '___sec13'),
+              ('Hartree-Fock energies', 2, None, '___sec14'),
               ('Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order',
                2,
                None,
-               '___sec16'),
+               '___sec15'),
               ('Infinite nuclear matter and neutron star matter',
                2,
                None,
-               '___sec17'),
-              ('Brueckner-Hartree-Fock theory', 2, None, '___sec18')]}
+               '___sec16'),
+              ('Brueckner-Hartree-Fock theory', 2, None, '___sec17')]}
 end of tocinfo -->
 
 <body>
@@ -153,13 +152,12 @@ MathJax.Hub.Config({
 <a href="#___sec9"> Ewald correction term </a><br>
 <a href="#___sec10"> Interaction in momentum space  </a><br>
 <a href="#___sec11"> Antisymmetrized matrix elements in three dimensions </a><br>
-<a href="#___sec12"> Fock operator </a><br>
-<a href="#___sec13"> Periodic boundary conditions and single-particle states </a><br>
-<a href="#___sec14"> Magic numbers for the two-dimensional electron gas </a><br>
-<a href="#___sec15"> Hartree-Fock energies </a><br>
-<a href="#___sec16"> Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </a><br>
-<a href="#___sec17">  Infinite nuclear matter and neutron star matter </a><br>
-<a href="#___sec18">  Brueckner-Hartree-Fock theory  </a><br>
+<a href="#___sec12"> Periodic boundary conditions and single-particle states </a><br>
+<a href="#___sec13"> Magic numbers for the two-dimensional electron gas </a><br>
+<a href="#___sec14"> Hartree-Fock energies </a><br>
+<a href="#___sec15"> Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </a><br>
+<a href="#___sec16">  Infinite nuclear matter and neutron star matter </a><br>
+<a href="#___sec17">  Brueckner-Hartree-Fock theory  </a><br>
 </p>
 <p>
 </div> <!-- end jumbotron -->
@@ -900,7 +898,8 @@ a_{\mathbf{k} + \mathbf{q}, \sigma}^\dagger a_{\mathbf{p} - \mathbf{q}, \sigma'}
 $$
 
 The only contractions which result in non-zero results are those that involve states below the Fermi level, that is 
-\( k \leq k_F \), \( p \leq k_F \), \( |\mathbf{p} - \mathbf{q}| < \mathbf{k}_F \) and \( |\mathbf{k} + \mathbf{q}| \leq k_F \). Due to momentum conservation we must also have \( \mathbf{k} + \mathbf{q} = \mathbf{p} \), \( \mathbf{p} - \mathbf{q} = \mathbf{k} \) and  \( \sigma = \sigma' \) or  \( \mathbf{k} + \mathbf{q} = \mathbf{k} \) and \( \mathbf{p} - \mathbf{q} = \mathbf{p} \). Summarizing, wemust have
+\( k \leq k_F \), \( p \leq k_F \), \( |\mathbf{p} - \mathbf{q}| < \mathbf{k}_F \) and \( |\mathbf{k} + \mathbf{q}| \leq k_F \). Due to momentum conservation we must also have \( \mathbf{k} + \mathbf{q} = \mathbf{p} \), \( \mathbf{p} - \mathbf{q} = \mathbf{k} \) and  \( \sigma = \sigma' \) or  \( \mathbf{k} + \mathbf{q} = \mathbf{k} \) and \( \mathbf{p} - \mathbf{q} = \mathbf{p} \). 
+Summarizing, we must have
 $$ \mathbf{k} + \mathbf{q} = \mathbf{p} \quad \text{and} \quad \sigma = \sigma', \qquad
 \text{or} \qquad
 \mathbf{q} = \mathbf{0} . $$
@@ -910,11 +909,11 @@ $$ \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
 \frac{1}{2\Omega} \left( \sum_{\sigma \sigma'} \sum_{\mathbf{i} \mathbf{j} \leq F} \left[ \int v(r) d\mathbf{r} \right] - \sum_{\sigma}
 \sum_{\mathbf{i} \mathbf{j} \leq F} \left[ \int v(r) \exp{-i (\mathbf{k}_i \cdot \mathbf{r})} d\mathbf{r} \right] \right) , $$
 
-which gives (and this applies to any potential which depends only on the relative distance between particles,
+which gives (and this applies to any potential which depends only on the relative distance between particles),
 $$
 \begin{equation}
 \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
-\frac{1}{2\Omega} \left( N^2 \left[ \int v(r) \dr \right] - N \sum_{\mathbf{i} \leq F}} \left[ \int v(r) e^{-i \mathbf{k}_i\cdot \mathbf{r} \dr \right] \right) .
+\frac{1}{2\Omega} \left( N^2 \left[ \int v(r) d\mathbf{r} \right] - N \sum_{\mathbf{i} \leq F}} \left[ \int v(r) e^{-i \mathbf{k}_i\cdot \mathbf{r} d\mathbf{r} \right] \right) .
 \tag{4}
 \end{equation}
 $$
@@ -1304,13 +1303,9 @@ $$
 where the single-particle momentum vectors \( \mathbf{k}_{p,q,r,s} \)
 are now defined in two dimensions.
 
-<h2 id="___sec12">Fock operator </h2>
-
 <p>
-In the calculations, the 
-self-interaction constant is included in the reference 
-energy. We therefore get the 
-Fock-operator matrix elements 
+In actual  calculations, the 
+single-particle energies, defined by the operator \( \hat{f} \), are given by
 $$
 \begin{align}
   \langle \mathbf{k}_{p}|f|\mathbf{k}_{q} \rangle
@@ -1322,12 +1317,7 @@ $$
 \end{align}
 $$
 
-In work of Shepherd <em>et al.</em> the matrix elements were 
-defined with the self-interaction constant included in the
-two-body interaction. This gives Fock-operator matrix 
-elements with a gap constant.
-
-<h2 id="___sec13">Periodic boundary conditions and single-particle states </h2>
+<h2 id="___sec12">Periodic boundary conditions and single-particle states </h2>
 
 <p>
 When using periodic boundary conditions, the 
@@ -1376,7 +1366,7 @@ The table illustrates  how single-particle energies
   cumulated number of spin-orbitals in a spin-polarized
   system.
 
-<h2 id="___sec14">Magic numbers for the two-dimensional electron gas </h2>
+<h2 id="___sec13">Magic numbers for the two-dimensional electron gas </h2>
 
 <p>
 
@@ -1413,7 +1403,7 @@ The table illustrates  how single-particle energies
   </div>
 </div> <!-- col-xs-12 -->
 
-<h2 id="___sec15">Hartree-Fock energies </h2>
+<h2 id="___sec14">Hartree-Fock energies </h2>
 
 <p>
 Finally, a useful benchmark for our calculations is the expression for
@@ -1463,7 +1453,7 @@ terms that involve single particle-hole excitations vanish.
 <p>
 <!-- --- begin exercise --- -->
 
-<h2 id="___sec16">Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </h2>
+<h2 id="___sec15">Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </h2>
 
 <p>
 <b>a)</b>
@@ -1816,7 +1806,7 @@ As we will see later, for the infinite electron gas, second-order perturbation t
 <p>
 <!-- --- end exercise --- -->
 
-<h2 id="___sec17">Infinite nuclear matter and neutron star matter </h2>
+<h2 id="___sec16">Infinite nuclear matter and neutron star matter </h2>
 
 <p>
 Studies of dense baryonic matter are of central importance to our basic understanding 
@@ -2121,7 +2111,7 @@ $$
 \end{equation}
 $$
 
-<h2 id="___sec18">Brueckner-Hartree-Fock theory  </h2>
+<h2 id="___sec17">Brueckner-Hartree-Fock theory  </h2>
 
 <p>
 The Brueckner \( G \)-matrix has historically been an important ingredient
@@ -2215,7 +2205,7 @@ in the equations below.
 The subscript \( AS \) denotes the antisymmetrized and normalized matrix element
 $$
 \begin{equation}
-     \langle ij\vert\hat{v}\vert ij}_{AS}=\langle ij \vert\hat{v}\vert ij\rangle-
+     \langle ij\vert\hat{v}\vert ij\rangle_{AS}=\langle ij \vert\hat{v}\vert ij\rangle-
      \langle ji \vert\hat{v}\vert ij\rangle.
 \end{equation}
 $$
@@ -2287,15 +2277,13 @@ introduced the shorthand notation
 we have that
 $$
 \begin{align}
-      \frac{1}{2}\tilde{G}_{ijij}=&{\displaystyle
-      \frac{1}{2\vert\hat{v}_{ijij}
-      +\sum_{ab>k_F}\frac{1}{2\hat{v}_{ijab}\frac{1}
-      {\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}}
+      \frac{1}{2}\tilde{G}_{ijij}=&\frac{1}{2\hat{v}_{ijij}
+      +\sum_{ab>k_F}\frac{1}{2\hat{v}_{ijab}\frac{1}{\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
       \nonumber \\
-      & \times\left[\frac{1}{2\vert\hat{v}_{abij}+\sum_{cd>k_F}
-      \frac{1}{2\vert\hat{v}_{abcd}\frac{1}
+      & \times\left[\frac{1}{2\hat{v}_{abij}+\sum_{cd>k_F}
+      \frac{1}{2\hat{v}_{abcd}\frac{1}
       {\varepsilon_i+\varepsilon_j-\varepsilon_c-\varepsilon_d}
-      \frac{1}{2}V_{cdij}+\dots  \right] }.
+      \frac{1}{2}V_{cdij}+\dots  \right].
 \end{align}
 $$
 
@@ -2307,8 +2295,7 @@ rewritten as an integral equation
 $$
 \begin{equation}
       \tilde{G}_{ijij}=\tilde{V}_{ijij}
-      +\sum_{ab>k_F}\frac{1}{2\vert\hat{v}_{ijab}\frac{1}
-      {\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
+      +\sum_{ab>F}\frac{1}{2\hat{v}_{ijab}\frac{1}{\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
       \tilde{G}_{abij}.
 \end{equation}
 $$
@@ -2393,8 +2380,8 @@ The sp energies \( \varepsilon \) and wave functions are defined
 by the unperturbed hamiltonian \( H_0 \) as
 $$
 \begin{equation}
-   H_0\vert \psi_a\psi_b}=(\varepsilon_a+\varepsilon_b)
-   \vert \psi_a\psi_b}.
+   H_0\vert \psi_a\psi_b\=(\varepsilon_a+\varepsilon_b)
+   \vert \psi_a\psi_b.
 \end{equation}
 $$
 
