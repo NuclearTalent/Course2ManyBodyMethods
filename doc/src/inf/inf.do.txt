@@ -1993,11 +1993,11 @@ $\tilde{G}_{ijij}=\langle k_ik_j\vert \tilde{G}\vert k_ik_j\rangle_{AS}$
 we have that
 !bt
 \begin{align}
-      \frac{1}{2}\tilde{G}_{ijij}=&\frac{1}{2\hat{v}_{ijij}
-      +\sum_{ab>k_F}\frac{1}{2\hat{v}_{ijab}\frac{1}{\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
+      \frac{1}{2}\tilde{G}_{ijij}=&\frac{1}{2}\hat{v}_{ijij}
+      +\sum_{ab>k_F}\frac{1}{2}\hat{v}_{ijab}\frac{1}{\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
       \nonumber \\
-      & \times\left[\frac{1}{2\hat{v}_{abij}+\sum_{cd>k_F}
-      \frac{1}{2\hat{v}_{abcd}\frac{1}
+      & \times\left[\frac{1}{2}\hat{v}_{abij}+\sum_{cd>k_F}
+      \frac{1}{2}\hat{v}_{abcd}\frac{1}
       {\varepsilon_i+\varepsilon_j-\varepsilon_c-\varepsilon_d}
       \frac{1}{2}V_{cdij}+\dots  \right].
 \end{align}
@@ -2010,7 +2010,7 @@ rewritten as an integral equation
 !bt
 \begin{equation}
       \tilde{G}_{ijij}=\tilde{V}_{ijij}
-      +\sum_{ab>F}\frac{1}{2\hat{v}_{ijab}\frac{1}{\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
+      +\sum_{ab>F}\frac{1}{2}\hat{v}_{ijab}\frac{1}{\varepsilon_i+\varepsilon_j-\varepsilon_a-\varepsilon_b}
       \tilde{G}_{abij}.
 \end{equation}
 !et
@@ -2088,7 +2088,7 @@ The sp energies $\varepsilon$ and wave functions are defined
 by the unperturbed hamiltonian $H_0$ as
 !bt
 \begin{equation}
-   H_0\vert \psi_a\psi_b\=(\varepsilon_a+\varepsilon_b)
+   H_0\vert \psi_a\psi_b=(\varepsilon_a+\varepsilon_b)
    \vert \psi_a\psi_b.
 \end{equation}
 !et
@@ -2164,8 +2164,8 @@ system. The Pauli operator depends on the
 angle between the relative momentum and the center of mass momentum.
 This angle dependence causes $Q$ to couple states with different
 relative angular
-momentum ${\cal J}$. A partial wave decomposition of Eq. (ref{eq:gmat})
-becomes therefore rather difficult.
+momentua ${\cal J}$, rendering  a partial wave decomposition of the $G$-matrix equation 
+rather difficult.
 The angle dependence of the Pauli operator
 can be eliminated by introducing the angle-average
 Pauli operator, where one replaces the exact Pauli operator $Q$
@@ -2178,20 +2178,16 @@ there are three commonly used sp spectra, all
 defined by the solution of the following equations
 !bt
 \begin{equation}
-   \varepsilon_{m} = \varepsilon (k_{m})
-   = t_{m} + u_{m}=\frac{k_{m}^2}{2M_N}
-   +u_{m},
+   \varepsilon_{m} = \varepsilon (k_{m})= t_{m} + u_{m}=\frac{k_{m}^2}{2M_N}+u_{m},
    label{eq:spnrel}
 \end{equation}
 !et
 and
 !bt
-\begin{equation}
-   \begin{array}{ccc}\\
-   u_{m} =& {\displaystyle \sum_{h \leq k_F}}
-   \left\langle m h \right| G(\omega = \varepsilon_{m} + \varepsilon_h )
-   \left| m h \right\rangle_{AS} & \hspace{3mm}k_m \leq k_M,  \\ \\
-   u_m=&0,& k_m > k_M. \end{array}
+\begin{align}
+   u_{m} =& {\displaystyle \sum_{h \leq k_F}}\left\langle m h \right| G(\omega = \varepsilon_{m} + \varepsilon_h )
+   \left| m h \right\rangle_{AS}  \hspace{3mm}k_m \leq k_M,  \\ \\
+   u_m=&0, k_m > k_M.
    label{eq:selfcon}
 \end{equation}
 !et
@@ -2271,7 +2267,7 @@ The sp potential is obtained through the same angle-average approximation
 !bt
 \begin{align}
   label{eq:Uav}
-   U(k_m) & = & \sum_{l\alpha} (2T+1)(2J+1)
+   U(k_m) & =\sum_{l\alpha} (2T+1)(2J+1)
    \left \{ \frac{8}{\pi}\int_{0}^{(k_F-k_m)/2}
    k^2dk G_{ll}^{\alpha}(k,\bar{K}_1) \right.  \\
    &    \left.
