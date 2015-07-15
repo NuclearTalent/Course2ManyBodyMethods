@@ -610,22 +610,22 @@ The limits are not changed since they are from $-\infty$ to  $\infty$ for all in
 !bt
 \begin{align*}
 \langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle
-&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int
-\exp{i (\mathbf{k}_s - \mathbf{k}_q) \cdot \mathbf{r}_q} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot ( \mathbf{r} + \mathbf{r}_q)} d\mathbf{r} d\mathbf{r}_q \\
-&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}}
-\int \exp{i (\mathbf{k}_s - \mathbf{k}_q + \mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}_q} d\mathbf{r}_q d\mathbf{r} .
+&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int\exp{i (\mathbf{k}_s - \mathbf{k}_q) \cdot \mathbf{r}_q} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot ( \mathbf{r} + \mathbf{r}_q)} d\mathbf{r} d\mathbf{r}_q \\
+&= \frac{1}{\Omega^2} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \int v(r) \exp{i\left[(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}\right]}
+\int \exp{i\left[(\mathbf{k}_s - \mathbf{k}_q + \mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}_q\right]} d\mathbf{r}_q d\mathbf{r} .
 \end{align*}
 !et
 We recognize the integral over $\mathbf{r}_q$ as a $\delta$-function, resulting in
 !bt
 \[ \langle \mathbf{k}_p \sigma_p, \mathbf{k}_q \sigma_q\vert \hat{v} \vert \mathbf{k}_r \sigma_r, \mathbf{k}_s \sigma_s\rangle =
-\frac{1}{\Omega} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \delta_{(\mathbf{k}_p + \mathbf{k}_q),(\mathbf{k}_r + \mathbf{k}_s)} \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}} d^3r . \]
+\frac{1}{\Omega} \delta_{\sigma_p \sigma_r} \delta_{\sigma_q \sigma_s} \delta_{(\mathbf{k}_p + \mathbf{k}_q),(\mathbf{k}_r + \mathbf{k}_s)} \int v(r) \exp{i\left[(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}\right]} d^3r . \]
 !et
 For this equation to be different from zero, we must have conservation of momenta, we need to satisfy
-$\mathbf{k}_p + \mathbf{k}_q = \mathbf{k}_r + \mathbf{k}_s$. We can use the conservation of momenta to remove one of the summation variables in Eq. (ref{eq:V_orginal}, resulting in
+$\mathbf{k}_p + \mathbf{k}_q = \mathbf{k}_r + \mathbf{k}_s$. We can use the conservation of momenta to remove one of the summation variables in 
+Eq. (ref{eq:V_original}, resulting in
 !bt
 \[ \hat{V} =
-\frac{1}{2\Omega} \sum_{\sigma \sigma'} \sum_{\mathbf{k}_p \mathbf{k}_q \mathbf{k}_r} \left[ \int v(r) \exp{i(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}} d^3r \right]
+\frac{1}{2\Omega} \sum_{\sigma \sigma'} \sum_{\mathbf{k}_p \mathbf{k}_q \mathbf{k}_r} \left[ \int v(r) \exp{i\left[(\mathbf{k}_r - \mathbf{k}_p) \cdot \mathbf{r}\right]} d^3r \right]
 a_{\mathbf{k}_p \sigma}^\dagger a_{\mathbf{k}_q \sigma'}^\dagger a_{\mathbf{k}_p + \mathbf{k}_q - \mathbf{k}_r, \sigma'} a_{\mathbf{k}_r \sigma}, \]
 !et
 which can be rewritten as 
@@ -701,24 +701,31 @@ Summarizing, we must have
 We obtain then
 !bt
 \[ \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
-\frac{1}{2\Omega} \left( \sum_{\sigma \sigma'} \sum_{\mathbf{i} \mathbf{j} \leq F} \left[ \int v(r) d\mathbf{r} \right] - \sum_{\sigma}
-\sum_{\mathbf{i} \mathbf{j} \leq F} \left[ \int v(r) \exp{-i (\mathbf{k}_i \cdot \mathbf{r})} d\mathbf{r} \right] \right) , \]
+\frac{1}{2\Omega} \left( \sum_{\sigma \sigma'} \sum_{\mathbf{k} \mathbf{p} \leq F} \left[ \int v(r) d\mathbf{r} \right] - \sum_{\sigma}
+\sum_{\mathbf{q} \mathbf{p} \leq F} \left[ \int v(r) \exp{-i (\mathbf{q} \cdot \mathbf{r})} d\mathbf{r} \right] \right). \]
 !et
-which gives (and this applies to any potential which depends only on the relative distance between particles),
+The first term is the so-called direct term while the second term is the exchange term. 
+We can rwrite this equation as (and this applies to any potential which depends only on the relative distance between particles)
 !bt
 \begin{equation}
 \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
-\frac{1}{2\Omega} \left( N^2 \left[ \int v(r) d\mathbf{r} \right] - N \sum_{\mathbf{i} \leq F}} \left[ \int v(r) \exp{-i (\mathbf{k}_i\cdot \mathbf{r})} d\mathbf{r} \right] \right).
+\frac{1}{2\Omega} \left( N^2 \left[ \int v(r) d\mathbf{r} \right] - N \sum_{\mathbf{q}} \left[ \int v(r) \exp{-i (\mathbf{q}\cdot \mathbf{r})} d\mathbf{r} \right] \right),
 label{eq:V_b}
 \end{equation}
 !et
-!esol
-!esubex
-
-The Hamiltonian operator is given by
+where we have used the fact that a sum like $\sum_{sigma}\sum_{\mathbf{k}}$ equals the number of particles. Using the fact that the density is given by
+$\rho = N/\Omega$, with $\Omega$ being our volume, we can rewrite the last equation as
 !bt
 \[
-\hat{H}=\hat{H}_{el}+\hat{H}_{b}+\hat{H}_{el-b},
+\langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
+\frac{1}{2} \left( \rho N \left[ \int v(r) d\mathbf{r} \right] - \sum_{\mathbf{q}} \left[ \int v(r) \exp{-i (\mathbf{q}\cdot \mathbf{r})} d\mathbf{r} \right] \right).
+\]
+!et
+For the electron gas
+the interaction part of the Hamiltonian operator is given by
+!bt
+\[
+\hat{H}_I=\hat{H}_{el}+\hat{H}_{b}+\hat{H}_{el-b},
 \]
 !et
 with the electronic part
@@ -743,8 +750,7 @@ $n(\mathbf{r})=N/\Omega$. Finally,
 \]
 !et
 is the interaction between the electrons and the positive background.
-!bsubex
-Show that
+We can show that
 !bt
 \[
 \hat{H}_{b}=\frac{e^2}{2}\frac{N^2}{\Omega}\frac{4\pi}{\mu^2},
@@ -756,7 +762,11 @@ and
 \hat{H}_{el-b}=-e^2\frac{N^2}{\Omega}\frac{4\pi}{\mu^2}.
 \]
 !et
+For the electron gas and a Coulomb interaction, these two terms are cancelled (in the thermodynamic limit) by the contribution from the direct term arising
+from the repulsive electron-electron interaction. What remains then  when computing the reference energy is only the kinetic energy contribution and the contribution from the exchange term.  For other interactions, like nuclear forces with a short range part and no infinite range, we need to compute both the direct term and the exchange term. 
+!esol
 !esubex
+
 !bsubex
 Show thereafter that the final Hamiltonian can be written as 
 !bt
