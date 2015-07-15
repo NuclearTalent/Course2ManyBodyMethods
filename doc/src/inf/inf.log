@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 08:39
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 08:42
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1834,17 +1834,6 @@ t/10 r\OT1/lmr/m/n/10 ) [] []\OML/lmm/m/it/10 d[]r:
 
 LaTeX Warning: Reference `eq:V_orginal' on page 10 undefined on input line 703.
 
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.710 ...f{q \cdot \mathbf{r})} d\mathbf{r} \right
-                                                  ]
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
 
 ! Missing number, treated as zero.
 <to be read again> 
