@@ -903,11 +903,11 @@ $$ \mathbf{k} + \mathbf{q} = \mathbf{p} \quad \text{and} \quad \sigma = \sigma',
 
 We obtain then
 $$ \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
-\frac{1}{2\Omega} \left( \sum_{\sigma \sigma'} \sum_{\mathbf{k} \mathbf{p} \leq F} \left[ \int v(r) d\mathbf{r} \right] - \sum_{\sigma}
+\frac{1}{2\Omega} \left( \sum_{\sigma \sigma'} \sum_{\mathbf{q} \mathbf{p} \leq F} \left[ \int v(r) d\mathbf{r} \right] - \sum_{\sigma}
 \sum_{\mathbf{q} \mathbf{p} \leq F} \left[ \int v(r) \exp{-i (\mathbf{q} \cdot \mathbf{r})} d\mathbf{r} \right] \right). $$
 
 The first term is the so-called direct term while the second term is the exchange term. 
-We can rwrite this equation as (and this applies to any potential which depends only on the relative distance between particles)
+We can rewrite this equation as (and this applies to any potential which depends only on the relative distance between particles)
 $$
 \begin{equation}
 \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
@@ -916,11 +916,11 @@ $$
 \end{equation}
 $$
 
-where we have used the fact that a sum like \( \sum_{sigma}\sum_{\mathbf{k}} \) equals the number of particles. Using the fact that the density is given by
+where we have used the fact that a sum like \( \sum_{\sigma}\sum_{\mathbf{k}} \) equals the number of particles. Using the fact that the density is given by
 \( \rho = N/\Omega \), with \( \Omega \) being our volume, we can rewrite the last equation as
 $$
 \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
-\frac{1}{2} \left( \rho N \left[ \int v(r) d\mathbf{r} \right] - \sum_{\mathbf{q}} \left[ \int v(r) \exp{-i (\mathbf{q}\cdot \mathbf{r})} d\mathbf{r} \right] \right).
+\frac{1}{2} \left( \rho N \left[ \int v(r) d\mathbf{r} \right] - \rho\sum_{\mathbf{q}} \left[ \int v(r) \exp{-i (\mathbf{q}\cdot \mathbf{r})} d\mathbf{r} \right] \right).
 $$
 
 For the electron gas

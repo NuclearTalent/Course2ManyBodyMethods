@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 11:48
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 11:54
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -3500,11 +3500,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2221.
 ### semi simple group (level 1) entered at line 353 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 9647 strings out of 493488
- 145726 string characters out of 3141326
+ 9649 strings out of 493488
+ 145746 string characters out of 3141326
  286470 words of memory out of 3000000
  12414 multiletter control sequences out of 15000+200000
- 94243 words of font info for 150 fonts, out of 3000000 for 9000
+ 94326 words of font info for 151 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,11n,35p,787b,1124s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.en
@@ -3529,7 +3529,7 @@ fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
 lmtk10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/loc
 al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on inf.pdf (35 pages, 468157 bytes).
+Output written on inf.pdf (35 pages, 467897 bytes).
 PDF statistics:
  502 PDF objects out of 1000 (max. 8388607)
  438 compressed objects within 5 object streams
