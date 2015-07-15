@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 08:42
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 09:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -711,7 +711,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \protect 
-l.18 ...2\p@ minus\p@ \bfseries }{20}{section*.36}
+l.18 ...2\p@ minus\p@ \bfseries }{19}{section*.35}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -720,7 +720,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \protect 
-l.21 ...2\p@ minus\p@ \bfseries }{21}{section*.39}
+l.21 ...2\p@ minus\p@ \bfseries }{21}{section*.38}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -729,7 +729,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \protect 
-l.22 ...2\p@ minus\p@ \bfseries }{22}{section*.40}
+l.22 ...2\p@ minus\p@ \bfseries }{21}{section*.39}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -738,7 +738,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \protect 
-l.23 ...2\p@ minus\p@ \bfseries }{22}{section*.41}
+l.23 ...2\p@ minus\p@ \bfseries }{21}{section*.40}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -747,7 +747,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \protect 
-l.24 ...2\p@ minus\p@ \bfseries }{22}{section*.42}
+l.24 ...2\p@ minus\p@ \bfseries }{21}{section*.41}
                                                   
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2164,17 +2164,8 @@ The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
 [11]
-! Undefined control sequence.
-l.773 ...{2\Omega} \left( N^2 \left[ \int v(r) \dr
-                                                   \right] - N \sum_{\mathbf...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 ! Extra }, or forgotten \right.
-l.773 ...\dr \right] - N \sum_{\mathbf{i} \leq F}}
+l.774 ...{r} \right] - N \sum_{\mathbf{i} \leq F}}
                                                    \left[ \int v(r) e^{-i \m...
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2182,19 +2173,10 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-! Undefined control sequence.
-l.773 ...r) e^{-i \mathbf{k}_i\cdot \mathbf{r} \dr
-                                                   \right] \right) .
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 ! Missing } inserted.
 <inserted text> 
                 }
-l.773 ...i \mathbf{k}_i\cdot \mathbf{r} \dr \right
+l.774 ...f{k}_i\cdot \mathbf{r} d\mathbf{r} \right
                                                   ] \right) .
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2205,7 +2187,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2218,14 +2200,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.799 \subex
+l.800 \subex
             {c)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2234,14 +2216,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2250,7 +2232,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2259,7 +2241,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.799 \subex
+l.800 \subex
             {c)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2271,7 +2253,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2280,14 +2262,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2296,7 +2278,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2305,7 +2287,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.799 \subex
+l.800 \subex
             {c)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2317,7 +2299,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2326,14 +2308,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2341,12 +2323,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 799.
+(hyperref)                removing `\c@secnumdepth' on input line 800.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2355,14 +2337,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.799 \subex
+l.800 \subex
             {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2371,7 +2353,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2384,14 +2366,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.809 \subex
+l.810 \subex
             {d)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2400,14 +2382,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2416,7 +2398,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2425,7 +2407,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.809 \subex
+l.810 \subex
             {d)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2437,7 +2419,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2446,14 +2428,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2462,7 +2444,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2471,7 +2453,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.809 \subex
+l.810 \subex
             {d)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2483,7 +2465,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2492,14 +2474,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2507,12 +2489,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 809.
+(hyperref)                removing `\c@secnumdepth' on input line 810.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2521,14 +2503,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.809 \subex
+l.810 \subex
             {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2538,7 +2520,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2551,14 +2533,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.828 \subex
+l.829 \subex
             {e)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2567,14 +2549,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2583,7 +2565,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2592,7 +2574,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.828 \subex
+l.829 \subex
             {e)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2604,7 +2586,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2613,14 +2595,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2629,7 +2611,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2638,7 +2620,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.828 \subex
+l.829 \subex
             {e)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2650,7 +2632,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2659,14 +2641,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2674,12 +2656,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 828.
+(hyperref)                removing `\c@secnumdepth' on input line 829.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2688,14 +2670,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.828 \subex
+l.829 \subex
             {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2704,7 +2686,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2717,14 +2699,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.843 \subex
+l.844 \subex
             {f)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2733,14 +2715,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2749,7 +2731,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2758,7 +2740,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.843 \subex
+l.844 \subex
             {f)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2770,7 +2752,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2779,14 +2761,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2795,7 +2777,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2804,7 +2786,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.843 \subex
+l.844 \subex
             {f)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2816,7 +2798,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2825,14 +2807,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2840,12 +2822,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 843.
+(hyperref)                removing `\c@secnumdepth' on input line 844.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2854,24 +2836,24 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.843 \subex
+l.844 \subex
             {f)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-[13] [14] [15] [16] [17] [18] [19]
+[13] [14] [15] [16] [17] [18]
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2884,14 +2866,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1264 \subex
+l.1255 \subex
              {a)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2900,14 +2882,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2916,7 +2898,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2925,7 +2907,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.1264 \subex
+l.1255 \subex
              {a)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2937,7 +2919,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2946,14 +2928,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2962,7 +2944,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2971,7 +2953,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1264 \subex
+l.1255 \subex
              {a)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2983,7 +2965,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2992,14 +2974,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3007,12 +2989,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 1264.
+(hyperref)                removing `\c@secnumdepth' on input line 1255.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3021,24 +3003,24 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1264 \subex
+l.1255 \subex
              {a)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-[20]
+[19] [20]
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3051,14 +3033,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1334 \subex
+l.1325 \subex
              {b)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3067,14 +3049,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3083,7 +3065,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3092,7 +3074,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.1334 \subex
+l.1325 \subex
              {b)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3104,7 +3086,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3113,14 +3095,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3129,7 +3111,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3138,7 +3120,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1334 \subex
+l.1325 \subex
              {b)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3150,7 +3132,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3159,14 +3141,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3174,12 +3156,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 1334.
+(hyperref)                removing `\c@secnumdepth' on input line 1325.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3188,24 +3170,23 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1334 \subex
+l.1325 \subex
              {b)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-[21]
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3218,14 +3199,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1341 \subex
+l.1332 \subex
              {c)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3234,14 +3215,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3250,7 +3231,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3259,7 +3240,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.1341 \subex
+l.1332 \subex
              {c)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3271,7 +3252,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3280,14 +3261,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3296,7 +3277,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3305,7 +3286,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1341 \subex
+l.1332 \subex
              {c)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3317,7 +3298,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3326,14 +3307,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3341,12 +3322,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 1341.
+(hyperref)                removing `\c@secnumdepth' on input line 1332.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3355,14 +3336,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1341 \subex
+l.1332 \subex
              {c)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3371,7 +3352,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3384,14 +3365,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1352 \subex
+l.1343 \subex
              {d)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3400,14 +3381,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3416,7 +3397,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3425,7 +3406,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.1352 \subex
+l.1343 \subex
              {d)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3437,7 +3418,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3446,14 +3427,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3462,7 +3443,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3471,7 +3452,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1352 \subex
+l.1343 \subex
              {d)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3483,7 +3464,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3492,14 +3473,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3507,12 +3488,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 1352.
+(hyperref)                removing `\c@secnumdepth' on input line 1343.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3521,14 +3502,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1352 \subex
+l.1343 \subex
              {d)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3537,7 +3518,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3550,14 +3531,14 @@ See the calc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1355 \subex
+l.1346 \subex
              {e)}
 I expected to see one of: + - * / )
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3566,14 +3547,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3582,7 +3563,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \global 
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3591,7 +3572,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    !
-l.1355 \subex
+l.1346 \subex
              {e)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3603,7 +3584,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3612,14 +3593,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3628,7 +3609,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \let 
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3637,7 +3618,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.1355 \subex
+l.1346 \subex
              {e)}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3649,7 +3630,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3658,14 +3639,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3673,12 +3654,12 @@ look up `weird error' in the index to The TeXbook.)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\c@secnumdepth' on input line 1355.
+(hyperref)                removing `\c@secnumdepth' on input line 1346.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3687,14 +3668,14 @@ look up `weird error' in the index to The TeXbook.)
 ! Missing = inserted for \ifnum.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 I was expecting to see `<', `=', or `>'. Didn't.
 
 ! Missing number, treated as zero.
 <to be read again> 
                    p
-l.1355 \subex
+l.1346 \subex
              {e)}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3706,39 +3687,29 @@ runsystem(pygmentize -l python -f latex -F tokenmerge      -P mathescape
 -P "verboptions= ,fontsize=\fontsize {9pt}{9pt},baselinestretch=1.0,fontfamily=
 tt,xleftmargin=7mm" -o inf.out.pyg inf.pyg)...executed.
 
-(./inf.out.pyg [22] [23] [24])
+(./inf.out.pyg [21] [22] [23] [24])
 runsystem(rm inf.out.pyg)...executed.
 
 runsystem(rm inf.pyg)...executed.
 
- [25]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 1607.
+(Font)              <8> on input line 1598.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 1607.
- [26] [27] [28] [29]
-<fig-inf/goldstone.pdf, id=326, 614.295pt x 794.97pt>
+(Font)              <6> on input line 1598.
+ [25] [26] [27] [28]
+<fig-inf/goldstone.pdf, id=318, 614.295pt x 794.97pt>
 File: fig-inf/goldstone.pdf Graphic file (type pdf)
 
 <use fig-inf/goldstone.pdf>
-Package pdftex.def Info: fig-inf/goldstone.pdf used on input line 1868.
+Package pdftex.def Info: fig-inf/goldstone.pdf used on input line 1859.
 (pdftex.def)             Requested size: 207.0021pt x 267.88443pt.
- [30 <./fig-inf/goldstone.pdf>]
-! Extra }, or forgotten $.
-l.1891      \langle ij\vert\hat{v}\vert ij}
-                                           _{AS}=\langle ij \vert\hat{v}\ver...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
+ [29] [30 <./fig-inf/goldstone.pdf>]
 Runaway argument?
- \frac {1}{2}\tilde {G}_{ijij}=&{\displaystyle \frac {1}{2\vert \hat \ETC.
+ \frac {1}{2}\tilde {G}_{ijij}=&\frac {1}{2\hat {v}_{ijij} +\sum _{ab\ETC.
 ! Paragraph ended before \align was complete.
 <to be read again> 
                    \par 
-l.1996 
+l.1984 
        
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
@@ -3747,7 +3718,7 @@ My plan is to forget the whole thing and hope for the best.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.1996 
+l.1984 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3755,7 +3726,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.1996 
+l.1984 
        
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3766,71 +3737,74 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \par 
-l.1996 
+l.1984 
        
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
+
+LaTeX Warning: Reference `eq:ggeneral' on page 31 undefined on input line 1993.
+
+
+
+LaTeX Warning: Reference `eq:ggeneral' on page 31 undefined on input line 1994.
+
+
+
+LaTeX Warning: Reference `eq:ggeneral' on page 31 undefined on input line 1997.
+
+
+
+LaTeX Warning: Command \= invalid in math mode on input line 2024.
+
+! Please use \mathaccent for accents in math mode.
+\MT@orig@add@accent ...ctor \spacefactor }\accent 
+                                                  #1 #2\egroup \spacefactor ...
+l.2024    H_0\vert \psi_a\psi_b\=(
+                                  \varepsilon_a+\varepsilon_b)
+I'm changing \accent to \mathaccent here; wish me luck.
+(Accents are not the same in formulas as they are in text.)
+
+! You can't use `\spacefactor' in display math mode.
+\MT@orig@add@accent ... #1 #2\egroup \spacefactor 
+                                                  \accent@spacefactor 
+l.2024    H_0\vert \psi_a\psi_b\=(
+                                  \varepsilon_a+\varepsilon_b)
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+Missing character: There is no è in font lmex10!
 [31]
 
-LaTeX Warning: Reference `eq:ggeneral' on page 32 undefined on input line 2005.
-
-
-
-LaTeX Warning: Reference `eq:ggeneral' on page 32 undefined on input line 2006.
-
-
-
-LaTeX Warning: Reference `eq:ggeneral' on page 32 undefined on input line 2009.
-
-
-! Extra }, or forgotten $.
-l.2036    H_0\vert \psi_a\psi_b}
-                                =(\varepsilon_a+\varepsilon_b)
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Extra }, or forgotten $.
-l.2037    \vert \psi_a\psi_b}
-                             .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+LaTeX Warning: Reference `eq:gmat' on page 32 undefined on input line 2093.
 
 [32]
-
-LaTeX Warning: Reference `eq:gmat' on page 33 undefined on input line 2105.
-
-[33]
-Overfull \hbox (161.09633pt too wide) in paragraph at lines 2208--2208
+Overfull \hbox (161.09633pt too wide) in paragraph at lines 2196--2196
 [] 
  []
 
-[34]
+[33]
 No file inf.ind.
 
-! LaTeX Error: \begin{align} on input line 1951 ended by \end{document}.
+! LaTeX Error: \begin{align} on input line 1942 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2232 \end{document}
+l.2220 \end{document}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2232.
-[35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2232.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2220.
+[34]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2220.
  (./inf.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2232.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2220.
 
 
  *File List*
@@ -3936,26 +3910,26 @@ gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
 fig-inf/goldstone.pdf
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2232.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2220.
 
 Package rerunfilecheck Info: File `inf.out' has not changed.
-(rerunfilecheck)             Checksum: B0EFA73444C34564FC6864800C976A84;758.
+(rerunfilecheck)             Checksum: 632EC202F36C556DE8086AE99DD374B9;758.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2232.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2220.
  )
 (\end occurred inside a group at level 17)
 
-### semi simple group (level 17) entered at line 1951 (\begingroup)
-### semi simple group (level 16) entered at line 1352 (\begingroup)
-### semi simple group (level 15) entered at line 1341 (\begingroup)
-### semi simple group (level 14) entered at line 1334 (\begingroup)
-### semi simple group (level 13) entered at line 1264 (\begingroup)
-### semi simple group (level 12) entered at line 1257 (\begingroup)
-### semi simple group (level 11) entered at line 828 (\begingroup)
-### semi simple group (level 10) entered at line 809 (\begingroup)
-### semi simple group (level 9) entered at line 799 (\begingroup)
+### semi simple group (level 17) entered at line 1942 (\begingroup)
+### semi simple group (level 16) entered at line 1343 (\begingroup)
+### semi simple group (level 15) entered at line 1332 (\begingroup)
+### semi simple group (level 14) entered at line 1325 (\begingroup)
+### semi simple group (level 13) entered at line 1255 (\begingroup)
+### semi simple group (level 12) entered at line 1248 (\begingroup)
+### semi simple group (level 11) entered at line 829 (\begingroup)
+### semi simple group (level 10) entered at line 810 (\begingroup)
+### semi simple group (level 9) entered at line 800 (\begingroup)
 ### semi simple group (level 8) entered at line 721 (\begingroup)
 ### semi simple group (level 7) entered at line 661 (\begingroup)
 ### semi simple group (level 6) entered at line 627 (\begingroup)
@@ -3966,13 +3940,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2232.
 ### semi simple group (level 1) entered at line 353 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 9643 strings out of 493488
- 145671 string characters out of 3141326
- 286553 words of memory out of 3000000
+ 9641 strings out of 493488
+ 145653 string characters out of 3141326
+ 285654 words of memory out of 3000000
  12417 multiletter control sequences out of 15000+200000
  94160 words of font info for 149 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,11n,35p,787b,1148s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,11n,35p,787b,1150s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-ec.en
 c}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
 texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
@@ -3995,10 +3969,10 @@ fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
 lmtk10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/loc
 al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on inf.pdf (35 pages, 463946 bytes).
+Output written on inf.pdf (34 pages, 463495 bytes).
 PDF statistics:
- 495 PDF objects out of 1000 (max. 8388607)
- 431 compressed objects within 5 object streams
- 148 named destinations out of 1000 (max. 500000)
+ 490 PDF objects out of 1000 (max. 8388607)
+ 427 compressed objects within 5 object streams
+ 146 named destinations out of 1000 (max. 500000)
  27270 words of extra memory for PDF output out of 29859 (max. 10000000)
 
