@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 09:16
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  15 JUL 2015 09:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -3703,108 +3703,41 @@ File: fig-inf/goldstone.pdf Graphic file (type pdf)
 <use fig-inf/goldstone.pdf>
 Package pdftex.def Info: fig-inf/goldstone.pdf used on input line 1859.
 (pdftex.def)             Requested size: 207.0021pt x 267.88443pt.
- [29] [30 <./fig-inf/goldstone.pdf>]
-Runaway argument?
- \frac {1}{2}\tilde {G}_{ijij}=&\frac {1}{2\hat {v}_{ijij} +\sum _{ab\ETC.
-! Paragraph ended before \align was complete.
-<to be read again> 
-                   \par 
-l.1984 
-       
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+ [29] [30 <./fig-inf/goldstone.pdf>] [31] [32]
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.1984 
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.1984 
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.1984 
-       
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-
-LaTeX Warning: Reference `eq:ggeneral' on page 31 undefined on input line 1993.
-
-
-
-LaTeX Warning: Reference `eq:ggeneral' on page 31 undefined on input line 1994.
-
-
-
-LaTeX Warning: Reference `eq:ggeneral' on page 31 undefined on input line 1997.
-
-
-
-LaTeX Warning: Command \= invalid in math mode on input line 2024.
-
-! Please use \mathaccent for accents in math mode.
-\MT@orig@add@accent ...ctor \spacefactor }\accent 
-                                                  #1 #2\egroup \spacefactor ...
-l.2024    H_0\vert \psi_a\psi_b\=(
-                                  \varepsilon_a+\varepsilon_b)
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! You can't use `\spacefactor' in display math mode.
-\MT@orig@add@accent ... #1 #2\egroup \spacefactor 
-                                                  \accent@spacefactor 
-l.2024    H_0\vert \psi_a\psi_b\=(
-                                  \varepsilon_a+\varepsilon_b)
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-Missing character: There is no è in font lmex10!
-[31]
-
-LaTeX Warning: Reference `eq:gmat' on page 32 undefined on input line 2093.
-
-[32]
-Overfull \hbox (161.09633pt too wide) in paragraph at lines 2196--2196
-[] 
- []
-
-[33]
-No file inf.ind.
-
-! LaTeX Error: \begin{align} on input line 1942 ended by \end{document}.
+! LaTeX Error: \begin{align} on input line 2110 ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2220 \end{document}
+l.2115 \end{equation}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2220.
+[33]
+No file inf.ind.
+
+! LaTeX Error: \begin{doconceexercise} on input line 1248 ended by \end{documen
+t}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2216 \end{document}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2216.
 [34]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2220.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2216.
  (./inf.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2220.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2216.
 
 
  *File List*
@@ -3910,18 +3843,17 @@ gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
 fig-inf/goldstone.pdf
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2220.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2216.
 
 Package rerunfilecheck Info: File `inf.out' has not changed.
 (rerunfilecheck)             Checksum: 632EC202F36C556DE8086AE99DD374B9;758.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2220.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2216.
  )
-(\end occurred inside a group at level 17)
+(\end occurred inside a group at level 16)
 
-### semi simple group (level 17) entered at line 1942 (\begingroup)
 ### semi simple group (level 16) entered at line 1343 (\begingroup)
 ### semi simple group (level 15) entered at line 1332 (\begingroup)
 ### semi simple group (level 14) entered at line 1325 (\begingroup)
@@ -3940,10 +3872,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2220.
 ### semi simple group (level 1) entered at line 353 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 9641 strings out of 493488
- 145653 string characters out of 3141326
- 285654 words of memory out of 3000000
- 12417 multiletter control sequences out of 15000+200000
+ 9647 strings out of 493488
+ 145735 string characters out of 3141326
+ 285713 words of memory out of 3000000
+ 12416 multiletter control sequences out of 15000+200000
  94160 words of font info for 149 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,11n,35p,787b,1150s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -3969,10 +3901,10 @@ fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1
 lmtk10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/loc
 al/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on inf.pdf (34 pages, 463495 bytes).
+Output written on inf.pdf (34 pages, 466072 bytes).
 PDF statistics:
- 490 PDF objects out of 1000 (max. 8388607)
- 427 compressed objects within 5 object streams
- 146 named destinations out of 1000 (max. 500000)
+ 503 PDF objects out of 1000 (max. 8388607)
+ 440 compressed objects within 5 object streams
+ 153 named destinations out of 1000 (max. 500000)
  27270 words of extra memory for PDF output out of 29859 (max. 10000000)
 
