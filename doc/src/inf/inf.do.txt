@@ -706,7 +706,7 @@ We obtain then
 \frac{1}{2\Omega} \left( \sum_{\sigma \sigma'} \sum_{\mathbf{i} \mathbf{j} \leq F} \left[ \int v(r) d\mathbf{r} \right] - \sum_{\sigma}
 \sum_{\mathbf{i} \mathbf{j} \leq F} \left[ \int v(r) \exp{-i (\mathbf{k}_i \cdot \mathbf{r})} d\mathbf{r} \right] \right) , \]
 !et
-which gives (and this applies to any potential which depends only on the relative distance between particles,
+which gives (and this applies to any potential which depends only on the relative distance between particles),
 !bt
 \begin{equation}
 \langle \Phi_0\vert \hat{V} \vert \Phi_0\rangle =
