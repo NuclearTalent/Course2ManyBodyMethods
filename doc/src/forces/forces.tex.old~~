@@ -115,7 +115,7 @@ Nuclear forces
 % ----------------- author(s) -------------------------
 
 \begin{center}
-{\bf Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
+{\bf \href{{http://computationalphysics.no}}{Morten Hjorth-Jensen}, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA {\&} Department of Physics, University of Oslo, Oslo, Norway${}^{}$} \\ [0mm]
 \end{center}
 
 \begin{center}
@@ -135,8 +135,8 @@ July 2015
  The nuclear forces are almost charge independent. If we assume they are, 
 we can introduce a new quantum number which is conserved. For nucleons only, that is a proton and neutron, we can limit ourselves
 to two possible values which allow us to distinguish between the two particles. If we assign an isospin value of $\tau=1/2$ for protons
-and neutrons (they belong to an isospin doublet, in the same way as we discussed the spin $1/2$ multiplet), we can define 
-the neutron to have isospin projection $\tau_z=+1/2$ and a proton to have $\tau_z=-1/2$. These assignements are the standard choices in low-energy nuclear physics.
+and neutrons (they belong to an isospin doublet, in the same way as we discuss the spin $1/2$ multiplet), we can define 
+the neutron to have isospin projection $\tau_z=+1/2$ and a proton to have $\tau_z=-1/2$. These assignments are the standard choices in low-energy nuclear physics. In particle physics, the opposite is the norm. 
 
 This leads to the introduction of an additional quantum number called isospin.
 We can define a single-nucleon
@@ -713,18 +713,18 @@ The factors $p_{1}-p_{1}'=p_{2}'-p_{2}$ are both the four-momentum of the
 exchanged meson and come from the derivative of the meson field in 
 the interaction Lagrangian. 
 The Dirac spinors obey 
-\begin{eqnarray*}
-\gamma_{\mu}p^{\mu}u(p)&=&mu(p) \nonumber \\
-\overline{u}(p)\gamma_{\mu}p^{\mu}&=&m\overline{u}(p). \nonumber
-\end{eqnarray*} 
+\begin{align*}
+\gamma_{\mu}p^{\mu}u(p)&=mu(p) \nonumber \\
+\overline{u}(p)\gamma_{\mu}p^{\mu}&=m\overline{u}(p). \nonumber
+\end{align*} 
 
 Using these relations, together with $\{\gamma_{5},\gamma_{\mu}\}=0$, we find 
-\begin{eqnarray*}
+\begin{align*}
 \overline{u}(p_{1}')\gamma_{5}\gamma_{\mu}(p_{1}-p_{1}')^{\mu}u(p_{1})
-&=&m\overline{u}(p_{1}')\gamma_{5}u(p_{1})+\overline{u}(p_{1}')\gamma_{\mu}
+&=m\overline{u}(p_{1}')\gamma_{5}u(p_{1})+\overline{u}(p_{1}')\gamma_{\mu}
 p_{1}'^{\mu}\gamma_{5}u(p_{1}) \nonumber \\
- &=&2m\overline{u}(p_{1}')\gamma_{5}u(p_{1}) \nonumber
-\end{eqnarray*}
+& =2m\overline{u}(p_{1}')\gamma_{5}u(p_{1}) \nonumber
+\end{align*}
 and 
 \[
 \overline{u}(p_{2}')\gamma_{5}\gamma_{\mu}(p_{2}'-p_{2})^{\mu}=
@@ -738,19 +738,19 @@ V^{pv}=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{\overline{u}(p_{1}')
 ^{2}-m_{\pi}^{2}}.
 \]
 By inserting expressions for the Dirac spinors, we find
-\begin{eqnarray*}
-\overline{u}(p_{1}')\gamma_{5}u(p_{1})&=&\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}
+\begin{align*}
+\overline{u}(p_{1}')\gamma_{5}u(p_{1})&=\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}
 {4m^{2}}}\left(\begin{array}{cc}\chi^{\dagger}&-\frac{\sigma_{1}\cdot{
 \bf p_{1}}}{E_{1}'
 +m}\chi^{\dagger}\end{array}\right)\left(\begin{array}{cc}0&1\\1&0\end{array}
 \right)\nonumber \\
- &&\times \left(\begin{array}{c}\chi\\ \frac{\sigma_{1}\cdot\mathbf{p_{1}}}{E_{1}+m}\chi
+ &\times \left(\begin{array}{c}\chi\\ \frac{\sigma_{1}\cdot\mathbf{p_{1}}}{E_{1}+m}\chi
 \end{array}\right) 
 \nonumber \\
- &=&\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}{4m^{2}}}\left(\frac{\sigma_{1}\cdot
+ &=\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}{4m^{2}}}\left(\frac{\sigma_{1}\cdot
 \mathbf{p_{1}}}{E_{1}+m}-\frac{\sigma_{1}\cdot\mathbf{p_{1}'}}{E_{1}'+m}\right) 
 \nonumber 
-\end{eqnarray*}
+\end{align*}
 
 Similarly
 \[
@@ -762,13 +762,13 @@ In the CM system we have $\mathbf{p}_{2}=-\mathbf{p}_{1}$, $\mathbf{p'}_{2}=
 -\mathbf{p'}_{1}$ and so $E_{2}=E_{1}$, $E_{2}'=E_{1}'$.  
 We can then write down the relativistic contribution 
 to the NN potential in the CM system: 
-\begin{eqnarray}
-V^{pv}&=&-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{(p_{1}-p_{1}')^{2}-
+\begin{align}
+V^{pv}&=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{(p_{1}-p_{1}')^{2}-
 m_{\pi}^{2}}\frac{(E_{1}+m)(E_{1}'+m)}{4m^{2}} \nonumber \\ 
- &\times&\left(\frac{\sigma_{1}\cdot\mathbf{p}_{1}}{E_{1}+m}-\frac{\sigma_{1}
+ &\times\left(\frac{\sigma_{1}\cdot\mathbf{p}_{1}}{E_{1}+m}-\frac{\sigma_{1}
 \cdot\mathbf{p'}_{1}}{E_{1}'+m}\right)\left(\frac{\sigma_{2}\cdot\mathbf{p}_{1}}
 {E_{1}+m}-\frac{\sigma_{2}\cdot\mathbf{p'}_{1}}{E_{1}'+m}\right). \nonumber
-\end{eqnarray}
+\end{align}
 
 In the non-relativistic limit we have to lowest order 
 \[
@@ -776,14 +776,14 @@ E_{1}=\sqrt{\mathbf{p}_{1}^{2}+m^{2}}\approx m \approx E_{1}'
 \]
 and then $(p_{1}-p_{1}')^{2}=-\mathbf{k}^{2}$, so we get 
 for the contribution to the NN potential
-\begin{eqnarray}
-V^{pv}&=&-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{\mathbf{k}^{2}+m^{2}}
+\begin{align}
+V^{pv}&=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{\mathbf{k}^{2}+m^{2}}
 \frac{2m\cdot 2m}{4m^{2}}\frac{\sigma_{1}}{2m}\cdot(\mathbf{p}_{1}-\mathbf{p'}_{1})
 \frac{\sigma_{2}}{2m}\cdot (\mathbf{p}_{1}-\mathbf{p'}_{1}) \nonumber \\ 
- &=&-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}
+ &=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}
 \frac{(\sigma_{1}\cdot\mathbf{k})(\sigma_{2}\cdot\mathbf{k})}{\mathbf{k}^{2}+m_{\pi}^{2}}.
 \nonumber
-\end{eqnarray}
+\end{align}
 We have omitted exchange terms and the isospin term $\mathbf{\tau}_1\cdot\mathbf{\tau}_2$.
 
 We have
@@ -975,10 +975,10 @@ The eigenstates form a complete orthonormal set according to
 
 The most commonly used representations are the coordinate and
 the momentum space representations. They define the completeness relations 
-\begin{eqnarray*}
- \mathbf{1}&=&  \int d\mathbf{r} \:\vert\mathbf{r} \rangle \langle \mathbf{r}\vert, \:\: \langle  \mathbf{r}\vert  \mathbf{r'} \rangle = \delta ( \mathbf{r}-\mathbf{r'}) \\
-\mathbf{1} &=& \int d\mathbf{k} \:\vert  \mathbf{k}\rangle \langle \mathbf{k}\vert, \:\: \langle\mathbf{k}\vert  \mathbf{k'} \rangle = \delta ( \mathbf{k}-\mathbf{k'}) 
-\end{eqnarray*}
+\begin{align*}
+ \mathbf{1}&=  \int d\mathbf{r} \:\vert\mathbf{r} \rangle \langle \mathbf{r}\vert, \:\: \langle  \mathbf{r}\vert  \mathbf{r'} \rangle = \delta ( \mathbf{r}-\mathbf{r'}) \\
+\mathbf{1} &= \int d\mathbf{k} \:\vert  \mathbf{k}\rangle \langle \mathbf{k}\vert, \:\: \langle\mathbf{k}\vert  \mathbf{k'} \rangle = \delta ( \mathbf{k}-\mathbf{k'}) 
+\end{align*}
 Here the basis states in  both $\mathbf{r}$- and $\mathbf{k}$-space are dirac-delta 
 function normalized. From this it follows that the plane-wave states are given by,
 \[
@@ -1068,14 +1068,14 @@ j_l(z) = \sqrt{\pi \over 2 z} J_{l+1/2}(z).
 
 Inserting the plane-wave expansion
 into the brackets of Eq. (\ref{eq:pot2}) yields, 
-\begin{eqnarray*}
+\begin{align*}
   \nonumber
-  \int d{\hat{k}}  Y_{lm}^*(\hat{k})\langle \mathbf{k}\vert \mathbf{r} \rangle & = &  
+  \int d{\hat{k}}  Y_{lm}^*(\hat{k})\langle \mathbf{k}\vert \mathbf{r} \rangle & = 
   \left( {1\over 2\pi} \right) ^{3/2}4\pi i^{-l} j_l(kr) Y_{lm}^*(\hat{r}), \\  
   \nonumber
-  \int d{\hat{k}'}\:   Y_{lm}(\hat{k}') \langle \mathbf{r'}\vert \mathbf{k}' \rangle & = &  
+  \int d{\hat{k}'}\:   Y_{lm}(\hat{k}') \langle \mathbf{r'}\vert \mathbf{k}' \rangle & = 
   \left( {1\over 2\pi} \right) ^{3/2}4\pi i^{l'} j_{l'}(k'r') Y_{l'm'}(\hat{r}). 
-\end{eqnarray*}
+\end{align*}
 
 The connection between the momentum- and position space angular momentum 
 projected potentials are then given, 
@@ -1736,6 +1736,63 @@ Compute the expectation value of the tensor force and the spin-spin  and isospin
 
 \subex{b)}
 For the binding energy of the deuteron, with the ground state defined by the quantum numbers $l=0$, $S=1$ and ${\cal J}=1$, the tensor force plays an important role due to the admixture from the $l=2$ state. Use the expectation values of the different operators of the one-pion exchange potential and plot the ratio of the tensor force component over the spin-spin component of the one-pion exchange part as function of $x=m_\pi r$ for the $l=2$ state (that is the case $l,l'={\cal J}+1$). Comment your results.
+
+
+\end{doconceexercise}
+% --- end exercise ---
+
+
+
+
+% --- begin exercise ---
+\begin{doconceexercise}
+\refstepcounter{doconceexercisecounter}
+
+\subsection*{Exercise \thedoconceexercisecounter: Program for the Lippman-Schwinger equation}
+
+
+The aim here is to develop a program which solves the Lippman-Schwinger equation for a simple parametrization for the 
+$^1S_0$ partial wave. This partial wave is given by a central force only and is parametrized in coordinate space as
+\[
+  V(r)=V_a \frac{e^{-ax}}{x}+V_b \frac{e^{-bx}}{x}+V_c \frac{e^{-cx}}{x}
+\]
+with $x=\mu r$, $\mu=0.7$ fm (the inverse of the pion mass),
+$V_a=-10.463$ MeV and $a=1$, $V_b=-1650.6$ MeV and $b=4$ and
+$V_c=6484.3$ MeV and $c=7$.
+
+
+\subex{a)}
+Find an analytical expression for 
+the Fourier-Bessel transform (Hankel transform)
+to momentum space for $l=0$ using
+\[
+\left\langle k \right | V_{l} \left | k' \right\rangle
+= \int j_l(kr)V(r)j_l(k'r)r^2dr.
+\]
+
+\subex{b)}
+Write a small program which calculates the latter expression
+and use this potential to compute the $T$-matrix at positive energies
+for $l=0$.
+Compare your results to those obtained with a  box potential given by
+\[
+V(r)=\left\{ \begin{array}{cc} -V_0& r < R_0 \\
+                                0  & r > R_0 \end{array} \right.
+\]
+Make a plot of the
+two $T$-matrices for energies up to 300 MeV in the lab frame
+and comment your results.
+
+Finally, a warning, the above central potential is fitted  
+to data from approximately 
+20 MeV to some 300 MeV. This means that results outside
+the data set should be taken seriously.
+
+\subex{c)}
+The parameters of the box potential are chosen to fit a
+potential with a bound state at zero energy. What does this mean
+for your $T$-matrix with this potential when
+$k\rightarrow 0$?
 
 \end{doconceexercise}
 % --- end exercise ---

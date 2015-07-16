@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JUL 2015 05:35
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JUL 2015 06:16
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -550,42 +550,14 @@ Package amsmath Warning: Foreign command \over;
 (amsmath)                \frac or \genfrac should be used instead
 (amsmath)                 on input line 357.
 
-[5] [6] [7] [8] [9] [10] [11] [12] [13pdfTeX warning (ext4): destination with t
-he same identifier (name{equation.0.1}) has been already used, duplicate ignore
-d
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.820 W
-       hen we perform similar non-relativistic expansions for scalar and vec...
-] [14] [15]
+[5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
 Overfull \hbox (28.9401pt too wide) detected at line 927
 \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10  []\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 = \OMS
 /lmsy/m/n/10 j\OML/lmm/m/it/10 ^^^[]\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 + [][] [
 ] \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 ^^^[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 ;
  []
 
-[16]pdfTeX warning (ext4): destination with the same identifier (name{equation.
-0.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1001 \begin{equation}
-                       pdfTeX warning (ext4): destination with the same identif
-ier (name{equation.0.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1001 \begin{equation}
-                       pdfTeX warning (ext4): destination with the same identif
-ier (name{equation.0.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1001 \begin{equation}
-                       pdfTeX warning (ext4): destination with the same identif
-ier (name{equation.0.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.1001 \begin{equation}
-                        [17] [18] [19] [20]
+[16] [17] [18] [19] [20]
 Overfull \hbox (10.83212pt too wide) detected at line 1226
 [] \OT1/lmr/m/n/10 + []\OML/lmm/m/it/10 ;
  []
@@ -599,14 +571,14 @@ it/10 k; k[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 R\OT1/lmr/m/n/10 (\OML/lmm/m/it/1
 0 k[]; k[]\OT1/lmr/m/n/10 ) [] []\OML/lmm/m/it/10 :
  []
 
-[24] <fig-forces/phase.png, id=162, 1015.795pt x 341.275pt>
+[24] <fig-forces/phase.png, id=163, 1015.795pt x 341.275pt>
 File: fig-forces/phase.png Graphic file (type png)
 
 <use fig-forces/phase.png>
 Package pdftex.def Info: fig-forces/phase.png used on input line 1504.
 (pdftex.def)             Requested size: 241.49895pt x 81.13176pt.
  [25]
-<fig-forces/scattering_length.png, id=169, 1144.275pt x 389.455pt>
+<fig-forces/scattering_length.png, id=170, 1144.275pt x 389.455pt>
 File: fig-forces/scattering_length.png Graphic file (type png)
 
 <use fig-forces/scattering_length.png>
@@ -614,7 +586,7 @@ Package pdftex.def Info: fig-forces/scattering_length.png used on input line 15
 43.
 (pdftex.def)             Requested size: 345.0pt x 117.41977pt.
  [26 <./fig-forces/phase.png>]
-<fig-forces/nijmegen_pp_phase_shifts.png, id=176, 971.63pt x 491.8375pt>
+<fig-forces/nijmegen_pp_phase_shifts.png, id=177, 971.63pt x 491.8375pt>
 File: fig-forces/nijmegen_pp_phase_shifts.png Graphic file (type png)
 
 <use fig-forces/nijmegen_pp_phase_shifts.png>
@@ -628,7 +600,7 @@ Overfull \hbox (8.80121pt too wide) in paragraph at lines 1582--1582
  []
 
 [27 <./fig-forces/scattering_length.png>]
-<fig-forces/phase-pn-1s0_IDAHO_JUELICH.pdf, id=184, 361.35pt x 216.81pt>
+<fig-forces/phase-pn-1s0_IDAHO_JUELICH.pdf, id=185, 361.35pt x 216.81pt>
 File: fig-forces/phase-pn-1s0_IDAHO_JUELICH.pdf Graphic file (type pdf)
 
 <use fig-forces/phase-pn-1s0_IDAHO_JUELICH.pdf>
@@ -636,7 +608,7 @@ Package pdftex.def Info: fig-forces/phase-pn-1s0_IDAHO_JUELICH.pdf used on inpu
 t line 1620.
 (pdftex.def)             Requested size: 241.49895pt x 144.90134pt.
 
-<fig-forces/pnDSG_at_199MeV.pdf, id=185, 361.35pt x 216.81pt>
+<fig-forces/pnDSG_at_199MeV.pdf, id=186, 361.35pt x 216.81pt>
 File: fig-forces/pnDSG_at_199MeV.pdf Graphic file (type pdf)
 
 <use fig-forces/pnDSG_at_199MeV.pdf>
@@ -650,11 +622,11 @@ pdfTeX warning: pdflatex (file ./fig-forces/pnDSG_at_199MeV.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
 >] [30]
 No file forces.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1749.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1806.
 [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1749.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1806.
  (./forces.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1749.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1806.
 
 
  *File List*
@@ -752,20 +724,20 @@ fig-forces/phase-pn-1s0_IDAHO_JUELICH.pdf
 fig-forces/pnDSG_at_199MeV.pdf
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1749.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1806.
 
 Package rerunfilecheck Info: File `forces.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1749.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1806.
  ) 
 Here is how much of TeX's memory you used:
- 8581 strings out of 493488
- 130062 string characters out of 3141326
+ 8592 strings out of 493488
+ 130196 string characters out of 3141326
  264931 words of memory out of 3000000
  11503 multiletter control sequences out of 15000+200000
- 56259 words of font info for 117 fonts, out of 3000000 for 9000
+ 56508 words of font info for 120 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 41i,15n,35p,544b,454s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,17n,35p,544b,454s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/lo
 cal/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
 12/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2012/texmf-dist/
@@ -785,10 +757,10 @@ xmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2012/texmf-dist/f
 onts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
 public/lm/lmsy7.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on forces.pdf (31 pages, 681283 bytes).
+Output written on forces.pdf (31 pages, 684015 bytes).
 PDF statistics:
- 315 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
- 80 named destinations out of 1000 (max. 500000)
+ 322 PDF objects out of 1000 (max. 8388607)
+ 258 compressed objects within 3 object streams
+ 85 named destinations out of 1000 (max. 500000)
  14362 words of extra memory for PDF output out of 14400 (max. 10000000)
 
