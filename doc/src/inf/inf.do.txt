@@ -2302,6 +2302,3 @@ obtain new values for $M_{N}^{*}$ and $\Delta$. This procedure
 continues until these parameters vary little.
 
 
-
-
-
