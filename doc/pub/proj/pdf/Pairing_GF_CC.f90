@@ -84,7 +84,7 @@ module Bases
   real*8 :: E_Fermi
 
 
-  logical :: ladders, ADC3
+  logical :: ADC2ex, ADC3, TsqLadd, FullCCD
 
 contains
 
@@ -279,7 +279,6 @@ use Bases
 implicit none
 
 
-integer :: i, i1, i2, i3, k
 
 integer :: n1,n2
 
@@ -294,15 +293,61 @@ real*8, external :: Exact_energy, Dyson, SolveCCD
 
   xdlt = 1.d0
   xg = -1.0d0
-  ladders = .false.
 
   write(6,*)
   write(6,*) ' Value of g ? '
   read(5,*) xg
 
-  write(6,*)
-  write(6,*) ' add the pp/hh/ ladder (T/F) ? '
-  read(5,*) ladders
+
+  ADC2ex = .false.
+  ADC3   = .false.
+  TsqLadd = .false.
+  FullCCD = .false.
+
+  n1 = -1
+  do while(n1 < 0)
+    write(6,*)
+    write(6,*) ' type 1 for ADC(2),  2 for ext-ADC(2) or 3 for ADC(3)? '
+    read(5,*) n2
+    if (1 == n2) then
+      n1 = +1
+      ADC2ex = .false.
+      ADC3   = .false.
+    end if
+    if (2 == n2) then
+      n1 = +1
+      ADC2ex = .true.
+      ADC3   = .false.
+    end if
+    if (3 == n2) then
+      n1 = +1
+      ADC2ex = .true.
+      ADC3   = .true.
+    end if
+  end do
+
+  n1 = -1
+  do while(n1 < 0)
+    write(6,*)
+    write(6,*) ' type 1 for CC(ladder)(2),  2 adding the TVT(ladders) or 3 for Full CCD ? '
+    read(5,*) n2
+    if (1 == n2) then
+      n1 = +1
+      TsqLadd = .false.
+      FullCCD = .false.
+    end if
+    if (2 == n2) then
+      n1 = +1
+      TsqLadd = .true.
+      FullCCD = .false.
+    end if
+    if (3 == n2) then
+      n1 = +1
+      TsqLadd = .true.
+      FullCCD = .true.
+    end if
+  end do
+
 
   !write(6,*)
   !write(6,*) ' Add the ADC(3) coupling corrections (T/F) ? '
@@ -311,11 +356,11 @@ real*8, external :: Exact_energy, Dyson, SolveCCD
 
   call Build_bases(xdlt)
 
-  !!do i1 = 0, 40
-  !! xg = -1.d0 + i1* 0.05d0
+  do n1 = 0, 40
+   xg = -1.d0 + n1* 0.05d0
 
-  !n_sc_itrs = 0   ! Just do one dyagonalization with the unperturbed HF diagram
-  n_sc_itrs = 10  ! Iterate the sc0 scheme a given number of times
+  n_sc_itrs = 0   ! Just do one dyagonalization with the unperturbed HF diagram
+  !n_sc_itrs = 10  ! Iterate the sc0 scheme a given number of times
   x1 = Dyson(xdlt,xg,n_sc_itrs)
 
   x3 = Exact_energy(xdlt,xg)
@@ -326,9 +371,9 @@ real*8, external :: Exact_energy, Dyson, SolveCCD
   !
   ! If one want to plot the results to a file:
   !
-  !write(8,*) xg,x1+xg-2.0, x3+xg-2.0, x4, x2
+  write(8,*) xg,x1+xg-2.0, x3+xg-2.0, x4, x2
 
-  !!end do
+  end do
 
 end program pairing
 
@@ -422,7 +467,7 @@ real*8 function Dyson(xdlt,xg,n_sc_itrs)
   end do
 
 
-  if (ladders) then
+  if (ADC2ex) then
     !
     !  Add the pp and hh ladders that define the extended-ADC(2) approximation
     ! and are also included in the ADC(3) method.
@@ -445,7 +490,52 @@ real*8 function Dyson(xdlt,xg,n_sc_itrs)
      do j = 1 , N_2h1p_bas
       if (ikkn_n3(i) /= ikkn_n3(j)) cycle
       x1 = Vpair(ikkn_k1(i),ikkn_k2(i),ikkn_k1(j),ikkn_k2(j),xg)
-      B( n1 + i , n1 + j ) = B( n1 + i , n1 + j ) + x1
+      B( n1 + i , n1 + j ) = B( n1 + i , n1 + j ) - x1
+     end do
+    end do
+    !
+  end if
+
+  if (ADC3) then
+   !
+   !  Add the ADC(3) corrections for the \alpha-2p1h and \alpha-2h1p
+   ! coupling temrs.
+   !  ONLY the pp/hh ladder corrections are included here because the 
+   ! rings do not contribute to this model...(?)
+   !
+   !
+    do i = 1 , N_1b_bas
+     i4 = i_1b_bas(i)
+     do j = 1 ,  N_2p1h_bas
+
+      x1 = 0.d0
+      do k = 1 , N_2h_bas
+        ih1 = i_2h_k1(k)
+        ih2 = i_2h_k2(k)
+        x1 = x1 + Vpair(i4,innk_k3(j),ih1,ih2,xg) * Vpair(ih1,ih2,innk_n1(j),innk_n2(j),xg) /   &
+            (x_2h_en(k) - xsp_en(innk_n1(j)) - xsp_en(innk_n2(j)) )
+      end do
+
+      B(i,N_1b_bas+j) = B(i,N_1b_bas+j) + x1
+      B(N_1b_bas+j,i) = B(N_1b_bas+j,i) + x1
+
+     end do
+    end do
+    !
+    do i = 1 , N_1b_bas
+     i4 = i_1b_bas(i)
+     do j = 1 , N_2h1p_bas
+
+      x1 = 0.d0
+      do k = 1 , N_2p_bas
+        ih1 = i_2p_n1(k)
+        ih2 = i_2p_n2(k)
+        x1 = x1 + Vpair(ikkn_k1(j),ikkn_k2(j),ih1,ih2,xg) * Vpair(ih1,ih2,i4,ikkn_n3(j),xg) /   &
+            (xsp_en(ikkn_k1(j)) + xsp_en(ikkn_k2(j)) - x_2p_en(k))
+      end do
+
+      B(i,N_1b_bas+N_2p1h_bas+j) = B(i,N_1b_bas+N_2p1h_bas+j) + x1
+      B(N_1b_bas+N_2p1h_bas+j,i) = B(N_1b_bas+N_2p1h_bas+j,i) + x1
      end do
     end do
     !
@@ -655,6 +745,7 @@ real*8 function Exact_energy(xdlt,xg)
   INFO = 0;
   LWopt=0
   LIWopt=0
+  Ntot = 5
   call dsyevd('Vectors','Upper',Ntot,A,LDA,W,WORK, LWORK,IWORK,LIWORK,INFO);
   if (0 /= INFO) write(6,*) 'Dyson (DSYEV), Wrong value of IFAIL: INFO= ',INFO
   if (0 == INFO) then
@@ -770,7 +861,17 @@ real*8, allocatable :: V2(:,:), T2(:,:), E0(:,:), Vpp(:,:), Vhh(:,:), TT(:,:)
     xe = xe_new
     itr = itr + 1
 
-    T2 = V2 + MATMUL(T2, Vhh ) + MATMUL(Vpp, T2)! + MATMUL( MATMUL (T2 , TRANSPOSE( V2) ) , T2 )
+    TT = V2 + MATMUL(T2, Vhh ) + MATMUL(Vpp, T2)
+
+    if (TsqLadd) TT = TT + MATMUL( MATMUL (T2 , TRANSPOSE( V2) ) , T2 )
+
+    if (FullCCD) then
+      !
+      ! Not coded yet...
+      !
+    end if
+
+    T2 = TT
 
     xe_new = 0.d0
     do r = 1 , N_2p_bas
