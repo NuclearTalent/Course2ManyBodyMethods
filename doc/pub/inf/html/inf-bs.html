@@ -68,7 +68,11 @@ Automatically generated HTML file from DocOnce source
                2,
                None,
                '___sec16'),
-              ('Brueckner-Hartree-Fock theory', 2, None, '___sec17')]}
+              ('Brueckner-Hartree-Fock theory', 2, None, '___sec17'),
+              ('Exercise 4: Magic numbers for infinite matter and the Minnesota interaction model',
+               2,
+               None,
+               '___sec18')]}
 end of tocinfo -->
 
 <body>
@@ -158,6 +162,7 @@ MathJax.Hub.Config({
 <a href="#___sec15"> Exercise 3: Magic numbers for the three-dimensional electron gas and perturbation theory to second order </a><br>
 <a href="#___sec16">  Infinite nuclear matter and neutron star matter </a><br>
 <a href="#___sec17">  Brueckner-Hartree-Fock theory  </a><br>
+<a href="#___sec18"> Exercise 4: Magic numbers for infinite matter and the Minnesota interaction model </a><br>
 </p>
 <p>
 </div> <!-- end jumbotron -->
@@ -1023,106 +1028,6 @@ B=-\Omega\left(\frac{\partial P}{\partial \Omega}\right)_N,
 $$
 
 and comment your results.
-
-<p>
-We have to show first  that
-$$
-\hat{H}_{b}=\frac{e^2}{2}\frac{N_e^2}{\Omega}\frac{4\pi}{\mu^2},
-$$
-
-and
-$$
-\hat{H}_{el-b}=-e^2\frac{N_e^2}{\Omega}\frac{4\pi}{\mu^2}.
-$$
-
-<p>
-And then that the final Hamiltonian can be written as 
-$$
-H=H_{0}+H_{I},
-$$
-
-with
-$$
-H_{0}={\displaystyle\sum_{\mathbf{k}\sigma}}
-\frac{\hbar^{2}k^{2}}{2m_e}a_{\mathbf{k}\sigma}^{\dagger}
-a_{\mathbf{k}\sigma},
-$$
-
-and
-$$
-H_{I}=\frac{e^{2}}{2\Omega}{\displaystyle\sum_{\sigma_{1}
-\sigma_{2}}}{\displaystyle
-\sum_{\mathbf{q}\neq 0,\mathbf{k},\mathbf{p}}}\frac{4\pi}{q^{2}}
-a_{\mathbf{k}+\mathbf{q},\sigma_{1}}^{\dagger}
-a_{\mathbf{p}-\mathbf{q},\sigma_{2}}^{\dagger}
-a_{\mathbf{p}\sigma_{2}}a_{\mathbf{k}\sigma_{1}}.
-$$
-
-<p>
-Let us now calculate the following part of the Hamiltonian
-$$ \hat H_b = \frac{e^2}{2} \iint \frac{n(\mathbf{r}) n(\mathbf{r}')e^{-\mu|\mathbf{r} - \mathbf{r}'|}}{|\mathbf{r} - \mathbf{r}'|} d\mathbf{r} d\mathbf{r}' , 
-$$
-
-where \( n(\mathbf{r}) = N_e/\Omega \), the density of the positive background charge. We define \( \mathbf{r}_{12} = \mathbf{r} - \mathbf{r}' \), resulting in \( d\mathbf{r}_{12} = d\mathbf{r} \), and allowing us to rewrite the integral as
-$$ 
-\hat H_b = \frac{e^2 N_e^2}{2\Omega^2} \iint \frac{e^{-\mu |\mathbf{r}_{12}|}}{|\mathbf{r}_{12}|} d\mathbf{r}_{12} d\mathbf{r}' = \frac{e^2 N_e^2}{2\Omega} \int \frac{e^{-\mu |\mathbf{r}_{12}|}}{|\mathbf{r}_{12}|} d\mathbf{r}_{12} . 
-$$
-
-Here we have used that \( \int \! \mathbf{r} = \Omega \). We change to spherical coordinates and the lack of angle 
-dependencies yields a factor \( 4\pi \), resulting in
-$$ 
-\hat H_b = \frac{4\pi e^2 N_e^2}{2\Omega} \int_0^\infty re^{-\mu r} \, \mathrm{d} r . 
-$$
-
-Solving by partial integration
-$$ \int_0^\infty re^{-\mu r} \, \mathrm{d} r = \left[ -\frac{r}{\mu} e^{-\mu r} \right]_0^\infty + \frac{1}{\mu} \int_0^\infty e^{-\mu r} \, \mathrm{d} r
-= \frac{1}{\mu} \left[ - \frac{1}{\mu} e^{-\mu r} \right]_0^\infty = \frac{1}{\mu^2}, 
-$$
-
-gives
-$$
-\hat{H}_b = \frac{e^2}{2} \frac{N_e^2}{\Omega} \frac{4\pi}{\mu^2} .
-$$
-
-The next term is 
-$$ 
-\hat H_{el-b} = -e^2 \sum_{i = 1}^N \int \frac{n(\mathbf{r}) e^{-\mu |\mathbf{r} - \mathbf{x}_i|}}{|\mathbf{r} - \mathbf{x}_i|} \mathbf{r} . 
-$$
-
-Inserting  \( n(\mathbf{r}) \) and changing variables in the same way as in the previous integral \( \mathbf{y} = \mathbf{r} - \mathbf{x}_i \), we get \( \mathrm{d}^3 \mathbf{y} = \mathrm{d}^3 \mathbf{r} \). This gives
-$$
-\begin{align}
-\hat H_{el-b} = -\frac{e^2 N_e}{\Omega} \sum_{i = 1^N} \int \frac{e^{-\mu |\mathbf{y}|}}{|\mathbf{y}|} \, \mathrm{d}^3 \mathbf{y}
-=  -\frac{4\pi e^2 N_e}{\Omega} \sum_{i = 1}^N \int_0^\infty y e^{-\mu y} \mathrm{d} y. 
-\end{align}
-$$
-
-We have already seen this  type of integral. The answer is 
-$$ 
-\hat H_{el-b} = -\frac{4\pi e^2 N_e}{\Omega} \sum_{i = 1}^N \frac{1}{\mu^2}, 
-$$
-
-which gives
-$$
-\hat H_{el-b} = -e^2 \frac{N_e^2}{\Omega} \frac{4\pi}{\mu^2} .
-$$
-
-<p>
-Finally, we need to evaluate \( \hat H_{el} \). This term reads
-$$ 
-\hat H_{el} = \sum_{i=1}^{N_e} \frac{\hat{\vec p}_i^2}{2m_e} + \frac{e^2}{2} \sum_{i \neq j} \frac{e^{-\mu |\mathbf{r}_i - \mathbf{r}_j|}}{\mathbf{r}_i - \mathbf{r}_j} . 
-$$
-
-The last term represents the repulsion between two electrons. It is a central symmetric interaction
-and is translationally invariant. The potential is given by the expression
-$$ 
-v(|\mathbf{r}|) = e^2 \frac{e^{\mu|\mathbf{r}|}}{|\mathbf{r}|}, 
-$$
-
-which we derived in connection with the single-particle Hartree-Fock derivation.
-
-<p>
-More material will be added here!
 
 <p>
 <!-- --- end exercise --- -->
@@ -2606,6 +2511,83 @@ obtain new values for \( M_{N}^{*} \) and \( \Delta \). This procedure
 continues until these parameters vary little.
 
 <p>
+<!-- --- begin exercise --- -->
+
+<h2 id="___sec18">Exercise 4: Magic numbers for infinite matter and the Minnesota interaction model </h2>
+
+<p>
+<b>a)</b>
+Set up the quantum numbers for infinite nuclear matter and neutron matter using a given value 
+of \( n_{\mathrm{max}} \).
+
+<p>
+<!-- --- begin solution of exercise --- -->
+
+<p>
+<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+ data-target="#exer_4_1" style="font-size: 80%;"></a>
+<b>Solution.</b>
+<div class="collapse-group">
+<p><div class="collapse" id="exer_4_1">
+
+<p>
+The following python code sets up the quantum numbers for both infinite nuclear matter and neutron matter meploying a cutoff in the value of \( n \).
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+
+nmax <span style="color: #666666">=2</span>
+nshell <span style="color: #666666">=</span> <span style="color: #666666">3*</span>nmax<span style="color: #666666">*</span>nmax
+count <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+tzmin <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Symmetric nuclear matter:&quot;</span>  
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;a, nx,   ny,   nz,   sz,   tz,   nx^2 + ny^2 + nz^2&quot;</span>
+<span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(nshell): 
+    <span style="color: #008000; font-weight: bold">for</span> nx <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-</span>nmax,nmax<span style="color: #666666">+1</span>):
+         <span style="color: #008000; font-weight: bold">for</span> ny <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-</span>nmax,nmax<span style="color: #666666">+1</span>):
+            <span style="color: #008000; font-weight: bold">for</span> nz <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-</span>nmax, nmax<span style="color: #666666">+1</span>):  
+                <span style="color: #008000; font-weight: bold">for</span> sz <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-1</span>,<span style="color: #666666">1+1</span>):
+                    tz <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+                    <span style="color: #008000; font-weight: bold">for</span> tz <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-</span>tzmin,tzmin<span style="color: #666666">+1</span>):
+                        e <span style="color: #666666">=</span> nx<span style="color: #666666">*</span>nx <span style="color: #666666">+</span> ny<span style="color: #666666">*</span>ny <span style="color: #666666">+</span> nz<span style="color: #666666">*</span>nz
+                        <span style="color: #008000; font-weight: bold">if</span> e <span style="color: #666666">==</span> n:
+                            <span style="color: #008000; font-weight: bold">if</span> sz <span style="color: #666666">!=</span> <span style="color: #666666">0</span>: 
+                                <span style="color: #008000; font-weight: bold">if</span> tz <span style="color: #666666">!=</span> <span style="color: #666666">0</span>: 
+                                    <span style="color: #008000; font-weight: bold">print</span> count, <span style="color: #BA2121">&quot;  &quot;</span>,nx,<span style="color: #BA2121">&quot;  &quot;</span>,ny, <span style="color: #BA2121">&quot;  &quot;</span>,nz,<span style="color: #BA2121">&quot;  &quot;</span>,sz,<span style="color: #BA2121">&quot;  &quot;</span>,tz,<span style="color: #BA2121">&quot;         &quot;</span>,e
+                                    count <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
+                                    
+                                    
+nmax <span style="color: #666666">=1</span>
+nshell <span style="color: #666666">=</span> <span style="color: #666666">3*</span>nmax<span style="color: #666666">*</span>nmax
+count <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+tzmin <span style="color: #666666">=</span> <span style="color: #666666">1</span>
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;------------------------------------&quot;</span>
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Neutron matter:&quot;</span>                                    
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;a, nx,   ny,   nz,   sz,    nx^2 + ny^2 + nz^2&quot;</span>
+<span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(nshell): 
+    <span style="color: #008000; font-weight: bold">for</span> nx <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-</span>nmax,nmax<span style="color: #666666">+1</span>):
+         <span style="color: #008000; font-weight: bold">for</span> ny <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-</span>nmax,nmax<span style="color: #666666">+1</span>):
+            <span style="color: #008000; font-weight: bold">for</span> nz <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-</span>nmax, nmax<span style="color: #666666">+1</span>):  
+                <span style="color: #008000; font-weight: bold">for</span> sz <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">-1</span>,<span style="color: #666666">1+1</span>):
+                    e <span style="color: #666666">=</span> nx<span style="color: #666666">*</span>nx <span style="color: #666666">+</span> ny<span style="color: #666666">*</span>ny <span style="color: #666666">+</span> nz<span style="color: #666666">*</span>nz
+                    <span style="color: #008000; font-weight: bold">if</span> e <span style="color: #666666">==</span> n:
+                        <span style="color: #008000; font-weight: bold">if</span> sz <span style="color: #666666">!=</span> <span style="color: #666666">0</span>: 
+                            <span style="color: #008000; font-weight: bold">print</span> count, <span style="color: #BA2121">&quot;  &quot;</span>,nx,<span style="color: #BA2121">&quot;  &quot;</span>,ny, <span style="color: #BA2121">&quot;  &quot;</span>,sz,<span style="color: #BA2121">&quot;  &quot;</span>,tz,<span style="color: #BA2121">&quot;         &quot;</span>,e
+                            count <span style="color: #666666">+=</span> <span style="color: #666666">1</span>                  
+                               
+</pre></div>
+<p>
+</div></p>
+</div>
+</p>
+
+<p>
+<!-- --- end solution of exercise --- -->
+
+<p>
+<!-- --- end exercise --- -->
 
 <p>
 <!-- navigation buttons at the bottom of the page -->

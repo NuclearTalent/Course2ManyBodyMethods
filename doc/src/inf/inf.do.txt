@@ -828,119 +828,6 @@ B=-\Omega\left(\frac{\partial P}{\partial \Omega}\right)_N,
 and comment your results.
 !esubex
 
-We have to show first  that
-!bt
-\[
-\hat{H}_{b}=\frac{e^2}{2}\frac{N_e^2}{\Omega}\frac{4\pi}{\mu^2},
-\]
-!et
-and
-!bt
-\[
-\hat{H}_{el-b}=-e^2\frac{N_e^2}{\Omega}\frac{4\pi}{\mu^2}.
-\]
-!et
-
-
-And then that the final Hamiltonian can be written as 
-!bt
-\[
-H=H_{0}+H_{I},
-\]
-!et
-with
-!bt
-\[
-H_{0}={\displaystyle\sum_{\mathbf{k}\sigma}}
-\frac{\hbar^{2}k^{2}}{2m_e}a_{\mathbf{k}\sigma}^{\dagger}
-a_{\mathbf{k}\sigma},
-\]
-!et
-and
-!bt
-\[
-H_{I}=\frac{e^{2}}{2\Omega}{\displaystyle\sum_{\sigma_{1}
-\sigma_{2}}}{\displaystyle
-\sum_{\mathbf{q}\neq 0,\mathbf{k},\mathbf{p}}}\frac{4\pi}{q^{2}}
-a_{\mathbf{k}+\mathbf{q},\sigma_{1}}^{\dagger}
-a_{\mathbf{p}-\mathbf{q},\sigma_{2}}^{\dagger}
-a_{\mathbf{p}\sigma_{2}}a_{\mathbf{k}\sigma_{1}}.
-\] 
-!et
-
-Let us now calculate the following part of the Hamiltonian
-!bt
-\[ \hat H_b = \frac{e^2}{2} \iint \frac{n(\mathbf{r}) n(\mathbf{r}')e^{-\mu|\mathbf{r} - \mathbf{r}'|}}{|\mathbf{r} - \mathbf{r}'|} d\mathbf{r} d\mathbf{r}' , 
-\]
-!et
-where $n(\mathbf{r}) = N_e/\Omega$, the density of the positive background charge. We define $\mathbf{r}_{12} = \mathbf{r} - \mathbf{r}'$, resulting in $d\mathbf{r}_{12} = d\mathbf{r}$, and allowing us to rewrite the integral as
-!bt
-\[ 
-\hat H_b = \frac{e^2 N_e^2}{2\Omega^2} \iint \frac{e^{-\mu |\mathbf{r}_{12}|}}{|\mathbf{r}_{12}|} d\mathbf{r}_{12} d\mathbf{r}' = \frac{e^2 N_e^2}{2\Omega} \int \frac{e^{-\mu |\mathbf{r}_{12}|}}{|\mathbf{r}_{12}|} d\mathbf{r}_{12} . 
-\]
-!et
-Here we have used that $\int \! \mathbf{r} = \Omega$. We change to spherical coordinates and the lack of angle 
-dependencies yields a factor $4\pi$, resulting in
-!bt
-\[ 
-\hat H_b = \frac{4\pi e^2 N_e^2}{2\Omega} \int_0^\infty re^{-\mu r} \, \mathrm{d} r . 
-\]
-!et
-Solving by partial integration
-!bt
-\[ \int_0^\infty re^{-\mu r} \, \mathrm{d} r = \left[ -\frac{r}{\mu} e^{-\mu r} \right]_0^\infty + \frac{1}{\mu} \int_0^\infty e^{-\mu r} \, \mathrm{d} r
-= \frac{1}{\mu} \left[ - \frac{1}{\mu} e^{-\mu r} \right]_0^\infty = \frac{1}{\mu^2}, 
-\]
-!et
-gives
-!bt
-\[
-\hat{H}_b = \frac{e^2}{2} \frac{N_e^2}{\Omega} \frac{4\pi}{\mu^2} .
-\]
-!et
-The next term is 
-!bt
-\[ 
-\hat H_{el-b} = -e^2 \sum_{i = 1}^N \int \frac{n(\mathbf{r}) e^{-\mu |\mathbf{r} - \mathbf{x}_i|}}{|\mathbf{r} - \mathbf{x}_i|} \mathbf{r} . 
-\]
-!et
-Inserting  $n(\mathbf{r})$ and changing variables in the same way as in the previous integral $\mathbf{y} = \mathbf{r} - \mathbf{x}_i$, we get $\mathrm{d}^3 \mathbf{y} = \mathrm{d}^3 \mathbf{r}$. This gives
-!bt
-\begin{align}
-\hat H_{el-b} = -\frac{e^2 N_e}{\Omega} \sum_{i = 1^N} \int \frac{e^{-\mu |\mathbf{y}|}}{|\mathbf{y}|} \, \mathrm{d}^3 \mathbf{y}
-=  -\frac{4\pi e^2 N_e}{\Omega} \sum_{i = 1}^N \int_0^\infty y e^{-\mu y} \mathrm{d} y. 
-\end{align}
-!et
-We have already seen this  type of integral. The answer is 
-!bt
-\[ 
-\hat H_{el-b} = -\frac{4\pi e^2 N_e}{\Omega} \sum_{i = 1}^N \frac{1}{\mu^2}, 
-\]
-!et
-which gives
-!bt
-\[
-\hat H_{el-b} = -e^2 \frac{N_e^2}{\Omega} \frac{4\pi}{\mu^2} .
-\]
-!et
-
-Finally, we need to evaluate $\hat H_{el}$. This term reads
-!bt
-\[ 
-\hat H_{el} = \sum_{i=1}^{N_e} \frac{\hat{\vec p}_i^2}{2m_e} + \frac{e^2}{2} \sum_{i \neq j} \frac{e^{-\mu |\mathbf{r}_i - \mathbf{r}_j|}}{\mathbf{r}_i - \mathbf{r}_j} . 
-\]
-!et
-The last term represents the repulsion between two electrons. It is a central symmetric interaction
-and is translationally invariant. The potential is given by the expression
-!bt
-\[ 
-v(|\mathbf{r}|) = e^2 \frac{e^{\mu|\mathbf{r}|}}{|\mathbf{r}|}, 
-\]
-!et
-which we derived in connection with the single-particle Hartree-Fock derivation.
-
-More material will be added here!
-
 
 
 
@@ -2301,4 +2188,57 @@ effective mass and $\Delta$. The obtained $G$-matrix is in turn used to
 obtain new values for $M_{N}^{*}$ and $\Delta$. This procedure
 continues until these parameters vary little.
 
+
+===== Exercise: Magic numbers for infinite matter and the Minnesota interaction model =====
+!bsubex
+Set up the quantum numbers for infinite nuclear matter and neutron matter using a given value 
+of $n_{\mathrm{max}}$. 
+!bsol
+The following python code sets up the quantum numbers for both infinite nuclear matter and neutron matter meploying a cutoff in the value of $n$.
+!bc pycod 
+from numpy import *
+
+nmax =2
+nshell = 3*nmax*nmax
+count = 1
+tzmin = 1
+
+print "Symmetric nuclear matter:"  
+print "a, nx,   ny,   nz,   sz,   tz,   nx^2 + ny^2 + nz^2"
+for n in range(nshell): 
+    for nx in range(-nmax,nmax+1):
+         for ny in range(-nmax,nmax+1):
+            for nz in range(-nmax, nmax+1):  
+                for sz in range(-1,1+1):
+                    tz = 1
+                    for tz in range(-tzmin,tzmin+1):
+                        e = nx*nx + ny*ny + nz*nz
+                        if e == n:
+                            if sz != 0: 
+                                if tz != 0: 
+                                    print count, "  ",nx,"  ",ny, "  ",nz,"  ",sz,"  ",tz,"         ",e
+                                    count += 1
+                                    
+                                    
+nmax =1
+nshell = 3*nmax*nmax
+count = 1
+tzmin = 1
+print "------------------------------------"
+print "Neutron matter:"                                    
+print "a, nx,   ny,   nz,   sz,    nx^2 + ny^2 + nz^2"
+for n in range(nshell): 
+    for nx in range(-nmax,nmax+1):
+         for ny in range(-nmax,nmax+1):
+            for nz in range(-nmax, nmax+1):  
+                for sz in range(-1,1+1):
+                    e = nx*nx + ny*ny + nz*nz
+                    if e == n:
+                        if sz != 0: 
+                            print count, "  ",nx,"  ",ny, "  ",sz,"  ",tz,"         ",e
+                            count += 1                  
+                               
+!ec
+!esol
+!esubex
 
