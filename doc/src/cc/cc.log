@@ -1,0 +1,714 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  10 JUL 2015 11:20
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**cc
+(./cc.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
+ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
+rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
+kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
+ polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
+lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
+welsh, loaded.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2011/09/21 ver 4.0
+
+Examine \normalsize starts \@setfontsize size may be \@xpt. 
+Examine \small starts \@setfontsize size may be \@ixpt. 
+Examine \footnotesize starts \@setfontsize size may be \@viiipt. 
+Examine \large starts \@setfontsize size may be \@xiipt. 
+Examine \Large starts \@setfontsize size may be \@xivpt. 
+Examine \LARGE starts \@setfontsize size may be \@xviipt. 
+Examine \scriptsize starts \@setfontsize size may be \@viipt. 
+Examine \tiny starts \@setfontsize size may be \@vpt. 
+Examine \huge starts \@setfontsize size may be \@xxpt. 
+Examine \Huge starts \@setfontsize size may be \@xxvpt. )
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks15
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen112
+\extrarowheight=\dimen113
+\NC@list=\toks19
+\extratabsurround=\skip46
+\backup@length=\skip47
+)
+\everycr=\toks20
+\minrowclearance=\skip48
+)
+LaTeX Info: Redefining \color on input line 702.
+\rownum=\count100
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
+LaTeX Info: Redefining \bm on input line 204.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2010/01/10 v2.4 Micro-typography with pdfTeX (RS)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+\MT@toks=\toks22
+\MT@count=\count101
+LaTeX Info: Redefining \lsstyle on input line 1597.
+LaTeX Info: Redefining \lslig on input line 1597.
+\MT@outer@space=\skip49
+LaTeX Info: Redefining \textls on input line 1605.
+\MT@outer@kern=\dimen114
+LaTeX Info: Redefining \textmicrotypecontext on input line 2156.
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2010/01/10 v2.4 microtype main configuration file (RS)
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen115
+\Gin@req@width=\dimen116
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2004/10/17 UCS: Unicode input support
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2012/04/20 UCS: Unicode global data
+)
+\uc@secondtry=\count102
+\uc@combtoks=\toks23
+\uc@combtoksb=\toks24
+\uc@temptokena=\toks25
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks26
+\inpenc@posthook=\toks27
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/05/13 v6.82q Hypertext links for LaTeX
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen117
+\Hy@linkcounter=\count103
+\Hy@pagecounter=\count104
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/05/13 v6.82q Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count105
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `final' set `true' on input line 3941.
+Package hyperref Info: Hyper figures OFF on input line 4062.
+Package hyperref Info: Link nesting OFF on input line 4067.
+Package hyperref Info: Hyper index ON on input line 4070.
+Package hyperref Info: Plain pages OFF on input line 4077.
+Package hyperref Info: Backreferencing OFF on input line 4082.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4300.
+\c@Hy@tempcnt=\count106
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4653.
+\Fld@menulength=\count107
+\Field@Width=\dimen118
+\Fld@charsize=\dimen119
+Package hyperref Info: Hyper figures OFF on input line 5773.
+Package hyperref Info: Link nesting OFF on input line 5778.
+Package hyperref Info: Hyper index ON on input line 5781.
+Package hyperref Info: backreferencing OFF on input line 5788.
+Package hyperref Info: Link coloring OFF on input line 5793.
+Package hyperref Info: Link coloring with OCG OFF on input line 5798.
+Package hyperref Info: PDF/A mode OFF on input line 5803.
+LaTeX Info: Redefining \ref on input line 5843.
+LaTeX Info: Redefining \pageref on input line 5847.
+\Hy@abspage=\count108
+\c@Item=\count109
+\c@Hfootnote=\count110
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/05/13 v6.82q Hyperref driver for pdfTeX
+\Fld@listcount=\count111
+\c@bookmark@seq@number=\count112
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip50
+)
+Package hyperref Info: Option `breaklinks' set `true' on input line 44.
+Package hyperref Info: Option `colorlinks' set `true' on input line 44.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 44.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 44.
+\@indexfile=\write3
+\openout3 = `cc.idx'.
+
+
+Writing index file cc.idx
+(./cc.aux)
+\openout1 = `cc.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 63.
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+(/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count113
+\scratchdimen=\dimen120
+\scratchbox=\box28
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen121
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks29
+)
+LaTeX Info: Redefining \microtypecontext on input line 63.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman 
+(RS)
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+(/usr/local/texlive/2012/texmf-dist/tex/latex/ucs/ucsencs.def
+File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
+)
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring ON on input line 63.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+(/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count119
+)
+LaTeX Info: Redefining \ref on input line 63.
+LaTeX Info: Redefining \pageref on input line 63.
+LaTeX Info: Redefining \nameref on input line 63.
+
+(./cc.out) (./cc.out)
+\@outlinefile=\write4
+\openout4 = `cc.out'.
+
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 87.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 87.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 87.
+
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 87.
+
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 87.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 87.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 87.
+LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [1
+
+{/usr/local/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (56.47595pt too wide) detected at line 169
+\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it/1
+0 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i \OT1/lmr/m/n/10 + 
+[]\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it
+/10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 
+C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10
+ j[] ^^@ \OML/lmm/m/it/10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n
+/10 i\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10
+ ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it/10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n
+/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 = 0\OML/lmm/m/i
+t/10 ;
+ []
+
+
+Overfull \hbox (64.14804pt too wide) detected at line 175
+\OMS/lmsy/m/n/10 h\OML/lmm/m/it/10 i\OMS/lmsy/m/n/10 j[]j\OML/lmm/m/it/10 a\OMS
+/lmsy/m/n/10 i \OT1/lmr/m/n/10 + \OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lm
+sy/m/n/10 j[]j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/
+lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[]j\OT1
+/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 + []\OM
+S/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[]j\OT1/lmr/m/n/10 ^^H[]\
+OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT
+1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[]j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\
+OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 EC[]:
+ []
+
+[2]
+Overfull \hbox (57.09183pt too wide) detected at line 194
+[]\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it
+/10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 
+C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n/10
+ j[] ^^@ \OML/lmm/m/it/10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n/10 ^^H[]\OMS/lmsy/m/n
+/10 i\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 + []\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10
+ ^^H[]\OMS/lmsy/m/n/10 j[] ^^@ \OML/lmm/m/it/10 E\OMS/lmsy/m/n/10 j\OT1/lmr/m/n
+/10 ^^H[]\OMS/lmsy/m/n/10 i\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 = 0\OML/lmm/m/i
+t/10 ;
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 212.
+
+(/usr/local/texlive/2012/texmf-dist/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 212.
+ [3] [4]
+Overfull \hbox (65.11981pt too wide) in paragraph at lines 321--334
+[][] 
+ []
+
+[5] [6] [7] [8]
+No file cc.ind.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 503.
+ (./cc.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
+
+
+ *File List*
+ article.cls    2007/10/19 v1.4h Standard LaTeX document class
+  size10.clo    2007/10/19 v1.4h Standard LaTeX file (size option)
+ relsize.sty    2011/09/21 ver 4.0
+ makeidx.sty    2000/03/29 v1.0m Standard LaTeX package
+   color.sty    1999/02/16
+   color.cfg    2007/01/18 v1.5 color configuration of teTeX/TeXLive
+  pdftex.def    2011/05/27 v0.06d Graphics/color for pdfTeX
+infwarerr.sty    2010/04/08 v1.3 Providing info/warning/error messages (HO)
+ ltxcmds.sty    2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+setspace.sty    2011/12/19 v6.7a set line spacing
+ amsmath.sty    2000/07/18 v2.13 AMS math features
+ amstext.sty    2000/06/29 v2.01
+  amsgen.sty    1999/11/30 v2.0
+  amsbsy.sty    1999/11/29 v1.2d
+  amsopn.sty    1999/12/14 v2.01 operator names
+amsfonts.sty    2009/06/22 v3.00 Basic AMSFonts support
+  xcolor.sty    2007/01/21 v2.11 LaTeX color extensions (UK)
+   color.cfg    2007/01/18 v1.5 color configuration of teTeX/TeXLive
+colortbl.sty    2012/02/13 v1.0a Color table columns (DPC)
+   array.sty    2008/09/09 v2.4c Tabular extension package (FMi)
+      bm.sty    2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+microtype.sty    2010/01/10 v2.4 Micro-typography with pdfTeX (RS)
+  keyval.sty    1999/03/16 v1.13 key=value parser (DPC)
+microtype.cfg    2010/01/10 v2.4 microtype main configuration file (RS)
+graphicx.sty    1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+graphics.sty    2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+    trig.sty    1999/03/16 v1.09 sin cos tan (DPC)
+graphics.cfg    2010/04/23 v1.9 graphics configuration of TeX Live
+ fontenc.sty
+   t1enc.def    2005/09/27 v1.99g Standard LaTeX file
+     ucs.sty    2004/10/17 UCS: Unicode input support
+uni-global.def    2012/04/20 UCS: Unicode global data
+inputenc.sty    2008/03/30 v1.1d Input encoding file
+   utf8x.def    2004/10/17 UCS: Input encoding UTF-8
+ lmodern.sty    2009/10/30 v1.6 Latin Modern Fonts
+hyperref.sty    2012/05/13 v6.82q Hypertext links for LaTeX
+hobsub-hyperref.sty    2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+hobsub-generic.sty    2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+  hobsub.sty    2012/05/28 v1.13 Construct package bundles (HO)
+ifluatex.sty    2010/03/01 v1.3 Provides the ifluatex switch (HO)
+  ifvtex.sty    2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+ intcalc.sty    2007/09/27 v1.1 Expandable calculations with integers (HO)
+   ifpdf.sty    2011/01/30 v2.3 Provides the ifpdf switch (HO)
+etexcmds.sty    2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+kvsetkeys.sty    2012/04/25 v1.16 Key value parser (HO)
+kvdefinekeys.sty    2011/04/07 v1.3 Define keys (HO)
+pdftexcmds.sty    2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO)
+pdfescape.sty    2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+bigintcalc.sty    2012/04/08 v1.3 Expandable calculations on big integers (HO)
+  bitset.sty    2011/01/30 v1.1 Handle bit-vector datatype (HO)
+uniquecounter.sty    2011/01/30 v1.2 Provide unlimited unique counter (HO)
+letltxmacro.sty    2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+ hopatch.sty    2012/05/28 v1.2 Wrapper for package hooks (HO)
+xcolor-patch.sty    2011/01/30 xcolor patch
+atveryend.sty    2011/06/30 v1.8 Hooks at the very end of document (HO)
+atbegshi.sty    2011/10/05 v1.16 At begin shipout hook (HO)
+refcount.sty    2011/10/16 v3.4 Data extraction from label references (HO)
+ hycolor.sty    2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+ ifxetex.sty    2010/09/12 v0.6 Provides ifxetex conditional
+kvoptions.sty    2011/06/30 v3.11 Key value format for package options (HO)
+  pd1enc.def    2012/05/13 v6.82q Hyperref: PDFDocEncoding definition (HO)
+hyperref.cfg    2002/06/06 v1.2 hyperref configuration of TeXLive
+     url.sty    2006/04/12  ver 3.3  Verb mode for urls, etc.
+ hpdftex.def    2012/05/13 v6.82q Hyperref driver for pdfTeX
+rerunfilecheck.sty    2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+   t1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
+supp-pdf.mkii
+  mt-cmr.cfg    2009/11/09 v2.0 microtype config. file: Computer Modern Roman (
+RS)
+epstopdf-base.sty    2010/02/09 v2.5 Base part for package epstopdf
+  grfext.sty    2010/08/19 v1.1 Manage graphics extensions (HO)
+epstopdf-sys.cfg    2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+ ucsencs.def    2011/01/21 Fixes to fontencodings LGR, T3
+ nameref.sty    2010/04/30 v2.40 Cross-referencing by name of section
+gettitlestring.sty    2010/12/03 v1.4 Cleanup title references (HO)
+      cc.out
+      cc.out
+  ot1lmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
+  omllmm.fd    2009/10/30 v1.6 Font defs for Latin Modern
+ omslmsy.fd    2009/10/30 v1.6 Font defs for Latin Modern
+ omxlmex.fd    2009/10/30 v1.6 Font defs for Latin Modern
+    umsa.fd    2009/06/22 v3.00 AMS symbols A
+  mt-msa.cfg    2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+    umsb.fd    2009/06/22 v3.00 AMS symbols B
+  mt-msb.cfg    2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+  omslmr.fd    2009/10/30 v1.6 Font defs for Latin Modern
+ ***********
+
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
+Package rerunfilecheck Info: File `cc.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
+ ) 
+Here is how much of TeX's memory you used:
+ 8391 strings out of 493488
+ 127095 string characters out of 3141326
+ 266047 words of memory out of 3000000
+ 11436 multiletter control sequences out of 15000+200000
+ 51100 words of font info for 89 fonts, out of 3000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 41i,14n,35p,465b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/lo
+cal/texlive/2012/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/20
+12/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2012/texmf-d
+ist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/
+dvips/lm/lm-mathex.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/l
+m/lmbx10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmbx12.p
+fb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2012/tex
+mf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2012/texmf-dist/fon
+ts/type1/public/lm/lmr10.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/pu
+blic/lm/lmr5.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmr7
+.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/tex
+live/2012/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
+Output written on cc.pdf (9 pages, 206338 bytes).
+PDF statistics:
+ 145 PDF objects out of 1000 (max. 8388607)
+ 120 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 13825 words of extra memory for PDF output out of 14400 (max. 10000000)
+

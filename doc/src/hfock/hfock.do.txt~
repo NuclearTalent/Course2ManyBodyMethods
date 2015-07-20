@@ -1006,14 +1006,13 @@ Calculating the difference
 !bt
 \[
   E[\Phi^{\mathrm{HF}}(N)]-   E[\Phi^{\mathrm{HF}}(N-1)] = \langle k | \hat{h}_0 | k \rangle +
-  \frac{1}{2}\sum_{i=1;i\ne k}^N\langle ik|\hat{v}|ik\rangle_{AS}  \frac{1}{2}\sum_{j=1;j\ne k}^N\langle kj|\hat{v}|kj\rangle_{AS},
+  \frac{1}{2}\sum_{i=1;i\ne k}^N\langle ik|\hat{v}|ik\rangle_{AS} + \frac{1}{2}\sum_{j=1;j\ne k}^N\langle kj|\hat{v}|kj\rangle_{AS},
 \]
 !et
 we obtain
 !bt
 \[
-  E[\Phi^{\mathrm{HF}}(N)]-   E[\Phi^{\mathrm{HF}}(N-1)] = \langle k | \hat{h}_0 | k \rangle +
-  \frac{1}{2}\sum_{j=1}^N\langle kj|\hat{v}|kj\rangle_{AS}
+  E[\Phi^{\mathrm{HF}}(N)]-   E[\Phi^{\mathrm{HF}}(N-1)] = \langle k | \hat{h}_0 | k \rangle +\sum_{j=1}^N\langle kj|\hat{v}|kj\rangle_{AS}
 \]
 !et
 which is just our definition of the Hartree-Fock single-particle energy
@@ -1078,15 +1077,14 @@ Calculating the difference
 \[
   E[\Phi^{\mathrm{HF}}(A)]-   E[\Phi^{\mathrm{HF}}(A-1)] 
   = \langle k | \hat{h}_0 | k \rangle +
-  \frac{1}{2}\sum_{i=1;i\ne k}^A\langle ik|\hat{v}|ik\rangle_{AS}  \frac{1}{2}\sum_{j=1;j\ne k}^A\langle kj|\hat{v}|kj\rangle_{AS},
+  \frac{1}{2}\sum_{i=1;i\ne k}^A\langle ik|\hat{v}|ik\rangle_{AS} + \frac{1}{2}\sum_{j=1;j\ne k}^A\langle kj|\hat{v}|kj\rangle_{AS},
 \]
 !et
 which becomes 
 !bt
 \[
   E[\Phi^{\mathrm{HF}}(A)]-   E[\Phi^{\mathrm{HF}}(A-1)] 
-  = \langle k | \hat{h}_0 | k \rangle +
-  \frac{1}{2}\sum_{j=1}^A\langle kj|\hat{v}|kj\rangle_{AS}
+  = \langle k | \hat{h}_0 | k \rangle +\sum_{j=1}^A\langle kj|\hat{v}|kj\rangle_{AS}
 \]
 !et
 which is just our definition of the Hartree-Fock single-particle energy
@@ -1118,7 +1116,7 @@ define separation energies. We have thus our first link between nuclear forces (
 
 
 
-We have thus the following interpretations (if the single-particle field do not change)
+We have thus the following interpretations (if the single-particle fields do not change)
 !bt
 \[
 BE(A)-BE(A-1)\approx  E[\Phi^{\mathrm{HF}}(A)]-   E[\Phi^{\mathrm{HF}}(A-1)] 

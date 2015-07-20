@@ -1050,7 +1050,7 @@ The table illustrates  how single-particle energies
 
 
 
-===== Magic number for the two-dimensional electron gas =====
+===== Magic numbers for the two-dimensional electron gas =====
 
 
 |------------------------------------------------------------------------------------------------------|
@@ -1103,15 +1103,13 @@ r_0= \left(\frac{1}{\pi \rho}\right)^{1/2}.
 !et
 
 
-
-
 One can then express the reference energy per electron in terms of the
 dimensionless quantity $r_s=r_0/a_0$, where we have introduced the
 Bohr radius $a_0=\hbar^2/e^2m$. The energy per electron computed with
 the reference Slater determinant can then be written as
 (using hereafter only atomic units, meaning that $\hbar = m = e = 1$)
 !bt
-\[
+\[g
 E_0/N=\frac{1}{2}\left[\frac{2.21}{r_s^2}-\frac{0.916}{r_s}\right],
 \]
 !et
@@ -1119,7 +1117,7 @@ for the three-dimensional electron gas.  For the two-dimensional gas
 the corresponding expression is (show this)
 !bt
 \[
-E_0/N=\frac{1}{r_s^2}-\frac{8\sqrt{2}}{3\pi r_s}.
+E_0/N=\frac{1}{r_s^2}-\frac{8\sqrt{2}}{3\pi r_s}.a
 \]
 !et
 
@@ -1131,14 +1129,298 @@ system has to be zero. Both the kinetic energy operator and the
 total Hamiltonian $\hat{H}$ are assumed to be diagonal in the total
 momentum $\mathbf{K}$. Hence, both the reference state $\Phi_{0}$ and
 the correlated ground state $\Psi$ must be eigenfunctions of the
-operator $\mathbf{\hat{K}}$ with the corresponding eigenvalue
+operator $\mathbf{\hat{K}}$ with the corresponding eigemnvalue
 $\mathbf{K} = \mathbf{0}$.  This leads to important
 simplications to our different many-body methods. In coupled cluster
 theory for example, all
 terms that involve single particle-hole excitations vanish. 
 
+===== Exercise: Magic numbers for the three-dimensional electron gas and perturbation theory to second order =====
+!bsubex
+Set up the possible magic numbers for the electron gas in three dimensions using periodic boundary conditions..
+!bhint
+Follow the example for the two-dimensional electron gas and add the third dimension via the quantum number $n_z$.
+!ehint
+!bsol
+Using the same approach as made with the two-dimensional electron gas with the single-particle kinetic energy defined as
+!bt
+\[
+\frac{\hbar^2}{2m}\left(k_{n_x}^2+k_{n_y}^2k_{n_z}^2\right),
+\]
+!et
+and 
+!bt
+\[
+k_{n_i}=\frac{2\pi n_i}{L} \hspace{0.1cm} n_i = 0, \pm 1, \pm 2, \dots, 
+\]
+!et
+we can set up a similar table and obtain (assuming identical particles one and including spin up and spin down solutions)  for energies less than or equal to $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}\le 3$
+
+|------------------------------------------------------------------------------------------------------|
+| $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}$ | $n_{x}$ | $n_{y}$ | $n_{z}$ | $N_{\uparrow \downarrow }$ | 
+|------------------------------------------------------------------------------------------------------|
+|    0                  | 0       | 0       | 0                           | 2                          |
+|------------------------------------------------------------------------------------------------------|
+|    1                  | -1        | 0        |  0                           |                            |
+|    1                   | 1        |  0       |   0                          |                            |
+|    1                   | 0        |  -1       |  0                           |                            |
+|    1                   | 0        |   1      |   0                          |                            |
+|    1                   | 0        |   0      |  -1                           |                            |
+|    1                   | 0        |   0      |   1                          |   14                           |
+|------------------------------------------------------------------------------------------------------|
+|    2                  | -1        | -1        |  0                           |                            |
+|    2                   | -1        | 1       |   0                          |                            |
+|    2                   | 1        |  -1       |  0                           |                            |
+|    2                   | 1        |   1      |   0                          |                            |
+|    2                   | -1        |   0      |  -1                           |                            |
+|    2                   | -1        |   0      |   1                          |                             |
+|    2                   |  1        |   0      |  -1                           |                            |
+|    2                   |  1        |   0      |   1                          |                             |
+|    2                   |  0        |   -1      |  -1                           |                            |
+|    2                   |  0        |   -1     |   1                          |                             |
+|    2                   |  0        |   1      |  -1                           |                            |
+|    2                   |  0        |   1      |   1                          |  38                           |
+|------------------------------------------------------------------------------------------------------|
+|    3                  | -1        | -1        |  -1                           |                            |
+|    3                   | -1        | -1       |   1                          |                            |
+|    3                   | -1        |  1       |  -1                           |                            |
+|    3                   | -1        |  1      |   1                         |                            |
+|    3                   |  1        |   -1      |  -1                           |                            |
+|    3                   |  1        |   -1      |   1                          |                             |
+|    3                   |  1        |   1     |  -1                           |                            |
+|    3                   |  1        |   1      |   1                          | 54                             |
+|------------------------------------------------------------------------------------------------------|
+
+Continuing in this way we get for $n_{x}^{2}+n_{y}^{2}+n_{z}^{2}=4$ $22$ additional states, resulting in $76$ as a new magic number. For the lowest six energy values the degeneracy in energy gives us $2$, $14$, $38$, $54$, $76$ and $114$ as magic numbers. These numbers will then define our Fermi level when we compute the energy in a Cartesian basis. When performing calculations based on many-body perturbation theory, Coupled cluster theory or other many-body methods, we need then to add states above the Fermi level in order to sum over single-particle states which are not occupied.  
+From the above numbers one can then extract subsequent 
+!esol
+!esubex
+!bsubex
+Extend the previous case to infinite symmetric nuclear matter. Every number of particles for filled shells defines also the number of particles to be used in a given calculation. Use the number of particles to define  the density of the system 
+!bt
+\[
+\rho = g \frac{k_F^3}{6\pi^2},
+\]
+!et
+where you need to define $k_F$ and the degeneracy $g$, which is two for one type of spin-$1/2$ particles and four for symmetric nuclear matter.
+!esubex
+!bsubex
+Use the density to find the length $L$ of the box used with periodic boundary contributions, that is use the relation
+!bt
+\[
+  V= L^3= \frac{A}{\rho}.
+\]
+!et
+You can use $L$ to define the spacing to set up the spacing between varipus $k$-values, that is
+!bt
+\[
+  \Delta k = \frac{2\pi}{L}.
+\]
+!et
+Here, $A$ can be the number of nucleons. If we deal with the electron gas only,  this needs to be replaced by  the number of electrons $N$.  
+!esubex
+!bsubex
+Calculate thereafter the Hartree-Fock total energy for the electron gas or infinite nuclear matter using the Minnesota interaction discussed during the lectures. Compare the results with the exact Hartree-Fock results  for the electron gas as a function of the number of particles. 
+!esubex
+!bsubex
+Compute now the contribution to the correlation energy for the electron gas at the level of second-order perturbation theory using a given number of electrons $N$ and a given (defined by you) number of single-particle states above the Fermi level.
+The following Python code shows an implementation for the electron gas in three dimensions for second perturbation theory using the Coulomb interaction. Here we have hard-coded a case which computes the energy for $N=14$ and a total of $5$ major shells. 
+!bsol
+!bc pycod
+from numpy import *
+
+class electronbasis():
+    def __init__(self, N, rs, Nparticles):
+        ############################################################
+        ##
+        ##  Initialize basis: 
+        ##  N = number of shells
+        ##  rs = parameter for volume 
+        ##  Nparticles = Number of holes (conflicting naming, sorry)
+        ##
+        ###########################################################
+        
+        self.rs = rs
+        self.states = []
+        self.nstates = 0
+        self.nparticles = Nparticles
+        self.nshells = N - 1
+        self.Nm = N + 1
+        
+        self.k_step = 2*(self.Nm + 1)
+        Nm = N
+        n = 0 #current shell
+        ene_integer = 0
+        while n <= self.nshells:
+            is_shell = False
+            for x in range(-Nm, Nm+1):
+                for y in range(-Nm, Nm+1):
+                    for z in range(-Nm,Nm+1):
+                        e = x*x + y*y + z*z
+                        if e   == ene_integer:
+                            is_shell = True
+                            self.nstates += 2
+                            self.states.append([e, x,y,z,1])
+                            self.states.append([e, x,y,z, -1])
+                            
+            if is_shell:
+                n += 1
+            ene_integer += 1
+        self.L3 = (4*pi*self.nparticles*self.rs**3)/3.0
+        self.L2 = self.L3**(2/3.0)
+        self.L = pow(self.L3, 1/3.0)
+        
+        for i in range(self.nstates):
+            self.states[i][0] *= 2*(pi**2)/self.L**2 #Multiplying in the missing factors in the single particle energy
+        self.states = array(self.states) #converting to array to utilize vectorized calculations    
+        
+    def hfenergy(self, nParticles):
+        #Calculate the HF-energy (reference energy) for nParticles particles
+        e0 = 0.0
+        if nParticles<=self.nstates:
+            for i in range(nParticles):
+                e0 += self.h(i,i)
+                for j in range(nParticles):
+                    if j != i:
+                        e0 += .5*self.v(i,j,i,j)
+        else:
+            #Safety for cases where nParticles exceeds size of basis
+            print "Not enough basis states."
+            
+        return e0
+                
+    def h(self, p,q):
+        #Return single particle energy
+        return self.states[p,0]*(p==q)
+
+    
+    def v(self,p,q,r,s):
+        #Two body interaction for electron gas
+        val = 0
+        terms = 0.0
+        term1 = 0.0
+        term2 = 0.0
+        kdpl = self.kdplus(p,q,r,s)
+        if kdpl != 0:
+            val = 1.0/self.L3
+            if self.kdspin(p,r)*self.kdspin(q,s)==1:
+                if self.kdwave(p,r) != 1.0:
+                    term1 = self.L2/(pi*self.absdiff2(r,p))
+            if self.kdspin(p,s)*self.kdspin(q,r)==1:
+                if self.kdwave(p,s) != 1.0:
+                    term2 = self.L2/(pi*self.absdiff2(s,p))
+        return val*(term1-term2)
+
+    
+    #The following is a series of kroenecker deltas used in the two-body interactions. 
+    #Just ignore these lines unless you suspect an error here
+    def kdi(self,a,b):
+        #Kroenecker delta integer
+        return 1.0*(a==b)
+    def kda(self,a,b):
+        #Kroenecker delta array
+        d = 1.0
+        #print a,b,
+        for i in range(len(a)):
+            d*=(a[i]==b[i])
+        return d
+    def kdfullplus(self,p,q,r,s):
+        #Kroenecker delta wavenumber p+q,r+s
+        return self.kda(self.states[p][1:5]+self.states[q][1:5],self.states[r][1:5]+self.states[s][1:5])
+    def kdplus(self,p,q,r,s):
+        #Kroenecker delta wavenumber p+q,r+s
+        return self.kda(self.states[p][1:4]+self.states[q][1:4],self.states[r][1:4]+self.states[s][1:4])
+    def kdspin(self,p,q):
+        #Kroenecker delta spin
+        return self.kdi(self.states[p][4], self.states[q][4])
+    def kdwave(self,p,q):
+        #Kroenecker delta wavenumber
+        return self.kda(self.states[p][1:4],self.states[q][1:4])
+    def absdiff2(self,p,q):
+        val = 0.0
+        for i in range(1,4):
+            val += (self.states[p][i]-self.states[q][i])*(self.states[p][i]-self.states[q][i])
+        return val
+
+        
+def MBPT2(bs):
+    #2. order MBPT Energy 
+    Nh = bs.nparticles
+    Np = bs.nstates-bs.nparticles #Note the conflicting notation here. bs.nparticles is number of hole states 
+    vhhpp = zeros((Nh**2, Np**2))
+    vpphh = zeros((Np**2, Nh**2))
+    #manual MBPT(2) energy (Should be -0.525588309385 for 66 states, shells = 5, in this code)
+    psum2 = 0
+    for i in range(Nh):
+        for j in range(Nh):
+            for a in range(Np):
+                for b in range(Np):
+                    #val1 = bs.v(i,j,a+Nh,b+Nh)
+                    #val2 = bs.v(a+Nh,b+Nh,i,j)
+                    #if val1!=val2:
+                    #    print val1, val2
+                    vhhpp[i + j*Nh, a+b*Np] = bs.v(i,j,a+Nh,b+Nh)
+                    vpphh[a+b*Np,i + j*Nh] = bs.v(a+Nh,b+Nh,i,j)/(bs.states[i,0] + bs.states[j,0] - bs.states[a + Nh, 0] - bs.states[b+Nh,0])
+    psum = .25*sum(dot(vhhpp,vpphh).diagonal())
+    return psum
+    
+def MBPT2_fast(bs):
+    #2. order MBPT Energy 
+    Nh = bs.nparticles
+    Np = bs.nstates-bs.nparticles #Note the conflicting notation here. bs.nparticles is number of hole states 
+    vhhpp = zeros((Nh**2, Np**2))
+    vpphh = zeros((Np**2, Nh**2))
+    #manual MBPT(2) energy (Should be -0.525588309385 for 66 states, shells = 5, in this code)
+    psum2 = 0
+    for i in range(Nh):
+        for j in range(i):
+            for a in range(Np):
+                for b in range(a):
+                    val = bs.v(i,j,a+Nh,b+Nh)
+                    eps = val/(bs.states[i,0] + bs.states[j,0] - bs.states[a + Nh, 0] - bs.states[b+Nh,0])
+                    vhhpp[i + j*Nh, a+b*Np] = val 
+                    vhhpp[j + i*Nh, a+b*Np] = -val 
+                    vhhpp[i + j*Nh, b+a*Np] = -val
+                    vhhpp[j + i*Nh, b+a*Np] = val 
+        
+                    
+                    vpphh[a+b*Np,i + j*Nh] = eps
+                    vpphh[a+b*Np,j + i*Nh] = -eps
+                    vpphh[b+a*Np,i + j*Nh] = -eps
+                    vpphh[b+a*Np,j + i*Nh] = eps
+                    
+                    
+    psum = .25*sum(dot(vhhpp,vpphh).diagonal())
+    return psum
+
+
+#user input here
+number_of_shells = 5
+number_of_holes = 14 #(particles)
+
+
+#initialize basis    
+bs = electronbasis(number_of_shells,1.0,number_of_holes) #shells, r_s = 1.0, holes
+
+#Print some info to screen
+print "Number of shells:", number_of_shells
+print "Number of states:", bs.nstates
+print "Number of holes :", bs.nparticles
+print "Reference Energy:", bs.hfenergy(number_of_holes), "hartrees "
+print "                :", 2*bs.hfenergy(number_of_holes), "rydbergs "
+
+print "Ref.E. per hole :", bs.hfenergy(number_of_holes)/number_of_holes, "hartrees "
+print "                :", 2*bs.hfenergy(number_of_holes)/number_of_holes, "rydbergs "
 
 
 
+#calculate MBPT2 energy
+print "MBPT2 energy    :", MBPT2_fast(bs), " hartrees"
+!ec
+!esol
+!esubex
+
+=====  Add material about Bruekcner-Hartree-Fock theory and nuclear matter =====
+* See Arturo's note and the project notes on the Brueckner-Hartree-Fock calculations.
 
 

@@ -3,2795 +3,452 @@ AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no", National Superc
 DATE: July 6-24
 
 =======  Introduction =======
-Coupled Cluster theory is an important ab initio technique in computational chemistry. It is considered the most reliable and also computational affordable method for solving the electronic Schroedinger equation. 
-
-* TO DO add more introductory material and references
-
-In Coupled Cluster theory (CC), we will solve the Schroedinger equation
-
+Coester and Kummel first developed the ideas that led to coupled-cluster
+theory in the late 1950s. The basic idea is that the correlated wave function
+of a many-body system $\mid\Psi\rangle$
+can be formulated as an exponential of correlation
+operators $T$ acting on a reference state $\mid\Phi\rangle$
 !bt
-\begin{equation}
-\mathbf{H} | \Psi \rangle = E | \Psi \rangle label{SE} .
-\end{equation}
+\[
+\mid\Psi\rangle = \exp\left(-\hat{T}\right)\mid\Phi\rangle\ .
+\]
 !et
-From Hartree Fock calculations we have created a $|\Psi\rangle_{HF}$ which contains MOs in a Slater determinant. Dirac notation provides a simple representation of this. In Dirac notation only the diagonal terms in the slater determinant are listed. If $|\Psi_0 \rangle$ has four electrons Dirac notation would be
+We will discuss how to define the operators later in this work. This simple
+ansatz carries enormous power. It leads to a non-perturbative many-body
+theory that includes summation of ladder diagrams , ring
+diagrams, and an infinite-order
+generalization of many-body perturbation theory..
 
+Developments and applications
+of coupled-cluster theory took different routes in chemistry
+and nuclear physics. In quantum chemistry,
+coupled-cluster developments
+and applications have proven to be extremely useful, see for example the review by "Barrett and Musial":"http://journals.aps.org/rmp/abstract/10.1103/RevModPhys.79.291" as well as the recent 
+textbook by "Shavitt and Barrett":"http://www.cambridge.org/fr/academic/subjects/chemistry/physical-chemistry/many-body-methods-chemistry-and-physics-mbpt-and-coupled-cluster-theory?format=HB".  Many previous applications to nuclear physics struggled with the repulsive character of the nuclear forces and limited basis sets used in the computations. Most of these problems have been overcome during the last decade and coupled-cluster
+theory is one of the computational methods of preference for doing nuclear physics, with applications ranging from light nuclei to medium-heavy nuclei,
+see for example the recent review by "Hagen, Papenbrock, Hjorth-Jensen and Dean":"http://iopscience.iop.org/0034-4885/77/9/096302". 
+
+ 
+===== A non-practical way of solving the eigenvalue problem =====
+
+Before we proceed with the derivation of the Coupled cluster equations, let us repeat some of the arguments we presented during our FCI lectures. 
+In our FCI discussions, we rewrote the solution of the Schroedinger equation as a set of coupled equationsin the unknown coefficients $C$. Let us repeat some of these arguments.
+To obtain the eigenstates and eigenvalues in terms of non-linear equations is not a very practical approach. However, it serves the scope of linking FCI theory with approximative solutions to the many-body problem
+like Coupled cluster (CC) theory 
+
+If we assume that we have a two-body operator at most, the Slater-Condon rule 
+gives then an equation for the 
+correlation energy in terms of $C_i^a$ and $C_{ij}^{ab}$ only.  We get then
 !bt
-\begin{equation}
-|\Psi_0 \rangle =  |\psi_i(r_1), \psi_j(r_2), \psi_k(r_3), \psi_l(r_4) \rangle . label{dirac_not} 
-\end{equation}
-!et
-Eq. ref{dirac_not} will be used to introduce a few new operators needed. The creation operator $\mathbf{a}^{\dagger}_m$ creates a new electron in orbital m.
-
-!bt 
-\begin{equation}
-\mathbf{a}^{\dagger}_m |\psi_i(r_1), \psi_j(r_2), \psi_k(r_3), \psi_l(r_4) \rangle = |\psi_i(r_1), \psi_j(r_2), \psi_k(r_3), \psi_l(r_4), \psi_m(r_5) \rangle .
-\end{equation}
-!et
-The annihilation operator, $\mathbf{a}_n$, destroys an electron in orbital n.
-
-!bt 
-\begin{equation}
-\mathbf{a}_n |\psi_i(r_1), \psi_j(r_2), \psi_k(r_3), \psi_l(r_4), \psi_n(r_5) \rangle = |\psi_i(r_1), \psi_j(r_2), \psi_k(r_3), \psi_l(r_4) \rangle  .
-\end{equation}
-!et
-These two operators working together can destroy one electron in orbital n, and create another in orbital m. The result is that one electron now occupies a different orbital, as such
-
-!bt 
-\begin{equation}
-\mathbf{a}^{\dagger}_m \mathbf{a}_n |\psi_i(r_1), \psi_j(r_2), \psi_k(r_3), \psi_n(r_4) \rangle = |\psi_i(r_1), \psi_j(r_2), \psi_k(r_3), \psi_m(r_4) \rangle .
-\end{equation} 
-!et
-These operators have a few interesting features. Such as the annihilation operator acting on the vacuum state produces 0.
-
-!bt 
-\begin{equation}
-a_n | \rangle = 0  .
-\end{equation} 
-!et
-Interchanging two rows in the Slater determinant introduce a change in the sign. Hence we have
-
-!bt 
-\begin{equation}
-\mathbf{a}^{\dagger}_m \mathbf{a}^{\dagger}_n | \rangle = |\psi_m, \psi_n \rangle = - |\psi_n, \psi_m \rangle = -\mathbf{a}^{\dagger}_n \mathbf{a}^{\dagger}_m | \rangle  .
-\end{equation} 
-!et
-
-!bt 
-\begin{equation}
-\Rightarrow \mathbf{a}^{\dagger}_m \mathbf{a}^{\dagger}_n + \mathbf{a}^{\dagger}_n \mathbf{a}^{\dagger}_m = 0 .
-\end{equation} 
-!et
-The same applies to the annihilation operator.
-
-!bt 
-\begin{equation}
-\mathbf{a}_m \mathbf{a}_n + \mathbf{a}_n \mathbf{a}_m = 0 .
-\end{equation} 
-!et
-These are known as anti commutation relations. It can be shown that the anti commutation relation when mixing $\mathbf{a}$ and $\mathbf{a}^{\dagger}$ is
-
-!bt 
-\begin{equation}
-\mathbf{a}^{\dagger}_m \mathbf{a}_n + \mathbf{a}_n \mathbf{a}^{\dagger}_m = \delta_{mn} . label{ccsd_anni_creato_operator_combo}
-\end{equation} 
-!et
-
-======= CCSD Wavefunction =======
-The first step in coupled cluster is rewriting the wavefunction,
-
-!bt 
-\begin{equation}
-|\Psi_{CC} \rangle \equiv e^{\mathbf{T}} | \Psi_{HF} \rangle .
-\end{equation} 
-!et 
-$\mathbf{T}$ is known as the cluster operator. This includes all possible excitations. $|\Psi_{CC} \rangle$ is thus a linear combination of Slater determinants of all possible excitations and is an exact solution to Eq. ref{SE}. $\mathbf{T}$ can be defined in terms of a one-orbital excitation operator, a two-orbital excitation operator and so on.
-
-!bt 
-\begin{equation}
-\mathbf{T} \equiv \mathbf{T}_1 + \mathbf{T}_2 + \mathbf{T}_3 + \mathbf{T}_4 \dots .
-\end{equation} 
-!et
-When doing CCSD only single excitations, $\mathbf{T}_1$, and double excitations, $\mathbf{T}_2$, are included. 
-
-!bt 
-\begin{equation}
-\mathbf{T} = \mathbf{T}_1 + \mathbf{T}_2 .
-\end{equation} 
-!et
-Other CC methods include more terms. If $\mathbf{T}_3$ is included the method is called CCSDT. CCSDTQ includes also $\mathbf{T}_4$. 
-
-$\mathbf{T}_1$ is defined using one creation and one annihilation operator, because we will have one single electron excited. Also defining $\mathbf{T}_1$ is an amplitude $t_i^a$ and a summation over all possible excitations.  
-
-!bt 
-\begin{equation}
-\mathbf{T}_1 \equiv \sum_{a,i} t_i^a \mathbf{a}^{\dagger}_a \mathbf{a}_i . label{t1defi}
-\end{equation} 
-!et
-$\mathbf{T}_2$ is defined by two creation and two annihilation operators and an amplitude $t_{ij}^{ab}$.
-
-!bt 
-\begin{equation}
-\mathbf{T}_2 \equiv \frac{1}{4} \sum_{a,b,i,j} t_{ij}^{ab} \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b \mathbf{a}_i \mathbf{a}_j . label{t2defi}
-\end{equation} 
-!et
-
-======= Derivation of Equations =======
-This section contains the formal derivation of coupled cluster theory, starting from Eq. ref{SE} and using the CCSD wavefunction. 
-
-!bt 
-\begin{equation}
-\mathbf{H} e^{\mathbf{T}} |\Psi \rangle_{HF} = E e^{\mathbf{T}} |\Psi \rangle_{HF} .
-\end{equation} 
-!et
-For this derivation $|\Psi \rangle_{HF}$ will be shortened to $|\Psi_0 \rangle$. 
-
-!bt 
-\begin{equation}
-E = \langle \Psi_0 |e^{-\mathbf{T}} \mathbf{H} e^{\mathbf{T}} |\Psi_0 \rangle .
-\end{equation} 
-!et
-We also assume an orthonormal basis, meaning
-
-!bt 
-\begin{equation}
-\langle \Psi_m |e^{-\mathbf{T}} \mathbf{H} e^{\mathbf{T}} |\Psi_0 \rangle = 0 .
-\end{equation} 
-!et
-
-===== Baker-Campbell-Hausdorff formula =====
-The Baker-Campbell-Hausdorff formula is used to expand $e^{-\mathbf{T}} \mathbf{H} e^{\mathbf{T}}$.
-
-!bt 
-\begin{equation}
-\begin{split}
-e^{-\mathbf{T}} \mathbf{H} e^{\mathbf{T}} = 
-\mathbf{H} 
-+ \left[ \mathbf{H}, \mathbf{T} \right] 
-+ \frac{1}{2} \left[ [\mathbf{H}, \mathbf{T}], \mathbf{T} \right]  + \frac{1}{6} \left[ [ [\mathbf{H}, \mathbf{T}], \mathbf{T}], \mathbf{T} \right] \\
-+ \frac{1}{24} \left[ [ [ [\mathbf{H}, \mathbf{T}], \mathbf{T}],\mathbf{T}], \mathbf{T} \right] \dots .
-\end{split}  label{baker}
-\end{equation} 
-!et
-$\mathbf{T}$ is expressed in terms of $\mathbf{a}^{\dagger}$ and $\mathbf{a}$. $\mathbf{H}$ contains a maximum of two orbital interactions. It can be showed that $\mathbf{H}$ can also be expressed in terms of these operators. 
-
-!bt 
-\begin{equation}
-\mathbf{H} = \sum_{a,i} h_{a,i}
-\mathbf{a}^{\dagger}_a 
-\mathbf{a}_i 
-+ \frac{1}{4} \sum_{a,b,i,j} \langle ab||ij \rangle
-\mathbf{a}^{\dagger}_a  
-\mathbf{a}^{\dagger}_b
-\mathbf{a}_i 
-\mathbf{a}_j . label{annih}
-\end{equation} 
-!et
-Where $h_{a,i} = \langle \psi_a | \mathbf{h} | \psi_i \rangle$. With $\mathbf{h}$ the one-particle part of $\mathbf{H}$. This is the same Hamiltonian as before expressed slightly different and will be discussed further later on. Eq. ref{baker} can be simplified using commutators.
-
-!bt 
-\begin{equation}
-[\mathbf{a}^{\dagger}_a  \mathbf{a}_i 
-, \mathbf{a}^{\dagger}_b \mathbf{a}_j] =
-\mathbf{a}^{\dagger}_a  \mathbf{a}_i \mathbf{a}^{\dagger}_b \mathbf{a}_j
-- \mathbf{a}^{\dagger}_b \mathbf{a}_j \mathbf{a}^{\dagger}_a  \mathbf{a}_i .
-\end{equation} 
-!et 
-Using the anti commutator relations this commutator itself can be simplified.
-
-!bt 
-\begin{equation}
-[\mathbf{a}^{\dagger}_a  \mathbf{a}_i 
-, \mathbf{a}^{\dagger}_b \mathbf{a}_j] =
-\mathbf{a}^{\dagger}_a  \delta_{ib} \mathbf{a}_j
-- \mathbf{a}^{\dagger}_b \delta_{ja} \mathbf{a}_i .
-\end{equation} 
-!et
-This simplification reduces the number of indices from 4 to 3, replacing two operators with a Kronecker delta. Each nested commutator in Eq. ref{baker} will reduce the number of indexes by 1. The maximum number of creation/annihilation operators in $\mathbf{H}$ was 4. This means Eq. ref{baker} will naturally truncate after exactly 4 terms, and we can remove the dots.
-
-!bt 
-\begin{equation}
-\begin{split}
-e^{-\mathbf{T}} \mathbf{H} e^{\mathbf{T}} = 
-\mathbf{H} 
-+ \left[ \mathbf{H}, \mathbf{T} \right] 
-+ \frac{1}{2} \left[ [\mathbf{H}, \mathbf{T}], \mathbf{T} \right] 
-+ \frac{1}{6} \left[ [ [ \mathbf{H},[\mathbf{T}], \mathbf{T}], \mathbf{T} \right] \\
-+ \frac{1}{24} \left[ [ [ [\mathbf{H}, \mathbf{T}], \mathbf{T}], \mathbf{T}], \mathbf{T}  \right] .
-\end{split}  label{variationalccsd}
-\end{equation} 
-!et
-
-===== Normal Order and Contractions =====
-When deriving CCSD equations it is common to introduce a concept called normal ordering of second quantized operators. This means that all creation operators are placed to the left and the annihilation operators to the right. The mathematics of swapping the order of creation and annihilation operators are well defined. To show this we define an example operator $\mathbf{O}$ and use the anti commutator relations.
-
-!bt 
-\begin{align}
-\mathbf{O} & = 
-\mathbf{a}_i 
-\mathbf{a}^{\dagger}_a 
-\mathbf{a}_j 
-\mathbf{a}^{\dagger}_b label{normalorder} \\ &
-= \delta_{ia} 
-\mathbf{a}_j 
-\mathbf{a}^{\dagger}_b - 
-\mathbf{a}^{\dagger}_a 
-\mathbf{a}_i  
-\mathbf{a}_j 
-\mathbf{a}^{\dagger}_b \nonumber \\ &
-= \delta_{ia} \delta_{jb} -
-\delta_{ia} 
-\mathbf{a}^{\dagger}_b
-\mathbf{a}_j -
-\delta_{jb}
-\mathbf{a}^{\dagger}_a
-\mathbf{a}_i +
-\mathbf{a}^{\dagger}_a
-\mathbf{a}_i
-\mathbf{a}_j
-\mathbf{a}^{\dagger}_b \nonumber \\ &
-= \delta_{ia} \delta_{jb} - 
-\delta_{ia} 
-\mathbf{a}^{\dagger}_b
-\mathbf{a}_j +
-\delta_{ib} 
-\mathbf{a}^{\dagger}_a
-\mathbf{a}_j -
-\delta_{jb} 
-\mathbf{a}^{\dagger}_a
-\mathbf{a}_i -
-\mathbf{a}^{\dagger}_a
-\mathbf{a}^{\dagger}_b
-\mathbf{a}_i
-\mathbf{a}_j .
-\end{align} 
-!et
-The final expression of $\mathbf{O}$ is in normal order since all creation operators are to the left and all annihilation operators to the right. Notice that we now have five terms, four of which have a reduced number of operators compared to our first definition of $\mathbf{O}$. Any combination of annihilation and creation operators can be expressed as a linear combination of normal ordered combinations of these operators. 
-
-The four terms with reduced number of operators arise from contractions between operators. A contraction between two operators $\mathbf{A}$ and $\mathbf{B}$, that each contain an arbitrary number of creation or/and annihilation operators, can be defined as such:
-
-!bt 
-\begin{equation}
-\contraction{}{\mathbf{A}}{}{\mathbf{B}}
-\mathbf{A}\mathbf{B}
- \equiv \mathbf{A}\mathbf{B} - \left\{ \mathbf{A}\mathbf{B} \right\}_{\nu} .
-\end{equation} 
-!et
-Here $\left\{ \mathbf{A}\mathbf{B} \right\}_{\nu}$ is the normal ordered form of $\mathbf{A}\mathbf{B}$. $\contraction{}{\mathbf{A}}{}{\mathbf{B}}
-\mathbf{A}\mathbf{B}$ is called the contraction between $\mathbf{A}$ and $\mathbf{B}$. As an example $\mathbf{A} = \mathbf{a}_i$ and $\mathbf{B} = \mathbf{a}_j$ will give a contraction of
-
-!bt 
-\begin{equation}
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}_j}
-\mathbf{a}_i\mathbf{a}_j
-= \mathbf{a}_i \mathbf{a}_j - \left\{ \mathbf{a}_i \mathbf{a}_j \right\}_{\nu} = \mathbf{a}_i \mathbf{a}_j - \mathbf{a}_i \mathbf{a}_j = 0 . label{wickexample1}
-\end{equation} 
-!et
-From the example above we see the contraction of all annihilation operators will be zero since there will be no swapping of operators when creating the normal ordered form. The same will apply to contractions between operators formed from only creation operators. Also the contraction between already normal ordered operators will be zero. 
-
-However the contraction between different operators not in normal order will not be zero. The simplest example is one annihilation operator in front of one creation operator.
-
-!bt 
-\begin{equation}
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_a}
-\mathbf{a}_i\mathbf{a}^{\dagger}_a
-= \mathbf{a}_i \mathbf{a}^{\dagger}_a - \left\{ \mathbf{a}_i \mathbf{a}^{\dagger}_a \right\}_{\nu} = \mathbf{a}_i \mathbf{a}^{\dagger}_a + \mathbf{a}^{\dagger}_a \mathbf{a}_i = \delta_{ia} .
-\end{equation} 
-!et
-Here we used Eq. ref{ccsd_anni_creato_operator_combo}.
-
-===== Wick's Theorem =====
-Wick's Theorem provides a schematic way of defining any string of annihilation and creation operators in terms of these contractions. A string of annihilation and creation operators can be defined as $ABC \dots XYZ$ where $A, B, C, X, Y, Z$ $\dots$ represent either a creation or an annihilation operator.  Wick's Theorem is defined as such
-
-!bt 
-\begin{align}
-\mathbf{A} \mathbf{B} \mathbf{C} \dots \mathbf{X} \mathbf{Y} \mathbf{Z} = & \left\{\mathbf{A} \mathbf{B} \mathbf{C} \dots \mathbf{X} \mathbf{Y} \mathbf{Z} \right\}_{\nu} label{wicks} \\
-& + \sum_{singles} \{
-\contraction{}{\mathbf{A}}{}{\mathbf{B}}
-\mathbf{A}\mathbf{B}
-\mathbf{C} \dots \mathbf{X} \mathbf{Y} \mathbf{Z}
-\}_{\nu} \nonumber \\
-& + \sum_{doubles} \{
-\contraction{}{\mathbf{A}}{\mathbf{B}}{\mathbf{C}}
-\contraction[2ex]{\mathbf{A}}{\mathbf{B}}{\mathbf{C} \dots \mathbf{X} \mathbf{Y}}{\mathbf{Z}}
-\mathbf{A} \mathbf{B} \mathbf{C} \dots \mathbf{X} \mathbf{Y} \mathbf{Z} 
-\}_{\nu} \nonumber \\
-& \dots \nonumber
-\end{align} 
-!et
-The right side of Eq. ref{wicks} should represent every possible contraction of $\mathbf{A} \mathbf{B} \mathbf{C} \dots \mathbf{X} \mathbf{Y} \mathbf{Z}$. To specify the notation we apply Wick's theorem as an example to the operator $\mathbf{O}$ defined in Eq. ref{normalorder} and repeated here.
-
-!bt 
-\begin{equation}
-\mathbf{O} = \mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b \nonumber
-\end{equation} 
-!et
-Applying Wick's Theorem provides
-
-!bt 
-\begin{align}
-\mathbf{O} = & 
-\{
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} \\ &
-+ \{
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_a}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} \\ &
-+ \{
-\mathbf{a}_i
-\contraction{}{\mathbf{a}^{\dagger}_a}{}{\mathbf{a}_j}
-\mathbf{a}^{\dagger}_a \mathbf{a}_j
-\mathbf{a}^{\dagger}_b
-\}_{\nu} label{wickex1} \\ &
-+ \{
-\mathbf{a}_i \mathbf{a}^{\dagger}_a
-\contraction{}{\mathbf{a}^j}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} \\ &
-+ \{
-\contraction{}{\mathbf{a}_i}{\mathbf{a}^{\dagger}_a}{\mathbf{a}_j}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j
-\mathbf{a}^{\dagger}_b
-\}_{\nu} label{wickex2} \\ &
-+ \{
-\mathbf{a}_i
-\contraction{}{\mathbf{a}^{\dagger}_a}{\mathbf{a}_j}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} label{wickex3} \\ &
-+ \{
-\contraction{}{\mathbf{a}_i}{\mathbf{a}^{\dagger}_a \mathbf{a}_j}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} label{wickex4} \\ &
-+ \{
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_a}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a 
-\contraction{}{\mathbf{a}_j}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} . label{wicksdoubles}
-\end{align} 
-!et
-Eq. ref{wicksdoubles} is from the doubles summation. The other terms are from the singles summation. Eqs. ref{wickex1}, ref{wickex2} and ref{wickex3} are zero when using the rules such as ref{wickexample1}. This leaves the terms
-
-!bt 
-\begin{align}
-\mathbf{O} = & 
-\{
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu}
-+ \{
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_a}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu}
-+ \{
-\mathbf{a}_i \mathbf{a}^{\dagger}_a
-\contraction{}{\mathbf{a}^j}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} \nonumber \\ &
-+ \{
-\contraction{}{\mathbf{a}_i}{\mathbf{a}^{\dagger}_a \mathbf{a}_j}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu}
-+ \{
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_a}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a 
-\contraction{}{\mathbf{a}_j}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu} .
-\end{align} 
-!et
-These must be evaluated. One trick needed is when swapping two operators inside a contraction the sign is changed. Eq. ref{wickex4} is used as an example.
-
-!bt 
-\begin{equation}
-\{
-\contraction{}{\mathbf{a}_i}{\mathbf{a}^{\dagger}_a \mathbf{a}_j}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu}
-= - \{
-\contraction{}{\mathbf{a}_i}{\mathbf{a}^{\dagger}_a}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b 
-\mathbf{a}_j 
-\}_{\nu}
-= \{
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i  \mathbf{a}^{\dagger}_b 
-\mathbf{a}^{\dagger}_a \mathbf{a}_j 
-\}_{\nu} . label{wikssign}
-\end{equation} 
-!et
-Remembering $\{\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i  \mathbf{a}^{\dagger}_b \}_{\nu} = \delta_{ib}$ then the terms in $\mathbf{O}$ reduces in order to
-
-!bt 
-\begin{equation}
-\mathbf{O} =  \{ 
-\mathbf{a}_i \mathbf{a}^{\dagger}_a
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\} +
-\delta_{ia} \{
-\mathbf{a}_j \mathbf{a}^{\dagger}_b
-\} +
-\delta_{jb} \{
-\mathbf{a}_i \mathbf{a}^{\dagger}_a
-\} +
-\delta_{ib} \{
-\mathbf{a}^{\dagger}_a \mathbf{a}_j
-\} +
-\delta_{ia} \delta_{ib} . 
-\end{equation} 
-!et
-
-Using $\{\mathbf{a} \mathbf{a}^{\dagger}
-\} = -\mathbf{a}^{\dagger} \mathbf{a}$ and $\{
-\mathbf{a}^{\dagger} \mathbf{a} 
-\} = \mathbf{a}^{\dagger} \mathbf{a}$ we get
-
-!bt 
-\begin{equation}
-\mathbf{O} = 
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_i \mathbf{a}_j  
-- \delta_{ia} \mathbf{a}^{\dagger}_b \mathbf{a}_j
-- \delta_{jb} \mathbf{a}^{\dagger}_a \mathbf{a}_i
-+ \delta_{ib} \mathbf{a}^{\dagger}_a \mathbf{a}_j 
-+ \delta_{ia} \delta_{ib} ,
-\end{equation} 
-!et
-which is identical to Eq. ref{normalorder}. The sign rules can sometimes be complicated, when there is more than one contraction present. Swapping two operators can fulfil the positioning for two contractions at once, as seen in example Eq. ref{examplebullshit}. This provides a minus sign which must not be neglected.
-
-!bt 
-\begin{equation}
-\{
-\contraction{}{\mathbf{a}_i}{\mathbf{a}^{\dagger}_a}{\mathbf{a}_j}
-\contraction[2ex]{\mathbf{a}_i}{\mathbf{a}^{\dagger}_a}{\mathbf{a}_j}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\}_{\nu}
-= - \{
-\contraction{}{\mathbf{a}_i}{}{\mathbf{a}^{\dagger}_a}
-\contraction{\mathbf{a}_i \mathbf{a}^{\dagger}_a}{\mathbf{a}_j}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_i \mathbf{a}^{\dagger}_a \mathbf{a}_j \mathbf{a}^{\dagger}_b
-\} . label{examplebullshit}
-\end{equation} 
-!et
-
-===== Fermi Vacuum and Particle Holes =====
-
-When using creation and annihilation operators it is common they work on the vacuum state, $| \rangle$. Eq. ref{dirac_not} would commonly be represented as such
-
-!bt 
-\begin{equation}
-|\Psi_0 \rangle = \mathbf{a}^{\dagger}_i
-\mathbf{a}^{\dagger}_j
-\mathbf{a}^{\dagger}_k
-\mathbf{a}^{\dagger}_l |\rangle .
-\end{equation} 
-!et
-An excited state $|\Psi_m\rangle$ would for example be noted as the following
-
-!bt 
-\begin{equation}
-|\Psi_m \rangle = \mathbf{a}^{\dagger}_m
-\mathbf{a}^{\dagger}_i
-\mathbf{a}^{\dagger}_j
-\mathbf{a}^{\dagger}_k |\rangle .
-\end{equation} 
-!et
-Where the m orbital is occupied and the l orbital is not occupied. In our CCSD derivation we will not use this kind of notation. The Fermi Vacuum is introduced and is later defined as the Hartree Fock result. However continuing this example the Fermi Vacuum could be defined as $|\Psi_0\rangle$, and the excited state would be
-
-!bt 
-\begin{equation}
-|\Psi_m\rangle = \mathbf{a}^{\dagger}_m \mathbf{a}_l |\Psi_0\rangle .
-\end{equation} 
-!et
-This creates a "hole state" in orbital l, since an occupied orbital is now unoccupied. It also creates a "particle state" in orbital m, since this is now occupied and was unoccupied in the Fermi Vacuum. 
-
-This definition will bring new features to Wick's theorem. Indexes $a, b, c \dots$ will denote newly occupied orbitals. Indexes $i, j, k \dots$ will denote newly formed holes. The operator $\mathbf{a}^{\dagger}_i$ can then be thought of as annihilating a hole. $\mathbf{a}_a$ can be thought of annihilating a particle. Likewise $\mathbf{a}^{\dagger}_a$ and $\mathbf{a}_i$ can be thought of as creating a particle or creating a hole. 
-
-This differs from the concept of $\mathbf{a}^{\dagger}$ always being a creation operator, since $\mathbf{a}^{\dagger}_i$ can be thought of as annihilating a hole state. This changes our Wick's Theorem calculations, since we still have the only terms not zero being those with one annihilation operator followed by one creation operator. There are only two possibilities of this happening.
-
-!bt 
-\begin{equation}
-\contraction{}{\mathbf{a}^{\dagger}_i}{}{\mathbf{a}_j}
-\mathbf{a}^{\dagger}_i \mathbf{a}_j
- = \mathbf{a}^{\dagger}_i \mathbf{a}_j
- - \{\mathbf{a}^{\dagger}_i \mathbf{a}_j \}_{\nu} = \mathbf{a}^{\dagger}_i \mathbf{a}_j
- +  \mathbf{a}_j \mathbf{a}^{\dagger}_i = \delta_{ij} . label{fermi1}
-\end{equation} 
-!et
-
-!bt 
-\begin{equation}
-\contraction{}{\mathbf{a}_a}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}_a \mathbf{a}^{\dagger}_b = \mathbf{a}_a \mathbf{a}^{\dagger}_b - \{\mathbf{a}_a \mathbf{a}^{\dagger}_b\}_{\nu} = \mathbf{a}_a \mathbf{a}^{\dagger}_b + \mathbf{a}^{\dagger}_b \mathbf{a}_a = \delta_{ab} . label{fermi2}
-\end{equation} 
-!et
-Any other contraction will be 0 using rules analogous to Eq. ref{wickexample1}
-
-===== Normal Ordered $\mathbf{H}$ =====
-As noted in Eq. ref{annih} $\mathbf{H}$ can be expressed in terms of creation and annihilation operators. This expression is known as the secound-quantized form of the electronic Hamiltionan and will be repeated here, but the indices will be changed because $a,b,i,j$ have now been denoted a new meaning.
-
-!bt 
-\begin{equation}
-\mathbf{H} = \sum_{pq} <p|\mathbf{h}|q> \mathbf{a}^{\dagger}_q \mathbf{a}_p + 
-\frac{1}{4} \sum_{pqrs} \langle pq||rs \rangle \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r .
-\end{equation} 
-!et
-We now wish to use Wick's theorem on this operator to simplify. From the one-electron term we use:
-
-!bt 
-\begin{equation}
-\mathbf{a}^{\dagger}_p \mathbf{a}_q = \{\mathbf{a}^{\dagger}_p \mathbf{a}_q \} + \{\contraction{}{\mathbf{a}^{\dagger}_p}{}{\mathbf{a}_q}
- \mathbf{a}^{\dagger}_p \mathbf{a}_q 
-\} . 
-\end{equation} 
-!et
-Eq. ref{fermi1} states that $\{\contraction{}{\mathbf{a}^{\dagger}_p}{}{\mathbf{a}_q}
-\mathbf{a}^{\dagger}_p \mathbf{a}_q \}$ is not equal to zero only if both operators act on a hole space, then $\{\contraction{}{\mathbf{a}^{\dagger}_p}{}{\mathbf{a}_q}
-\mathbf{a}^{\dagger}_p \mathbf{a}_q \}$ = $\delta_{pq}$. This means 
-
-!bt 
-\begin{equation}
-\sum_{pq}
-\{\contraction{}{\mathbf{a}^{\dagger}_p}{}{\mathbf{a}_q}
-\mathbf{a}^{\dagger}_p \mathbf{a}_q \} = \sum_i \langle i|h|i \rangle .
-\end{equation} 
-!et
-Inserting this in $\mathbf{H}$ we get:
-
-!bt 
-\begin{equation}
-\mathbf{H} = \sum_{pq} <p|\mathbf{h}|q> 
-\{\mathbf{a}^{\dagger}_p \mathbf{a}_q \}
-+ \sum_i \langle i|h|i \rangle
- + 
-\frac{1}{4} \sum_{pqrs} \langle pq||rs \rangle \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r . label{temp_h}
-\end{equation} 
-!et
-The Wick's theorem will also be applied to the two electron part, $\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r$. Included here are only the non-zero terms.
-
-!bt 
-\begin{align}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r = & \{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r\} 
-+ \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s 
-\mathbf{a}_r
-\}
-+ \{
-\mathbf{a}^{\dagger}_p
-\contraction{}{\mathbf{a}^{\dagger}_q}{}{\mathbf{a}_s}
-\mathbf{a}^{\dagger}_q \mathbf{a}_s 
-\mathbf{a}_r
-\} \nonumber \\ &
-+ \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q \mathbf{a}_s}{\mathbf{a}_r}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s 
-\mathbf{a}_r
-\}
-+ \{\mathbf{a}^{\dagger}_p
-\contraction{}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r}
-\mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r
-\}
-+ \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s 
-\mathbf{a}_r
-\} \nonumber \\ &
-+ \{
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q \mathbf{a}_s}{\mathbf{a}_r}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s 
-\mathbf{a}_r
-\} . \nonumber
-\end{align} 
-!et
-These can be simplified using Eq. ref{fermi1}, and the rules for index swapping within a contraction noted in Eq. ref{wikssign}.
-
-!bt 
-\begin{align}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r = &\{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r\} 
-+ \delta_{pi} \delta_{ps} \{ \mathbf{a}^{\dagger}_q \mathbf{a}_r \}
-\nonumber \\ & 
-+ \delta_{qi} \delta_{qs}
-\{ \mathbf{a}^{\dagger}_p \mathbf{a}_r \}
-+ \delta_{pi} \delta_{pr} 
-\{ \mathbf{a}^{\dagger}_q \mathbf{a}_s \}
-+ \delta_{qi} \delta_{qr}
-\{ \mathbf{a}^{\dagger}_p \mathbf{a}_s \} \nonumber \\ &
-- \delta_{pi} \delta_{ps} \delta_{qj} \delta_{qr}
-+ \delta_{pi} \delta_{pr} \delta_{qj} \delta_{qs} .
-\end{align} 
-!et
-The two electron part can now be replaced.
-
-!bt 
-\begin{align}
-\frac{1}{4} \sum_{pqrs} \langle pq||rs \rangle \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r = &
-\frac{1}{4}
-\sum_{pqrs} \langle pq||rs \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r\}
-\nonumber \\ &
-- \frac{1}{4} \sum_{iqr} \langle iq||ri \rangle \{\mathbf{a}^{\dagger}_q \mathbf{a}_r \} \nonumber \\ &
-+ \frac{1}{4} \sum_{ipr} \langle pi||ri \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}_r \} \nonumber \\ &
-+ \frac{1}{4} \sum_{iqs} \langle iq||is \rangle \{\mathbf{a}^{\dagger}_q \mathbf{a}_s \} \nonumber \\ &
-- \frac{1}{4} \sum_{ips} \langle pi||is \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}_s \} \nonumber \\ &
-- \frac{1}{4} \sum_{ij} \langle ij||ji \rangle \nonumber \\ &
-+ \frac{1}{4} \sum_{ij} \langle ij||ij \rangle . \nonumber
-\end{align} 
-!et
-From the symmetry in the single bar four index integrals it can be shown that these symmetries hold for the double bar integrals:
-
-!bt 
-\begin{equation}
-\langle pq||rs \rangle =
-\langle qp||sr \rangle =
-- \langle pq||sr \rangle =
-- \langle qp || rs \rangle , label{dirac_symetry}
-\end{equation} 
-!et
-and 
-
-!bt 
-\begin{equation}
-\langle pq || rs \rangle = \langle rs || pq \rangle ,
-\end{equation} 
-!et
-
-making eightfold symmetry. Using Eq. ref{dirac_symetry}, re indexing terms and combining leaves the two electron part as the following:
-
-!bt 
-\begin{align}
-\frac{1}{4} \sum_{pqrs} \langle pq||rs \rangle \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r = & \frac{1}{4}
-\sum_{pqrs} \langle pq||rs \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r\}
- \\ &
-+ \sum_{ipr} \langle pi||ri \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}_r \} \nonumber \\ &
-+ \frac{1}{2} \sum_{ij} \langle ij||ij \rangle . \nonumber
-\end{align} 
-!et
-This can be inserted in Eq. ref{temp_h}.
-
-!bt 
-\begin{align}
-\mathbf{H} = & \sum_{pq} <p|\mathbf{h}|q> 
-\{\mathbf{a}^{\dagger}_p \mathbf{a}_q \}
-+ \sum_i \langle i|h|i \rangle
- + \frac{1}{4}
-\sum_{pqrs} \langle pq||rs \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r\}
- \\ &
-+ \sum_{ipr} \langle pi||ri \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}_r \}
-+ \frac{1}{2} \sum_{ij} \langle ij||ij \rangle . \nonumber
-\end{align} 
-!et
-The first and fourth term on the right hand side are the normal ordered form of the Fock operator. If we also include the second term we have the HF energy.
-
-!bt 
-\begin{equation}
-\mathbf{H} = \sum_{pq} f_{pq} 
-\{\mathbf{a}^{\dagger}_p \mathbf{a}_q \}
- + \frac{1}{4}
-\sum_{pqrs} \langle pq||rs \rangle \{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r\}
-+ \langle \Psi_{HF} | \mathbf{H} |\Psi_{HF} \rangle .
-\end{equation} 
-!et
-We rename these terms.
-
-!bt 
-\begin{equation}
-\mathbf{H} = \mathbf{F}_N + \mathbf{V}_N + \langle \Psi_{HF} | \mathbf{H} |\Psi_{HF} \rangle .
-\end{equation} 
-!et
-The normal ordered Hamiltonian is defined from this:
-
-!bt 
-\begin{equation}
-\mathbf{H}_N \equiv 
-\mathbf{H} - \langle \Psi_{HF} | \mathbf{H} |\Psi_{HF} \rangle = 
-\mathbf{F}_N + \mathbf{V}_N . label{normal_order_hamiltonian}
-\end{equation} 
-!et
-
-===== CCSD Hamiltonian =====
-
-The CCSD Hamiltonian is now defined as such
-
-!bt 
-\begin{equation}
-\bar{H} \equiv e^{-\mathbf{T}} \mathbf{H}_N e^{\mathbf{T}}  .
-\end{equation} 
-!et
-Using the CCSD cluster operator, $\mathbf{T} = \mathbf{T}_1 + \mathbf{T}_2$. This can be inserted in equation Eq. ref{variationalccsd}. 
-
-!bt 
-\begin{align}
-\bar{H} = & 
-\mathbf{H}_N 
-+ \left[ \mathbf{H}_N, \mathbf{T}_1 \right] 
-+ \left[ \mathbf{H}_N, \mathbf{T}_2 \right] 
-+ \frac{1}{2} \left[ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_1 \right]  \\ &
-+ \frac{1}{2} \left[ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_2  \right]
-+ \frac{1}{2} \left[ [\mathbf{H}_N, \mathbf{T}_2], \mathbf{T}_1 \right]
-+ \frac{1}{2} \left[ [\mathbf{H}_N, \mathbf{T}_2], \mathbf{T}_2 \right] \dots \nonumber
-\end{align} 
-!et
-$\mathbf{T}_1$ and $\mathbf{T}_2$ does commute, so we can combine terms. The full $\bar{H}$ then becomes:
-
-!bt 
-\begin{align}
-\bar{H} = & 
-\mathbf{H}_N 
-+ \left[ \mathbf{H}_N, \mathbf{T}_1 \right] 
-+ \left[ \mathbf{H}_N, \mathbf{T}_2 \right] 
-+ \frac{1}{2} \left[ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_1 \right] label{temp_hamil_ccsd} \\ &
-+ \left[ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_2  \right]
-+ \frac{1}{2} \left[ [\mathbf{H}_N, \mathbf{T}_2], \mathbf{T}_2 \right] \nonumber \\ &
-+ \frac{1}{6} \left[ [ [ \mathbf{H}_N,[\mathbf{T}_1], \mathbf{T}_1], \mathbf{T}_1 \right]
-+ \frac{1}{6} \left[ [ [ \mathbf{H}_N,[\mathbf{T}_2], \mathbf{T}_2], \mathbf{T}_2 \right] \nonumber \\ &
-+ \frac{1}{2} \left[ [ [ \mathbf{H}_N,[\mathbf{T}_1], \mathbf{T}_1], \mathbf{T}_2 \right]
-+ \frac{1}{2} \left[ [ [ \mathbf{H}_N,[\mathbf{T}_1], \mathbf{T}_2], \mathbf{T}_2 \right] \nonumber \\ &
-+ \frac{1}{24} \left[ [ [ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_1], \mathbf{T}_1], \mathbf{T}_1  \right]
-+ \frac{1}{24} \left[ [ [ [\mathbf{H}_N, \mathbf{T}_2], \mathbf{T}_2], \mathbf{T}_2], \mathbf{T}_2  \right] \nonumber \\ &
-+ \frac{1}{6} \left[ [ [ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_1], \mathbf{T}_1], \mathbf{T}_2  \right]
-+ \frac{1}{6} \left[ [ [ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_1], \mathbf{T}_2], \mathbf{T}_2  \right] \nonumber \\ &
-+ \frac{1}{4} \left[ [ [ [\mathbf{H}_N, \mathbf{T}_1], \mathbf{T}_2], \mathbf{T}_2], \mathbf{T}_2  \right] . \nonumber
-\end{align} 
-!et
-$\bar{H}$ will still analytically truncates after up to and including four nested commutators. When using $\mathbf{H}_N$ it is better to rewrite Eqs. ref{t1defi} and ref{t2defi} using contractions.
-
-!bt 
-\begin{equation}
-\mathbf{T}_1 \equiv \sum_{ai} t_i^a \mathbf{a}^{\dagger}_a \mathbf{a}_i = \sum_{ai} \left( t_i^a \{\mathbf{a}^{\dagger}_a \mathbf{a}_i\} + \{
-\contraction{}{\mathbf{a}^{\dagger}_a}{}{\mathbf{a}_i}
-\mathbf{a}^{\dagger}_a \mathbf{a}_i
-\} \right) = \sum_{ai} t_i^a \{\mathbf{a}^{\dagger}_a \mathbf{a}_i\} .
-\end{equation} 
-!et
-The contraction term will be 0 based the discussion before Eq. ref{fermi1}. Also similarly for $\mathbf{T}_2$
-
-!bt 
-\begin{equation}
-\mathbf{T}_2 = \frac{1}{4} \sum_{abij} \{
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_i \mathbf{a}_j \} .
-\end{equation} 
-!et
-The commutators can then be calculated, starting with $[\mathbf{H}_N, \mathbf{T}_1]$.
-
-!bt 
-\begin{equation}
-[\mathbf{H}_N, \mathbf{T}_1] = \mathbf{H}_N \mathbf{T}_1 - \mathbf{T}_1 \mathbf{H}_N .
-\end{equation} 
-!et
-Using the definition of contractions on both these terms we can simplify this expression.
-
-!bt 
-\begin{align}
-[\mathbf{H}_N, \mathbf{T}_1] & =
-\left( \{\mathbf{H}_N\mathbf{T}_1\} + \{
-\contraction{}{\mathbf{H}_N}{}{\mathbf{T}_1}
-\mathbf{H}_N\mathbf{T}_1\} \right) - \left(\{\mathbf{T}_1\mathbf{H}_N\} + \{
-\contraction{}{\mathbf{T}_1}{}{\mathbf{H}_N}
-\mathbf{T}_1\mathbf{H}_N\} \right) \nonumber \\ &
-= \{
-\contraction{}{\mathbf{H}_N}{}{\mathbf{T}_1}
-\mathbf{H}_N\mathbf{T}_1\}
-- \{
-\contraction{}{\mathbf{T}_1}{}{\mathbf{H}_N}
-\mathbf{T}_1\mathbf{H}_N\} .
-\end{align} 
-!et
-Eqs. ref{fermi1} and ref{fermi2} explains the only terms that will not be 0 when calculating the contractions. $\{ \contraction{}{\mathbf{T}_1}{}{\mathbf{H}_N}
-\mathbf{T}_1\mathbf{H}_N\}$ will be 0 since $\mathbf{T}_1$ does not contain any creation or annihilation operator that when placed on the left creates a non-zero contraction when using Wick's Theorem. The same argument applies to $\mathbf{T}_2$. 
-
-!bt 
-\begin{equation}
-[\mathbf{H}_N, \mathbf{T}_1] = 
-\{
-\contraction{}{\mathbf{H}_N}{}{\mathbf{T}_1}
-\mathbf{H}_N\mathbf{T}_1\} 
-= \left( \mathbf{H}_N \mathbf{T}_1 \right)_C.
-\end{equation} 
-!et
-
-!bt 
-\begin{equation}
-[\mathbf{H}_N, \mathbf{T}_2] = 
-\{
-\contraction{}{\mathbf{H}_N}{}{\mathbf{T}_2}
-\mathbf{H}_N\mathbf{T}_2\} 
-= \left( \mathbf{H}_N \mathbf{T}_2 \right)_C
-.
-\end{equation} 
-!et
-It then becomes clear that the only surviving terms when calculating all the commutators will be terms with $\mathbf{H}_N$ in the leftmost position. \\
-
-A new notation is also introduced, $()_C$. This notations means that each cluster operator inside the parentheses should have at least one contraction each to $\mathbf{H}_N$ when applying Wick's Theorem. This holds for up to four cluster operators, which makes the truncation even more sensible. \\
-
-The final form of $\bar{H}$ becomes
-
-!bt 
-\begin{equation}
-\begin{split}
-\bar{H} = 
-\big( \mathbf{H}_N + \mathbf{H}_N \mathbf{T}_1 + \mathbf{H}_N \mathbf{T}_2
-+ \frac{1}{2} \mathbf{H}_N \mathbf{T}_1^2
-+ \frac{1}{2} \mathbf{H}_N \mathbf{T}_2^2
-+ \mathbf{H}_N \mathbf{T}_1 \mathbf{T}_2 \\
-+ \frac{1}{6} \mathbf{H}_N \mathbf{T}_1^3
-+ \frac{1}{6} \mathbf{H}_N \mathbf{T}_2^3
-+ \frac{1}{2} \mathbf{H}_N \mathbf{T}_1^2 \mathbf{T}_2
-+ \frac{1}{2} \mathbf{H}_N \mathbf{T}_1 \mathbf{T}_2^2 \\ 
-+ \frac{1}{24} \mathbf{H}_N \mathbf{T}_1^4
-+ \frac{1}{24} \mathbf{H}_N \mathbf{T}_2^4
-+ \frac{1}{4} \mathbf{H}_N \mathbf{T}_1^2 \mathbf{T}_2^2
-+ \frac{1}{6} \mathbf{H}_N \mathbf{T}_1^3 \mathbf{T}_2
-+ \frac{1}{6} \mathbf{H}_N \mathbf{T}_1 \mathbf{T}_2^3 \big)_C  .
-\end{split} label{CCSDHamiltonian}
-\end{equation} 
-!et
-
-===== CCSD Energy =====
-Using the definition of $\mathbf{H}_N$, Eq. ref{normal_order_hamiltonian}, and $\bar{H}$, Eq. ref{CCSDHamiltonian}, we can now construct a programmable expression for the energy. 
-
-!bt 
-\begin{equation}
-E_{CCSD} - E_0 = \langle \Psi_0 | \bar{H} | \Psi_0 \rangle .
-\end{equation} 
-!et
-The terms in Eq. ref{CCSDHamiltonian} are here calculated separately. 
-
-!bt 
-\begin{equation}
-\langle \Psi_0 | \mathbf{H}_N | \Psi_0 \rangle = 0 .
-\end{equation} 
-!et
-From the construction of the normal ordered Hamiltonian this term will be 0.
-
-!bt 
-\begin{align}
-\langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_1)_C | \Psi_0 \rangle & = \langle \Psi_0 | \left((\mathbf{F}_N + \mathbf{V}_N ) \mathbf{T}_1 \right)_C | \Psi_0 \rangle \nonumber \\ &
-= \langle \Psi_0 | (\mathbf{F}_N \mathbf{T}_1)_C | \Psi_0 \rangle + \langle \Psi_0 | (\mathbf{V}_N \mathbf{T}_1)_C | \Psi_0 \rangle . label{ene_1}
-\end{align} 
-!et
-
-!bt 
-\begin{equation}
-(\mathbf{F}_N \mathbf{T}_1)_C  = \sum_{pq} \sum_{ai} f_{pq} t_i^a  \{ \mathbf{a}^{\dagger}_p \mathbf{a}_q\}  \{\mathbf{a}^{\dagger}_a \mathbf{a}_i \} . 
-\end{equation} 
-!et
-Wick's Theorem is applied to simplify the expression. Only non zero terms are included.
-
-!bt 
-\begin{align}
-\{ \mathbf{a}^{\dagger}_p \mathbf{a}_q\}  \{\mathbf{a}^{\dagger}_a \mathbf{a}_i \} & = &
-\{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \mathbf{a}^{\dagger}_a \mathbf{a}_i \} + \{ \mathbf{a}^{\dagger}_p
-\contraction{}{\mathbf{a}_q}{}{\mathbf{a}^{\dagger}_a}
-\mathbf{a}_q \mathbf{a}^{\dagger}_a
-\mathbf{a}_i \}  \\ & &
-+  \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{ \mathbf{a}_q \mathbf{a}^{\dagger}_a}{\mathbf{a}_i}
-\mathbf{a}^{\dagger}_p \mathbf{a}_q \mathbf{a}^{\dagger}_a \mathbf{a}_i \} 
-+ \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}_q \mathbf{a}^{\dagger}_a}{\mathbf{a}_i}
-\contraction{\mathbf{a}^{\dagger}_p}{\mathbf{a}_q}{} {\mathbf{a}^{\dagger}_a}
-\mathbf{a}^{\dagger}_p \mathbf{a}_q \mathbf{a}^{\dagger}_a \mathbf{a}_i \} \nonumber \\ & = &
-\{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \mathbf{a}^{\dagger}_a \mathbf{a}_i \} + \delta_{pi} \{\mathbf{a}_q \mathbf{a}_a^{\dagger} \} \nonumber \\ & &
-+ \delta_{qa} \{\mathbf{a}_p^{\dagger} \mathbf{a}_i \} 
-+ \delta_{pi} \delta_{qa} . \nonumber
-\end{align} 
-!et
-Inserting this gives 
-
-!bt 
-\begin{equation}
-(\mathbf{F}_N \mathbf{T}_1)_C = \sum_{pq} \sum_{ai} f_{pq} t_i^a \left(\{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \mathbf{a}^{\dagger}_a \mathbf{a}_i \} + \delta_{pi} \{\mathbf{a}_q \mathbf{a}_a^{\dagger} \} 
-+ \delta_{qa} \{\mathbf{a}_p^{\dagger} \mathbf{a}_i \} 
-+ \delta_{pi} \delta_{qa} \right) .
-\end{equation} 
-!et
-When calculating $\langle \Psi_0 | (\mathbf{F}_N \mathbf{T}_1)_C | \Psi_0 \rangle$ only terms that solely consists of $\delta$'s will be non 0, since our basis is orthogonal. 
-
-!bt 
-\begin{equation}
-\langle \Psi_0 | (\mathbf{F}_N \mathbf{T}_1)_C | \Psi_0 \rangle =  \sum_{pq} \sum_{ai} f_{pq} t_i^a\delta_{pi} \delta_{qa} = \sum_{ai} f_{ai} t_i^a . label{f_t1}
-\end{equation} 
-!et
-$\langle \Psi_0 | (\mathbf{V}_N \mathbf{T}_1)_C | \Psi_0 \rangle$ must also be calculated.
-
-!bt 
-\begin{equation}
-(\mathbf{V}_N \mathbf{T}_1 )_C = \frac{1}{4} \sum_{pqrs} \sum_{ai} \langle pq||rs \rangle t_i^a \{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \} \{\mathbf{a}_a^{\dagger} \mathbf{a}_i \} .
-\end{equation} 
-!et
-
-!bt 
-\begin{align}
-\{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \} \{\mathbf{a}_a^{\dagger} \mathbf{a}_i \} & = \{
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger} \mathbf{a}_i 
-\} 
-+ 
-\{ \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\contraction{}{\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}_a^{\dagger}}
- \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger}
-  \mathbf{a}_i 
-\}  \\ &
-+ 
-\{ \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s
-\contraction{}{\mathbf{a}_r}{}{\mathbf{a}_a^{\dagger}}
-\mathbf{a}_r \mathbf{a}_a^{\dagger}
-\mathbf{a}_i
-\}
-+ \{ \mathbf{a}^{\dagger}_p
-\contraction{}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger}}{\mathbf{a}_i}
-\mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger} \mathbf{a}_i \} \nonumber \\ &
-+ \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger}}{\mathbf{a}_i}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger} \mathbf{a}_i
-\}
-+ \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger}}{\mathbf{a}_i}
-\contraction{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}_a^{\dagger}}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger} \mathbf{a}_i
-\} \nonumber \\ &
-+ \{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger}}{\mathbf{a}_i}
-\contraction{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}_a^{\dagger}}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}_a^{\dagger} \mathbf{a}_i
-\} . \nonumber
-\end{align} 
-!et
-From the derivation of $\langle \Psi_0 | (\mathbf{F}_N \mathbf{T}_1)_C | \Psi_0 \rangle$ we noticed that the only term that survived was the term where every construction/annihilation operator was linked by a contraction. In this case we have no such terms. Hence the contribution from $\langle \Psi_0 | (\mathbf{V}_N \mathbf{T}_1)_C | \Psi_0 \rangle$ will be 0. \\
-
-Inserting Eq. ref{f_t1} and $\langle \Psi_0 | (\mathbf{V}_N \mathbf{T}_1)_C | \Psi_0 \rangle = 0$ into Eq. ref{ene_1} gives 
-
-!bt 
-\begin{equation}
-\langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_1)_C | \Psi_0 \rangle = \sum_{ai} f_{ai} t_i^a . label{Energy_Contribution_1}
-\end{equation} 
-!et
-Here the contribution from $\langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_2)_C | \Psi_0 \rangle$ is calculated.
-
-!bt 
-\begin{equation}
-\langle \Psi_0 | (\mathbf{F}_N \mathbf{T}_2)_C | \Psi_0 \rangle = \frac{1}{4} \sum_{pq} \sum_{abij} f_{pq} t_{ij}^{ab} \{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \}
-\{ \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b \mathbf{a}_i \mathbf{a}_j \} .
-\end{equation} 
-!et
-This is again a similar situation that will result in 0 contribution. The reason is that any two operators $\mathbf{A}$ and $\mathbf{B}$ that contain a different number of annihilation/creation operators will not create any fully contracted terms (terms that solely consists of $\delta$'s) when applying Wick's Theorem. This means because of orthogonality the contribution to $E_{CCSD}$ from terms like this will always be 0. \\
-
-$\langle \Psi_0 | (\mathbf{V}_N \mathbf{T}_2)_C | \Psi_0 \rangle$ however has an equal number of operators. From this we will have a contribution.
-
-!bt 
-\begin{equation}
-\langle \Psi_0 | (\mathbf{V}_N \mathbf{T}_2)_C | \Psi_0 \rangle = \frac{1}{16} \sum_{pqrs} \sum_{abij} \langle pq||rs \rangle t_{ij}^{ab} \langle \Psi_0|
-\{
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r \}
-\{
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_j \mathbf{a}_i \}
-| \Psi_0 \rangle \nonumber
-\end{equation} 
-!et
-Wick's Theorem is applied. Only the four terms that are fully contracted and non-zero are listed.
-
-!bt 
-\begin{align}
-\{
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r \}
-\{
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_i \mathbf{a}_j \} & = &
-\{
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}^{\dagger}_a}
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r
-\mathbf{a}^{\dagger}_a}{\mathbf{a}^{\dagger}_b}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b \mathbf{a}_j}{\mathbf{a}_i}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_j \mathbf{a}_i
-\}
-+
-\{
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}^{\dagger}_a}
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}^{\dagger}_a}{\mathbf{a}^{\dagger}_b}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b \mathbf{a}_j}{\mathbf{a}_i}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_j \mathbf{a}_i
-\} \nonumber \\ & &
-\{
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}^{\dagger}_a}
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r
-\mathbf{a}^{\dagger}_a}{\mathbf{a}^{\dagger}_b}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b\mathbf{a}_j}{\mathbf{a}_i}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_j \mathbf{a}_i
-\}
-+
-\{
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}^{\dagger}_a}
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}^{\dagger}_a}{\mathbf{a}^{\dagger}_b}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b\mathbf{a}_j}{\mathbf{a}_i}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_j \mathbf{a}_i
-\} \nonumber \\
-& = & \delta_{pi} \delta_{qj} \delta_{sb} \delta_{ra} 
-- \delta_{pi} \delta_{gj} \delta_{rb} \delta_{sa}
-+ \delta_{pj} \delta_{qi} \delta_{rb} \delta_{sa}
-- \delta_{pj} \delta_{qi} \delta_{ra} \delta_{sb} .
-\end{align} 
-!et
-Inserting this provides
-
-!bt 
-\begin{align}
-\langle \Psi_0 | (\mathbf{V}_N \mathbf{T}_2)_C | \Psi_0 \rangle & =  \frac{1}{16} \sum_{pqrs} \sum_{abij}  \langle pq||rs \rangle t_{ij}^{ab} \langle \Psi_0|
-\delta_{pi} \delta_{qj} \delta_{sb} \delta_{ra} 
-- \delta_{pi} \delta_{gj} \delta_{rb} \delta_{sa}\nonumber \\ & 
-+ \delta_{pj} \delta_{qi} \delta_{rb} \delta_{sa}
-- \delta_{pj} \delta_{qi} \delta_{ra} \delta_{sb}
-| \Psi_0 \rangle \nonumber \\ &
-= \frac{1}{16} \sum_{abij} ( 
-\langle ij || ab \rangle
-- \langle ij || ba \rangle
-+ \langle ji || ba \rangle
-- \langle ji || ab \rangle ) t_{ij}^{ab} \nonumber \\ &
-= \frac{1}{4} \sum_{abij} t_{ij}^{ab} \langle ij||ab \rangle .
-\end{align} 
-!et
-Here symmetry considerations was used. This means 
-
-!bt 
-\begin{equation}
-\langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_2)_C | \Psi_0 \rangle = \frac{1}{4} \sum_{abij} t_{ij}^{ab} \langle ij||ab \rangle . label{Energy_Contribution_2}
-\end{equation} 
-!et
-Next contribution from $\langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_1^2)_C | \Psi_0 \rangle$. From the expression of $\bar{H}$ there is a $\frac{1}{2}$ in front of this term.
-
-!bt 
-\begin{align}
-\frac{1}{2} \langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_1^2)_C | \Psi_0 \rangle = & \frac{1}{8} \sum_{pqrs} \sum_{ai} \sum_{bj} \langle pq || rs \rangle t_i^a t_j^b \nonumber \\ & 
-\langle \Psi_0| 
- \{\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b \mathbf{a}_i \mathbf{a}_j \}
-\{\mathbf{a}^{\dagger}_a \mathbf{a}_i \}
-\{\mathbf{a}^{\dagger}_b \mathbf{a}_j \}
-| \Psi_0 \rangle .
-\end{align} 
-!et
-Again Wick's Theorem is used. We note that from $\bar{H}$ there are four creation/annihilation operators. From each $\mathbf{T}_1$ there are two, and combined from all there are four. This means we will have non-zero terms, these are listed here.
-
-!bt 
-\begin{align}
-\{\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b \mathbf{a}_i \mathbf{a}_j \}
-\{\mathbf{a}^{\dagger}_a \mathbf{a}_i \}
-\{\mathbf{a}^{\dagger}_b \mathbf{a}_j \}
- = &
-\{
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i
-\mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a}{\mathbf{a}_i}
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i}{\mathbf{a}^{\dagger}_b}
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}^{\dagger}_a}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i
-\mathbf{a}^{\dagger}_b \mathbf{a}_j 
-\}
-+ 
-\{
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i}{\mathbf{a}^{\dagger}_b}
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}^{\dagger}_a}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a}{\mathbf{a}_i}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i
-\mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i
-\mathbf{a}^{\dagger}_b \mathbf{a}_j 
-\} \nonumber \\ & 
-\{
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i}{\mathbf{a}^{\dagger}_b}
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}^{\dagger}_a}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a}{\mathbf{a}_i}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i
-\mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}_i
-\mathbf{a}^{\dagger}_b \mathbf{a}_j 
-\}
-+
-\{
-\contraction[4ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}^{\dagger}_a}
-\contraction[5ex]{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s}{\mathbf{a}_r}{\mathbf{a}^{\dagger}_a}{\mathbf{a}^{\dagger}_b}
-\contraction[2ex]{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b\mathbf{a}_j}{\mathbf{a}_i}
-\contraction{}{\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r \mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_a \mathbf{a}^{\dagger}_b
-\mathbf{a}_j \mathbf{a}_i
-\} \nonumber \\
- = & \delta_{pi} \delta_{qj} \delta_{sb} \delta_{ra} 
-- \delta_{pi} \delta_{gj} \delta_{rb} \delta_{sa}
-+ \delta_{pj} \delta_{qi} \delta_{rb} \delta_{sa}
-- \delta_{pj} \delta_{qi} \delta_{ra} \delta_{sb} .
-\end{align} 
-!et
-Which is a result we have seen before in Eq. ref{Energy_Contribution_2}, the only difference is the amplitudes and the factor $\frac{1}{2}$.
-
-!bt 
-\begin{equation}
-\langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_1^2)_C | \Psi_0 \rangle = \frac{1}{2} \sum_{abij} t_{i}^{a} t_j^b \langle ij||ab \rangle . label{Energy_Contribution_3}
-\end{equation} 
-!et
-The next term is $\langle \Psi_0 | (\mathbf{H}_N \mathbf{T}_2^2)_C | \Psi_0 \rangle$. $\mathbf{H}_N$ still only have four creation/annihilation operators. However now we have 8 in total from the cluster operators. This means we cannot have fully contracted terms, which means the entire contribution to $E_{CCSD}$ will be 0. \\
-
-This argument will hold true for every single remaining term. Meaning we now have an expression for the energy from Eqs. ref{Energy_Contribution_1}, ref{Energy_Contribution_2} and ref{Energy_Contribution_3}.
-
-!bt 
-\begin{equation}
-E_{CCSD} = E_0 + \sum_{ai} f_{ai} t_i^a + \frac{1}{4} \sum_{abij} \langle ij||ab \rangle t_{ij}^{ab} + \frac{1}{2} \sum_{abij} \langle ij || ab \rangle t_i^a t_j^b . label{CCSD_TOTAL_ENERGY}
-\end{equation} 
-!et
-Here all factors are known except for $t_i^a$ and $t_{ij}^{ab}$. These must be determined.
-
-===== $t_i^a$ amplitudes =====
-We can find expressions for $t_i^a$ by calculating $\langle \Psi_i^a | \bar{H} | \Psi_0 \rangle = 0$. The notation $\Psi_i^a$ means a state with one hole state and one orbital state. This will be an excited state and we did assume orthogonality. The mathematics of this excited state can be described as such
-
-!bt 
-\begin{equation}
-\langle \Psi_i^a | = \langle \Psi_0 | \mathbf{a}^{\dagger}_i \mathbf{a}_a . label{first_excited_stats}
-\end{equation} 
-!et
-A creation operator working to the left, on a bra, becomes an annihilation operator. $\langle \Psi_i^a | \bar{H} | \Psi_0 \rangle = 0$ can be solved in the same manner as we did for the energy. Starting with the first term $\langle \Psi_i^a | \mathbf{H}_N | \Psi_0 \rangle$.
-
-
-!bt 
-\begin{align}
-\langle \Psi_i^a | \mathbf{H}_N | \Psi_0 \rangle & = 
-\sum_{pq} f_{pq} \langle \Psi_0| \{ \mathbf{a}^{\dagger}_i \mathbf{a}_a \} \{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \} | \Psi_0 \rangle \nonumber \\ &
-+ \frac{1}{4} \sum_{pqrs} \langle pq||rs \rangle  \langle \Psi_0| \{ \mathbf{a}^{\dagger}_i \mathbf{a}_a \} \{ \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_r \mathbf{a}_s \} | \Psi_0 \rangle .
-\end{align} 
-!et
-Here the first term is from $\mathbf{F}_N$ and the second term from $\mathbf{V}_N$. The second term will be zero. Eq. ref{first_excited_stats} is inserted and Wick's Theorem applied.
-
-!bt 
-\begin{align}
-\Rightarrow \langle \Psi_i^a | \mathbf{H}_N | \Psi_0 \rangle & = \sum_{pq} f_{pq} \langle \Psi_0| \{ \mathbf{a}^{\dagger}_i \mathbf{a}_a \} \{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \} | \Psi_0 \rangle \nonumber \\ &
-= \sum_{pq} f_{pq} \langle \Psi_0| \{
-\contraction{}{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a \mathbf{a}^{\dagger}_p}{\mathbf{a}_q}
-\contraction[3ex]{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a}{}{\mathbf{a}^{\dagger}_p}
-\mathbf{a}^{\dagger}_i \mathbf{a}_a \mathbf{a}^{\dagger}_p \mathbf{a}_q 
- \} | \Psi_0 \rangle \nonumber \\ &
-= \sum_{pq} f_{pq} \delta_{iq} \delta_{ap} \nonumber \\ &
-= f_{ai} . label{t1amp_1}
-\end{align} 
-!et
-
-
-The next term includes $(\mathbf{H}_N \mathbf{T}_1)_c = (\mathbf{F}_N \mathbf{T}_1)_c + (\mathbf{V}_N \mathbf{T}_1)_c$. The $()_c$ notation is here applied to specify that there must be at least one contraction reaching from $\mathbf{H}_N$ to $\mathbf{T}_1$.
-
-!bt 
-\begin{align}
-\langle \Phi_i^a | (\mathbf{F}_N \mathbf{T}_1)_c | \Phi_0 \rangle  & = 
-\sum_{pq} \sum_{jb} f_{pq} t_j^b \langle \Phi_0 | 
-\{ \mathbf{a}^{\dagger}_i \mathbf{a}_a \} (\{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \} \{
-\mathbf{a}^{\dagger}_b \mathbf{a}_j \})_c | \Phi_0 \rangle \nonumber \\ &
-= \sum_{pq} \sum_{jb} f_{pq} t_j^b \left(
-\{
-\contraction{\mathbf{a}^{\dagger}_i
-\mathbf{a}_a}{\mathbf{a}^{\dagger}_p}{\mathbf{a}_q
-\mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction[3ex]{}{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a
-\mathbf{a}^{\dagger}_p}{\mathbf{a}_q}
-\contraction[3ex]{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a}{\mathbf{a}_q}{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_b}
-\mathbf{a}^{\dagger}_i
-\mathbf{a}_a
-\mathbf{a}^{\dagger}_p
-\mathbf{a}_q
-\mathbf{a}^{\dagger}_b
-\mathbf{a}_j
-\}
-+
-\{
-\contraction[2ex]{}{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a
-\mathbf{a}^{\dagger}_p
-\mathbf{a}_q
-\mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a}{}{\mathbf{a}^{\dagger}_p}
-\contraction{\mathbf{a}^{\dagger}_i
-\mathbf{a}_a
-\mathbf{a}^{\dagger}_p}{\mathbf{a}_q}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}^{\dagger}_i
-\mathbf{a}_a
-\mathbf{a}^{\dagger}_p
-\mathbf{a}_q
-\mathbf{a}^{\dagger}_b
-\mathbf{a}_j
-\} \right) \nonumber \\ &
-= \sum_{pq} \sum_{jb} f_{pq} t_j^b \left(
-\delta_{iq} \delta_{ab} \delta_{pj} + 
-\delta_{ij} \delta_{ap} \delta_{qb} \right) \nonumber \\ &
-= - \sum_j f_{ji} t_j^a + \sum_b f_{ab} t_i^b
-.
-\end{align} 
-!et
-
-!bt 
-\begin{align}
-\langle \Phi_i^a | (\mathbf{V}_N \mathbf{T}_1)_c | \Phi_0 \rangle  & = \frac{1}{4} \sum_{pqrs} \sum_{jb} \langle pq||rs\rangle  t_j^b \langle \Phi_0 | 
-\{ \mathbf{a}^{\dagger}_i \mathbf{a}_a \} (\{ \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r \} \{
-\mathbf{a}^{\dagger}_b \mathbf{a}_j \})_c | \Phi_0 \rangle \nonumber \\ &
-= \frac{1}{4} \sum_{pqrs} \sum_{jb} \langle pq||rs \rangle t_j^b 
-(
-\{
-\contraction[2ex]{}{\mathbf{a}^{\dagger}_i}{i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}{\mathbf{a}_s}
-\contraction{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a}{}{\mathbf{a}^{\dagger}_p}
-\contraction[3ex]{\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction[5ex]{\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_b \mathbf{a}_j
-\} \nonumber \\ &
-+ 
-\{
-\contraction[2ex]{}{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q \mathbf{a}_s}{\mathbf{a}_r}
-\contraction{\mathbf{a}^{\dagger}_i}{\mathbf{a}_a}{}{\mathbf{a}^{\dagger}_p}
-\contraction[3ex]{\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p}{\mathbf{a}^{\dagger}_q}{\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction[5ex]{\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-}{\mathbf{a}_s}{}{\mathbf{a}_r \mathbf{a}^{\dagger}_b}
-\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_b \mathbf{a}_j
-\}
-+ 
-\{
-\contraction[2ex]
-{}
-{\mathbf{a}^{\dagger}_i}
-{i \mathbf{a}_a \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}
-{\mathbf{a}_s}
-\contraction
-{\mathbf{a}^{\dagger}_i}
-{\mathbf{a}_a}
-{\mathbf{a}^{\dagger}_p}
-{\mathbf{a}^{\dagger}_q}
-\contraction[3ex]
-{\mathbf{a}^{\dagger}_i \mathbf{a}_a}
-{\mathbf{a}^{\dagger}_p}
-{\mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction[5ex]{\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s}{\mathbf{a}_r}{}{\mathbf{a}^{\dagger}_b}
-\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_b \mathbf{a}_j
-\} \nonumber \\ &
-+ 
-\{
-\contraction[2ex]
-{}
-{\mathbf{a}^{\dagger}_i}
-{i \mathbf{a}_a \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q}
-{\mathbf{a}_s}
-\contraction
-{\mathbf{a}^{\dagger}_i}
-{\mathbf{a}_a}
-{\mathbf{a}^{\dagger}_p}
-{\mathbf{a}^{\dagger}_q}
-\contraction[3ex]
-{\mathbf{a}^{\dagger}_i \mathbf{a}_a}
-{\mathbf{a}^{\dagger}_p}
-{\mathbf{a}^{\dagger}_q \mathbf{a}_s \mathbf{a}_r \mathbf{a}^{\dagger}_b}{\mathbf{a}_j}
-\contraction[5ex]{\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-}{\mathbf{a}_s}{}{\mathbf{a}_r \mathbf{a}^{\dagger}_b}
-\mathbf{a}^{\dagger}_i \mathbf{a}_a 
-\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r
-\mathbf{a}^{\dagger}_b \mathbf{a}_j
-\} ) \nonumber \\ &
-=  \frac{1}{4} \sum_{pqrs} \sum_{jb} \langle pq||rs \rangle t_j^b (
-\delta_{pj} \delta_{qa} \delta_{rb} \delta_{si} \nonumber \\ &
-+ \delta_{pa} \delta_{qj} \delta_{ri} \delta_{sb}
-- \delta_{pa} \delta_{qj} \delta_{rb} \delta_{si}
-- \delta_{pj} \delta_{qa} \delta_{ri} \delta_{sb} ) \nonumber \\ &
-= \sum_{jb} \langle ja||bi \rangle t_j^b .
-\end{align} 
-!et
-
-In total the contribution to the amplitudes from $\langle \Psi_i^a | \mathbf{H}_N \mathbf{T}_1 | \Psi_0 \rangle$ is
-
-!bt 
-\begin{equation}
-\langle \Psi_i^a | (\mathbf{H}_N \mathbf{T}_1)_c | \Psi_0 \rangle = - \sum_j f_{ji} t_j^a + \sum_b f_{ab} t_i^b
-\nonumber +  \sum_{jb} \langle ja||bi \rangle t_j^b . label{t1amp_2}
-\end{equation} 
-!et
-
-
-Still contributions from $(\mathbf{F}_N \mathbf{T}_1^2)_c$ and $(\mathbf{V}_N \mathbf{T}_1^2)_c$ calculated individually. The number of steps in the calculation is now reduced since $\delta_{ij}$ is understood to be a result of a non zero contraction between indices i and j.
-
-!bt 
-\begin{align}
-\frac{1}{2} \langle \Psi_i^a | (\mathbf{F}_N \mathbf{T}_1^2)_c | \Psi_0 \rangle & = 
-\frac{1}{2} \sum_{pq} \sum_{jb} \sum_{kc} f_{pq} t_j^b t_k^c \langle \Psi_0 | \{\mathbf{a}_i^{\dagger} \mathbf{a}_a \} \{\mathbf{a}_p^{\dagger} \mathbf{a}_q \} \{\mathbf{a}_b^{\dagger} \mathbf{a}_j \} \{\mathbf{a}_c^{\dagger} \mathbf{a}_k \} | \Psi_0 \rangle \nonumber \\ &
-= \frac{1}{2} \sum_{pq} \sum_{jb} \sum_{kc} f_{pq} t_j^b t_k^c
-\left( -\delta_{pk} \delta_{qb} \delta_{ij} \delta_{ac}
-- \delta_{pj} \delta_{qc} \delta_{ik} \delta_{ab} \right) \nonumber \\ &
-= - \sum_{kc} f_{kc} t_i^c t_k^a .
-\end{align} 
-!et
-
-!bt 
-\begin{align}
-\frac{1}{2} \langle \Psi_i^a | (\mathbf{V}_N \mathbf{T}_1^2)_c | \Psi_0 \rangle &
-= \frac{1}{8} \sum_{pqrs} \sum_{jb} \sum_{kc} 
-\langle pq || rs \rangle t_j^b t_k^c \langle \Psi_0 | 
-\{ \mathbf{a}^{\dagger}_i \mathbf{a}_a \} \nonumber \\ &
-\{\mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q
-\mathbf{a}_s \mathbf{a}_r \} \{\mathbf{a}^{\dagger}_b \mathbf{a}_j \} \{\mathbf{a}^{\dagger}_c \mathbf{a}_k \}
-| \Psi_0 \rangle \nonumber \\ &
-= \frac{1}{8} \sum_{pqrs} \sum_{jb} \sum_{kc} 
-\langle pq || rs \rangle t_j^b t_k^c (
-\delta_{pa} \delta_{br} \delta_{sc} \delta_{qk} \delta_{ij} + \dots \nonumber \\ & 
-= \sum_{jbs} \langle ja || bc \rangle t_j^b t_i^c
-- \sum_{jbk} \langle jk || bi \rangle t_j^b t_k^a .
-\end{align} 
-!et
-
-!bt 
-\begin{align}
-0 = & f_{ai} + \sum_c f_{ac} t_i^c - \sum_k f_{ki} t_k^a + \sum_{kc} \langle ka||ci \rangle t_k^c + \sum_{kc} f_{kc} t_{ik}^{ac} + \frac{1}{2} \sum_{kcd} \langle ka || cd \rangle t_{ki}^{cd} label{T1equation} \\ &
-- \frac{1}{2} \sum_{klc} \langle kl||ci\rangle t_{kl}^{ca} - \sum_{kc} f_{kc} t_i^c t_k^a - \sum_{klc} \langle kl || ci \rangle t_k^c t_l^a + \sum_{kcd} \langle ka||cd \rangle t_k^c t_i^d \nonumber \\ & 
-- \sum_{klcd} \langle kl || cd \rangle t_k^c t_i^d t_l^a + \sum_{klcd} \langle kl||cd\rangle t_k^c t_{li}^{da} \nonumber \\ &
- - \frac{1}{2} \sum_{klcd} \langle kl || cd \rangle t_{ki}^{cd} t_l^a 
-- \frac{1}{2} \sum_{klcd} \langle kl||cd \rangle t_{kl}^{ca} t_i^d . \nonumber
-\end{align} 
-!et
-
-===== $t_{ij}^{ab}$ amplitudes =====
-$t_{ij}^{ab}$ amplitudes are generated in a similar fashion. These amplitudes are calculated by solving the equation
-
-!bt 
-\begin{equation}
-\langle \Psi_{ij}^{ab} | \bar{H} | \Psi_0 \rangle = 0 . label{T2equationtosolve}
-\end{equation} 
-!et
-This holds true because of the orthogonality. We can describe the state $\langle \Psi_{ij}^{ab}|$ in terms of creation and annihilation operators.
-
-!bt 
-\begin{equation}
-\langle \Psi_{ij}^{ab}| = \langle \Psi_0 | \{ \mathbf{a}^{\dagger}_i \mathbf{a}^{\dagger}_j \mathbf{a}_a \mathbf{a}_b \} .
-\end{equation} 
-!et
-We can solve Eq. ref{T2equationtosolve}. Starting with the contribution from $\mathbf{H}_N$. 
-
-!bt 
-\begin{align}
-\langle \Psi_{ij}^{ab} | \mathbf{F}_N + \mathbf{V}_N | \Psi_0 \rangle & = 
-\langle \Psi_{0} | \{\mathbf{a}^{\dagger}_i \mathbf{a}^{\dagger}_j \mathbf{a}_a \mathbf{a}_b\} \left( \mathbf{F}_N + \mathbf{V}_N \right) | \Psi_0 \rangle \nonumber \\ &
-= \sum_{pq} f_{pq} \langle \Psi_{0} | \{\mathbf{a}^{\dagger}_i \mathbf{a}^{\dagger}_j \mathbf{a}_a \mathbf{a}_b\} \left( \{ \mathbf{a}^{\dagger}_p \mathbf{a}_q \} \right) | \Psi_0 \rangle \nonumber \\ & 
-+ \frac{1}{4} \sum_{pqrs} \langle pq || rs \rangle \langle \Psi_{0} | \{\mathbf{a}^{\dagger}_i \mathbf{a}^{\dagger}_j \mathbf{a}_a \mathbf{a}_b\} \left( \{ \mathbf{a}^{\dagger}_p \mathbf{a}^{\dagger}_q 
-\mathbf{a}_s \mathbf{a}_r\} \right) | \Psi_0 \rangle \nonumber \\ &
-= \frac{1}{4} \sum_{pqrs} \langle pq || rs \rangle
-( \delta_{pa} \delta_{qb} \delta_{ri} \delta_{sj} - \nonumber \\ &
-\delta_{pb} \delta_{qa} \delta_{ri} \delta_{sj} - 
-\delta_{pa} \delta_{qb} \delta_{si} \delta_{rj} +
-\delta_{qa} \delta_{pb} \delta_{si} \delta_{rj} ) \nonumber \\ &
-= \sum_{pqrs} \delta_{pb} \delta_{qa} \delta_{ri} \delta_{sj} \nonumber \\ &
-= \langle ab || ij \rangle .
-\end{align} 
-!et
-The contribution from $\mathbf{F}_N$ will be zero. The contribution from $\mathbf{H}_N \mathbf{T}_1$ is more complicated.
-
-!bt 
-\begin{equation}
-\langle \Psi_{ij}^{ab} | (\mathbf{F}_N + \mathbf{V}_N)\mathbf{T}_1 | \Psi_0 \rangle = \langle \Psi_{0} | \{\mathbf{a}^{\dagger}_i \mathbf{a}^{\dagger}_j \mathbf{a}_a \mathbf{a}_b\} \left( \mathbf{F}_N + \mathbf{V}_N \right) \mathbf{T}_1 | \Psi_0 \rangle .
-\end{equation} 
-!et
-These will be calculated individually. Here we will only calculate the contribution from $\mathbf{V}_N \mathbf{T}_1$.
-
-!bt 
-\begin{align}
-\langle \Psi_{0} | \{\mathbf{a}^{\dagger}_i \mathbf{a}^{\dagger}_j \mathbf{a}_a \mathbf{a}_b\}  \mathbf{V}_N \mathbf{T}_1 | \Psi_0 \rangle & = 
-\frac{1}{4}
-\sum_{pqrs}
-\sum_{kc}
-\langle pq|| rs \rangle t_k^c \langle \Phi_0 | \{
-\mathbf{a}^{\dagger}_i
-\mathbf{a}^{\dagger}_j
-\mathbf{a}_a
-\mathbf{a}_b \} \nonumber \\ & 
-\left(
-\{
-\mathbf{a}^{\dagger}_p
-\mathbf{a}^{\dagger}_q
-\mathbf{a}_s
-\mathbf{a}_r
-\}
-\{
-\mathbf{a}^{\dagger}_c
-\mathbf{a}_k
-\}
-\right)_c | \Phi_0 \rangle
-\nonumber \\ & = 
-\frac{1}{4} \sum_{pqrs} \sum_{kc} \langle pq||rs\rangle t_k^c ( \delta_{pa} \delta_{qb} \delta_{rc} \delta_{sj} \delta_{ik}  \nonumber \\ & 
-- \delta_{pa} \delta_{qb} \delta_{rc} \delta_{si} \delta_{jk}
-- \delta_{pa} \delta_{qb} \delta_{rj} \delta_{sc} \delta_{ik}
-+ \delta_{pa} \delta_{qb} \delta_{ri} \delta_{sc} \delta_{jk}
-\nonumber \\ & 
-+ \delta_{pa} \delta_{qk} \delta_{rj} \delta_{si} \delta_{bc}
-- \delta_{pa} \delta_{qk} \delta_{ri} \delta_{sj} \delta_{bc}
-+ \delta_{pb} \delta_{qa} \delta_{rj} \delta_{sc} \delta_{ik}
- \nonumber \\ & 
-- \delta_{pb} \delta_{qa} \delta_{ri} \delta_{sc} \delta_{jk}
-+ \delta_{pb} \delta_{qa} \delta_{rc} \delta_{si} \delta_{jk} 
-+ \delta_{pb} \delta_{qk} \delta_{ri} \delta_{sj} \delta_{ac} \nonumber \\ & 
-- \delta_{pb} \delta_{qk} \delta_{rj} \delta_{si} \delta_{ac}
-- \delta_{pb} \delta_{qa} \delta_{rc} \delta_{sj} \delta_{ik}
-+ \delta_{pk} \delta_{qa} \delta_{ri} \delta_{sj} \delta_{bc} \nonumber \\ & 
-- \delta_{pk} \delta_{qb} \delta_{ri} \delta_{sj} \delta_{ac}
-- \delta_{pk} \delta_{qa} \delta_{rj} \delta_{si} \delta_{bc}
-+ \delta_{pk} \delta_{qb} \delta_{rj} \delta_{si} \delta_{ac}) \nonumber \\ &
-= \sum_c \left( \langle ab || cj \rangle t_i^c - \langle ab || ci \rangle t_j^c \right) \nonumber \\ & 
-+ \sum_k \left( \langle ij || bk \rangle t_k^a - \langle ij||ak\rangle t_k^b \right) .
-\end{align} 
-!et
-The rest of Eq. ref{T2equationtosolve} can be solved in a similar manner. This is a task testing stamina and determination. Here we will simply state the result, however there is a more complete derivation using "Feynman Diagrams" available in Appendix A. \\
-
-Before we state the final result we must define a permutation operator, $\mathbf{P}$.
-
-!bt 
-\begin{equation}
-\mathbf{P}(ab) f(a,b) = f(a,b) - f(b,a) .
-\end{equation} 
-!et
-An example of this would be:
-
-!bt 
-\begin{equation}
-\mathbf{P}(ab) \sum_{abij} t_i^a t_j^b f_{ai} = \sum_{abij} \left( t_i^a t_j^b f_{ai} - t_i^b t_j^a f_{bi} \right) .
-\end{equation} 
-!et 
-Using this definition and solving the rest of Eq. ref{T2equationtosolve} the expression becomes the following:
-
-!bt 
-\begin{align}
-0 = & \langle ab || ij \rangle
-+ \mathbf{P}(ab) \sum_c f_{bc} t_{ij}^{ac}
-- \mathbf{P}(ij) \sum_k f_{kj} t_{ik}^{ab}
-+ \frac{1}{2} \sum_{kl} \langle kl||ij \rangle t_{kl}^{ab} label{T2equation} \\ &
-+ \frac{1}{2} \sum_{cd} \langle ab || cd \rangle t_{ij}^{cd}
-+ \mathbf{P}(ij) \mathbf{P}(ab) \sum_{kc}
-\langle kb||cj \rangle t_{ik}^{ac} \nonumber \\ &
-+ \mathbf{P}(ij) \sum_c \langle ab || cj \rangle t_i^c
-- \mathbf{P}(ab) \sum_k \langle kb || ij \rangle t_k^a
-\nonumber \\ &
-+ \frac{1}{2} \mathbf{P}(ij) \mathbf{P}(ab) \sum_{klcd}
-\langle kl || cd \rangle t_{ik}^{ac} t_{lj}^{db} 
-+ \frac{1}{4} \sum_{klcd} \langle kl || cd \rangle
-t_{ij}^{cd} t_{kl}^{ab} \nonumber \\ &
--  \frac{1}{2} \mathbf{P}(ab)\sum_{klcd} \langle kl || cd \rangle t_{ij}^{ac} t_{kl}^{bd}
-- \frac{1}{2} \mathbf{P}(ij) \sum_{klcd} \langle kl || cd \rangle t_{ik}^{ab} t_{jl}^{cd} \nonumber \\ &
-+ \frac{1}{2} \mathbf{P}(ab) \sum_{kl}
-\langle kl || ij \rangle t_k^a t_l^b 
-+ \frac{1}{2} \mathbf{P}(ij) \sum_{cd} \langle ab || cd \rangle t_i^c t_j^d \nonumber \\ &
-- \mathbf{P}(ij) \mathbf{P}(ab) \sum_{kc} \langle kb || ic \rangle t_k^a t_j^c
-+  \mathbf{P}(ab) \sum_{kc} f_{kc} t_k^a t_{ij}^{bc} 
-\nonumber \\ &
-+ \mathbf{P}(ij) \sum_{kc} f_{kc} t_i^c t_{jk}^{ab}
-- \mathbf{P}(ij) \sum_{klc} \langle kl || ci \rangle t_k^c t_{lj}^{ab}  \nonumber \\ &
-+ \mathbf{P} (ab) \sum_{kcd} \langle ka || cd \rangle t_k^c t_{ij}^{db} 
-+ \mathbf{P}(ij) \mathbf{P}(ab) \sum_{kcd} \langle ak || dc \rangle t_i^d t_{jk}^{bc} \nonumber \\ &
-+ \mathbf{P} (ij) \mathbf{P}(ab) \sum_{klc} \langle kl || ic \rangle t_l^a t_{jk}^{bc} 
-+ \frac{1}{2} \mathbf{P}(ij) \sum_{klc} \langle kl || cj \rangle t_i^c t_{kl}^{ab} \nonumber \\ &
-- \frac{1}{2} \mathbf{P}(ab) \sum_{kcd} \langle kb || cd \rangle t_k^a t_{ij}^{cd} 
-- \frac{1}{2} \mathbf{P}(ij) \mathbf{P}(ab) \sum_{kcd} \langle kb||cd \rangle t_i^c t_k^a t_j^d \nonumber \\ &
-+ \frac{1}{2} \mathbf{P}(ij) \mathbf{P}(ab) \sum_{klc} \langle kl || cj \rangle t_i^c t_k^a t_l^b
-- \mathbf{P}(ij) \sum_{klcd} \langle kl || cd \rangle t_k^c t_i^d t_{lj}^{ab} \nonumber \\ &
-- \mathbf{P}(ab) \sum_{klcd} \langle kl||cd \rangle t_k^c t_l^a t_{ij}^{db}
-+ \frac{1}{4} \mathbf{P}(ij) \sum_{klcd} \langle kl || cd \rangle t_i^c t_j^d t_{kl}^{ab} \nonumber \\ &
-+ \frac{1}{4} \mathbf{P}(ab) \sum_{klcd} \langle kl || cd \rangle t_k^a t_l^b t_{ij}^{cd}
-+ \mathbf{P}(ij) \mathbf{P}(ab) \sum_{klcd} \langle kl || cd \rangle t_i^c t_l^b t_{kj}^{ad} \nonumber \\ &
-+ \frac{1}{4} \mathbf{P}(ij) \mathbf{P} (ab) \sum_{klcd} \langle kl || cd \rangle t_i^c t_k^a t_j^d t_l^b . \nonumber
-\end{align} 
-!et
-
-
-======= Introducing denominators =======
-The expressions for $t_i^a$ and $t_{ij}^{ab}$ are complex and it is not easy to understand how to implement these equations effectively. The rest of this chapter and the next will be dedicated to simplifying Eqs. ref{T1equation} and ref{T2equation}.
-
-===== $t_i^a$ =====
-Eq. ref{T1equation} should be rewritten considerably before it is programmable. Starting with a definition of $D_i^a$.
-
-!bt 
-\begin{equation}
-D_i^a \equiv f_{ii} - f_{aa} . label{D_i_a_def} 
-\end{equation} 
-!et
-Remembering Eq. ref{T1equation} we know it starts like this:
-
-!bt 
-\begin{align}
-0 = f_{ai} + \sum_c f_{ac} t_i^c - \sum_k f_{ki} t_k^a + \sum_{kc} \langle ka||ci \rangle t_k^c + \sum_{kc} f_{kc} t_{ik}^{ac} + \dots . label{t1equationstart11}
-\end{align} 
-!et
-The term $\sum_c f_{ac} t_i^c$ can be rewritten.
-
-!bt 
-\begin{equation}
-\sum_c f_{ac} t_i^c = f_{aa} t_i^a + \sum_c 
-(1 - \delta_{ca} ) f_{ac} t_i^c .
-\end{equation} 
-!et
-Doing the same with the term $\sum_k f_{ki} t_k^a$ and inserting in Eq. ref{t1equationstart11} we get:
-
-!bt 
-\begin{align}
-0 = f_{ai} + f_{aa} t_i^a + \sum_c 
-(1 - \delta_{ca} ) f_{ac} t_i^c - f_{ii} t_i^a - \sum_k (1 - \delta_{ki}) f_{ki} t_k^a + \dots \nonumber
-\end{align} 
-!et
-The two terms $f_{aa} t_i^a$ and $f_{ii} t_i^a$ are combined using the definition Eq. ref{D_i_a_def}. 
-
-!bt 
-\begin{equation}
-f_{aa} t_i^a - f_{ii} t_i^a = -D_i^a t_i^a .
-\end{equation} 
-!et
-This is inserted into Eq. ref{T1equation}, and moved to the other side of the equation.
-
-!bt 
-\begin{equation}
-D_i^a t_i^a = f_{ai} + \sum_c 
-(1 - \delta_{ca} ) f_{ac} t_i^c - \sum_k (1 - \delta_{ki}) f_{ki} t_k^a + \dots
-\end{equation} 
-!et
-If we perform the same procedure for $t_{ij}^{ab}$ we can solve this iteratively until self consistency is reached.
-
-===== $t_{ij}^{ab}$ =====
-We also implement a denominator $D_{ij}^{ab}$ in Eq. ref{T2equation}. 
-
-!bt 
-\begin{equation}
-D_{ij}^{ab} \equiv f_{ii} + f_{jj} - f_{aa} - f_{bb}
-\end{equation} 
-!et
-Here we want to create the term $D_{ij}^{ab} t_{ij}^{ab}$. This is done with the same procedure with the two terms $\mathbf{P}(ab) \sum_c f_{bc} t_{ij}^{ac}- \mathbf{P}(ij) \sum_k f_{kj} t_{ik}^{ab}$ 
-from Eq. ref{T2equation}. These two terms can be expressed in a different manner.
-!bt 
-\begin{align}
-\mathbf{P}(ab) \sum_c f_{bc} t_{ij}^{ac}
-- \mathbf{P}(ij) \sum_k f_{kj} t_{ik}^{ab} = & 
-f_{aa} t_{ij}^{ab} + f_{bb} t_{ij}^{ab} + 
-\mathbf{P}(ab) \sum_c (1-\delta_{bc}) f_{bc} t_{ij}^{ac} \nonumber \\ &
-- \mathbf{P}(ij) \sum_k (1-\delta_{kj}) f_{kj} t_{ik}^{ab}
-- f_{ii} t_{ij}^{ab}
-- f_{jj} t_{ij}^{ab} . \nonumber
-\end{align} 
-!et
-Then the four terms where no sums are present are combined into $D_{ij}^{ab} t_{ij}^{ab}$ and moved to the other side of the equation. This leaves another problem which we can solve iteratively.
+\[
+\langle \Phi_0 | \hat{H} -E| \Phi_0\rangle + \sum_{ai}\langle \Phi_0 | \hat{H} -E|\Phi_{i}^{a} \rangle C_{i}^{a}+
+\sum_{abij}\langle \Phi_0 | \hat{H} -E|\Phi_{ij}^{ab} \rangle C_{ij}^{ab}=0,
+\]
+!et
+or 
 !bt
-\begin{equation}
-D_{ij}^{ab} t_{ij}^{ab} = \langle ab||ij \rangle + + 
-\mathbf{P}(ab) \sum_c (1-\delta_{bc}) f_{bc} t_{ij}^{ac} - \dots \nonumber
-\end{equation}
+\[
+E-E_0 =\Delta E=\sum_{ai}\langle \Phi_0 | \hat{H}|\Phi_{i}^{a} \rangle C_{i}^{a}+
+\sum_{abij}\langle \Phi_0 | \hat{H}|\Phi_{ij}^{ab} \rangle C_{ij}^{ab},
+\]
 !et
-Here those three dots represent the rest of Eq. ref{T2equation}.
+where the energy $E_0$ is the reference energy and $\Delta E$ defines the so-called correlation energy.
+The single-particle basis functions  could be the results of a Hartree-Fock calculation or just the eigenstates of the non-interacting part of the Hamiltonian. 
 
-===== Initial guess =====
-The initial guess from where to start the iterative process can be anything. However it is common to start an initial guess where all the amplitudes on the right side are 0. This leaves
-
-!bt 
-\begin{equation}
-t_i^a = \frac{f_{ai}}{D_i^a} .
-\end{equation}
-!et
-!bt 
-\begin{equation}
-t_{ij}^{ab} = \frac{\langle ab || ij \rangle}{D_{ij}^{ab}} .
-\end{equation}
-!et
-However it is also common to simply guess $t_i^a = 0$. We will make this initial guess to make benchmarking the number of iterations easier. \\
-
-The iterative procedure is one where $t_i^a$ and $t_{ij}^{ab}$ are updated simultaneously, and in theory we have converged once these amplitudes stop changing. However in practice we define a convergence criteria. This is then compared to the change in energy each iteration with the newly updated amplitudes. We then define convergence to when the energy stop changing, which should for all intents and purposes be an equivalent criteria. 
-
-
-======= CCSD factorization ======= 
-CCSD with a closed shell spin
-restricted Hartree Fock (RHF) basis can simplify our CCSD calculations
-considerably.
-
-
-The factorization is based on the work of J. F. Stanton and J. Gauss
-One simplification we have already discussed is the introduction of
-$D_i^a$ and $D_{ij}^{ab}$. These denominators are independent of the
-amplitudes, hence they can be calculated and stored outside any
-iterative procedure.
-
-
-======= Constructing an algorithm =======
-When constructing this CCSD serial algorithm we want a few things in mind. First we wish to minimize the number of FLOPS. Second we want to utilize external linear algebra libraries to perform the calculations. Third we want the option to easily modify the algorithm to work in parallel. This third brings up a few new concerns. One of which is that effective parallel programs are ones that minimize the communication between nodes, in part by  symmetry considerations. This issue will be dealt with in a later chapter in greater detail.
-
-===== Inserting denominators =====
-
-
-First we insert $D_i^a$ into Eq. ref{t1amp_1}. We also insert our notation for $\langle ab || ij \rangle$ which is
+In our notes on Hartree-Fock calculations, 
+we have already computed the matrix $\langle \Phi_0 | \hat{H}|\Phi_{i}^{a}\rangle $ and $\langle \Phi_0 | \hat{H}|\Phi_{ij}^{ab}\rangle$.  If we are using a Hartree-Fock basis, then the matrix elements
+$\langle \Phi_0 | \hat{H}|\Phi_{i}^{a}\rangle=0$ and we are left with a *correlation energy* given by
 !bt
-\begin{equation}
-I_{ij}^{ab} = \langle ab || ij \rangle .
-\end{equation}
+\[
+E-E_0 =\Delta E^{HF}=\sum_{abij}\langle \Phi_0 | \hat{H}|\Phi_{ij}^{ab} \rangle C_{ij}^{ab}. 
+\]
+!et
+ 
+
+Inserting the various matrix elements we can rewrite the previous equation as
+!bt
+\[
+\Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle C_{i}^{a}+
+\sum_{abij}\langle ij | \hat{v}| ab \rangle C_{ij}^{ab}.
+\]
+!et
+This equation determines the correlation energy but not the coefficients $C$. 
+We need more equations. Our next step is to set up
+!bt
+\[
+\langle \Phi_i^a | \hat{H} -E| \Phi_0\rangle + \sum_{bj}\langle \Phi_i^a | \hat{H} -E|\Phi_{j}^{b} \rangle C_{j}^{b}+
+\sum_{bcjk}\langle \Phi_i^a | \hat{H} -E|\Phi_{jk}^{bc} \rangle C_{jk}^{bc}+
+\sum_{bcdjkl}\langle \Phi_i^a | \hat{H} -E|\Phi_{jkl}^{bcd} \rangle C_{jkl}^{bcd}=0,
+\]
+!et
+as this equation will allow us to find an expression for the coefficents $C_i^a$ since we can rewrite this equation as 
+!bt
+\[
+\langle i | \hat{f}| a\rangle +\langle \Phi_i^a | \hat{H}|\Phi_{i}^{a} \rangle C_{i}^{a}+ \sum_{bj\ne ai}\langle \Phi_i^a | \hat{H}|\Phi_{j}^{b} \rangle C_{j}^{b}+
+\sum_{bcjk}\langle \Phi_i^a | \hat{H}|\Phi_{jk}^{bc} \rangle C_{jk}^{bc}+
+\sum_{bcdjkl}\langle \Phi_i^a | \hat{H}|\Phi_{jkl}^{bcd} \rangle C_{jkl}^{bcd}=EC_i^a.
+\]
+!et
+
+We see that on the right-hand side we have the energy $E$. This leads to a non-linear equation in the unknown coefficients. 
+These equations are normally solved iteratively ( that is we can start with a guess for the coefficients $C_i^a$). A common choice is to use perturbation theory for the first guess, setting thereby
+!bt
+\[
+ C_{i}^{a}=\frac{\langle i | \hat{f}| a\rangle}{\epsilon_i-\epsilon_a}.
+\]
+!et
+
+The observant reader will however see that we need an equation for $C_{jk}^{bc}$ and $C_{jkl}^{bcd}$ as well.
+To find equations for these coefficients we need then to continue our multiplications from the left with the various
+$\Phi_{H}^P$ terms. 
+
+
+For $C_{jk}^{bc}$ we need then
+!bt
+\[
+\langle \Phi_{ij}^{ab} | \hat{H} -E| \Phi_0\rangle + \sum_{kc}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{k}^{c} \rangle C_{k}^{c}+
+\]
 !et
 !bt
+\[
+\sum_{cdkl}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{kl}^{cd} \rangle C_{kl}^{cd}+\sum_{cdeklm}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{klm}^{cde} \rangle C_{klm}^{cde}+\sum_{cdefklmn}\langle \Phi_{ij}^{ab} | \hat{H} -E|\Phi_{klmn}^{cdef} \rangle C_{klmn}^{cdef}=0,
+\]
+!et
+and we can isolate the coefficients $C_{kl}^{cd}$ in a similar way as we did for the coefficients $C_{i}^{a}$. 
+A standard choice for the first iteration is to set 
+!bt
+\[
+C_{ij}^{ab} =\frac{\langle ij \vert \hat{v} \vert ab \rangle}{\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b}.
+\]
+!et
+At the end we can rewrite our solution of the Schroedinger equation in terms of $n$ coupled equations for the coefficients $C_H^P$.
+This is a very cumbersome way of solving the equation. However, by using this iterative scheme we can illustrate how we can compute the
+various terms in the wave operator or correlation operator $\hat{C}$. We will later identify the calculation of the various terms $C_H^P$
+as parts of different many-body approximations to full CI. In particular, we can  relate this non-linear scheme with Coupled Cluster theory and
+many-body perturbation theory.
+
+
+===== Summarizing FCI and bringing in approximative methods =====
+
+
+If we can diagonalize large matrices, FCI is the method of choice since:
+* It gives all eigenvalues, ground state and excited states
+* The eigenvectors are obtained directly from the coefficients $C_H^P$ which result from the diagonalization
+* We can compute easily expectation values of other operators, as well as transition probabilities
+* Correlations are easy to understand in terms of contributions to a given operator beyond the Hartree-Fock contribution. This is the standard approach in  many-body theory. 
+
+The correlation energy is defined as, with a two-body Hamiltonian,  
+!bt
+\[
+\Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle C_{i}^{a}+
+\sum_{abij}\langle ij | \hat{v}| ab \rangle C_{ij}^{ab}.
+\]
+!et
+
+The coefficients $C$ result from the solution of the eigenvalue problem. 
+The energy of say the ground state is then
+!bt
+\[
+E=E_{ref}+\Delta E,
+\]
+!et
+where the so-called reference energy is the energy we obtain from a Hartree-Fock calculation, that is
+!bt
+\[
+E_{ref}=\langle \Phi_0 \vert \hat{H} \vert \Phi_0 \rangle.
+\]
+!et
+
+However, as we have seen, even for a small case like the four first major shells and a nucleus like oxygen-16, the dimensionality becomes quickly intractable. If we wish to include single-particle states that reflect weakly bound systems, we need a much larger single-particle basis. We need thus approximative methods that sum specific correlations to infinite order. 
+
+Popular methods are
+* "Many-body perturbation theory (in essence a Taylor expansion)":"http://www.sciencedirect.com/science/journal/03701573/261/3-4"
+* "Coupled cluster theory (coupled non-linear equations)":"http://iopscience.iop.org/0034-4885/77/9/096302"
+* "Green's function approaches (matrix inversion)":"http://www.worldscientific.com/worldscibooks/10.1142/6821"
+* "Similarity group transformation methods (coupled ordinary differential equations)":"http://journals.aps.org/prc/abstract/10.1103/PhysRevC.85.061304"
+
+All these methods start normally with a Hartree-Fock basis as the calculational basis. 
+
+
+===== A quick tour of Coupled Cluster theory =====
+
+The ansatz for the wavefunction (ground state) is given by
+!bt
+\begin{equation*}
+   \vert \Psi\rangle = \vert \Psi_{CC}\rangle = e^{\hat{T}} \vert \Phi_0\rangle =  
+  \left( \sum_{n=1}^{A} \frac{1}{n!} \hat{T}^n \right) \vert \Phi_0\rangle,
+\end{equation*}
+!et
+where $A$ represents the maximum number of particle-hole excitations and $\hat{T}$ is the cluster operator defined as
+!bt
+\begin{align*}
+            \hat{T} &= \hat{T}_1 + \hat{T}_2 + \ldots + \hat{T}_A \\
+            \hat{T}_n &= \left(\frac{1}{n!}\right)^2 
+                \sum_{\substack{
+                        i_1,i_2,\ldots i_n \\
+                        a_1,a_2,\ldots a_n}}
+                t_{i_1i_2\ldots i_n}^{a_1a_2\ldots a_n} a_{a_1}^\dagger a_{a_2}^\dagger \ldots a_{a_n}^\dagger a_{i_n} \ldots a_{i_2} a_{i_1}.
+        \end{align*}
+!et
+    The energy is given by
+!bt
+    \begin{equation*}
+        E_{\mathrm{CC}} = \langle\Phi_0\vert  \overline{H}\vert \Phi_0\rangle,
+    \end{equation*}
+!et
+    where $\overline{H}$ is a similarity transformed Hamiltonian
+!bt
+    \begin{align*}
+        \overline{H}&= e^{-\hat{T}} \hat{H}_N e^{\hat{T}} \\
+        \hat{H}_N &= \hat{H} - \langle\Phi_0\vert \hat{H} \vert \Phi_0\rangle.
+    \end{align*}
+!et
+
+    The coupled cluster energy is a function of the unknown cluster amplitudes $t_{i_1i_2\ldots i_n}^{a_1a_2\ldots a_n}$,
+given by the solutions to the amplitude equations
+!bt
+    \begin{equation*}
+        0 = \langle\Phi_{i_1 \ldots i_n}^{a_1 \ldots a_n}\vert \overline{H}\vert \Phi_0\rangle.
+    \end{equation*}
+!et
+The similarity transformed   Hamiltonian  $\overline{H}$ is expanded using the Baker-Campbell-Hausdorff expression,
+!bt
+    \begin{align*}
+        \overline{H}&= \hat{H}_N + \left[ \hat{H}_N, \hat{T} \right] + 
+            \frac{1}{2} \left[\left[ \hat{H}_N, \hat{T} \right], \hat{T}\right] + \ldots \\
+            & \quad \frac{1}{n!} \left[ \ldots \left[ \hat{H}_N, \hat{T} \right], \ldots \hat{T} \right] +\dots
+    \end{align*}
+!et
+and simplified using the connected cluster theorem
+!bt
+    \begin{equation*}
+        \overline{H}= \hat{H}_N + \left( \hat{H}_N \hat{T}\right)_c + \frac{1}{2} \left( \hat{H}_N \hat{T}^2\right)_c
+            + \dots + \frac{1}{n!} \left( \hat{H}_N \hat{T}^n\right)_c +\dots
+    \end{equation*}
+!et
+
+A much used approximation is to  truncate the cluster operator $\hat{T}$ at the $n=2$ level. This defines the so-called singes and doubles approximation to the Coupled Cluster wavefunction, normally shortened to CCSD..
+    
+The coupled cluster wavefunction is now given by
+!bt
+\begin{equation*}
+            \vert \Psi_{CC}\rangle = e^{\hat{T}_1 + \hat{T}_2} \vert \Phi_0\rangle
+\end{equation*}
+!et
+where 
+!bt
+        \begin{align*}
+            \hat{T}_1 &= 
+            \sum_{ia}
+                t_{i}^{a} a_{a}^\dagger a_i \\
+            \hat{T}_2 &= \frac{1}{4} 
+            \sum_{ijab}
+                t_{ij}^{ab} a_{a}^\dagger a_{b}^\dagger a_{j} a_{i}.
+        \end{align*}
+!et
+
+The amplutudes $t$ play a role similar to the coefficients $C$ in the shell-model calculations. They are obtained by solving a set of non-linear equations
+similar to those discussed above in connection withe FCI discussion.
+
+If we truncate our equations at the CCSD level, it corresponds to performing a transformation of the Hamiltonian matrix of the following type for a six particle problem (with a two-body Hamiltonian):
+
+|---------------------------------------------------------------|
+|       |$0p-0h$ | $1p-1h$   | $2p-2h$ | $3p-3h$| $4p-4h$ | $5p-5h$ | $6p-6h$ | 
+|---------------------------------------------------------------|
+|$0p-0h$  |  $\tilde{x}$   |  $\tilde{x}$      |  $\tilde{x}$    |  0   |   0   |  0    |  0    |
+|$1p-1h$  |  0   |  $\tilde{x}$      |  $\tilde{x}$    |  $\tilde{x}$   |   0   |  0    |  0    |
+|$2p-2h$  |  0   |  $\tilde{x}$      |  $\tilde{x}$    |  $\tilde{x}$   |   $\tilde{x}$   |  0    |  0    |
+|$3p-3h$  |  0   |  $\tilde{x}$      |  $\tilde{x}$    |  $\tilde{x}$   |   $\tilde{x}$   |  $\tilde{x}$    |  0    |
+|$4p-4h$  |  0   |  0      |  $\tilde{x}$    |  $\tilde{x}$   |   $\tilde{x}$   |  $\tilde{x}$    |  $\tilde{x}$    |
+|$5p-5h$  |  0   |  0      |  0    |  $\tilde{x}$   |   $\tilde{x}$   |  $\tilde{x}$    |  $\tilde{x}$    |
+|$6p-6h$  |  0   |  0      |  0    |  0   |   $\tilde{x}$   |  $\tilde{x}$    |  $\tilde{x}$    |
+|---------------------------------------------------------------|
+
+
+
+In our FCI discussion the correlation energy is defined as, with a two-body Hamiltonian,  
+!bt
+\[
+\Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle C_{i}^{a}+
+\sum_{abij}\langle ij | \hat{v}| ab \rangle C_{ij}^{ab}.
+\]
+!et
+
+In Coupled cluster theory it becomes (irrespective of level of truncation of $T$)
+!bt
+\[
+\Delta E=\sum_{ai}\langle i| \hat{f}|a \rangle t_{i}^{a}+
+\sum_{abij}\langle ij | \hat{v}| ab \rangle t_{ij}^{ab}.
+\]
+!et
+
+Coupled cluster theory has several interesting computational features and is the method of choice in quantum chemistry. The method was originally proposed by Coester and Kummel, two nuclear physicists (way back in the fifties). It came back in full strength in nuclear physics during the last decade. 
+
+There are several interesting features:
+* With a truncation like CCSD or CCSDT, we can include to infinite order correlations like $2p-2h$.
+* We can include a large basis of single-particle states, not possible in standard FCI calculations
+
+However, Coupled Cluster theory is
+* non-variational
+* if we want to find properties of excited states, additional calculations via for example equation of motion methods are needed
+* if correlations are strong, a single-reference ansatz may not be the best starting point
+* we cannot quantify properly the error we make when truncations are made in the cluster operator
+
+=====  The CCD approximation =====
+
+We will now approximate the cluster operator $\hat{T}$ to include only $2p-2h$ correlations. This leads to the so-called CCD approximation, that is
+!bt 
+\[
+\hat{T}\approx \hat{T}_2=\frac{1}{4}\sum_{abij}t_{ij}^{ab}a^{\dagger}_aa^{\dagger}_ba_ja_i,
+\]
+!et
+meaning that we have
+!bt
+\[
+\vert \Psi_0 \rangle \approx \vert \Psi_{CCD} \rangle = \exp{\left(\hat{T}_2\right)}\vert \Phi_0\rangle.
+\]
+!et
+
+Inserting these equations in the expression for the computation of the energy we have,
+with a Hamiltonian defined with respect to a general vacuum (see the exercises in the second quantization part)
+!bt
+\[
+\hat{H}=\hat{H}_N+E_{\mathrm{ref}},
+\]
+!et
+with 
+!bt
+\[
+\hat{H}_N=\sum_{pq}\langle p \vert \hat{f} \vert q \rangle  a^{\dagger}_pa_q + \frac{1}{4}\sum_{pqrs}\langle pq \vert \hat{v} \vert rs \rangle a^{\dagger}_pa^{\dagger}_qa_sa_r,
+\]
+!et
+we obtain that the energy can be written as 
+!bt
+\[
+\langle \Phi_0 \vert \exp{-\left(\hat{T}_2\right)}\hat{H}_N\exp{\left(\hat{T}_2\right)}\vert \Phi_0\rangle =
+\langle \Phi_0 \vert \hat{H}_N(1+\hat{T}_2)\vert \Phi_0\rangle = E_{CCD}.
+\]
+!et
+This quantity becomes 
+!bt
+\[
+E_{CCD}=E_{\mathrm{ref}}+\frac{1}{4}\sum_{abij}\langle ij \vert \hat{v} \vert ab \rangle t_{ij}^{ab},
+\]
+!et
+where the latter is the correlation energy from this level of approximation of CC theory. 
+Similarly, the expression for the amplitudes reads
+!bt
+\[
+\langle \Phi_{ij}^{ab} \vert \exp{-\left(\hat{T}_2\right)}\hat{H}_N\exp{\left(\hat{T}_2\right)}\vert \Phi_0\rangle = 0.
+\]
+!et
+These equations can be reduced to (after several applications of Wick's theorem) to, for all $i > j$ and all $a  > b$,
+!bt
 \begin{align}
-D_i^a t_i^a = & 
-f_{ai} 
-+ \sum_{a\not= c} f_{ac} t_i^c 
-- \sum_{i \not= k} f_{ki} t_k^a 
-+ \sum_{kc} I_{ka}^{ci} t_k^c 
-+ \sum_{kc} f_{kc} t_{ik}^{ac} \nonumber \\ &
-+ \frac{1}{2} \sum_{kcd} I_{ka}^{cd} t_{ki}^{cd} 
-- \frac{1}{2} \sum_{klc} I_{kl}^{ci} t_{kl}^{ca} 
-- \sum_{kc} f_{kc} t_i^c t_k^a 
-- \sum_{klc} I_{kl}^{ci} t_k^c t_l^a \nonumber \\ & 
- + \sum_{kcd} I_{ka}^{cd} t_k^c t_i^d 
-- \sum_{klcd} I_{kl}^{cd} t_k^c t_i^d t_l^a 
-+ \sum_{klcd} I_{kl}^{cd} t_k^c t_{li}^{da} \nonumber \\ &
- - \frac{1}{2} \sum_{klcd} I_{kl}^{cd} t_{ki}^{cd} t_l^a 
-- \frac{1}{2} \sum_{klcd} I_{kl}^{cd} t_{kl}^{ca} t_i^d
-. 
+0 = \langle ab \vert \hat{v} \vert ij \rangle + \left(\epsilon_a+\epsilon_b-\epsilon_i-\epsilon_j\right)t_{ij}^{ab} & \nonumber \\ 
++\frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle t_{ij}^{cd}+\frac{1}{2}\sum_{kl} \langle kl \vert \hat{v} \vert ij \rangle t_{kl}^{ab}+\hat{P}(ij\vert ab)\sum_{kc} \langle kb \vert \hat{v} \vert cj \rangle t_{ik}^{ac} & \nonumber \\
++\frac{1}{4}\sum_{klcd} \langle kl \vert \hat{v} \vert cd \rangle t_{ij}^{cd}t_{kl}^{ab}+\hat{P}(ij)\sum_{klcd} \langle kl \vert \hat{v} \vert cd \rangle t_{ik}^{ac}t_{jl}^{bd}& \nonumber \\
+-\frac{1}{2}\hat{P}(ij)\sum_{klcd} \langle kl \vert \hat{v} \vert cd \rangle t_{ik}^{dc}t_{lj}^{ab}-\frac{1}{2}\hat{P}(ab)\sum_{klcd} \langle kl \vert \hat{v} \vert cd \rangle t_{lk}^{ac}t_{ij}^{db},&
+label{eq:ccd}
 \end{align}
 !et
-The calculation of $t_i^a$ scales as $n^6$.
+where we have defined 
+!bt
+\[
+\hat{P}\left(ab\right)= 1-\hat{P}_{ab},
+\]
+!et
+where $\hat{P}_{ab}$ interchanges two particles occupying the quantum numbers $a$ and $b$. 
+The operator $\hat{P}(ij\vert ab)$  is defined as
+!bt
+\[
+\hat{P}(ij\vert ab) = (1-\hat{P}_{ij})(1-\hat{P}_{ab}).
+\]
+!et
+Recall also that the unknown amplitudes $t_{ij}^{ab}$
+represent anti-symmetrized matrix elements, meaning that they obey the same symmetry relations as the two-body interaction, that is
+!bt
+\[
+t_{ij}^{ab}=-t_{ji}^{ab}=-t_{ij}^{ba}=t_{ji}^{ba}.
+\]
+!et
+The two-body matrix elements are also anti-symmetrized, meaning that
+!bt
+\[
+\langle ab \vert \hat{v} \vert ij \rangle = -\langle ab \vert \hat{v} \vert ji \rangle= -\langle ba \vert \hat{v} \vert ij \rangle=\langle ba \vert \hat{v} \vert ji \rangle.
+\]
+!et
+The non-linear equations for the unknown amplitudes  $t_{ij}^{ab}$ are solved iteratively. We discuss the implementation of these equations below.
 
+=== Approximations to the full CCD equations ===
 
-We do the exact same procedure for $t_{ij}^{ab}$ amplitudes. Insert $D_{ij}^{ab}$ and combine terms into the same sums.
+It is useful to make approximations to the equations for the amplitudes. The standard method for solving these equations is to set up an iterative scheme where method's like Newton's method or similar root searching methods are used to find the amplitudes. 
+Itreative solvers need a guess for the amplitudes. A good starting point is to use the correlated wave operator from perturbation theory to
+first order in the interaction.
+This means that we define the zeroth approximation to the amplitudes as 
 !bt
-\begin{align}
-D_{ij}^{ab} t_{ij}^{ab} = & 
-I_{ab}^{ij}
-+ \frac{1}{2} \sum_{kl} I_{kl}^{ij} t_{kl}^{ab} 
-+ \frac{1}{2} \sum_{cd} I_{ab}^{cd} t_{ij}^{cd}
-+ \frac{1}{4} \sum_{klcd} I_{kl}^{cd}
-t_{ij}^{cd} t_{kl}^{ab} 
- \nonumber \\ &
-- \sum_{k \not= j} f_{kj} t_{ik}^{ab} 
-+ \sum_{k \not= i} f_{ki} t_{jk}^{ab}
-+ \sum_{c \not= b} f_{bc} t_{ij}^{ac}
-- \sum_{c \not= a} f_{ac} t_{ij}^{bc}
- \nonumber \\ &
-+ \mathbf{P}(ab) 
-\{
-\sum_{kc} f_{kc} t_k^a t_{ij}^{bc}
-- \sum_k I_{kb}^{ij} t_k^a
-+ \frac{1}{2} \sum_{kl} I_{kl}^{ij} t_k^a t_l^b 
-\nonumber \\ &
-+ \sum_{kcd} 
-(
-I_{ka}^{cd} t_k^c t_{ij}^{db} 
-- \frac{1}{2} I_{kb}^{cd} t_k^a t_{ij}^{cd} 
-)
-+ \sum_{klcd} I_{kl}^{cd} (\frac{1}{4} t_k^a t_l^b t_{ij}^{cd} - t_k^c t_l^a t_{ij}^{db} - \frac{1}{2} t_{ij}^{ac} t_{kl}^{bd})
-\}
-\nonumber \\ &
-+ \mathbf{P}(ij)
-\{
-\sum_c I_{ab}^{cj} t_i^c
-+ \frac{1}{2} \sum_{cd} I_{ab}^{cd} t_i^c t_j^d 
-+ \sum_{kc} f_{kc} t_i^c t_{jk}^{ab}
-\nonumber \\ &
-+ \sum_{klc}
-( 
-\frac{1}{2} 
-I_{kl}^{cj} t_i^c t_{kl}^{ab}
-- I_{kl}^{ci} t_k^c t_{lj}^{ab}
-)
-+ \sum_{klcd} I_{kl}^{cd}
-(
-\frac{1}{4} t_i^c t_j^d t_{kl}^{ab} 
-- t_k^c t_i^d t_{lj}^{ab} 
-- \frac{1}{2} t_{ik}^{ab} t_{jl}^{cd}
-)
-\}
-\nonumber \\ &
-+ \mathbf{P}(ab) \mathbf{P}(ij)
-\{
-\sum_{kc}
-(
-I_{kb}^{cj} t_{ik}^{ac}
-- I_{kb}^{ic} t_k^a t_j^c
-)
-+ \sum_{kcd}
-(
-I_{ak}^{dc} t_i^d t_{jk}^{bc}
-- I_{kb}^{cd} t_i^c t_k^a t_j^d
-)
-\nonumber \\ &
-+ \sum_{klc}
-(
-\frac{1}{2} I_{kl}^{cj} t_i^c t_k^a t_l^b
-+ I_{kl}^{ic} t_l^a t_{jk}^{bc}
-)
-+ \sum_{klcd} I_{kl}^{cd}
-(
-t_i^c t_l^b t_{kj}^{ad}
-+ \frac{1}{4} t_i^c t_k^a t_j^d t_l^b
-+ \frac{1}{2} t_{ik}^{ac} t_{lj}^{db} 
-)
-\} . 
-\end{align}
+\[
+t^{(0)}=\frac{\langle ab \vert \hat{v} \vert ij \rangle}{\left(\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b\right)},
+\]
 !et
-Calculating this scales as $n^8$ and can go faster with the definition of intermediates. Much of the material presented is based on the work of John F. Stanton and Jurgen Gauss.
-
-===== $[W_1]$ =====
-
-We first factor out and rewrite the following terms that as they stand now are calculated for all $a,b,i,j$ but only change when $i$ or $j$ changes.
+leading to our first approximation for the correlation energy at the CCD level to be equal to second-order perturbation theory without $1p-1h$ excitations, namely
 !bt
-\begin{align}
-& 
-\frac{1}{2} \sum_{kl} I_{kl}^{ij} t_{kl}^{ab} + \frac{1}{2} \mathbf{P}(ij) \sum_{klc} I_{kl}^{cj} t_i^c t_{kl}^{ab} + \mathbf{P}(ij) \frac{1}{4} \sum_{klcd} I_{kl}^{cd}  t_i^c t_j^d t_{kl}^{ab}
-+ \frac{1}{4} \sum_{klcd} I_{kl}^{cd} t_{ij}^{cd} t_{kl}^{ab}
-\nonumber \\ 
-= &
-\frac{1}{2} \sum_{kl} t_{kl}^{ab} \left[ I_{kl}^{ij} +  \sum_c \left(I_{kl}^{cj} t_i^c - I_{kl}^{ci} t_j^c + \frac{1}{2} \sum_{d}  I_{kl}^{cd} (t_i^c t_j^d - t_j^c t_i^d + t_{ij}^{cd})
- \right) \right]
-\nonumber \\ 
-= & \frac{1}{2} \sum_{kl} t_{kl}^{ab} [W_1]_{ij}^{kl} 
-.
-\end{align}
-!et
-Meaning a new intermediate is now defined.
-!bt
-\begin{equation}
-[W_1]^{kl}_{ij} = I_{kl}^{ij} +  \sum_c \left(I_{kl}^{cj} t_i^c - I_{kl}^{ci} t_j^c + \frac{1}{2} \sum_{d}  I_{kl}^{cd} (t_i^c t_j^d - t_j^c t_i^d + t_{ij}^{cd})
- \right) . label{intermedw1}
-\end{equation}
-!et
-The calculation of this intermediate scales as $n^6$. $[W_1]$ appear one more time in our equations. These terms can also be combined and factorized.
-!bt
-\begin{align}
-& \mathbf{P}(ab) \frac{1}{2} \sum_{kl} I_{kl}^{ij} t_k^a t_l^b
-+ \frac{1}{2} \sum_{klc} \mathbf{P}(ij) \mathbf{P}(ab) I_{kl}^{cj} t_i^c t_k^a t_l^b 
-\nonumber \\ &
-+ \frac{1}{4} \mathbf{P}(ab) \mathbf{P}(ij) \sum_{klcd} I_{kl}^{cd} t_i^c t_k^a t_j^d t_l^b
-+ \mathbf{P}(ab) \sum_{klcd} I_{kl}^{cd} \frac{1}{4} t_k^a t_l^b t_{ij}^{cd}
-\nonumber \\ 
-= &
-\frac{1}{2} \sum_{kl} (t_k^a t_l^b - t_k^b t_l^a) \left[ I_{kl}^{ij} + \sum_c \left( \mathbf{P}(ij) I_{kl}^{cj} t_i^c +
-\frac{1}{2} \sum_d I_{kl}^{cd} ( t_i^c t_j^d - t_j^c t_i^d + t_{ij}^{cd}
-\right) \right] \nonumber \\ 
-= &
-\frac{1}{2} \sum_{kl} (t_k^a t_l^b - t_k^b t_l^a) [W_1]_{ij}^{kl} .
-\end{align}
-!et
-===== $[W_2]$ =====
-Now we combine the following terms:
-!bt
-\begin{align}
-& - \mathbf{P}(ab) \sum_k t_k^a I_{kb}^{ij}
-- \mathbf{P}(ab) \frac{1}{2} \sum_{kcd} I_{kb}^{cd} t_{ij}^{cd} t_k^a
-- \mathbf{P}(ab) \mathbf{P}(ij) \sum_{kc} t_k^a I_{kb}^{ic} t_j^c 
-\nonumber \\
-& - \mathbf{P}(ab) \mathbf{P}(ij) \sum_{kcd} I_{kb}^{cd} t_i^c t_j^d t_k^a
-\nonumber \\
-= &
-- \mathbf{P}(ab) \sum_k t_k^a \left[
-I_{kb}^{ij} 
-+ \sum_c \left( I_{kb}^{ic} t_j^c
-- I_{kb}^{jc} t_i^c
-+ \frac{1}{2} \sum_{d} I_{kb}^{cd} (t_{ij}^{cd}
-+ t_i^c t_j^d - t_j^c t_i^d
-) \right) \right]
-\nonumber \\
-= &
-- \mathbf{P}(ab) \sum_k t_k^a [W_2]_{ij}^{kb} \nonumber \\
-= &
-- \mathbf{P}(ab) \sum_k t_k^b [W_2]_{ij}^{ak} .
-\end{align}
-!et
-We have now defined another intermediate.
-!bt
-\begin{equation}
-[W_2]_{ij}^{ak} = I_{ak}^{ij} 
-+ \sum_c \left( I_{ak}^{ic} t_j^c
-- I_{ak}^{jc} t_i^c
-+ \frac{1}{2} \sum_{d} I_{ak}^{cd} (t_{ij}^{cd}
-+ t_i^c t_j^d - t_j^c t_i^d
-) \right) . label{intermedW2}
-\end{equation}
-!et
-This term scales as $n^6$.
-
-===== $[W_3]$ =====
-Our next intermediate is defined by the following two terms:
-!bt
-\begin{equation}
-\mathbf{P}(ab) \mathbf{P}(ij) \sum_{klc} I_{kl}^{ic} t_l^a t_{jk}^{bc}
-+ \mathbf{P}(ab) \mathbf{P}(ij) \sum_{klcd} I_{kl}^{cd} t_i^c t_l^b t_{kj}^{ad} .
-\end{equation}
-!et
-Since c and d are arbitrary indices we can relabel the second term. We can also use a trick with the permutation operators where
-!bt
-\begin{equation}
-\mathbf{P}(ab) \mathbf{P}(ij) f(a,b,i,j) = 
-- \mathbf{P}(ab) \mathbf{P}(ij) f(b,a,i,j) ,
-\end{equation}
-!et
-and also the symmetry of I where
-!bt
-\begin{equation}
-I_{kl}^{dc} = - I_{kl}^{cd} ,
-\end{equation}
-!et
-!bt
-\begin{equation}
-\Rightarrow =
-\mathbf{P}(ab) \mathbf{P}(ij) \left(
-\sum_{klc} I_{kl}^{ic} t_l^a t_{jk}^{bc}
-+ \sum_{klcd} I_{kl}^{cd} t_i^c t_l^a t_{kj}^{bc}
-\right) .
-\end{equation}
-!et
-Here we insert some more symmetry considerations.
-!bt
-\begin{equation}
-\Rightarrow =
-\mathbf{P}(ab) \mathbf{P}(ij) \left[ \sum_{klc} t_l^a \left(
-- I_{kl}^{ci} t_{jk}^{bc} - \sum_d I_{kl}^{cd} t_i^c t_{jk}^{bc} \right) \right] .
-\end{equation}
-!et
-Factorizing out and defining new intermediate.
-
-!bt
-\begin{align}
-\Rightarrow = &
-- \mathbf{P}(ab) \mathbf{P}(ij) \left[ \sum_{klc} t_{jk}^{bc} t_l^a \left(
- I_{kl}^{ci} + \sum_d I_{kl}^{cd} t_i^c \right) \right] \nonumber \\
-= &
-- \mathbf{P}(ab) \mathbf{P}(ij) \sum_{klc}
-t_{jk}^{bc} t_l^a
- [W_3]_{ci}^{kl} .
-\end{align}
-!et
-!bt
-\begin{equation}
-[W_3]_{ci}^{kl} = I_{kl}^{ci} + \sum_d I_{kl}^{cd} t_i^c  . label{intermedW3}
-\end{equation}
-!et
-This term scales as $n^5$.
-
-===== $[F_1]$ =====
-Until now all intermediates have been four dimensional. Now we define our first two dimensional intermediate. This is defined from the terms
-!bt
-\begin{align}
-& \mathbf{P}(ab) \sum_{kc} f_{kc} t_k^a t_{ij}^{bc}
-- \mathbf{P}(ab) \sum_{klcd} I_{kl}^{cd} t_k^c t_l^a t_{ij}^{db} \nonumber \\ 
-= & 
-\mathbf{P}(ab) \sum_{kc} f_{kc} t_k^a t_{ij}^{bc}
-+ \mathbf{P}(ab) \sum_{klcd} I_{kl}^{cd} t_l^d t_k^a t_{ij}^{bc} \nonumber \\
-= &
-\mathbf{P}(ab) \sum_{kc} t_k^a t_{ij}^{bc} \left[ f_{kc} + \sum_{ld} I_{kl}^{cd} t_l^d \right] \nonumber \\
-= &
-\mathbf{P}(ab) \sum_{kc} t_k^a t_{ij}^{bc} [F_1]_k^c .
-\end{align}
-!et
-!bt
-\begin{equation}
-[F_1]_k^c = f_{kc} + \sum_{ld} I_{kl}^{cd} t_l^d . label{intermedF1}
-\end{equation}
-!et
-This intermediate is also repeated when combining the terms
-!bt
-\begin{align}
-& \mathbf{P}(ij) \sum_{kc} f_{kc} t_i^c t_{jk}^{ab}
-- \mathbf{P}(ij) \sum_{klcd} I_{kl}^{cd} t_k^c t_i^d t_{lj}^{ab} \nonumber \\ 
-= &
-- \mathbf{P}(ij) \sum_{kc} f_{kc} t_i^c t_{kj}^{ab}
-- \mathbf{P}(ij) \sum_{klcd} I_{kl}^{cd} t_l^d t_i^c t_{kj}^{ab} \nonumber \\
-= &
-- \mathbf{P}(ij) \sum_{kc} t_i^c t_{kj}^{ab} \left[
-f_{kc} + \sum_{cd} I_{kl}^{cd} t_l^d \right] \nonumber \\ 
-= &
-- \mathbf{P}(ij) \sum_{kc} t_i^c t_{kj}^{ab} [F_1]_k^c
-.
-\end{align}
-!et
-This term scales as $n^4$. Inserting this into the equations for $t_{ij}^{ab}$ leaves the following:
-!bt
-\begin{align}
-D_{ij}^{ab} t_{ij}^{ab} = & 
-I_{ab}^{ij}
-+ \frac{1}{2} \sum_{kl} (t_k^a t_l^b - t_k^b t_l^a + t_{kl}^{ab}) [W_1]_{ij}^{kl}
-+ \frac{1}{2} \sum_{cd} I_{ab}^{cd} t_{ij}^{cd}
- \nonumber \\ &
-- \sum_{k \not= j} f_{kj} t_{ik}^{ab} 
-+ \sum_{k \not= i} f_{ki} t_{jk}^{ab}
-- \sum_{c \not= b} f_{bc} t_{ij}^{ac}
-+ \sum_{c \not= a} f_{ac} t_{ij}^{bc}
- \nonumber \\ &
-+ \mathbf{P}(ab) 
-\{
-- \sum_k t_k^b [W_2]_{ij}^{ak}
-+ \sum_{kc} t_k^a t_{ij}^{bc} [F_1]_k^c
-+ \frac{1}{2} \sum_{kl} I_{kl}^{ij} t_k^a t_l^b 
-\nonumber \\ &
-+ \sum_{kcd} 
-(
-I_{ka}^{cd} t_k^c t_{ij}^{db} 
-)
-+ \sum_{klcd} I_{kl}^{cd} 
-(
-\frac{1}{4} t_k^a t_l^b t_{ij}^{cd} 
-- \frac{1}{2} t_{ij}^{ac} t_{kl}^{bd}
-)
-\}
-\nonumber \\ &
-+ \mathbf{P}(ij)
-\{
-- \sum_{kc} t_i^c t_{kj}^{ab} [F_1]_k^c
-+ \sum_c I_{ab}^{cj} t_i^c
-+ \frac{1}{2} \sum_{cd} I_{ab}^{cd} t_i^c t_j^d 
-\nonumber \\ &
-+ \sum_{klc}
-( 
-- I_{kl}^{ci} t_k^c t_{lj}^{ab}
-)
-+ \sum_{klcd} I_{kl}^{cd}
-(
-- \frac{1}{2} t_{ik}^{ab} t_{jl}^{cd}
-)
-\}
-\nonumber \\ &
-+ \mathbf{P}(ab) \mathbf{P}(ij)
-\{
-\sum_{kc}
-(
-I_{kb}^{cj} t_{ik}^{ac}
-)
-+ \sum_{kcd}
-(
-I_{ak}^{dc} t_i^d t_{jk}^{bc}
-)
-\nonumber \\ &
-+ \sum_{klc}
-(
-\frac{1}{2} I_{kl}^{cj} t_i^c t_k^a t_l^b
-- t_{jk}^{bc} t_l^a [W_3]_{ci}^{kl}
-)
-+ \sum_{klcd} I_{kl}^{cd}
-(
-\frac{1}{4} t_i^c t_k^a t_j^d t_l^b
-+ \frac{1}{2} t_{ik}^{ac} t_{lj}^{db} 
-)
-\} .
-\end{align}
-!et
-===== $[F_2]$ =====
-We now combine the terms:
-!bt
-\begin{align}
-& \sum_{k \not= i} f_{ki} t_{jk}^{ab}
-- \sum_{k \not= j} f_{kj} t_{ik}^{ab} 
-- \mathbf{P}(ij) \sum_{kc} t_i^c t_{kj}^{ab} [F_1]_k^c
-\nonumber \\ &
-- \mathbf{P}(ij) \sum_{klcd} I_{kl}^{cd} \frac{1}{2} t_{ik}^{ab} t_{jl}^{cd}
-- \mathbf{P}(ij) \sum_{klc} I_{kl}^{ci} t_k^c t_{lj}^{ab} .
-\end{align}
-!et
-We notice that the two terms $\sum_{k \not= i} f_{ki} t_{jk}^{ab}$ and $\sum_{k \not= j} f_{kj} t_{ik}^{ab}$ can be written in terms of $\mathbf{P}(ij)$ and $\delta_{ki}$.
-!bt
-\begin{align}
-\Rightarrow = &
-\mathbf{P}(ij) \left[
-\sum_{k} (1 - \delta_{ki}) f_{ki} t_{jk}^{ab}
-- \sum_{kc} t_i^c t_{kj}^{ab} [F_1]_k^c
-- \sum_{klcd}  I_{kl}^{cd} \frac{1}{2} t_{ik}^{ab} t_{jl}^{cd}
-- \sum_{klc} I_{kl}^{ci} t_k^c t_{lj}^{ab}
-\right]
-\nonumber \\
-= &
-\mathbf{P}(ij) \left[
-\sum_{k} (1 - \delta_{ki}) f_{ki} t_{jk}^{ab}
-+ \sum_{kc} t_i^c t_{jk}^{ab} [F_1]_k^c
-+ \sum_{klcd}  I_{kl}^{cd} \frac{1}{2} t_{jk}^{ab} t_{il}^{cd}
-+ \sum_{klc} I_{kl}^{ic} t_l^c t_{jk}^{ab}
-\right]
-\nonumber \\
-= &
-\mathbf{P}(ij) \sum_k t_{jk}^{ab} \left[
-(1 - \delta_{ki}) f_{ki}
-+ \sum_c t_i^c [F_1]_k^c
-+ \frac{1}{2} \sum_{lcd} I_{kl}^{cd} t_{il}^{cd}
-+ \sum_{lc} I_{kl}^{ic} t_l^c
-\right]
-\nonumber \\
-= &
-\mathbf{P}(ij) \sum_k t_{jk}^{ab} [F_2]_i^k .
-\end{align}
-!et
-!bt
-\begin{equation}
-[F_2]_i^k = (1 - \delta_{ki}) f_{ki}
-+ \sum_c \left[t_i^c [F_1]_k^c
-+ \sum_{l} \left( I_{kl}^{ic} t_l^c 
-+ \frac{1}{2} \sum_{d} I_{kl}^{cd} t_{il}^{cd}
-\right)
-\right] .
-label{intermedF2}
-\end{equation}
-!et
-This term scales as $n^5$.
-
-===== $[F_3]$ =====
-We now combine terms within the $\mathbf{P}(ab)$ operator.
-!bt
-\begin{align}
-& - \sum_{c \not= b} f_{bc} t_{ij}^{ac}
-+ \sum_{c \not= a} f_{ac} t_{ij}^{bc}
-- \mathbf{P}(ab) \sum_{kc} t_k^a t_{ij}^{bc} [F_1]_k^c
-- \mathbf{P}(ab) \sum_{klcd} \frac{1}{2} I_{kl}^{cd} t_{ij}^{ac} t_{kl}^{bd}
-\nonumber \\ &
-+ \mathbf{P}(ab) \sum_{kcd} I_{ka}^{cd} t_k^c t_{ij}^{db} \nonumber \\
-= &
-\mathbf{P}(ab) \left[
-+ \sum_c (1-\delta_{ca}) f_{ac} t_{ij}^{bc}
-- \sum_{kc} t_k^a t_{ij}^{bc} [F_1]_k^c
-- \sum_{klcd} \frac{1}{2} I_{kl}^{cd} t_{ij}^{ac} t_{kl}^{bd}
-+ \sum_{kcd} I_{ka}^{cd} t_k^c t_{ij}^{db} 
-\right]
-\nonumber \\
-= &
-\mathbf{P}(ab) \left[
-+ \sum_c (1-\delta_{ca}) f_{ac} t_{ij}^{bc}
-- \sum_{kc} t_k^a t_{ij}^{bc} [F_1]_k^c
-- \sum_{klcd} \frac{1}{2} I_{kl}^{cd} t_{ij}^{bc} t_{kl}^{ad}
-+ \sum_{kcd} I_{ka}^{dc} t_k^d t_{ij}^{bc} 
-\right]
-\nonumber \\
-= &
-\mathbf{P}(ab) \sum_c t_{ij}^{bc}
-\left[
-(1-\delta_{ca}) f_{ac}
-+ \sum_{k} \left( - t_k^a [F_1]_k^c
-+ \sum_{d} \left( I_{ka}^{dc} t_k^d 
-- \sum_{l} \frac{1}{2} I_{kl}^{cd} t_{kl}^{ad} \right) \right)
-\right] \nonumber \\
-= &
-\mathbf{P}(ab) \sum_c t_{ij}^{bc} [F_3]_c^a .
-\end{align}
-!et
-!bt
-\begin{equation}
-[F_3]_c^a = (1-\delta_{ca}) f_{ac}
-- \sum_{k} \left[ t_k^a [F_1]_k^c
-+ \sum_{d} \left( I_{ka}^{cd} t_k^d 
-- \frac{1}{2} \sum_{l} I_{kl}^{cd} t_{kl}^{ad} \right) \right] . label{intermedF3}
-\end{equation}
-!et
-This term scales as $n^5$.
-
-===== $[W_4]$ =====
-Now we combine the terms inside $\mathbf{P}(ab) \mathbf{P}(ij)$. 
-!bt
-\begin{align}
-& \mathbf{P}(ab) \mathbf{P}(ij) \sum_{kc} I_{kb}^{cj} t_{ik}^{ac}
-+ \mathbf{P}(ab) \mathbf{P}(ij) \sum_{kcd} I_{ak}^{dc} t_i^d t_{jk}^{bc}
-\nonumber \\ &
-- \mathbf{P}(ab) \mathbf{P}(ij) \sum_{klc} t_{jk}^{bc} t_l^a [W_3]_{ci}^{kl}
-+ \mathbf{P}(ab) \mathbf{P}(ij) \sum_{klcd} I_{kl}^{cd} \frac{1}{2} t_{ik}^{ac} t_{lj}^{db}
-\nonumber \\
-= & \mathbf{P}(ab) \mathbf{P}(ij) t^{bc}_{jk} \left[
-\sum_{kc} I_{ka}^{ci} 
-+ \sum_{kcd} I_{ak}^{dc} t_i^d
-- \sum_{klc} t_l^a [W_3]_{ci}^{kl}
-+ \frac{1}{2} \sum_{klcd} I_{kl}^{cd} t_{lj}^{db}
-\right] \nonumber \\ 
-= &
-\mathbf{P}(ab) \mathbf{P}(ij)  \sum_{kc} t^{bc}_{jk} \left[
-I_{ak}^{ic} 
-+ \sum_{d} I_{ak}^{dc} t_i^d
-- \sum_{l} t_l^a [W_3]_{ci}^{kl}
-+ \frac{1}{2} \sum_{ld} I_{kl}^{cd} t_{il}^{ad}
-\right] .
-\end{align}
-!et
-!bt
-\begin{equation}
-[W_4]_{ic}^{ak} = 
-I_{ak}^{ic} 
-+ \sum_{d} I_{ak}^{dc} t_i^d
-- \sum_{l} t_l^a [W_3]_{ci}^{kl}
-+ \frac{1}{2} \sum_{ld} I_{kl}^{cd} t_{il}^{ad} .
-label{intermedW4}
-\end{equation}
-!et
-In this formulation symmetries where used extensively, the term scales as $n^6$.
-
-===== Inserting intermediates =====
-Inserting Eqs. ref{intermedF1}, ref{intermedF2}, ref{intermedF3}, ref{intermedW2}, ref{intermedW3}, ref{intermedW4} and ref{intermedw1} then leaves the following:
-!bt
-\begin{align}
-D_{ij}^{ab} t_{ij}^{ab} = & 
-I_{ab}^{ij} +
-\frac{1}{2} \sum_{kl} (t_{kl}^{ab} + t_k^a t_l^b - t_l^a t_k^b) [W_1]_{ij}^{kl}
-- \mathbf{P}(ab) \sum_k t_k^b [W_2]_{ij}^{ak}
-\nonumber \\ &
-+ \mathbf{P}(ij) \sum_k t_{jk}^{ab} [F_2]_i^k
-+ \frac{1}{2} \sum_{cd} I_{ab}^{cd} t_{ij}^{cd}
-+ \mathbf{P}(ab) \sum_c t_{ij}^{bc} [F_3]_c^a
-\nonumber \\ &
-+ \mathbf{P}(ij) \sum_c I_{ab}^{cj} t_i^c
-+ \mathbf{P}(ij) \frac{1}{2} \sum_{cd} I_{ab}^{cd} t_i^c t_j^d 
-+ \mathbf{P}(ab) \mathbf{P}(ij) \sum_{kc} t_{jk}^{bc} [W_4]_{ic}^{ak} .
-\end{align}
-!et
-We can also define an intermediate $\tau_{ij}^{ab}$.
-!bt
-\begin{equation}
-\tau_{ij}^{ab} = t_{ij}^{ab} + t_i^a t_j^b - t_j^a t_i^b . label{intermedtau}
-\end{equation}
-!et
-This will reduce the number of calculations required, but not by any factor of $n$. Hence using this is a debate of speed versus memory. With this intermediate the equation for $\mathbf{T}_2$ amplitudes look like this:
-!bt
-\begin{align}
-D_{ij}^{ab} t_{ij}^{ab} = & 
-I_{ab}^{ij} +
-\frac{1}{2} \sum_{kl} \tau_{kl}^{ab} [W_1]_{ij}^{kl}
-- \mathbf{P}(ab) \sum_k t_k^b [W_2]_{ij}^{ak}
-\nonumber \\ &
-+ \mathbf{P}(ij) \sum_k t_{jk}^{ab} [F_2]_i^k
-+ \frac{1}{2} \sum_{cd} I_{ab}^{cd} \tau_{ij}^{cd}
-+ \mathbf{P}(ab) \sum_c t_{ij}^{bc} [F_3]_c^a
-\nonumber \\ &
-+ \mathbf{P}(ij) \sum_c I_{ab}^{cj} t_i^c
-+ \mathbf{P}(ab) \mathbf{P}(ij) \sum_{kc} t_{jk}^{bc} [W_4]_{ic}^{ak} . label{LINK_THIS_SHIT_1_T2}
-\end{align}
-!et
-===== Inserting into $t_i^a$ =====
-
-If we combine the terms in the following manner
-!bt
-\begin{align}
-D_i^a t_i^a = &
-- \sum_{k} t_k^a
-\left[
-(1 - \delta_{ki}) f_{ki}
-+ \sum_c t_i^c
-f_{kc}
-+ \sum_{lc} I_{kl}^{ic} t_l^c
-+ \sum_{lcd} I_{kl}^{cd} (\frac{1}{2} t_{il}^{cd} + t_l^d)
-\right]
-\nonumber \\ &
-+ f_{ai} 
-+ \sum_{c \not= a} f_{ac} t_i^c
-+ \sum_{kc} I_{ka}^{ci} t_k^c 
-- \frac{1}{2} \sum_{klc} t_{kl}^{ca}
-\left[
-I_{kl}^{ci} + \sum_d I_{kl}^{cd} t_i^d
-\right]
-\nonumber \\ &
-+ \sum_{kc} t_{ik}^{ac} 
-\left[
-f_{kc} + \sum_{ld} I_{kl}^{cd} t_l^d
-\right]
-+ \frac{1}{2} \sum_{kcd} I_{ka}^{cd} t_{ki}^{cd} 
-+ \sum_{kcd} I_{ka}^{cd} t_k^c t_i^d 
- .
-\end{align}
-!et
-They reduce to the following:
-!bt
-\begin{align}
-D_i^a t_i^a = &
-- \sum_{k} t_k^a
-[F_2]_i^k
-+ f_{ai} 
-+ \sum_{c \not= a} f_{ac} t_i^c
-+ \sum_{kc} I_{ka}^{ci} t_k^c 
-- \frac{1}{2} \sum_{klc} t_{kl}^{ca} [W_3]_{kl}^{ic}
-\nonumber \\ &
-+ \sum_{kc} t_{ik}^{ac} [F_1]_k^c
-+ \frac{1}{2} \sum_{kcd} I_{ka}^{cd} t_{ki}^{cd} 
-+ \sum_{kcd} I_{ka}^{cd} t_k^c t_i^d 
- .
-\end{align}
-!et
-This now scales as $n^6$. The largest scaling factor throughout our algorithm now is $n^6$ whereas prior to intermediates it was $n^8$. This is significantly faster, but we do have 8 (or 7 if $\tau_{ij}^{ab}$ is excluded) intermediates which must be stored. It should be noted that $t_k^c t_i^d = \frac{1}{2} (t_k^c t_i^d - t_i^c t_k^d)$. This can be used to insert $\tau_{ij}^{ab}$ in the equations for $t_i^a$ and the energy. 
-!bt
-\begin{align}
-D_i^a t_i^a = &
-- \sum_{k} t_k^a
-[F_2]_i^k
-+ f_{ai} 
-+ \sum_{c \not= a} f_{ac} t_i^c
-+ \sum_{kc} I_{ka}^{ci} t_k^c 
-- \frac{1}{2} \sum_{klc} t_{kl}^{ca} [W_3]_{kl}^{ic}
-\nonumber \\ &
-+ \sum_{kc} t_{ik}^{ac} [F_1]_k^c
-+ \frac{1}{2} \sum_{kcd} I_{ka}^{cd} \tau_{ki}^{cd} 
-.  label{LINK_THIS_SHIT_1_T1}
-\end{align}
+\[
+\Delta E_{\mathrm{CCD}}^{(0)}=\frac{1}{4}\sum_{abij} \frac{\langle ij \vert \hat{v} \vert ab \rangle \langle ab \vert \hat{v} \vert ij \rangle}{\left(\epsilon_i+\epsilon_j-\epsilon_a-\epsilon_b\right)}.
+\]
 !et
 
-
-===== Description of algorithm =====
-
-In their algorithm the amplitude equations are defined with intermediates as the following:
-!bt
-\begin{align}
-- D_i^a t_i^a = &
-- f_{ai} 
-- \sum_{c \not= a} f_{ac} t_i^c 
-+ \sum_{k \not= i} f_{ki} t_k^a
-+ \sum_{kc} f_{kc} (2t_{ik}^{ac} - \tau_{ik}^{ca})
-+ \sum_k g_i^k t_k^a label{SSRS1} \\ &
-- \sum_c g_c^a t_i^c 
-- \sum_{klc} \left( 2 [D_1]_{li}^{ck} - [D_1]_{ki}^{cl} \right) t_l^c t_k^a \nonumber \\ &
-- \sum_{kc} [2(D_{2A} - D_{2B}) + D_{2C}]_{ci}^{ka} 
-- 2 \sum_k [D_1]_{ik}^{ak}  \nonumber \\ &
-+ \sum_{kc} v_{ic}^{ka} t_k^c
-- \sum_{klc} v_{cl}^{ak} ( 2 t_{ki}^{cl} - t_{ik}^{cl} )
-+ \sum_{ljc} v_{ci}^{jl} ( 2 t_{lj}^{ac} - t_{jl}^{ac} ) .
-\nonumber
-\end{align}
-!et
+With this starting point, we are now ready to solve Eq. (ref{eq:ccd}) iteratively. Before we attack the full equations, it is however instructive to study a truncated version of the equations. We will first study the following approximation where we take away all terms except the linear terms that involve the single-particle energies and the the two-particle intermediate excitations, that is
 !bt
 \begin{equation}
-- D_{ij}^{ab} t_{ij}^{ab} = v_{ij}^{ab} + J_{ij}^{ab} + J_{ji}^{ba} + S_{ij}^{ab} + S_{ji}^{ba} . label{SSRS2}
-\end{equation}
-!et
-!bt
-\begin{equation}
-E_{CCSD} = E_{HF} + 2\sum_{ia} f_{ia} t_a^i 
-+ \sum_{abij} v_{ij}^{ab} ( 2 \tau_{ij}^{ab}
-+ \tau_{ji}^{ab} ) . label{SSRS3}
-\end{equation}
-!et
-The minus signs on the left side of the equation are present due to the fact that SSLRS use a different definition of the denominators, noted here in the equations are our definitions. Their definitions is equal to ours except for this minus sign. \\
-
-$v_{ij}^{ab}$ is a short notation used by SSLRS for $\langle ab || ij \rangle$. It should be mentioned that the brackets surrounding for example $[D_1]$ is a notation where the brackets are a part of the variable. The rest of the intermediates are now defined.
-!bt
-\begin{align}
-\tau_{ij}^{ab} = & t_{ij}^{ab} + t_i^a t_j^b
-\\ 
-J_{ij}^{ab} = &
-\sum_{c \not= a} f_{ca} t_{ij}^{cb}
-- \sum_{k \not= i} f_{ik} t_{kj}^{ab}
-+ \sum_{kc} f_{kc} (t_{ij}^{cb} t_k^b + t_{ik}^{ab} t_j^c )
-+ \sum_c g_c^b t_{ij}^{ac} - \sum_k g_j^k t_{ik}^{ab} .
-\end{align}
-!et
-!bt
-\begin{align}
-S_{ij}^{ab} = & 
-\frac{1}{2} [B_2]_{ij}^{ab}
-- [E_1^*]_{ij}^{ab}
-+ [D_{2A}]_{ab}^{ij}
-+ [F_{12}]_{ab}^{ij} 
- \\ &
-+ \sum_{kc} (
-[D_{2A}]_{kj}^{cb} - [D_{2B}]_{kj}^{cb}
-+ 2[F_{12}]_{kj}^{cb}
-- [E_1^*]_{cj}^{kb} )
-( t_{ik}^{ac} - \frac{1}{2} t_{ki}^{ac} )
-\nonumber \\ &
-+ \sum_{kc} (\frac{1}{2} [D_{2C}]_{kj}^{cb}
-- v_{kj}^{bc} - [F_{11}]_{kj}^{bc} + [E_{11}]_{kj}^{bc}) t_{ic}^{ak}
-\nonumber \\ &
-+ \sum_{kc} (\frac{1}{2} [D_{2C}]_{ki}^{cb} - v_{ki}^{bc} - [F_{11}]_{ki}^{bc} 
-+ [E_{11}]_{ki}^{bc} ) t_{cj}^{ak}
-\nonumber \\ &
-+ \sum_{cd} ( \frac{1}{2} [D_2]_{ij}^{cd} 
-+ \frac{1}{2} v_{ij}^{cd} + \frac{1}{2} (
-[E_1]_{ij}^{cd} + [E_1]_{ji}^{dc}))
-\tau_{cd}^{ab}
-\nonumber \\ &
-+ \sum_{kc} \{
-([D_{2C}]_{ci}^{kb} - v_{ci}^{bk}) t_j^c
-- ([D_{2A}]_{cj}^{kb} 
-- [D_{2B}]_{cj}^{kb} ) t_i^c
-- ([D_1]_{ji}^{bk} + [F_2]_{ji}^{bk}) \} t_k^a .
-\nonumber
-\end{align}
-!et
-The definition of g depends on which index is where. Remembering $\mathbf{a}$ is an index indicating an occupied orbital and $\mathbf{i}$ is an index indicating a Fermi hole.
-!bt
-\begin{align}
-g_i^a = & 
-2 \sum_b [F_{11}]_{ib}^{ab} 
-- \sum_b [F_{12}]_{ib}^{ba}
-- \sum_b [D_{2A}]_{ib}^{ba}
-+ \sum_{bc} (
-[D_1]_{bc}^{ic} - 2[D_1]_{cb}^{ib} ) t_c^a
-\\
-g_a^i = &
-\sum_c \{2([E_1]_{ic}^{ac} + [D_2]_{ic}^{ac} )
-- ([E_1]_{ic}^{ca} + [D_2]_{ic}^{ca}) \} .
-\end{align}
-!et
-The rest of the intermediates in the SSLRS algorithm is now defined in order of appearance. 
-
-!bt
-\begin{equation}
-[D_1]_{ij}^{ab} = \sum_k v_{ik}^{ab} t_j^k .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[D_{2A}]_{ij}^{ab} = \sum_{kc}
-v_{ci}^{ka} (2 t_{jc}^{ka} - t_{jc}^{ak}) .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[D_{2B}]_{ij}^{ab} = \sum_{kc}
-v_{ci}^{ak} t_{jc}^{ka} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[D_{2C}]_{ij}^{ab} = \sum_{kc}
-v_{ci}^{ak} t_{jc}^{ak} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[B_2]_{ij}^{ab} = \sum_{kl} v_{kl}^{ab} t_{ij}^{kl} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[E_1^*]_{ij}^{ab} = \sum_k v_{ij}^{ak} t_k^b .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[F_{12}]_{ij}^{ab} = \sum_c
-v_{ic}^{ab} t_j^c .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[F_{11}]_{ij}^{ab} = \sum_c v_{ic}^{ba} t_j^c .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[E_{11}]_{ij}^{ab} \sum_c v_{ij}^{cb} t_c^a .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[D_2]_{ij}^{ab} = \sum_{cd} v_{cd}^{ab} t_{ij}^{cd} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[E_1]_{ij}^{ab} = \sum_c v_{ic}^{ab} t_j^c .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[F_2]_{ij}^{ab} = \sum_{cd} v_{cd}^{ab} \tau_{ij}^{cd} .
-\end{equation}
-!et
-===== Scaling =====
-Specific notice should be paid to $[D_{2A}]$, $[D_{2B}]$, $[D_{2C}]$ and $[F_{2}]$. These intermediates scale as with a factor of $n^6$, where n is the number of orbitals. However it is not necessary to loop over all orbitals as index i,j,k refer to unoccupied orbitals. Indexes a,b,c refer to occupied orbitals. The scaling then reduces to $n_v^3 n_o^3$. Overall the Eq. ref{SSRS1}, ref{SSRS2} and ref{SSRS3} scales as 
-!bt
-\begin{equation}
-\frac{1}{2} n_v^4 n_o^2 + 7 n_v^3 n_o^3 + \left( \frac{1}{2} + \frac{1}{2} \right) n_v^2 n_o^4 . 
-\end{equation} 
-!et
-It should be noted that SSLRS does propose this algorithm with the purpose of not only low scaling, but also avoid storage a large number of variables. In their papers they do mention another algorithm with slightly better scaling, but they do argue the extra needed variable storage this requires is a worrying aspect. 
-
-Another positive aspect of this algorithm is the emphasis on matrix use. All the $n^6$ and $n^5$ scaling parts of the algorithm is designed so that matrix multiplication libraries can be used. These libraries are often specially designed to be efficient.
-
-SSLRS algorithm also scales as $n^6$, but the number of intermediates are much larger. For this reason we chose the prior algorithm.
-
-
-
-
-======= CCSDT equations =======
-
-!bt 
-\begin{equation} \mathbf{T} = \mathbf{T}_1 + \mathbf{T}_2 +
-\mathbf{T}_3 .  
-\end{equation} 
-!et 
-All the terms from CCSD will also
-be included in CCSDT. Indeces $a,b,c,d,e,f$ are understood to go over
-virtual orbitals. Indeces $i,j,k,l,m,n$ go over orbitals occupied in the
-RHF basis. The amplitude equations are defined as 
-!bt 
-\begin{align}
-\langle \Psi_i^a | \mathbf{H}_N (1 + \mathbf{T}_2 + \mathbf{T}_1
-\mathbf{T}_2 + \frac{1}{2} \mathbf{T}_1^2 + \frac{1}{6} \mathbf{T}_1^3
-+ \mathbf{T}_3) | \Psi_0 \rangle_C = 0.  
-\end{align} 
-!et 
-Here
-$\mathbf{T}_3$ is the new contribution, compared to the CCSD
-equations.  
-!bt 
-\begin{align} \langle \Psi_{ij}^{ab} | \mathbf{H}_N (
-1 + \mathbf{T}_2 + \frac{1}{2} \mathbf{T}_2^2 + \mathbf{T}_1 +
-\mathbf{T}_1 \mathbf{T}_2 + \frac{1}{2} \mathbf{T}_1^2 + \frac{1}{2}
-\mathbf{T}_1^2 \mathbf{T}_2 \nonumber \\ + \frac{1}{6} \mathbf{T}_1^3
-+ \frac{1}{24} \mathbf{T}_1^4 + \mathbf{T}_3 + \mathbf{T}_1
-\mathbf{T}_3) | \Psi_0 \rangle_C = 0.  
-\end{align} 
-!et 
-The new
-contributions are $\mathbf{T}_3$ and $\mathbf{T}_1 \mathbf{T}_3$.  
-!bt
-\begin{align} \langle \Psi_{ijk}^{abc} | \mathbf{H}_N ( \mathbf{T}_2 +
-\mathbf{T}_3 + \mathbf{T}_2 \mathbf{T}_3 + \frac{1}{2} \mathbf{T}_2^2
-+ \mathbf{T}_1 \mathbf{T}_2 + \mathbf{T}_1 \mathbf{T}_3 + \frac{1}{2}
-\mathbf{T}_1^2 \mathbf{T}_2 \nonumber \\ + \frac{1}{2} \mathbf{T}_1
-\mathbf{T}_2^2 + \frac{1}{2} \mathbf{T}_1^2 \mathbf{T}_3 + \frac{1}{6}
-\mathbf{T}_1 \mathbf{T}_2) | \Psi_0 \rangle_c = 0.  
-\end{align} 
-!et
-All of these are new contributions. The energy expression remains
-unchanged from CCSD. CCSDT-n methods include more and more of these
-new contributions.
-
-For the interested reader who wish to verify the equations we will
-soon present with those given we add a few permutation operator
-tricks. One form of the permutation operator in the CCSDT equations
-are $\mathbf{P}(a/bc)$. $\mathbf{P}(a/bc)$ is defined as 
-!bt
-\begin{equation} \mathbf{P}(a/bc) f(a,b,c) = f(a,b,c) - f(b,a,c) -
-f(c,b,a) .  
-\end{equation} 
-!et 
-or as the permutation where a is
-exchanged by b and a is exchanged by c. Two of these,
-$\mathbf{P}(a/bc) \mathbf{P}(k/ij)$, gives in total nine
-permutations. 
-
-Another form of the permutation operator is $\mathbf{P}(abc)$. This is defined as the 6 permutations
-!bt
-\begin{align}
-\mathbf{P}(abc) f(a,b,c) = & f(a,b,c) - f(b,a,c) - f(a,c,b)  \nonumber \\ & - f(c,b,a) + f(b,c,a) + f(c,a,b) . label{temporaryequationlabelforrfeffsf}
-\end{align}
-!et
-These two permutation operators can be interchanged if one rewrite Eq. ref{temporaryequationlabelforrfeffsf}. 
-!bt
-\begin{align}
-\mathbf{P}(abc) f(a,b,c) = & f(a,b,c) - f(b,a,c) - f(a,c,b)  \nonumber \\ & - f(c,b,a) + f(b,c,a) + f(c,a,b) \nonumber \\ &
-= \left[ f(cab) - f(acb) - f(bac) \right] \nonumber \\ &
-- \left[ f(cba) - f(bca) - f(abc) \right]
-\nonumber \\ &
-= \mathbf{P}(c/ab) \left[ f(cab) - f(cba) \right] .
-\end{align}
-!et
-===== CCSDT-1a =====
-The simplest inclusion of triples is CCSDT-1a. This method includes the contribution from $\mathbf{T}_3$ in $t_i^a$, $\mathbf{T}_3$ in $t_{ij}^{ab}$ and $\mathbf{T}_2$ in $t_{ijk}^{abc}$. This can be expressed as
-!bt
-\begin{equation}
-t_{ijk}^{abc} D_{ijk}^{abc} = 
-\mathbf{P}(a/bc) \mathbf{P}(k/ij) \sum_e I_{bc}^{ek} t_{ij}^{ae}
-- \mathbf{P}(c/ab) \mathbf{P}(i/jk) \sum_m I_{mc}^{jk} t_{im}^{ab} .
-\end{equation}
-!et
-Here the denominator is defined as the Moller-Plesset denominator. 
-!bt
-\begin{equation}
-D_{ijk}^{abc} = f_{ii} + f_{jj} + f_{kk} - f_{aa} - f_{bb} - f_{cc} .
-\end{equation}
-!et
-To make life simpler in more advanced CCSDT-n algorithms we already insert intermediates. We define two intermediates 
-!bt
-\begin{equation}
-[X1]_{ab}^{ei} = I_{e,i}^{ab} ,
-\end{equation}
-!et
-and
-!bt
-\begin{equation}
-[X2]_{ij}^{am} = I_{am}^{ij} .
-\end{equation}
-!et
-This means our equation for $t_{ijk}^{abc}$ is now
-!bt
-\begin{align}
-D_{ijk}^{abc} t_{ijk}^{abc} = & \mathbf{P}(a/bc) \mathbf{P}(k/ij) \sum_e [X1]^{ek}_{bc} t_{ij}^{ae} \\ \nonumber &
-- \mathbf{P}(c/ab) \mathbf{P}(i/jk) \sum_m [X2]_{jk}^{mc} t_{im}^{ab} .
-\end{align}
-!et
-CCSDT-1a makes no changes in the calculation of the energy, however the $\mathbf{T}_3$ contributions are added to $t_i^a$ and parts of the $\mathbf{T}_3$ contribution are added to $t_{ij}^{ab}$. To indicate the terms from the original CCSD method should also be included we use $\leftarrow$. 
-!bt
-\begin{equation}
-D_i^a t_i^a \leftarrow \frac{1}{4} \sum_{bcjk}  I_{j,k}^{b,c} t_{ijk}^{abc} m
-\end{equation}
-!et
-and
-!bt
-\begin{align}
-D_{ij}^{ab} t_{ij}^{ab} \leftarrow & 
-\frac{1}{2} \sum_{kcd} I_{bk}^{cd} t_{ijk}^{acd}
-- \frac{1}{2} \sum_{kcd} I_{ak}^{cd} t_{ijk}^{bcd} - \frac{1}{2} \sum_{mkc} I_{mk}^{jc} t_{imk}^{abc} + \frac{1}{2} \sum_{mkc} I_{mk}^{ic} t_{jmk}^{abc} .
-\end{align}
-!et
-CCSDT-1a actually gives a surprisingly good approximation to the full CCSDT energy, since the terms between the two usually adds and subtracts a similar amount to the energy. 
-
-The equations for $t_i^a$ is the same for CCSDT as for CCSDT-1a. 
-
-===== CCSDT-1b =====
-CCSDT-1b adds the remaining contribution to $t_{ij}^{ab}$. 
-!bt
-\begin{align}
-D_{ij}^{ab} t_{ij}^{ab} \leftarrow
-\sum_{klcd} I_{kl}^{cd} t_{ijk}^{abc} t_l^d  \frac{1}{2} \sum_{klcd} I_{kl}^{cd} \left(
- t_{ikj}^{bcd} t_l^a - t_{ikj}^{acd} t_l^b 
- + t_{kli}^{adb} t_j^c - t_{klj}^{adb} t_i^c \right) .
-\end{align}
-!et
-===== CCSDT-2 =====
-For CCSDT-2 we add all contributions from T2 that does not include T1 to $t_{ijk}^{abc}$. This explicitly includes the terms
-!bt
-\begin{align}
-D_{ijk}^{abc} t_{ijk}^{abc} \leftarrow & 
-\mathbf{P}(i/jk) \mathbf{P}(abc) \sum_{lde} I_{lb}^{de} t_{il}^{ad} t_{jk}^{ec}
-+ \mathbf{P}(ijk) \mathbf{P}(a/bc) \sum_{lmd} I_{lm}^{dj} t_{il}^{ad} t_{mk}^{bc} \nonumber \\ &
-- \frac{1}{2} \mathbf{P}(i/jk) \mathbf{P}(c/ab) \sum_{lde} I_{lc}^{de} t_{il}^{ab} t_{jk}^{de} \nonumber \\ & 
- + \frac{1}{2} \mathbf{P}(k/ij) \mathbf{P}(a/bc) \sum_{lmd} I_{lm}^{dk} t_{ij}^{ad} t_{lm}^{bc}  .
-\end{align}
-!et
-In our implementation this means changing X1 and X2, since we introduced these intermediates earlier. It should be noted that since there are currently no $\mathbf{T}_3$ contributions to $t_{ijk}^{abc}$ these amplitudes does not need to be stored for each iteration. This feature applies to CCSDT-n methods up but not including CCSDT-4. The new intermediates for CCSDT-2 will be:
-!bt
-\begin{align}
-[X1]_{ab}^{ie} = I_{ab}^{ie} +
-\frac{1}{2} \sum_{mn} t_{mn}^{ab} I_{mn}^{ei} ,
-\end{align}
-!et
-and
-!bt
-\begin{align}
-[X2]_{ij}^{am} = I_{ma}^{ij} + \frac{1}{2} \sum_{ef} t_{ij}^{ef} I_{ma}^{ef}  .
-\end{align}
-!et
-We also introduce two new intermediates.
-!bt
-\begin{equation}
-[X12]_{ab}^{id} = \sum_{ld} I_{lb}^{ed} t_{il}^{ae} ,
-\end{equation}
-!et
-and
-!bt
-\begin{equation}
-[X13]_{ij}^{al} = \sum_{md} I_{ml}^{dj} t^{ad}_{im} .
-\end{equation}
-!et
-The expression for $t_{ijk}^{abc}$ should be changed accordingly, leaving the contribution from CCSDT-1b untouched. This is indicated by the $\leftarrow$. 
-!bt
-\begin{align}
-t_{ijk}^{abc} \leftarrow &
-\sum_e \mathbf{P}(i/jk) \mathbf{P}(abc) [X12]_{ab}^{ie} t_{jk}^{ec}
-+ \sum_m \mathbf{P} (ijk) \mathbf{P}(a/bc) [X13]_{ij}^{am} t_{mk}^{bc} .
-\end{align}
-!et
-
-
-===== CCSDT-3 =====
-CCSDT-3 adds all remaining contributions to $t_{ijk}^{abc}$ that does not themselves contain $T_3$ amplitudes. These  all contain T1. . For our purposes we continue with the implementation ready equations. For CCSDT-3 we must make a tweak in our intermediates, X12 and X13. The terms from CCSDT-2 remain, but we add some new ones. We also introduce two new intermediates.
-!bt
-\begin{align}
-[X12]_{ab}^{ie} \leftarrow  & - \sum_l I_{al}^{id} t_l^b - \sum_{le} I_{lb}^{ed} t_i^e t_l^a - \sum_{lme} I_{lm}^{ed} t_m^b t_{il}^{ae} ,
-\end{align}
-!et
-!bt
-\begin{align}
-[X13]_{ij}^{am} \leftarrow & 
-\sum_{md} I_{ml}^{dj} t_i^d t_m^a
-- \sum_d I_{al}^{id} t_j^d
-- \sum_{mde} I_{ml}^{de} t_{im}^{ad} t_j^e ,
-\end{align}
-!et
-!bt
-\begin{align}
-[X14]_{ab}^{id} = & 
-\sum_{elm} I_{lm}^{ed} \left[
-+ t_i^e t_l^a t_m^b
-- t_l^e t_{im}^{ab} 
-+ \frac{1}{2} I_{lm}^{ed} t_i^e t_{lm}^{ab}
-\right]
-\nonumber \\ &
-+ \sum_{lm} I_{lm}^{id} t_l^a t_m^b
-+ \sum_e I_{ab}^{ed} t_i^e ,
-\end{align}
-!et
-and
-!bt
-\begin{align}
-[X15]_{ij}^{am} = &
-\sum_m I_{ml}^{ij} t_m^a
-- \sum_{ed} I_{al}^{de} t_i^d t_j^e
-+ \frac{1}{2} \sum_{med} I_{ml}^{de} \tau_{ij}^{de} t_m^a  .
-\end{align}
-!et
-These two intermediates must be included in our $t_{ijk}^{abc}$ equation.
-!bt
-\begin{equation}
-t_{ijk}^{abc} \leftarrow
-\sum_e \mathbf{P}(a/bc) \mathbf{P}(k/ij)
-[X14]_{ab}^{ie} t_{jk}^{ec}
-+ \sum_m \mathbf{P}(c/ab) \mathbf{P}(i/jk)
-[X15]_{ij}^{am} t_{mk}^{bc} .
+0 = \langle ab \vert \hat{v} \vert ij \rangle + \left(\epsilon_a+\epsilon_b-\epsilon_i-\epsilon_j\right)t_{ij}^{ab}+\frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle t_{ij}^{cd}.
+label{eq:ccd1}
 \end{equation}
 !et
 
-===== CCSDT-4 =====
-For CCSDT-4 we will add the terms that are linear in T3. This corresponds to the terms
+Setting the single-particle energies for the hole states equal to an energy variable $\omega = \epsilon_i+\epsilon_j$, Eq. (ref{eq:ccd1}) reduces to the
+well-known equations for the so-called $G$-matrix, widely used in "infinite matter and finite nuclei studies":"http://www.sciencedirect.com/science/journal/03701573/261/3-4". The equation can then be reordered and solved by matrix inversion.  To see this let us define the following quantity
 !bt
-\begin{align}
-D_{ijk}^{abc} t_{ijk}^{abc} \leftarrow &
-\sum _{ld}
-\mathbf{P}(i/jk) \mathbf{P}(a/bc) 
-I_{al}^{id} t^{dbc}_{ljk}
-+
-\frac{1}{2} \sum_{mk}
-\mathbf{P}(k/ij) I_{lm}^{ij} t_{lmk}^{abc}
-\nonumber \\ &
-+
-\frac{1}{2} \sum_{de} 
-\mathbf{P}(c/ab) I_{ab}^{de} t^{dec}_{ijk} .
-\end{align}
+\[
+\tau_{ij}^{ab}= \left(\omega-\epsilon_a-\epsilon_b\right)t_{ij}^{ab},
+\]
 !et
-We will introduce these terms as three new intermediates, because there are more terms in full CCSDT that can use this factorization. These are defined as
+and inserting 
 !bt
-\begin{equation}
-[X3]_{ij}^{lm} = \frac{1}{2} I_{lm}^{ij} ,
-\end{equation}
+\[
+1=\frac{\left(\omega-\epsilon_c-\epsilon_d\right)}{\left(\omega-\epsilon_c-\epsilon_d\right)},
+\]
 !et
+in the intermediate sums over $cd$ in Eq. (ref{eq:ccd1}), we can rewrite the latter equation as
 !bt
-\begin{equation}
-[X4]_{ab}^{de} = \frac{1}{2} I_{ab}^{de} ,
-\end{equation}
+\[
+\tau_{ij}^{ab}(\omega)= \langle ab \vert \hat{v} \vert ij \rangle + \frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle \frac{1}{\omega-\epsilon_c-\epsilon_d}\tau_{ij}^{cd}(\omega),
+\]
 !et
-and
-!bt
-\begin{equation}
-[X6]_{al}^{id} = I_{al}^{id} .
-\end{equation}
-!et
-Inserting this in the amplitude equation leaves
-!bt
-\begin{align}
-D_{ijk}^{abc} t_{ijk}^{abc} \leftarrow &
-\sum _{ld}
-\mathbf{P}(i/jk) \mathbf{P}(a/bc) 
-[X6]_{al}^{id} t^{dbc}_{ljk}
-+
- \sum_{mk}
-\mathbf{P}(k/ij) [X3]_{ij}^{lm} t_{lmk}^{abc}
-\nonumber \\ &
-+
-\sum_{de}
-\mathbf{P}(c/ab)[X4]_{ab}^{de}  t^{dec}_{ijk} .
-\end{align}
-!et
-===== Full CCSDT =====
-For full CCSDT we introduce all the remaining terms. We will add these into our existing intermediates, and define a few new ones.
+where we have indicated an explicit energy dependence. This equation, transforming a two-particle configuration into a single index, can be transformed into a matrix inversion problem.  Solving the equations for a fixed energy $\omega$ allows us to compare directly with results from Green's function theory when only two-particle intermediate states are included. 
+
+To solve Eq. (ref{eq:ccd1}), we would thus start with a guess for the unknown amplitudes, typically using the wave operator defined by first order in perturbation theory, leading to a zeroth approximation to the energy given by second-order perturbation theory for the correlation energy.
+A simple approach to the solution of  Eq. (ref{eq:ccd1}), is to thus to
+ o Start with a guess for the amplitudes and compute the zeroth approximation to the correlation energy
+ o Use the ansatz for the amplitudes to solve Eq. (ref{eq:ccd1}) via for example your root-finding method of choice (Newton's method or modifications thereof can be used) and continue these iterations till the correlation energy does not change more than a prefixed quantity $\lambda$; $\Delta E_{\mathrm{CCD}}^{(i)}-\Delta E_{\mathrm{CCD}}^{(i-1)} \le \lambda$.
+ o It is common during the iterations to scale the amplitudes with a parameter $\alpha$, with $\alpha \in (0,1]$ as  $t^{(i)}=\alpha t^{(i)}+(1-\alpha)t^{(i-1)}$.
+
+The next approximation is to include the two-hole term in Eq. (ref{eq:ccd}), a term which allow us to make a link with Green's function theory with two-particle and two-hole correlations. This means that we solve
 !bt
 \begin{equation}
-[X1]_{ab}^{ic} \leftarrow 
-\sum_{lme}
-\frac{1}{2}
-I_{lm}^{ce} t_{lmi}^{aec} .
+0 = \langle ab \vert \hat{v} \vert ij \rangle + \left(\epsilon_a+\epsilon_b-\epsilon_i-\epsilon_j\right)t_{ij}^{ab}+\frac{1}{2}\sum_{cd} \langle ab \vert \hat{v} \vert cd \rangle t_{ij}^{cd}+\frac{1}{2}\sum_{kl} \langle kl \vert \hat{v} \vert ij \rangle t_{kl}^{ab}.
+label{eq:ccd2}
 \end{equation}
 !et
-!bt
-\begin{equation}
-[X2]_{ij}^{am} \leftarrow 
-\sum_{lde}
-\frac{1}{2}
-I_{ml}^{de} t_{ilk}^{dea} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[X3]_{ij}^{lm} \leftarrow
-\sum_d \left( I_{lm}^{dj} t_i^d
-- I_{lm}^{di} t_j^d \right)
-+ \sum_{de} \frac{1}{2} I_{lm}^{de} \tau_{ij}^{de} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[X4]_{ab}^{de} \leftarrow
-\sum_l \left( 
-I_{lb}^{de} t_l^a
-- I_{la}^{de} t_l^b \right)
-+ \sum_{ml} \frac{1}{2} I_{lm}^{de} \tau_{lm}^{ab} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[X6]_{al}^{id} \leftarrow 
-\sum_{e} I_{al}^{ed} t_i^e
-- \sum_m I_{ml}^{id} t_m^a
-+ \sum_{em} I_{ml}^{ed} t_{im}^{ae}
-- \sum_{em} I_{ml}^{ed} t_i^e t_m^a .
-\end{equation}
-!et
-We also introduce two new intermediates, [X7] and [X8].
-!bt
-\begin{equation}
-[X7]_i^m = - \sum_{ld} I_{lm}^{di} t_l^d
-- \frac{1}{2} \sum_{lde} I_{lm}^{de} \tau_{li}^{de} .
-\end{equation}
-!et
-!bt
-\begin{equation}
-[X8]_a^e = \sum_{ld} I_{la}^{de} t_l^d
-- \frac{1}{2} \sum_{dlm} I_{lm}^{de} \tau_{lm}^{da} .
-\end{equation}
-!et
-These are added to $t_{ijk}^{abc}$ with the following permutation operators in front
-!bt
-\begin{equation}
-D_{ijk}^{abc} t_{ijk}^{abc} \leftarrow \sum_e \mathbf{P}(a/bc) [X8]_a^e t_{ijk}^{ebc}
-+ \sum_m \mathbf{P}(i/jk) [X7]_i^m  
-t_{mjk}^{abc} .
-\end{equation}
-!et
+This equation is solved the same way as we would do for Eq. (ref{eq:ccd1}). The final step is then to include all terms in Eq. (ref{eq:ccd}). 
+
+
+TO DO:
+=====  Formal derivation of the CCSD equations =====
+
+=====  Diagrammatic derivation of the CCSD equations =====
+
+=====  Practical approaches to solving the CCSD equations =====
+
+=====  Applications of CCSD equations =====
+

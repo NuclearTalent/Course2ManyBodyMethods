@@ -58,7 +58,6 @@ doconce replace '\section{' '\section*{' $name.tex
 doconce replace '\subsection{' '\subsection*{' $name.tex
 pdflatex -shell-escape $name
 pdflatex -shell-escape $name
-pdflatex -shell-escape $name
 
 mv -f $name.pdf ${name}-print.pdf
 cp $name.tex ${name}-plain-print.tex

@@ -127,7 +127,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/html/intro.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/html/intro-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/intro/html/intro-bs.html" target="_self">Bootstrap style</a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -156,7 +156,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/secondquant/html/secondquant-bs.html" target="_self">Bootstrap style</a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -174,13 +174,16 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/pdf/proj-print.pdf" target="_self">Standard one-page format</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/pdf/GF-proj-print.pdf" target="_self">Notes for the Green's funtion projects</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/pdf/Pairing_GF_CC.f90" target="_self">Example of FORTRAN code for solving the pairing model</a>and
+        <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/pdf/Pairing_results.pdf" target="_self">results</a>.</li>
 </ul>
 
  <li> HTML:</li>
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/proj/html/proj-bs.html" target="_self">Bootstrap style </a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -204,7 +207,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/hfock/html/hfock-bs.html" target="_self">Bootstrap style </a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -228,7 +231,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/html/fci.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/html/fci-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/fci/html/fci-bs.html" target="_self">Bootstrap style </a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -252,7 +255,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/html/mbpt.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/html/mbpt-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/mbpt/html/mbpt-bs.html" target="_self">Bootstrap style </a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -291,7 +294,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/html/cc.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/html/cc-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/cc/html/cc-bs.html" target="_self">Bootstrap style</a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -373,7 +376,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/inf/html/inf-bs.html" target="_self">Bootstrap style </a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
@@ -422,7 +425,7 @@ formulas in HTML or ipython notebook files.
 
 <ul>
    <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces.html" target="_self">Solarized style</a></li>
-   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces-bs.html" target="_self">Bootstrap style (also for mobile devices)</a></li>
+   <li> <a href="http://nucleartalent.github.io/Course2ManyBodyMethods/doc/pub/forces/html/forces-bs.html" target="_self">Bootstrap style</a></li>
 </ul>
 
  <li> iPython notebook (useful for running codes interactively):</li>
