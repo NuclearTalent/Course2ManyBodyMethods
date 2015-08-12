@@ -1995,6 +1995,400 @@ to data from approximately
 the data set should be taken seriously.
 
 <p>
+<!-- --- begin solution of exercise --- -->
+<b>Solution.</b>
+The following Fortran 95 program solves the above Lippmann-Schwinger equation. Python and C++ codes will be added later. Discussions of the results will also be added.
+
+<p>
+
+<!-- code=fortran (!bc fcod) typeset with pygments style "perldoc" -->
+<div class="highlight" style="background: #eeeedd"><pre style="line-height: 125%">C     *******************************************************
+C         Example <span style="color: #8B008B; font-weight: bold">program </span>used to evaluate the 
+C         T-matrix following Kowalski<span style="color: #CD5555">&#39;s method (eqs V88 &amp; V89</span>
+<span style="color: #CD5555">C         in Brown and Jackson)  </span>
+<span style="color: #CD5555">C         for positive energies only</span>
+<span style="color: #CD5555">C         The program is set up for S-waves only</span>
+<span style="color: #CD5555">C         Coded by : Morten Hjorth-Jensen</span>
+<span style="color: #CD5555">C         Language : FORTRAN 90</span>
+<span style="color: #CD5555">C     *******************************************************</span>
+
+
+
+<span style="color: #CD5555">C               ******************************</span>
+<span style="color: #CD5555">C                 Def of global variables</span>
+<span style="color: #CD5555">C               ******************************</span>
+
+
+<span style="color: #CD5555">      MODULE constants</span>
+<span style="color: #CD5555">         DOUBLE PRECISION , PUBLIC :: p_mass, hbarc</span>
+<span style="color: #CD5555">         PARAMETER (p_mass =938.926D0, hbarc = 197.327D0)</span>
+<span style="color: #CD5555">      END MODULE constants</span>
+
+<span style="color: #CD5555">      MODULE mesh_variables           </span>
+<span style="color: #CD5555">         INTEGER, PUBLIC :: n_rel</span>
+<span style="color: #CD5555">         PARAMETER(n_rel=48)</span>
+<span style="color: #CD5555">         DOUBLE PRECISION, ALLOCATABLE, PUBLIC :: ra(:), wra(:)</span>
+<span style="color: #CD5555">      END MODULE  mesh_variables</span>
+
+
+<span style="color: #CD5555">C               ******************************</span>
+<span style="color: #CD5555">C                   Begin of main program</span>
+<span style="color: #CD5555">C               ******************************</span>
+
+
+<span style="color: #CD5555">      PROGRAM t_matrix</span>
+<span style="color: #CD5555">      USE mesh_variables</span>
+<span style="color: #CD5555">      IMPLICIT NONE</span>
+<span style="color: #CD5555">      INTEGER istat</span>
+
+<span style="color: #CD5555">      ALLOCATE( ra (n_rel), wra (n_rel),  STAT=istat )</span>
+<span style="color: #CD5555">      CALL rel_mesh               ! rel mesh &amp; weights</span>
+<span style="color: #CD5555">      CALL t_channel              ! calculate the T-matrix</span>
+<span style="color: #CD5555">      DEALLOCATE( ra,wra, STAT=istat )</span>
+
+<span style="color: #CD5555">      END PROGRAM t_matrix</span>
+
+<span style="color: #CD5555">C     *********************************************************</span>
+<span style="color: #CD5555">C                    obtain the t-mtx</span>
+<span style="color: #CD5555">C                    vkk is the box potential</span>
+<span style="color: #CD5555">C                    f_mtx is equation V88 og Brown &amp; Jackson</span>
+<span style="color: #CD5555">C     *********************************************************</span>
+
+<span style="color: #CD5555">      SUBROUTINE t_channel</span>
+<span style="color: #CD5555">      USE mesh_variables</span>
+<span style="color: #CD5555">      IMPLICIT NONE</span>
+<span style="color: #CD5555">      INTEGER istat, i,j</span>
+<span style="color: #CD5555">      DIMENSION vkk(:,:),f_mtx(:),t_mtx(:)</span>
+<span style="color: #CD5555">      DOUBLE PRECISION, ALLOCATABLE :: vkk,t_mtx,f_mtx</span>
+<span style="color: #CD5555">      DOUBLE PRECISION t_shell</span>
+
+<span style="color: #CD5555">      ALLOCATE(vkk (n_rel,n_rel), STAT=istat)</span>
+<span style="color: #CD5555">      CALL v_pot_yukawa(vkk) ! set up the box potential in routine vpot</span>
+<span style="color: #CD5555">      ALLOCATE(t_mtx (n_rel), STAT=istat) ! allocate space in heap for T</span>
+<span style="color: #CD5555">      ALLOCATE(f_mtx (n_rel), STAT=istat) ! allocate space for f</span>
+<span style="color: #CD5555">      DO i=1,n_rel               ! loop over positive energies e=k^2</span>
+<span style="color: #CD5555">         CALL f_mtx_eq(f_mtx,vkk,i)  ! solve eq. V88</span>
+<span style="color: #CD5555">         CALL principal_value(vkk,f_mtx,i,t_shell) ! solve Eq. V89 </span>
+<span style="color: #CD5555">         DO j=1,n_rel    ! the t-matrix</span>
+<span style="color: #CD5555">            t_mtx(j)=f_mtx(j)*t_shell</span>
+<span style="color: #CD5555">            IF(j == i) WRITE(6,*) ra(i) ,t_mtx(i)</span>
+<span style="color: #CD5555">c     &amp;                            DATAN(-ra(i)*t_mtx(i))</span>
+<span style="color: #CD5555">         ENDDO</span>
+<span style="color: #CD5555">      ENDDO</span>
+<span style="color: #CD5555">      DEALLOCATE(vkk ,  STAT=istat)</span>
+<span style="color: #CD5555">      DEALLOCATE(t_mtx, f_mtx,  STAT=istat)</span>
+<span style="color: #CD5555"> 1000 FORMAT( I3, 2F12.6) </span>
+
+<span style="color: #CD5555">      END SUBROUTINE t_channel</span>
+
+<span style="color: #CD5555">C     ***********************************************************</span>
+<span style="color: #CD5555">C          The analytical expression for the box potential</span>
+<span style="color: #CD5555">C          of exercise 1 and 12</span>
+<span style="color: #CD5555">C          vkk is in units of fm^-2 (14 MeV/41.47Mevfm^2, where </span>
+<span style="color: #CD5555">C          41.47= \hbarc^2/mass_nucleon),  </span>
+<span style="color: #CD5555">C          ra are mesh points in rel coordinates, units of fm^-1</span>
+<span style="color: #CD5555">C     ***********************************************************</span>
+
+<span style="color: #CD5555">      SUBROUTINE v_pot_box(vkk)</span>
+<span style="color: #CD5555">      USE mesh_variables</span>
+<span style="color: #CD5555">      USE constants</span>
+<span style="color: #CD5555">      IMPLICIT NONE</span>
+<span style="color: #CD5555">      INTEGER i,j</span>
+<span style="color: #CD5555">      DOUBLE PRECISION  vkk, r_0, v_0, a, b, fac</span>
+<span style="color: #CD5555">      PARAMETER(r_0=2.7d0,v_0=0.33759d0)  !r_0 in fm, v_0 in fm^-2 </span>
+<span style="color: #CD5555">      DIMENSION vkk(n_rel,n_rel)</span>
+
+<span style="color: #CD5555">      DO i=1,n_rel     ! set up the free potential</span>
+<span style="color: #CD5555">         DO j=1,i-1 </span>
+<span style="color: #CD5555">            a=ra(i)+ra(j)</span>
+<span style="color: #CD5555">            b=ra(i)-ra(j)</span>
+<span style="color: #CD5555">            fac=v_0/(2.d0*ra(i)*ra(j))</span>
+<span style="color: #CD5555">            vkk(j,i)=fac*(DSIN(a*r_0)/a-DSIN(b*r_0)/b)</span>
+<span style="color: #CD5555">            vkk(i,j)=vkk(j,i)</span>
+<span style="color: #CD5555">         ENDDO</span>
+<span style="color: #CD5555">         fac=v_0/(2.d0*(ra(i)**2))</span>
+<span style="color: #CD5555">         vkk(i,i)=fac*(DSIN(2.d0*ra(i)*r_0)/(2.d0*ra(i))-r_0)</span>
+<span style="color: #CD5555">      ENDDO</span>
+
+<span style="color: #CD5555">      END  SUBROUTINE v_pot_box</span>
+
+<span style="color: #CD5555">C     ***********************************************************</span>
+<span style="color: #CD5555">C          The analytical expression for  a Yukawa potential</span>
+<span style="color: #CD5555">C          in the l=0 channel</span>
+<span style="color: #CD5555">C          vkk is in units of fm^-2,  </span>
+<span style="color: #CD5555">C          ra are mesh points in rel coordinates, units of fm^-1</span>
+<span style="color: #CD5555">C          The parameters here are those of the Reid-Soft core</span>
+<span style="color: #CD5555">C          potential, see Brown and Jackson eq. A(4)</span>
+<span style="color: #CD5555">C     ***********************************************************</span>
+
+<span style="color: #CD5555">      SUBROUTINE v_pot_yukawa(vkk)</span>
+<span style="color: #CD5555">      USE mesh_variables</span>
+<span style="color: #CD5555">      USE constants</span>
+<span style="color: #CD5555">      IMPLICIT NONE</span>
+<span style="color: #CD5555">      INTEGER i,j</span>
+<span style="color: #CD5555">      DOUBLE PRECISION  vkk, mu1, mu2, mu3, v_1, v_2, v_3, a, b, fac</span>
+<span style="color: #CD5555">      PARAMETER(mu1=0.49d0,v_1=-0.252d0) </span>
+<span style="color: #CD5555">      PARAMETER(mu2=7.84d0,v_2=-39.802d0) </span>
+<span style="color: #CD5555">      PARAMETER(mu3=24.01d0,v_3=156.359d0) </span>
+<span style="color: #CD5555">      DIMENSION vkk(n_rel,n_rel)</span>
+
+<span style="color: #CD5555">      DO i=1,n_rel     ! set up the free potential</span>
+<span style="color: #CD5555">         DO j=1,i </span>
+<span style="color: #CD5555">            a=(ra(j)+ra(i))**2</span>
+<span style="color: #CD5555">            b=(ra(j)-ra(i))**2</span>
+<span style="color: #CD5555">            fac=1./(4.d0*ra(i)*ra(j))</span>
+<span style="color: #CD5555">            vkk(j,i)=v_1*fac*DLOG((a+mu1)/(b+mu1))+</span>
+<span style="color: #CD5555">     &amp;               v_2*fac*DLOG((a+mu2)/(b+mu2))+</span>
+<span style="color: #CD5555">     &amp;               v_3*fac*DLOG((a+mu3)/(b+mu3))</span>
+<span style="color: #CD5555">            vkk(i,j)=vkk(j,i)</span>
+<span style="color: #CD5555">         ENDDO</span>
+<span style="color: #CD5555">      ENDDO</span>
+
+<span style="color: #CD5555">      END  SUBROUTINE v_pot_yukawa</span>
+<span style="color: #CD5555">      </span>
+<span style="color: #CD5555">C     **************************************************</span>
+<span style="color: #CD5555">C         Solves eq. V88 </span>
+<span style="color: #CD5555">C         and returns &lt; p | f_mtx | n_pole =k&gt;</span>
+<span style="color: #CD5555">C     **************************************************</span>
+
+<span style="color: #CD5555">      SUBROUTINE f_mtx_eq(f_mtx,vkk,n_pole)</span>
+<span style="color: #CD5555">      USE mesh_variables</span>
+<span style="color: #CD5555">      USE constants</span>
+<span style="color: #CD5555">      IMPLICIT NONE</span>
+<span style="color: #CD5555">      INTEGER i, j, int, istat, n_pole</span>
+<span style="color: #CD5555">      DOUBLE PRECISION f_mtx,vkk,dp,deriv,pih,xsum</span>
+<span style="color: #CD5555">      DIMENSION dp(1),deriv(1)</span>
+<span style="color: #CD5555">      DIMENSION f_mtx(n_rel),vkk(n_rel,n_rel),a(:,:),fu(:),q(:),au(:)</span>
+<span style="color: #CD5555">      DOUBLE PRECISION, ALLOCATABLE :: fu, q, au, a</span>
+
+<span style="color: #CD5555">      pih=2.D0/ACOS(-1.D0)</span>
+<span style="color: #CD5555">      ALLOCATE( a (n_rel,n_rel), STAT=istat)</span>
+<span style="color: #CD5555">      DO i=1,n_rel</span>
+<span style="color: #CD5555">         ALLOCATE(fu(n_rel), q(n_rel), au(n_rel), STAT=istat)</span>
+<span style="color: #CD5555">         DO j=1,n_rel</span>
+<span style="color: #CD5555">            fu(j)=vkk(i,j)-vkk(i,n_pole)*vkk(n_pole,j)/</span>
+<span style="color: #CD5555">     &amp;                 vkk(n_pole,n_pole)</span>
+<span style="color: #CD5555">         ENDDO</span>
+<span style="color: #CD5555">         DO j=1,n_rel</span>
+<span style="color: #CD5555">            IF(j /= n_pole ) THEN     ! regular part</span>
+<span style="color: #CD5555">               a(j,i)=pih*fu(j)*wra(j)*(ra(j)**2)/</span>
+<span style="color: #CD5555">     &amp;                (ra(j)**2-ra(n_pole)**2)</span>
+<span style="color: #CD5555">            ELSEIF(j == n_pole) THEN  ! use l&#39;</span>Hopitals rule to get pole term
+               dp(<span style="color: #B452CD">1</span>)=ra(j)             
+               <span style="color: #8B008B; font-weight: bold">CALL </span>spls3(ra,fu,n_rel,dp,deriv(<span style="color: #B452CD">1</span>),<span style="color: #B452CD">1</span>,q,au,<span style="color: #B452CD">2</span>,<span style="color: #B452CD">0</span>) 
+               a(j,i)=pih*wra(j)*ra(j)/<span style="color: #B452CD">2.</span>d0*deriv(<span style="color: #B452CD">1</span>)
+            ENDIF
+         ENDDO
+         <span style="color: #8B008B; font-weight: bold">DEALLOCATE</span>(fu, q, au, <span style="color: #658b00">STAT</span>=istat)   <span style="color: #228B22">! free space in heap </span>
+         a(i,i)=a(i,i)+<span style="color: #B452CD">1.</span>D0
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">CALL </span>matinv(a, n_rel)      <span style="color: #228B22">! Invert the matrix a</span>
+      <span style="color: #8B008B; font-weight: bold">DO </span>j=<span style="color: #B452CD">1</span>,n_rel               <span style="color: #228B22">! multiply inverted matrix a with dim less pot</span>
+         xsum=<span style="color: #B452CD">0.</span>D0
+         <span style="color: #8B008B; font-weight: bold">DO </span>i=<span style="color: #B452CD">1</span>,n_rel
+            xsum=xsum+a(i,j)*vkk(i,n_pole)/vkk(n_pole,n_pole)  <span style="color: #228B22">! gives f-matrix in V88</span>
+         ENDDO
+         f_mtx(j)=xsum
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">DEALLOCATE</span> (a, <span style="color: #658b00">STAT</span>=istat)
+
+      <span style="color: #8B008B; font-weight: bold">END SUBROUTINE </span>f_mtx_eq
+
+C     **************************************************
+C         Solves the principal <span style="color: #8B008B; font-weight: bold">value </span>integral of V89
+C         returns the t-matrix for k=k, t_shell
+C     **************************************************
+
+      <span style="color: #8B008B; font-weight: bold">SUBROUTINE </span>principal_value(vkk,f_mtx,n_pole,t_shell) 
+      <span style="color: #8B008B; font-weight: bold">USE </span>mesh_variables
+      <span style="color: #8B008B; font-weight: bold">IMPLICIT NONE</span>
+<span style="color: #8B008B; font-weight: bold">      </span><span style="color: #a7a7a7; font-weight: bold">DOUBLE PRECISION </span>vkk, f_mtx, t_shell, <span style="color: #658b00">sum</span>, pih, deriv, term
+      <span style="color: #8B008B; font-weight: bold">DIMENSION </span>deriv(<span style="color: #B452CD">1</span>)
+      <span style="color: #8B008B; font-weight: bold">DIMENSION </span>vkk(n_rel, n_rel), f_mtx(n_rel),fu(:), q(:), au(:)
+      <span style="color: #a7a7a7; font-weight: bold">DOUBLE PRECISION</span>, <span style="color: #8B008B; font-weight: bold">ALLOCATABLE</span> <span style="color: #8B008B; font-weight: bold">::</span> fu, q, au
+      <span style="color: #a7a7a7; font-weight: bold">INTEGER </span>n_pole, i, istat
+
+      <span style="color: #8B008B; font-weight: bold">ALLOCATE</span>(fu(n_rel), q(n_rel), au(n_rel), <span style="color: #658b00">STAT</span>=istat)
+      <span style="color: #658b00">sum</span>=<span style="color: #B452CD">0.</span>D0
+      pih=<span style="color: #B452CD">2.</span>D0/<span style="color: #658b00">ACOS</span>(-<span style="color: #B452CD">1.</span>D0)
+      <span style="color: #8B008B; font-weight: bold">DO </span>i=<span style="color: #B452CD">1</span>,n_rel
+         fu(i)=vkk(n_pole,i)*f_mtx(i)
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">DO </span>i=<span style="color: #B452CD">1</span>,n_pole-<span style="color: #B452CD">1</span>  <span style="color: #228B22">! integrate up to the pole - 1 mesh</span>
+         term=fu(i)*(ra(i)**<span style="color: #B452CD">2</span>)-fu(n_pole)*(ra(n_pole)**<span style="color: #B452CD">2</span>)
+         <span style="color: #658b00">sum</span>=<span style="color: #658b00">sum</span>+pih*wra(i)*term/(ra(i)**<span style="color: #B452CD">2</span>-ra(n_pole)**<span style="color: #B452CD">2</span>)
+      ENDDO       <span style="color: #228B22">! here comes the pole part</span>
+      <span style="color: #8B008B; font-weight: bold">CALL </span>spls3(ra,fu,n_rel,ra(n_pole),deriv,<span style="color: #B452CD">1</span>,au,q,<span style="color: #B452CD">2</span>,<span style="color: #B452CD">0</span>)      
+      <span style="color: #658b00">sum</span>=<span style="color: #658b00">sum</span>+pih*wra(n_pole)*(fu(n_pole)+ra(n_pole)*deriv(<span style="color: #B452CD">1</span>)/<span style="color: #B452CD">2.</span>d0) 
+      <span style="color: #8B008B; font-weight: bold">DO </span>i=n_pole+<span style="color: #B452CD">1</span>,n_rel  <span style="color: #228B22">! integrate from pole + 1mesh pt to infty</span>
+         term=fu(i)*(ra(i)**<span style="color: #B452CD">2</span>)-fu(n_pole)*(ra(n_pole)**<span style="color: #B452CD">2</span>)
+         <span style="color: #658b00">sum</span>=<span style="color: #658b00">sum</span>+pih*wra(i)*term/(ra(i)**<span style="color: #B452CD">2</span>-ra(n_pole)**<span style="color: #B452CD">2</span>)
+      ENDDO
+      t_shell=vkk(n_pole,n_pole)/(<span style="color: #B452CD">1.</span>d0+<span style="color: #658b00">sum</span>)
+      <span style="color: #8B008B; font-weight: bold">DEALLOCATE</span> (fu, q, au, <span style="color: #658b00">STAT</span>=istat)
+
+      <span style="color: #8B008B; font-weight: bold">END SUBROUTINE </span>principal_value
+
+C         ***********************************************
+C             Set up of relative mesh <span style="color: #658b00">and </span>weights
+C         ***********************************************
+
+      <span style="color: #8B008B; font-weight: bold">SUBROUTINE </span>rel_mesh
+      <span style="color: #8B008B; font-weight: bold">USE </span>mesh_variables
+      <span style="color: #8B008B; font-weight: bold">IMPLICIT NONE</span>
+<span style="color: #8B008B; font-weight: bold">      </span><span style="color: #a7a7a7; font-weight: bold">INTEGER </span>i
+      <span style="color: #a7a7a7; font-weight: bold">DOUBLE PRECISION </span>pih,u,s,xx,c,h_max
+      <span style="color: #8B008B; font-weight: bold">PARAMETER</span> (c=<span style="color: #B452CD">0.75</span>)
+      <span style="color: #8B008B; font-weight: bold">DIMENSION </span>u(n_rel), s(n_rel)
+
+      pih=<span style="color: #658b00">ACOS</span>(-<span style="color: #B452CD">1.</span>D0)/<span style="color: #B452CD">2.</span>D0
+      <span style="color: #8B008B; font-weight: bold">CALL </span>gausslegendret (<span style="color: #B452CD">0.</span>D0,<span style="color: #B452CD">1.</span>d0,n_rel,u,s)
+      <span style="color: #8B008B; font-weight: bold">DO </span>i=<span style="color: #B452CD">1</span>,n_rel
+         xx=pih*u(i)
+         ra(i)=<span style="color: #658b00">DTAN</span>(xx)*c
+         wra(i)=pih*c/<span style="color: #658b00">DCOS</span>(xx)**<span style="color: #B452CD">2</span>*s(i)
+      ENDDO
+
+      <span style="color: #8B008B; font-weight: bold">END SUBROUTINE </span>rel_mesh
+
+C     *********************************************************
+C            Routines to <span style="color: #8B008B; font-weight: bold">do </span>mtx inversion, from Numerical
+C            Recepies, Teukolsky et al. Routines included
+C            below are MATINV, LUDCMP <span style="color: #658b00">and </span>LUBKSB. See chap <span style="color: #B452CD">2</span>
+C            of Numerical Recepies for further details
+C            Recoded in FORTRAN <span style="color: #B452CD">90</span> by M. Hjorth-Jensen
+C     *********************************************************
+
+      <span style="color: #8B008B; font-weight: bold">SUBROUTINE </span>matinv(a,n)
+      <span style="color: #8B008B; font-weight: bold">IMPLICIT </span><span style="color: #a7a7a7; font-weight: bold">REAL</span>*<span style="color: #B452CD">8</span>(A-H,O-Z)
+      <span style="color: #8B008B; font-weight: bold">DIMENSION </span>a(n,n)
+      <span style="color: #a7a7a7; font-weight: bold">INTEGER </span>istat
+      <span style="color: #a7a7a7; font-weight: bold">DOUBLE PRECISION</span>, <span style="color: #8B008B; font-weight: bold">ALLOCATABLE</span> <span style="color: #8B008B; font-weight: bold">::</span> y(:,:)
+      <span style="color: #a7a7a7; font-weight: bold">INTEGER</span>, <span style="color: #8B008B; font-weight: bold">ALLOCATABLE</span> <span style="color: #8B008B; font-weight: bold">::</span> indx(:)
+
+      <span style="color: #8B008B; font-weight: bold">ALLOCATE</span> (y( n, n), <span style="color: #658b00">STAT</span> =istat)
+      <span style="color: #8B008B; font-weight: bold">ALLOCATE</span> ( indx (n), <span style="color: #658b00">STAT</span> =istat)
+      <span style="color: #8B008B; font-weight: bold">DO </span>i=<span style="color: #B452CD">1</span>,n
+         <span style="color: #8B008B; font-weight: bold">DO </span>j=<span style="color: #B452CD">1</span>,n
+            y(i,j)=<span style="color: #B452CD">0.</span>
+         ENDDO
+         y(i,i)=<span style="color: #B452CD">1.</span>
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">CALL  </span>ludcmp(a,n,indx,d)
+      <span style="color: #8B008B; font-weight: bold">DO </span>j=<span style="color: #B452CD">1</span>,n
+         <span style="color: #8B008B; font-weight: bold">call </span>lubksb(a,n,indx,y(<span style="color: #B452CD">1</span>,j))
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">DO </span>i=<span style="color: #B452CD">1</span>,n
+         <span style="color: #8B008B; font-weight: bold">DO </span>j=<span style="color: #B452CD">1</span>,n
+            a(i,j)=y(i,j)
+         ENDDO
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">DEALLOCATE</span> ( y, <span style="color: #658b00">STAT</span>=istat)
+      <span style="color: #8B008B; font-weight: bold">DEALLOCATE</span> ( indx, <span style="color: #658b00">STAT</span>=istat)
+
+      <span style="color: #8B008B; font-weight: bold">END SUBROUTINE </span>matinv
+ 
+
+      <span style="color: #8B008B; font-weight: bold">SUBROUTINE </span>LUDCMP(A,N,INDX,D)
+      <span style="color: #8B008B; font-weight: bold">IMPLICIT </span><span style="color: #a7a7a7; font-weight: bold">REAL</span>*<span style="color: #B452CD">8</span>(A-H,O-Z)
+      <span style="color: #8B008B; font-weight: bold">PARAMETER</span> (<span style="color: #658b00">TINY</span>=<span style="color: #B452CD">1.0E-20</span>)
+      <span style="color: #8B008B; font-weight: bold">DIMENSION </span>A(N,N),INDX(N)
+      <span style="color: #a7a7a7; font-weight: bold">INTEGER </span>istat
+      <span style="color: #a7a7a7; font-weight: bold">DOUBLE PRECISION</span>, <span style="color: #8B008B; font-weight: bold">ALLOCATABLE</span> <span style="color: #8B008B; font-weight: bold">::</span> vv(:)
+
+      <span style="color: #8B008B; font-weight: bold">ALLOCATE</span> ( vv(n), <span style="color: #658b00">STAT</span> = istat)
+      D=<span style="color: #B452CD">1.</span>
+      <span style="color: #8B008B; font-weight: bold">DO </span>I=<span style="color: #B452CD">1</span>,N
+         AAMAX=<span style="color: #B452CD">0.</span>
+         <span style="color: #8B008B; font-weight: bold">DO </span>J=<span style="color: #B452CD">1</span>,N
+            <span style="color: #8B008B; font-weight: bold">IF</span> (<span style="color: #658b00">ABS</span>(A(I,J)) &gt; AAMAX) AAMAX=<span style="color: #658b00">ABS</span>(A(I,J))
+         ENDDO
+         <span style="color: #8B008B; font-weight: bold">IF</span> (AAMAX == <span style="color: #B452CD">0.</span>) <span style="color: #8B008B; font-weight: bold">PAUSE</span> <span style="color: #CD5555">&#39;Singular matrix.&#39;</span>
+         VV(I)=<span style="color: #B452CD">1.</span>/AAMAX
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">DO </span>J=<span style="color: #B452CD">1</span>,N
+         <span style="color: #8B008B; font-weight: bold">IF</span> (J &gt; <span style="color: #B452CD">1</span>) <span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">            DO </span>I=<span style="color: #B452CD">1</span>,J-<span style="color: #B452CD">1</span>
+               <span style="color: #658b00">SUM</span>=A(I,J)
+               <span style="color: #8B008B; font-weight: bold">IF</span> (I &gt; <span style="color: #B452CD">1</span>)<span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">                  DO </span>K=<span style="color: #B452CD">1</span>,I-<span style="color: #B452CD">1</span>
+                     <span style="color: #658b00">SUM</span>=<span style="color: #658b00">SUM</span>-A(I,K)*A(K,J)
+                  ENDDO
+                  A(I,J)=<span style="color: #658b00">SUM</span>
+<span style="color: #658b00">               </span>ENDIF
+            ENDDO
+         ENDIF
+         AAMAX=<span style="color: #B452CD">0.</span>
+         <span style="color: #8B008B; font-weight: bold">DO </span>I=J,N
+            <span style="color: #658b00">SUM</span>=A(I,J)
+            <span style="color: #8B008B; font-weight: bold">IF</span> (J &gt; <span style="color: #B452CD">1</span>)<span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">               DO </span>K=<span style="color: #B452CD">1</span>,J-<span style="color: #B452CD">1</span>
+                  <span style="color: #658b00">SUM</span>=<span style="color: #658b00">SUM</span>-A(I,K)*A(K,J)
+               ENDDO
+               A(I,J)=<span style="color: #658b00">SUM</span>
+<span style="color: #658b00">            </span>ENDIF
+            DUM=VV(I)*<span style="color: #658b00">ABS</span>(<span style="color: #658b00">SUM</span>)
+            <span style="color: #8B008B; font-weight: bold">IF</span> (DUM &gt;= AAMAX) <span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">               </span>IMAX=I
+               AAMAX=DUM
+            ENDIF
+         ENDDO
+         <span style="color: #8B008B; font-weight: bold">IF</span> (J /= IMAX)<span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">            DO </span>K=<span style="color: #B452CD">1</span>,N
+               DUM=A(IMAX,K)
+               A(IMAX,K)=A(J,K)
+               A(J,K)=DUM
+            ENDDO
+            D=-D
+            VV(IMAX)=VV(J)
+         ENDIF
+         INDX(J)=IMAX
+         <span style="color: #8B008B; font-weight: bold">IF</span>(J /= N)<span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">            IF</span>(A(J,J) == <span style="color: #B452CD">0.</span>) A(J,J)=<span style="color: #658b00">TINY</span>
+<span style="color: #658b00">            </span>DUM=<span style="color: #B452CD">1.</span>/A(J,J)
+            <span style="color: #8B008B; font-weight: bold">DO </span>I=J+<span style="color: #B452CD">1</span>,N
+               A(I,J)=A(I,J)*DUM
+            ENDDO
+         ENDIF
+      ENDDO
+      <span style="color: #8B008B; font-weight: bold">IF</span>(A(N,N) == <span style="color: #B452CD">0.</span>)  A(N,N)=<span style="color: #658b00">TINY</span>
+<span style="color: #658b00">      </span><span style="color: #8B008B; font-weight: bold">DEALLOCATE</span> ( vv, <span style="color: #658b00">STAT</span> = istat)
+
+      <span style="color: #8B008B; font-weight: bold">END SUBROUTINE </span>LUDCMP
+ 
+      <span style="color: #8B008B; font-weight: bold">SUBROUTINE </span>LUBKSB(A,N,INDX,B)
+      <span style="color: #8B008B; font-weight: bold">implicit </span><span style="color: #a7a7a7; font-weight: bold">real</span>*<span style="color: #B452CD">8</span>(a-h,o-z)
+      <span style="color: #8B008B; font-weight: bold">DIMENSION </span>A(N,N),INDX(N),B(N)
+      II=<span style="color: #B452CD">0</span>
+      <span style="color: #8B008B; font-weight: bold">DO </span>I=<span style="color: #B452CD">1</span>,N
+         LL=INDX(I)
+         <span style="color: #658b00">SUM</span>=B(LL)
+         B(LL)=B(I)
+         <span style="color: #8B008B; font-weight: bold">IF</span> (II /= <span style="color: #B452CD">0</span>)<span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">            DO </span>J=II,I-<span style="color: #B452CD">1</span>
+               <span style="color: #658b00">SUM</span>=<span style="color: #658b00">SUM</span>-A(I,J)*B(J)
+            ENDDO
+         <span style="color: #8B008B; font-weight: bold">ELSE IF</span> (<span style="color: #658b00">SUM</span> /= <span style="color: #B452CD">0.</span>) <span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">            </span>II=I
+         ENDIF
+         B(I)=<span style="color: #658b00">SUM</span>
+<span style="color: #658b00">      </span>ENDDO
+      <span style="color: #8B008B; font-weight: bold">DO </span>I=N,<span style="color: #B452CD">1</span>,-<span style="color: #B452CD">1</span>
+         <span style="color: #658b00">SUM</span>=B(I)
+         <span style="color: #8B008B; font-weight: bold">IF</span> (I &lt; N)<span style="color: #8B008B; font-weight: bold">THEN</span>
+<span style="color: #8B008B; font-weight: bold">            DO </span>J=I+<span style="color: #B452CD">1</span>,N
+               <span style="color: #658b00">SUM</span>=<span style="color: #658b00">SUM</span>-A(I,J)*B(J)
+            ENDDO
+         ENDIF
+         B(I)=<span style="color: #658b00">SUM</span>/A(I,I)
+      ENDDO
+
+      <span style="color: #8B008B; font-weight: bold">END SUBROUTINE </span>lubksb
+</pre></div>
+<p>
+<!-- --- end solution of exercise --- -->
+
+<p>
 <b>c)</b>
 The parameters of the box potential are chosen to fit a
 potential with a bound state at zero energy. What does this mean

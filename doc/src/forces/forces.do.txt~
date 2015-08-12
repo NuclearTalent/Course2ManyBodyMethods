@@ -1,563 +1,19 @@
 # Slides for PHY981
-TITLE: Quantum numbers and nuclear forces
-AUTHOR: Morten Hjorth-Jensen, National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA & Department of Physics, University of Oslo, Oslo, Norway 
-DATE: Spring 2015
-
-!split
-===== Quantum numbers and nuclear forces =====
-!bblock Outline
-* Discussion of single-particle and two-particle quantum numbers, uncoupled and coupled schemes
-* Discussion of nuclear forces and models thereof (this material will not be covered in depth this spring)
-For quantum numbers, chapter 1 on angular momentum and chapter 5 of Suhonen.
-See also chapters 5, 12 and 13 of Alex Brown. For models of the nuclear forces, see present lectures and pdf files.
-For a good discussion of isospin, see Alex Brown's lecture notes chapter 12, 13 and 19.
-!eblock
+TITLE: Nuclear forces
+AUTHOR: "Morten Hjorth-Jensen":"http://computationalphysics.no", National Superconducting Cyclotron Laboratory and Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA & Department of Physics, University of Oslo, Oslo, Norway 
+DATE: July 2015
 
 
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-In order to understand the basics of the nucleon-nucleon interaction, we need to define the relevant quantum numbers and how we build up a single-particle state and a two-body state. 
-
-* For the single-particle states, due to the fact that we have the spin-orbit force, the quantum numbers for the projection of orbital momentum $l$, that is $m_l$, and for spin $s$, that is $m_s$, are no longer so-called good quantum numbers. The total angular momentum $j$ and its projection $m_j$ are then  so-called *good quantum numbers*.
-* This means that the operator $\hat{J}^2$ does not commute with $\hat{L}_z$  or $\hat{S}_z$.  
-* We also start normally with single-particle state functions defined using say the harmonic oscillator. For these functions, we have no explicit dependence on $j$. How can we introduce single-particle wave functions which have $j$ and its projection $m_j$ as quantum numbers? 
-!eblock
-
-
-!split
-===== Single-particle and two-particle quantum numbers, brief review on angular momenta etc =====
-
-!bblock
-We have that the operators for the orbital momentum are given by
-!bt
-\[
-L_x=-i\hbar(y\frac{\partial }{\partial z}-z\frac{\partial }{\partial y})=
-yp_z-zp_y,
-\]
-!et
-!bt
-\[
-L_y=-i\hbar(z\frac{\partial }{\partial x}-x\frac{\partial }{\partial z})= zp_x-xp_z,
-\]
-!et
-!bt
-\[
-L_z=-i\hbar(x\frac{\partial }{\partial y}-y\frac{\partial }{\partial x})=xp_y-yp_x.
-\]
-!et
-!eblock
-
-!split
-===== Single-particle and two-particle quantum numbers, brief review on angular momenta etc =====
-!bblock
-Since we have a spin orbit force which is strong, it is easy to show that 
-the total angular momentum operator
-!bt
-\[
-   \hat{J}=\hat{L}+\hat{S}
-\]
-!et
-does not commute with $\hat{L}_z$ and $\hat{S}_z$. To see this, we calculate for example
-!bt
-\begin{eqnarray} 
-   [\hat{L}_z,\hat{J}^2]&=&[\hat{L}_z,(\hat{L}+\hat{S})^2] \\ \nonumber
-   &=&[\hat{L}_z,\hat{L}^2+\hat{S}^2+2\hat{L}\hat{S}]\\ \nonumber 
-   &=& [\hat{L}_z,\hat{L}\hat{S}]=[\hat{L}_z,\hat{L}_x\hat{S}_x+\hat{L}_y\hat{S}_y+\hat{L}_z\hat{S}_z]\ne 0, 
-\end{eqnarray}
-!et
-since we have that $[\hat{L}_z,\hat{L}_x]=i\hbar\hat{L}_y$ and $[\hat{L}_z,\hat{L}_y]=i\hbar\hat{L}_x$. 
-!eblock
-
-!split
-===== Single-particle and two-particle quantum numbers, brief review on angular momenta etc =====
-!bblock
-We have also
-!bt
-\[
-   |\hat{J}|=\hbar\sqrt{J(J+1)},
-\]
-!et
-with the the following degeneracy
-!bt
-\[
-   M_J=-J, -J+1, \dots, J-1, J.
-\]
-!et
-With a given value of  $L$ and $S$ we can then determine the possible values of 
- $J$ by studying the $z$ component of  $\hat{J}$. 
-It is given by
-!bt
-\[
-\hat{J}_z=\hat{L}_z+\hat{S}_z.
-\]
-!et
-The operators $\hat{L}_z$ and $\hat{S}_z$ have the quantum numbers
-$L_z=M_L\hbar$ and $S_z=M_S\hbar$, respectively, meaning that
-!bt
-\[
-   M_J\hbar=M_L\hbar +M_S\hbar,
-\]
-!et
-or
-!bt
-\[
-   M_J=M_L +M_S.
-\]
-!et
-Since the max value of  $M_L$ is $L$ and for  $M_S$ is $S$
-we obtain
-!bt
-\[
-   (M_J)_{\mathrm{maks}}=L+S.
-\]
-!et
-!eblock
-
-!split
-===== Single-particle and two-particle quantum numbers, brief review on angular momenta etc =====
-!bblock
-For nucleons we have that the maximum value of $M_S=m_s=1/2$, yielding
-!bt
-\[
-   (m_j)_{\mathrm{max}}=l+\frac{1}{2}.
-\]
-!et
-Using this and the fact that the maximum value of  $M_J=m_j$ is $j$ we have
-!bt
-\[
-   j=l+\frac{1}{2}, l-\frac{1}{2}, l-\frac{3}{2}, l-\frac{5}{2}, \dots 
-\]
-!et
-To decide where this series terminates, we use the vector inequality
-!bt
-\[
-   |\hat{L}+\hat{S}| \ge \left| |\hat{L}|-|\hat{S}|\right|.
-\]
-!et
-!eblock
-
-
-!split
-===== Single-particle and two-particle quantum numbers, brief review on angular momenta etc =====
-!bblock
-Using $\hat{J}=\hat{L}+\hat{S}$ we get 
-!bt
-\[
-   |\hat{J}| \ge |\hat{L}|-|\hat{S}|,
-\]
-!et
-or
-!bt
-\[
-   |\hat{J}|=\hbar\sqrt{J(J+1)}\ge |\hbar\sqrt{L(L+1)}-
-   \hbar\sqrt{S(S+1)}|.
-\]
-!et
-!eblock
-
-
-
-!split
-===== Single-particle and two-particle quantum numbers, brief review on angular momenta etc =====
-!bblock
-If we limit ourselves to nucleons only with $s=1/2$ we find that
-!bt
-\[
-   |\hat{J}|=\hbar\sqrt{j(j+1)}\ge |\hbar\sqrt{l(l+1)}-
-   \hbar\sqrt{\frac{1}{2}(\frac{1}{2}+1)}|.
-\]
-!et
-It is then easy to show that for nucleons there are only two possible values of
-$j$ which satisfy the inequality, namely
-!bt
-\[
-   j=l+\frac{1}{2}\hspace{0.1cm} \mathrm{or} \hspace{0.1cm}j=l-\frac{1}{2},
-\]
-!et
-and with $l=0$ we get 
-!bt
-\[
-   j=\frac{1}{2}.
-\]
-!et
-!eblock
-
-
-!split
-===== Single-particle and two-particle quantum numbers, brief review on angular momenta etc =====
-!bblock
-Let us study some selected examples. We need also to keep in mind that parity is conserved.
-The strong and electromagnetic Hamiltonians conserve parity. Thus the eigenstates can be
-broken down into two classes of states labeled by their parity $\pi= +1$ or $\pi=-1$.
-The nuclear interactions do not mix states with different parity.
-
-For nuclear structure the total parity originates
-from the intrinsic parity of the nucleon which is $\pi_{\mathrm{intrinsic}}=+1$ 
-and the parities associated with
-the orbital angular momenta $\pi_l=(-1)^l$ . The total parity is the product over all nucleons
-$\pi = \prod_i \pi_{\mathrm{intrinsic}}(i)\pi_l(i) = \prod_i (-1)^{l_i}$
-
-The basis states we deal with are constructed so that they conserve parity and have thus a definite parity. 
-
-Note that we do have parity violating processes, more on this later although our focus will be mainly on non-parity viloating processes
-!eblock
-
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-
-Consider now the single-particle orbits of the $1s0d$ shell. 
-For a $0d$ state we have the quantum numbers $l=2$, $m_l=-2,-1,0,1,2$, $s+1/2$, $m_s=\pm 1/2$,
-$n=0$ (the number of nodes of the wave function).   This means that we have positive parity and
-!bt
-\[
-j=\frac{3}{2}=l-s\hspace{1cm} m_j=-\frac{3}{2},-\frac{1}{2},\frac{1}{2},\frac{3}{2}.
-\]
-!et
-and
-!bt
-\[
-j=\frac{5}{2}=l+s\hspace{1cm} m_j=-\frac{5}{2},-\frac{3}{2},-\frac{1}{2},\frac{1}{2},\frac{3}{2},\frac{5}{2}.
-\]
-!et
-!eblock
-
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-Our single-particle wave functions, if we use the harmonic oscillator, do however not contain the quantum numbers $j$ and $m_j$.
-Normally what we have is an eigenfunction for the one-body problem defined as
-!bt
-\[
-\phi_{nlm_lsm_s}(r,\theta,\phi)=R_{nl}(r)Y_{lm_l}(\theta,\phi)\xi_{sm_s},
-\]
-!et
-where we have used spherical coordinates (with a spherically symmetric potential) and the spherical harmonics
-!bt 
-\[
-    Y_{lm_l}(\theta,\phi)=P(\theta)F(\phi)=\sqrt{\frac{(2l+1)(l-m_l)!}{4\pi (l+m_l)!}}
-                      P_l^{m_l}(cos(\theta))\exp{(im_l\phi)},
-\]
-!et
-with $P_l^{m_l}$ being the so-called associated Legendre polynomials. 
-!eblock
-
-
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-Examples are
-!bt
-\[
-   Y_{00}=\sqrt{\frac{1}{4\pi}},
-\]
-!et
-for $l=m_l=0$, 
-!bt
-\[
-   Y_{10}=\sqrt{\frac{3}{4\pi}}cos(\theta),
-\]
-!et
-for $l=1$ and $m_l=0$, 
-!bt
-\[
-   Y_{1\pm 1}=\sqrt{\frac{3}{8\pi}}sin(\theta)exp(\pm i\phi),
-\]
-!et
-for  $l=1$ and $m_l=\pm 1$, 
-!bt
-\[
-   Y_{20}=\sqrt{\frac{5}{16\pi}}(3cos^2(\theta)-1)
-\]
-!et
-for $l=2$ and $m_l=0$ etc. 
-!eblock
-
-
-
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-How can we get a function in terms of $j$ and $m_j$?
-Define now
-!bt
-\[
-\phi_{nlm_lsm_s}(r,\theta,\phi)=R_{nl}(r)Y_{lm_l}(\theta,\phi)\xi_{sm_s},
-\]
-!et
-and
-!bt 
-\[
-\psi_{njm_j;lm_lsm_s}(r,\theta,\phi),
-\]
-!et
-as the state with quantum numbers $jm_j$.
-Operating with 
-!bt
-\[
-   \hat{j}^2=(\hat{l}+\hat{s})^2=\hat{l}^2+\hat{s}^2+2\hat{l}_z\hat{s}_z+\hat{l}_+\hat{s}_{-}+\hat{l}_{-}\hat{s}_{+},
-\]
-!et
-on the latter state we will obtain admixtures from possible $\phi_{nlm_lsm_s}(r,\theta,\phi)$ states.
-!eblock
-
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-To see this, we consider the following example and fix
-!bt
-\[
-j=\frac{3}{2}=l-s\hspace{1cm} m_j=\frac{3}{2}.
-\]
-!et
-and
-!bt
-\[
-j=\frac{5}{2}=l+s\hspace{1cm} m_j=\frac{3}{2}.
-\]
-!et
-It means we can have, with $l=2$ and $s=1/2$ being fixed, in order to have $m_j=3/2$ either $m_l=1$ and $m_s=1/2$ or
-$m_l=2$ and $m_s=-1/2$. The two states    
-!bt
-\[
-\psi_{n=0j=5/2m_j=3/2;l=2s=1/2}
-\]
-!et
-and
-!bt
-\[
-\psi_{n=0j=3/2m_j=3/2;l=2s=1/2}
-\]
-!et
-will have admixtures from $\phi_{n=0l=2m_l=2s=1/2m_s=-1/2}$ and $\phi_{n=0l=2m_l=1s=1/2m_s=1/2}$. 
-How do we find these admixtures? Note that we don't specify the values of $m_l$ and $m_s$ 
-in the functions $\psi$ since    
-$\hat{j}^2$ does not commute with $\hat{L}_z$ and $\hat{S}_z$. 
-!eblock
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-We operate with 
-!bt
-\[
-   \hat{j}^2=(\hat{l}+\hat{s})^2=\hat{l}^2+\hat{s}^2+2\hat{l}_z\hat{s}_z+\hat{l}_+\hat{s}_{-}+\hat{l}_{-}\hat{s}_{+}
-\]
-!et
-on the two $jm_j$ states, that is
-!bt
-\[
-\hat{j}^2\psi_{n=0j=5/2m_j=3/2;l=2s=1/2}= \alpha\hbar^2[l(l+1)+\frac{3}{4}+2m_lm_s]\phi_{n=0l=2m_l=2s=1/2m_s=-1/2}+
-\]
-!et
-!bt
-\[
-\beta\hbar^2\sqrt{l(l+1)-m_l(m_l-1)}\phi_{n=0l=2m_l=1s=1/2m_s=1/2},
-\]
-!et
-and
-!bt 
-\[
-\hat{j}^2\psi_{n=0j=3/2m_j=3/2;l=2s=1/2}= \alpha\hbar^2[l(l+1)+\frac{3}{4}+2m_lm_s]+ \phi_{n=0l=2m_l=1s=1/2m_s=1/2}+
-\]
-!et
-!bt
-\[
-\beta\hbar^2\sqrt{l(l+1)-m_l(m_l+1)}\phi_{n=0l=2m_l=2s=1/2m_s=-1/2}.
-\]
-!et
-!eblock
-
-!split
-===== Single-particle and two-particle quantum numbers =====
-!bblock
-This means that the eigenvectors $\phi_{n=0l=2m_l=2s=1/2m_s=-1/2}$ etc are not eigenvectors of $\hat{j}^2$. The above problems gives a $2\times2$ matrix that mixes the vectors $\psi_{n=0j=5/2m_j3/2;l=2m_ls=1/2m_s}$ and $\psi_{n=0j=3/2m_j3/2;l=2m_ls=1/2m_s}$ with the states  $\phi_{n=0l=2m_l=2s=1/2m_s=-1/2}$ and
-$\phi_{n=0l=2m_l=1s=1/2m_s=1/2}$. The unknown coefficients $\alpha$ and $\beta$ results from eigenvectors of this matrix. That is, inserting all values $m_l,l,m_s,s$ we obtain the matrix 
-!bt
-\[
-\left[ \begin{array} {cc} 19/4 & 2 \\ 2 & 31/4 \end{array} \right]\]
-!et
-whose eigenvectors are the columns of
-!bt
-\[
-\left[ \begin{array} {cc} 2/\sqrt{5} &1/\sqrt{5}  \\ 1/\sqrt{5} & -2/\sqrt{5} \end{array}\right]\]  
-!et
-These numbers define the so-called Clebsch-Gordan coupling coefficients  (the overlaps between the two basis sets). We can thus write
-!bt
-\[
-\psi_{njm_j;ls}=\sum_{m_lm_s}\langle lm_lsm_s|jm_j\rangle\phi_{nlm_lsm_s},
-\]
-!et
-where the coefficients $\langle lm_lsm_s|jm_j\rangle$ are the so-called Clebsch-Gordan coeffficients.
-!eblock
-
-!split
-===== Clebsch-Gordan coefficients =====
-!bblock
-The Clebsch-Gordan coeffficients $\langle lm_lsm_s|jm_j\rangle$ have some interesting properties for us, like the following  orthogonality relations
-!bt
-\[
-\sum_{m_1m_2}\langle j_1m_1j_2m_2|JM\rangle\langle j_1m_1j_2m_2|J'M'\rangle=\delta_{J,J'}\delta_{M,M'},
-\]
-!et
-!bt
-\[
-\sum_{JM}\langle j_1m_1j_2m_2|JM\rangle\langle j_1m_1'j_2m_2'|JM\rangle=\delta_{m_1,m_1'}\delta_{m_2,m_2'},
-\]
-!et
-!bt
-\[
-\langle j_1m_1j_2m_2|JM\rangle=(-1)^{j_1+j_2-J}\langle j_2m_2j_1m_1|JM\rangle,
-\]
-!et
-and many others. The latter will turn extremely useful when we are going to define two-body states and interactions in a coupled basis.
-!eblock
-
-!split
-===== Quantum numbers and the Schroeodinger equation in relative and CM coordinates =====
-!bblock
-Summing up, for 
-for the single-particle case, we have the following eigenfunctions 
-!bt
-\[
-\psi_{njm_j;ls}=\sum_{m_lm_s}\langle lm_lsm_s|jm_j\rangle\phi_{nlm_lsm_s},
-\]
-!et
-where the coefficients $\langle lm_lsm_s|jm_j\rangle$ are the so-called Clebsch-Gordan coeffficients.
-The relevant quantum numbers are $n$ (related to the principal quantum number and the number of nodes of the wave function) and 
-!bt
-\[
-   \hat{j}^2\psi_{njm_j;ls}=\hbar^2j(j+1)\psi_{njm_j;ls},
-\]
-!et
-!bt
-\[
-   \hat{j}_z\psi_{njm_j;ls}=\hbar m_j\psi_{njm_j;ls},
-\]
-!et
-!bt
-\[
-   \hat{l}^2\psi_{njm_j;ls}=\hbar^2l(l+1)\psi_{njm_j;ls},
-\]
-!et
-!bt
-\[
-   \hat{s}^2\psi_{njm_j;ls}=\hbar^2s(s+1)\psi_{njm_j;ls},
-\]
-!et
-but $s_z$ and $l_z$ do not result in good quantum numbers in a basis where we
-use the angular momentum $j$.
-!eblock
-
-!split
-===== Quantum numbers and the Schroedinger equation in relative and CM coordinates =====
-!bblock
-For a two-body state where we couple two angular momenta $j_1$ and $j_2$ to a final
-angular momentum $J$ with projection $M_J$, we can define a similar transformation in terms
-of the Clebsch-Gordan coeffficients
-!bt
-\[
-\psi_{(j_1j_2)JM_J}=\sum_{m_{j_1}m_{j_2}}\langle j_1m_{j_1}j_2m_{j_2}|JM_J\rangle\psi_{n_1j_1m_{j_1};l_1s_1}\psi_{n_2j_2m_{j_2};l_2s_2}.
-\]
-!et
-We will write these functions in a more compact form hereafter, namely,
-!bt
-\[
-|(j_1j_2)JM_J\rangle=\psi_{(j_1j_2)JM_J},
-\]
-!et
-and
-!bt 
-\[
-|j_im_{j_i}\rangle=\psi_{n_ij_im_{j_i};l_is_i},
-\]
-!et
-where we have skipped the explicit reference to $l$, $s$ and $n$. The spin of a nucleon is always $1/2$ while the value of $l$ can be deduced from the parity of the state.
-It is thus normal to label a state with a given total angular momentum as 
-$j^{\pi}$, where $\pi=\pm 1$. 
-!eblock
-
-!split
-===== Quantum numbers and the Schroedinger equation in relative and CM coordinates =====
-!bblock
-Our two-body state can thus be written as 
-!bt
-\[
-|(j_1j_2)JM_J\rangle=\sum_{m_{j_1}m_{j_2}}\langle j_1m_{j_1}j_2m_{j_2}|JM_J\rangle|j_1m_{j_1}\rangle|j_2m_{j_2}\rangle.
-\]
-!et
-Due to the coupling order of the Clebsch-Gordan coefficient it reads as 
-$j_1$ coupled to $j_2$ to yield a final angular momentum $J$. If we invert the order of coupling we would have
-!bt
-\[
-|(j_2j_1)JM_J\rangle=\sum_{m_{j_1}m_{j_2}}\langle j_2m_{j_2}j_1m_{j_1}|JM_J\rangle|j_1m_{j_1}\rangle|j_2m_{j_2}\rangle,
-\]
-!et
-and due to the symmetry properties of the Clebsch-Gordan coefficient we have
-!bt
-\[
-|(j_2j_1)JM_J\rangle=(-1)^{j_1+j_2-J}\sum_{m_{j_1}m_{j_2}}\langle j_1m_{j_1}j_2m_{j_2}|JM_J\rangle|j_1m_{j_1}\rangle|j_2m_{j_2}\rangle=(-1)^{j_1+j_2-J}|(j_1j_2)JM_J\rangle.
-\]
-!et
-We call the basis $|(j_1j_2)JM_J\rangle$ for the _coupled basis_, or just $j$-coupled basis/scheme. The basis formed by the simple product of single-particle eigenstates 
-$|j_1m_{j_1}\rangle|j_2m_{j_2}\rangle$ is called the _uncoupled-basis_, or just the $m$-scheme basis. 
-!eblock
-
-!split
-===== Quantum numbers =====
-!bblock
-We have thus the coupled basis 
-!bt
-\[
-|(j_1j_2)JM_J\rangle=\sum_{m_{j_1}m_{j_2}}\langle j_1m_{j_1}j_2m_{j_2}|JM_J\rangle|j_1m_{j_1}\rangle|j_2m_{j_2}\rangle.
-\]
-!et
-and the uncoupled basis 
-!bt
-\[
-|j_1m_{j_1}\rangle|j_2m_{j_2}\rangle.
-\]
-!et
-The latter can easily be generalized to many single-particle states whereas the first 
-needs specific coupling coefficients and definitions of coupling orders. 
-The $m$-scheme basis is easy to implement numerically and is used in most standard shell-model codes. 
-Our coupled basis obeys also the following relations
-!bt
-\[
-   \hat{J}^2|(j_1j_2)JM_J\rangle=\hbar^2J(J+1)|(j_1j_2)JM_J\rangle
-\]
-!et
-!bt
-\[
-   \hat{J}_z|(j_1j_2)JM_J\rangle=\hbar M_J|(j_1j_2)JM_J\rangle,
-\]
-!et
-!eblock
-
-
-!split
-===== Components of the force and isospin =====
-!bblock
+===== Isospin prelude to nuclear  forces  =====
  The nuclear forces are almost charge independent. If we assume they are, 
 we can introduce a new quantum number which is conserved. For nucleons only, that is a proton and neutron, we can limit ourselves
 to two possible values which allow us to distinguish between the two particles. If we assign an isospin value of $\tau=1/2$ for protons
-and neutrons (they belong to an isospin doublet, in the same way as we discussed the spin $1/2$ multiplet), we can define 
-the neutron to have isospin projection $\tau_z=+1/2$ and a proton to have $\tau_z=-1/2$. These assignements are the standard choices in low-energy nuclear physics.
-!eblock
+and neutrons (they belong to an isospin doublet, in the same way as we discuss the spin $1/2$ multiplet), we can define 
+the neutron to have isospin projection $\tau_z=+1/2$ and a proton to have $\tau_z=-1/2$. These assignments are the standard choices in low-energy nuclear physics. In particle physics, the opposite is the norm. 
 
-!split
-===== Isospin =====
-!bblock
 This leads to the introduction of an additional quantum number called isospin.
 We can define a single-nucleon
-state function in terms of the quantum numbers $n$, $j$, $m_j$, $l$, $s$, $\tau$ and $\tau_z$. Using our definitions in terms of an uncoupled basis, we had 
+state function in terms of the quantum numbers $n$, $j$, $m_j$, $l$, $s$, $\tau$ and $\tau_z$. Using our definitions in terms of an uncoupled basis, we can define a single-particle state with the state function
 !bt
 \[
 \psi_{njm_j;ls}=\sum_{m_lm_s}\langle lm_lsm_s|jm_j\rangle\phi_{nlm_lsm_s},
@@ -593,12 +49,7 @@ and similarly for neutrons as
 \psi^n(\mathbf{r})  =\psi_{njm_j;ls}(\mathbf{r})\left(\begin{array}{c} 1  \\ 0\end{array}\right). 
 \]
 !et
-!eblock
 
-
-!split
-===== Isospin =====
-!bblock
 We can in turn define the isospin Pauli matrices (in the same as we define the spin matrices) as
 !bt
 \[
@@ -628,11 +79,7 @@ and for neutrons we have
 \hat{\tau}\psi^n(\mathbf{r})=\frac{1}{2}\psi^n(\mathbf{r}).
 \]
 !et
-!eblock
 
-!split
-===== Isospin =====
-!bblock
 We can now define the so-called charge operator as 
 !bt
 \[
@@ -652,11 +99,7 @@ and
 \]
 !et
 as it should be. 
-!eblock
 
-!split
-===== Isospin =====
-!bblock
 The total isospin is defined as
 !bt
 \[
@@ -673,259 +116,9 @@ with eigenvalues $T(T+1)$ for $\hat{T}$ and $1/2(N-Z)$ for $\hat{T}_z$, where $N
 
 If charge is conserved, the Hamiltonian $\hat{H}$ commutes with $\hat{T}_z$ and all members of a given isospin multiplet
 (that is the same value of $T$) have the same energy and there is no $T_z$ dependence and we say that $\hat{H}$ is a scalar in isospin space.
-!eblock
 
+===== Phenomenology of nuclear forces: From Yukawa to Lattice QCD and Effective Field Theory =====
 
-!split
-===== Two-body matrix elements =====
-!bblock
-Till now we have not said anything about the explicit calculation of two-body matrix elements. It is time to amend this deficiency.
-We have till now seen the following definitions of a two-body matrix elements. In $m$-scheme
-with quantum numbers $p=j_pm_p$ etc we have a two-body state defined as
-!bt
-\[
-|(pq)M\rangle  = a^{\dagger}_pa^{\dagger}_q|\Phi_0\rangle,
-\]
-!et
-where $|\Phi_0\rangle$ is a chosen reference state, say for example the Slater determinant which approximates ${}^{16}\mbox{O}$ with the $0s$ and the $0p$ shells being filled, and $M=m_p+m_q$. Recall that we label single-particle states above the Fermi level as $abcd\dots$ and states below the Fermi level for $ijkl\dots$.  
-In case of two-particles in the single-particle states $a$ and $b$ outside ${}^{16}\mbox{O}$ as a closed shell core, say ${}^{18}\mbox{O}$, 
-we would write the representation of the Slater determinant as
-!bt
-\[
-|^{18}\mathrm{O}\rangle =|(ab)M\rangle  = a^{\dagger}_aa^{\dagger}_b|^{16}\mathrm{O}\rangle=|\Phi^{ab}\rangle.
-\]
-!et
-In case of two-particles removed from say ${}^{16}\mbox{O}$, for example two neutrons in the single-particle states $i$ and $j$, we would write this as
-!bt
-\[
-|^{14}\mathrm{O}\rangle =|(ij)M\rangle  = a_ja_i|^{16}\mathrm{O}\rangle=|\Phi_{ij}\rangle.
-\]
-!et  
-!eblock
-
-!split
-===== Two-body matrix elementsin $m$-scheme =====
-!bblock 
-For a one-hole-one-particle state we have
-!bt
-\[
-|^{16}\mathrm{O}\rangle_{1p1h} =|(ai)M\rangle  = a_a^{\dagger}a_i|^{16}\mathrm{O}\rangle=|\Phi_{i}^a\rangle,
-\]
-!et
-and finally for a two-particle-two-hole state we 
-!bt
-\[
-|^{16}\mathrm{O}\rangle_{2p2h} =|(abij)M\rangle  = a_a^{\dagger}a_b^{\dagger}a_ja_i|^{16}\mathrm{O}\rangle=|\Phi_{ij}^{ab}\rangle.
-\]
-!et
-!eblock
-
-!split
-===== Two-body matrix elements in $m$-scheme =====
-!bblock
-Let us go back to the case of two-particles in the single-particle states $a$ and $b$ outside ${}^{16}\mbox{O}$ as a closed shell core, say ${}^{18}\mbox{O}$.
-The representation of the Slater determinant is 
-!bt
-\[
-|^{18}\mathrm{O}\rangle =|(ab)M\rangle  = a^{\dagger}_aa^{\dagger}_b|^{16}\mathrm{O}\rangle=|\Phi^{ab}\rangle.
-\]
-!et
-The anti-symmetrized matrix element is detailed as 
-!bt
-\[
-\langle (ab) M | \hat{V} | (cd) M \rangle = \langle (j_am_aj_bm_b)M=m_a+m_b |  \hat{V} | (j_cm_cj_dm_d)M=m_a+m_b \rangle,
-\]
-!et
-and note that anti-symmetrization means 
-!bt
-\[
-\langle (ab) M | \hat{V} | (cd) M \rangle =-\langle (ba) M | \hat{V} | (cd) M \rangle =\langle (ba) M | \hat{V} | (dc) M \rangle,
-\]
-!et
-!bt
-\[
-\langle (ab) M | \hat{V} | (cd) M \rangle =-\langle (ab) M | \hat{V} | (dc) M \rangle. 
-\]
-!et
-This matrix element is the expectation value of 
-!bt
-\[
-\langle ^{16}\mathrm{O}|a_ba_a\frac{1}{4}\sum_{pqrs}\langle (pq) M | \hat{V} | (rs) M' \rangle a^{\dagger}_pa^{\dagger}_qa_sa_r a^{\dagger}_ca^{\dagger}_c|^{16}\mathrm{O}\rangle.
-\]
-!et  
-!eblock
-
-
-!split
-===== Two-body matrix elements in $J$-scheme =====
-!bblock 
-We have also defined matrix elements in the coupled basis, the so-called $J$-coupled scheme.
-In this case the two-body wave function for two neutrons outside ${}^{16}\mbox{O}$ is written as 
-!bt
-\[
-|^{18}\mathrm{O}\rangle_J =|(ab)JM\rangle  = \left\{a^{\dagger}_aa^{\dagger}_b\right\}^J_M|^{16}\mathrm{O}\rangle=N_{ab}\sum_{m_am_b}\langle j_am_aj_bm_b|JM\rangle|\Phi^{ab}\rangle, 
-\]
-!et
-with
-!bt 
-\[
-|\Phi^{ab}\rangle=a^{\dagger}_aa^{\dagger}_b|^{16}\mathrm{O}\rangle.
-\]
-!et
-We have now an explicit coupling order, where the angular momentum $j_a$ is coupled to the angular momentum $j_b$ to yield a final two-body angular momentum $J$. 
-The normalization factor (to be derived below) is
-!bt
-\[
-N_{ab}=\frac{\sqrt{1+\delta_{ab}\times (-1)^J}}{1+\delta_{ab}}.
-\]
-!et  
-!eblock
-
-!split
-===== Two-body matrix elements in $J$-scheme =====
-!bblock
-The implementation of the Pauli principle looks different in the $J$-scheme compared with the $m$-scheme. In the latter, no two fermions or more can have the same set of quantum numbers. In the $J$-scheme, when we write a state with the shorthand 
-!bt
-\[
-|^{18}\mathrm{O}\rangle_J =|(ab)JM\rangle,
-\]
-!et
-we do refer to the angular momenta only. This means that another way of writing the last state is
-!bt
-\[
-|^{18}\mathrm{O}\rangle_J =|(j_aj_b)JM\rangle.
-\]
-!et
-We will use this notation throughout when we refer to a two-body state in $J$-scheme. The Kronecker $\delta$ function in the normalization factor 
-refers thus to the values of $j_a$ and $j_b$. If two identical particles are in a state with the same $j$-value, then only even values of the total angular momentum apply.
-!eblock
-
-
-!split
-===== Two-body matrix elements in $J$-scheme =====
-!bblock
-Note also that, using the anti-commuting properties of the creation operators, we obtain
-!bt
-\[
-N_{ab}\sum_{m_am_b}\langle j_am_aj_bm_b|JM>|\Phi^{ab}\rangle=-N_{ab}\sum_{m_am_b}\langle j_am_aj_bm_b|JM\rangle|\Phi^{ba}\rangle.
-\]
-!et
-Furthermore, using the property of the Clebsch-Gordan coefficient
-!bt
-\[
-\langle j_am_aj_bm_b|JM>=(-1)^{j_a+j_b-J}\langle j_bm_bj_am_a|JM\rangle,
-\]
-!et
-which can be used to show that
-!bt
-\[
-|(j_bj_a)JM\rangle  = \left\{a^{\dagger}_ba^{\dagger}_a\right\}^J_M|^{16}\mathrm{O}\rangle=N_{ab}\sum_{m_am_b}\langle j_bm_bj_am_a|JM\rangle|\Phi^{ba}\rangle, 
-\]
-!et
-is equal to 
-!bt
-\[
-|(j_bj_a)JM\rangle=(-1)^{j_a+j_b-J+1}|(j_aj_b)JM\rangle.
-\]
-!et
-This relation is important since we will need it when using anti-symmetrized matrix elements in $J$-scheme.
-!eblock
-
-!split
-===== Two-body matrix elements in $J$-scheme =====
-!bblock
-The two-body matrix element is a scalar and since it obeys rotational symmetry, it is diagonal in $J$, 
-meaning that the corresponding matrix element in $J$-scheme is 
-!bt
-\[
-\langle (j_aj_b) JM | \hat{V} | (j_cj_d) JM \rangle = N_{ab}N_{cd}\sum_{m_am_b m_cm_d}\langle j_am_aj_bm_b|JM\rangle
-\]
-!et
-!bt
-\[\times \langle j_cm_cj_dm_d|JM\rangle\langle (j_am_aj_bm_b)M |  \hat{V} | (j_cm_cj_dm_d)M \rangle,
-\]
-!et
-and note that of the four $m$-values in the above sum, only three are independent due to the constraint $m_a+m_b=M=m_c+m_d$.
-Since
-!bt
-\[
-|(j_bj_a)JM\rangle=(-1)^{j_a+j_b-J+1}|(j_aj_b)JM\rangle,
-\]
-!et
-the anti-symmetrized matrix elements need now to obey the following relations
-!bt
-\[
-\langle (j_aj_b) JM | \hat{V} | (j_cj_d) JM \rangle = (-1)^{j_a+j_b-J+1}\langle (j_bj_a) JM | \hat{V} | (j_cj_d) JM \rangle,
-\]
-!et
-!bt
-\[
-\langle (j_aj_b) JM | \hat{V} | (j_cj_d) JM \rangle = (-1)^{j_c+j_d-J+1}\langle (j_aj_b) JM | \hat{V} | (j_dj_c) JM \rangle,
-\]
-!et
-!bt
-\[
-\langle (j_aj_b) JM | \hat{V} | (j_cj_d) JM \rangle = (-1)^{j_a+j_b+j_c+j_d}\langle (j_bj_a) JM | \hat{V} | (j_dj_c) JM \rangle=\langle (j_bj_a) JM | \hat{V} | (j_dj_c) JM \rangle,
-\]
-!et
-where the last relations follows from the fact that $J$ is an integer and $2J$ is always an even number.
-!eblock
-
-!split
-===== Two-body matrix elements in $J$-scheme =====
-!bblock
-Using the orthogonality properties of the Clebsch-Gordan coefficients,
-!bt
-\[
-\sum_{m_am_b}\langle j_am_aj_bm_b|JM\rangle\langle j_am_aj_bm_b|J'M'\rangle=\delta_{JJ'}\delta_{MM'},
-\]
-!et
-and
-!bt
-\[
-\sum_{JM}\langle j_am_aj_bm_b|JM\rangle\langle j_am_a'j_bm_b'|JM\rangle=\delta_{m_am_a'}\delta_{m_bm_b'},
-\]
-!et
-we can also express the two-body matrix element in $m$-scheme in terms of that in $J$-scheme, that is, if we multiply with 
-!bt
-\[
-\sum_{JMJ'M'}\langle j_am_a'j_bm_b'|JM\rangle\langle j_cm_c'j_dm_d'|J'M'\rangle
-\]
-!et
-from left in
-!bt
-\[
-\langle (j_a j_b) JM | \hat{V} | (j_c j_d) JM \rangle = N_{ab}N_{cd}\sum_{m_a m_b m_c m_d}\langle j_am_aj_bm_b|JM\rangle\langle j_cm_cj_dm_d|JM\rangle
-\]
-!et
-!bt
-\[
-\times \langle (j_am_aj_bm_b)M|  \hat{V} | (j_cm_cj_dm_d)M\rangle,
-\]
-!et
-we obtain
-!eblock
-
-!split
-===== Two-body matrix elements in $J$-scheme =====
-!bblock
-we obtain
-!bt
-\[
-\langle (j_am_aj_bm_b)M |  \hat{V} | (j_cm_cj_dm_d)M\rangle=\frac{1}{N_{ab}N_{cd}}\sum_{JM}\langle j_am_aj_bm_b|JM\rangle\langle j_cm_cj_dm_d|JM\rangle
-\]
-!et
-!bt
-\[
-\times \langle (j_aj_b) JM | \hat{V} | (j_cj_d) JM \rangle.
-\]
-!et  
-!eblock
-
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock  From Yukawa to Lattice QCD and Effective Field Theory
 
 * Chadwick (1932) discovers the neutron and Heisenberg (1932) proposes the first Phenomenology (Isospin).  
 * Yukawa (1935) and his Meson Hypothesis       
@@ -934,25 +127,12 @@ we obtain
 * Taketani, Nakamura, Sasaki (1951): 3 ranges.      One-Pion-Exchange (OPE): o.k.
 * Multi-pion exchanges: Problems!   Taketani, Machida, Onuma (1952);
 * *Pion Theories* Brueckner, Watson (1953).
-
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock  From Yukawa to Lattice QCD and Effective Field Theory
-
 * Many pions = multi-pion resonances: $\sigma(600)$,  $\rho(770)$,  $\omega(782)$ etc. One-Boson-Exchange Model.
 * Refined Meson Theories
 * Sophisticated models for two-pion exchange:
-    *   Paris Potential (Lacombe et al., Phys.~Rev.~C _21_, 861 (1980))
-    *   Bonn potential (Machleidt et al., Phys.~Rep. _149_, 1 (1987))
+    *   Paris Potential (Lacombe et al., Phys. Rev. C _21_, 861 (1980))
+    *   Bonn potential (Machleidt et al., Phys. Rep. _149_, 1 (1987))
 *Quark cluster models. Begin of effective field theory studies.
-
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock  From Yukawa to Lattice QCD and Effective Field Theory
 
 * 1990's
   * 1993-2001: High-precision NN potentials: Nijmegen I, II, '93, Reid93 (Stoks et al. 1994), 
@@ -961,13 +141,8 @@ we obtain
 * 3rd Millenium
   * Another "pion theory"; but now right: constrained by chiral symmetry. Three-body and higher-body forces appear naturally at a given order of the chiral expansion. 
 
-Nucleon-nucleon interaction from Lattice QCD, final confirmation of meson hypothesis of Yukawa?  See for example Ishii *et al*, PRL 2007
-!eblock
+=== Phenomenology of nuclear forces: Features of the Nucleon-Nucleon (NN) Force ===
 
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock Features of the Nucleon-Nucleon (NN) Force
 
 The aim is to give you an overview over central features of the nucleon-nucleon interaction and how it is constructed, with both technical and theoretical approaches. 
 
@@ -975,37 +150,21 @@ The aim is to give you an overview over central features of the nucleon-nucleon 
 * It has a short range and strong intermediate attraction.
 * Spin dependent, scattering lengths for triplet and singlet states are different,
 * Spin-orbit force. Observation of large polarizations of scattered nucleons perpendicular to the plane of scattering.
-
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock
-
 * Strongly repulsive core. The $s$-wave phase shift becomes negative at $\approx 250$ MeV implying that the singlet $S$ has a hard core with range $0.4-0.5$ fm. 
 * Charge independence (almost). Two nucleons in a given two-body state always (almost) experience the same force. Modern interactions break charge and isospin symmetry lightly. That means that the pp, neutron-neutron and pn parts of the interaction will be different for the same quantum numbers. 
 * Non-central. There is a tensor force. First indications from the quadrupole moment of the deuteron pointing to an admixture in the ground state of both $l=2$ ($^3D_1$) and $l=0$ ($^3S_1$) orbital momenta.
 
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock Short Range Evidence
 Comparison of the binding energies of
 ${}^2\mbox{H}$ (deuteron), ${}^3\mbox{H}$ (triton), ${}^4\mbox{He}$ (alpha - particle) show that the nuclear force is of finite range ($1-2$ fm) and very strong within that range.
 
-For nuclei with $A>4$, the energy saturates: Volume and binding energies of nuclei are proportional to the mass number $A$ (as we saw from exercise 1).
+For nuclei with $A>4$, the energy saturates: Volume and binding energies of nuclei are proportional to the mass number $A$.
 
 Nuclei are also bound. The average distance
 between nucleons in nuclei is about $2$ fm which
 must roughly correspond to the range of the
 attractive part.
 
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock Charge Dependence
+=== Phenomenology of nuclear forces: Charge Dependence ===
 
 *  After correcting for the electromagnetic interaction, the forces between nucleons (pp, nn, or np) in the same state are almost the same.
 *  *Almost the same*: Charge-independence is slightly broken.
@@ -1013,12 +172,8 @@ attractive part.
 *  Equality between pp/nn force and np force: Charge independence.
 *  Better notation: Isospin symmetry, invariance under rotations in isospin
 
-
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock  Charge Dependence, $^1S_0$ Scattering Lengths
+=== Phenomenology of nuclear forces: Charge Dependence, $^1S_0$ Scattering Lengths ===
+  
 
 Charge-symmetry breaking (CSB), after electromagnetic effects
 have been removed:
@@ -1028,13 +183,7 @@ have been removed:
 Charge-independence breaking (CIB)
 * $a_{pn}=  -23.74 \pm 0.02 \hspace{0.cm} \mathrm{fm}$ 
 
-!eblock
-
-
-
-!split
-===== Symmetries of the Nucleon-Nucleon (NN) Force =====
-!bblock
+=== Symmetries of the Nucleon-Nucleon (NN) Force ===
 * Translation invariance
 * Galilean invariance
 * Rotation invariance in space
@@ -1043,13 +192,9 @@ Charge-independence breaking (CIB)
 * Invariance under the interchange of particle $1$ and $2$
 * Almost isospin symmetry
 
-!eblock
 
 
-
-!split
-===== A typical form of the nuclear force =====
-!bblock
+=== A typical form of the nuclear force ===
 Here we display a typical way to parametrize (non-relativistic expression) the nuclear two-body force
 in terms of some operators, the central part, the spin-spin part and the central force.
 !bt
@@ -1066,23 +211,10 @@ V(\mathbf{r})= \left\{ C_c + C_\mathbf{\sigma} \mathbf{\sigma}_1\cdot\mathbf{\si
 \]
 !et
 How do we derive such terms?  (Note: no isospin dependence and that the above is an approximation)
-!eblock
 
-
-!split
-===== Nuclear forces =====
-!bblock
 To derive the above famous form of the nuclear force using field theoretical concepts, we will need some 
 elements from relativistic quantum mechanics. These derivations will be given below. 
 The material here gives some background to this.
-I know that many of you have not taken a course in quantum field theory. I hope however that you can see the basic ideas leading to the famous non-relativistic expressions for the nuclear force. 
-
-_Furthermore, when we analyze nuclear data, we will actually try to explain properties like spectra, single-particle energies etc in terms of the various terms of the nuclear force. Moreover, many of you will hear about these terms at various talks, workshops, seminars etc. Then, it is good to have an idea of what people actually mean!!_
-!eblock  
-
-!split
-===== Dramatis Personae =====
-!bblock
 
 |--------------------------------------------|
 | Baryons | Mass (MeV) | Mesons  |Mass (MeV) |
@@ -1097,12 +229,6 @@ _Furthermore, when we analyze nuclear data, we will actually try to explain prop
 |        |             |$K^{\star}$|  895.0 |
 |------------------------------------------|
 
-!eblock
-
-
-!split
-===== Components of the force and quantum numbers =====
-!bblock
 But before we proceed, we will look into specific quantum numbers of the relative system and study 
 expectation vaues of the various terms of
 !bt
@@ -1119,11 +245,6 @@ V(\mathbf{r})= \left\{ C_c + C_\mathbf{\sigma} \mathbf{\sigma}_1\cdot\mathbf{\si
 \right\} \frac{e^{-m_\alpha r}}{m_\alpha r}
 \]
 !et
-!eblock
-
-!split
-===== Relative and CoM system, quantum numbers =====
-!bblock
 
 When solving the scattering equation or solving the two-nucleon problem, it is convenient to rewrite the Schroedinger equation, due to
 the spherical symmetry of the Hamiltonian, in relative and center-of-mass coordinates. This will also define the quantum numbers of the relative and center-of-mass system and will aid us later in solving
@@ -1143,11 +264,6 @@ We have also the relative momentum
  \]
 !et
 We will below skip the indices $ij$ and simply write $\mathbf{k}$
-!eblock
-
-!split
-===== Relative and CoM system, quantum numbers =====
-!bblock
 
 In a similar fashion we can define the CoM coordinate
 !bt
@@ -1161,11 +277,7 @@ In a similar fashion we can define the CoM coordinate
     \mathbf{r}_{ij}=(\mathbf{r}_i-\mathbf{r}_j).
  \]
 !et
-!eblock
 
-!split
-===== Relative and CoM system, quantum numbers =====
-!bblock
 With the definitions
 !bt
  \[
@@ -1185,12 +297,6 @@ we can rewrite the two-particle kinetic energy (note that we use $\hbar=c=1$ as
 \]
 !et
 where $m_n$ is the average of the proton and the neutron masses. 
-!eblock
-
-
-!split
-===== Relative and CoM system, quantum numbers =====
-!bblock
 
 Since the two-nucleon interaction depends only on the relative distance, this means that we can separate Schroedinger's equation in an equation for the center-of-mass motion and one for the relative motion.
 
@@ -1218,11 +324,6 @@ which allows us to define the angular momentum of the relative motion
 \]
 !et
 where ${ \cal J}$ is the total angular momentum of the relative motion.
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock
 
 The total two-nucleon state function has to be anti-symmetric. The total function contains a spatial part, a spin part and an isospin part. If isospin is conserved, this leads to in case we have an $s$-wave with spin $S=0$ to an isospin 
 two-body state with $T=1$ since the spatial part is symmetric and the spin part is anti-symmetric. 
@@ -1245,13 +346,6 @@ We can systemize this in a table as follows, recalling that $|\mathbf{l}-\mathbf
 |$^{3}F_2$|2 |3 |1 |1  |yes |yes |yes | 
 |-------------------------------------------------------------------------------------------------|
 
-!eblock
-
-
-
-!split
-===== Components of the force and quantum numbers =====
-!bblock
 The tensor force is given by
 !bt
 \[
@@ -1278,11 +372,7 @@ with the properties $\sigma = 2\mathbf{S}$ (the spin of the system, being $1/2$ 
 $\sigma^2_x=\sigma^2_y=\sigma_z=\mathbf{1}$ and
 obeying the commutation and anti-commutation relations $\{\sigma_x,\sigma_y\} =0$
 $[\sigma_x,\sigma_y] =\imath\sigma_z$ etc.
-!eblock
 
-!split
-===== Components of the force and quantum numbers =====
-!bblock
 When we look at the expectation value of 
 $\langle \mathbf{\sigma}_1\cdot\mathbf{\sigma}_2\rangle$, we can rewrite this expression in terms of the
 spin $\mathbf{S}=\mathbf{s}_1+\mathbf{s}_2$, resulting in 
@@ -1298,11 +388,6 @@ where we $s_1=s_2=1/2$ leading to
 \langle\mathbf{\sigma}_1\cdot\mathbf{\sigma}_2\rangle=-3 & \mathrm{if} \hspace{0.2cm} S=0\\\end{array}\right.
 \]
 !et
-!eblock
-
-!split
-===== Components of the force and quantum numbers =====
-!bblock
 
 Similarly, the expectation value of the spin-orbit term is 
 !bt
@@ -1316,11 +401,7 @@ spin-orbit force is zero. With the above phenomenological model, the
 only contributions to the expectation value of the potential energy for $s$-waves
 stem  from the central and the spin-spin components since the
 expectation value of the tensor force is also zero.
-!eblock
 
-!split
-===== Components of the force and quantum numbers =====
-!bblock
  For $s=1/2$ spin values only for two nucleons, the expectation value of the tensor force operator is 
 
 |-----------------------------------------------------|
@@ -1337,15 +418,7 @@ expectation value of the tensor force is also zero.
 |           |          |          |                   |
 |-----------------------------------------------------| 
 
-We will derive these expressions after we have discussed the Wigner-Eckart theorem. 
-!eblock
 
-
-
-
-!split
-===== Components of the force and isospin =====
-!bblock
 If we now add isospin to our simple $V_4$ interaction model, we end up with $8$ operators, popularly dubbed $V_8$ interaction model. The explicit form reads
 !bt
 \[
@@ -1375,11 +448,8 @@ V(\mathbf{r})= \left\{ C_c + C_\mathbf{\sigma} \mathbf{\sigma}_1\cdot\mathbf{\si
 \right\}\mathbf{\tau}_1\cdot\mathbf{\tau}_2 \frac{e^{-m_\alpha r}}{m_\alpha r}
 \]
 !et
-!eblock
 
-!split
-===== Phenomenology of nuclear forces =====
-!bblock References for Various Phenomenological Interactions
+=== References for Various Phenomenological Interactions ===
 
 From 1950 till approximately 2000: One-Boson-Exchange (OBE) models dominate. These are models which typically include several low-mass mesons, that is with masses below 1 GeV.   Potentials which are based upon the standard non-relativistic operator structure
  are called "Phenomenological Potentials" Some historically important examples are   
@@ -1387,30 +457,16 @@ From 1950 till approximately 2000: One-Boson-Exchange (OBE) models dominate. The
 * Hamada-Johnston potential, Nucl. Phys. _34_, 382 (1962)), both with a hard core.
 * Reid potential (Ann. Phys. (N.Y.) _50_, 411 (1968)), soft core.
 * Argonne $V_{14}$ potential (Wiringa et al., Phys. Rev. C _29_, 1207 (1984)) with 14 operators and  the  Argonne $V_{18}$ potential (Wiringa et al., Phys. Rev. C _51_, 38 (1995)), uses 18 operators
-* A good historical reference: R.~Machleidt, Adv.~Nucl.~Phys.  _19_, 189 (1989).
+* A good historical reference: R. Machleidt, Adv. Nucl. Phys.  _19_, 189 (1989).
 
 Now: models based on chiral perturbation theory. These are effective models with nucleons and pions as degrees of freedom only. The other mesons which appeared in standard one-boson model appear as multi-pion resonances. 
 
-
-!eblock
-
-
-
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock
 The total two-nucleon state function has to be anti-symmetric. The total function contains a spatial part, a spin part and an isospin part. If isospin is conserved, this leads to in case we have an $s$-wave with spin $S=0$ to an isospin 
 two-body state with $T=1$ since the spatial part is symmetric and the spin part is anti-symmetric. 
 
 Since the projections for $T$ are $T_z=-1,0,1$, we can have a $pp$, an $nn$ and a $pn$ state.
 
 For $l=0$ and $S=1$, a so-called triplet state, $^3S_1$, we must have $T=0$, meaning that we have only one state, a $pn$ state. For other partial waves, see exercises below. 
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock  Phenomenology of one-pion exchange
 
 The one-pion exchange contribution (see derivation below), can be written as 
 !bt
@@ -1421,10 +477,6 @@ V_{\pi}(\mathbf{r})= -\frac{f_{\pi}^{2}}{4\pi m_{\pi}^{2}}\mathbf{ \tau}_1\cdot\
 !et
 Here the constant $f_{\pi}^{2}/4\pi\approx 0.08$ and the mass of the pion is $m_\pi\approx 140$ MeV/$\mbox{c}^2$.  
 
-!eblock
-!split
-===== Phenomenology of nuclear forces =====
-!bblock
 Let us look closer at specific partial waves for which one-pion exchange is applicable. If we have $S=0$ and $T=0$, the 
 orbital momentum has to be an odd number in order for the total anti-symmetry to be obeyed. For $S=0$, the tensor force component is zero, meaning that 
 the only contribution is 
@@ -1436,10 +488,6 @@ V_{\pi}(\mathbf{r})=\frac{3f_{\pi}^{2}}{4\pi m_{\pi}^{2}}\frac{e^{-m_\pi r}}{m_\
 since $\langle\mathbf{ \sigma}_1\cdot\mathbf{ \sigma}_2\rangle=-3$, that is we obtain a repulsive contribution to partial waves like 
 $^1P_0$.
 
-!eblock
-!split
-===== Phenomenology of nuclear forces =====
-!bblock
 Since $S=0$ yields always a zero tensor force contribution, for the combination of $T=1$ and then even $l$ values, we get an attractive contribution
 !bt
 \[
@@ -1460,23 +508,12 @@ V_{\pi}(\mathbf{r})= \frac{1}{3}\frac{f_{\pi}^{2}}{4\pi m_{\pi}^{2}}\left(1+( 1 
 \]
 !et
 
-!eblock
-
-!split
-===== Phenomenology of nuclear forces =====
-!bblock
-
 The central part of one-pion exchange interaction, arising from the spin-spin term,  
 is thus attractive for $s$-waves and all even $l$ values. For $p$-waves and all other odd values
 it is repulsive. However, its overall strength is weak. This is discussed further in one of exercises below.
 
-!eblock
 
-
-
-!split
 ===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 To describe the interaction between the various baryons and mesons of the previous
 table we choose the following phenomenological
 lagrangians
@@ -1504,11 +541,7 @@ and
 for pseudoscalar (ps), scalar (s) and vector (v) coupling, respectively.
 The factors $g^{v}$ and $g^{t}$ are the vector
 and tensor coupling constants, respectively.
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 For spin $1/2$ baryons, the fields $\Psi$ are expanded
 in terms of the Dirac spinors (positive energy
 solution shown here with $\overline{u}u=1$)
@@ -1529,11 +562,7 @@ The positive energy part of the field $\Psi$ reads
 \]
 !et
 with $a$ being a fermion annihilation operator.
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 Expanding the free Dirac spinors
 in terms of $1/m$ ($m$ is here the mass of the relevant baryon) 
 results, to lowest order, in the familiar non-relativistic
@@ -1557,11 +586,7 @@ V(\mathbf{r})= \left\{ C^0_C + C^1_C + C_\sigma
 !et
 where $m_{\alpha}$ is the mass of the relevant meson and
 $S_{12}$ is the familiar tensor term.
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 We derive now the non-relativistic one-pion exchange interaction.
 
 Here $p_{1}$, $p_{1}'$, $p_{2}$, $p_{2}'$ and $k=p_{1}-p_{1}'$ denote 
@@ -1582,34 +607,26 @@ V^{pv}=\frac{f_{\pi}^{2}}{m_{\pi}^{2}}\frac{\overline{u}(p_{1}')\gamma_{5}
 \gamma_{\nu}(p_{2}'-p_{2})^{\nu}u(p_{2})}{(p_{1}-p_{1}')^{2}-m_{\pi}^{2}}.
 \]
 !et
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 The factors $p_{1}-p_{1}'=p_{2}'-p_{2}$ are both the four-momentum of the 
 exchanged meson and come from the derivative of the meson field in 
 the interaction Lagrangian. 
 The Dirac spinors obey 
 !bt
-\begin{eqnarray*}
-\gamma_{\mu}p^{\mu}u(p)&=&mu(p) \nonumber \\
-\overline{u}(p)\gamma_{\mu}p^{\mu}&=&m\overline{u}(p). \nonumber
-\end{eqnarray*} 
+\begin{align*}
+\gamma_{\mu}p^{\mu}u(p)&=mu(p) \nonumber \\
+\overline{u}(p)\gamma_{\mu}p^{\mu}&=m\overline{u}(p). \nonumber
+\end{align*} 
 !et
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 Using these relations, together with $\{\gamma_{5},\gamma_{\mu}\}=0$, we find 
 !bt
-\begin{eqnarray*}
+\begin{align*}
 \overline{u}(p_{1}')\gamma_{5}\gamma_{\mu}(p_{1}-p_{1}')^{\mu}u(p_{1})
-&=&m\overline{u}(p_{1}')\gamma_{5}u(p_{1})+\overline{u}(p_{1}')\gamma_{\mu}
+&=m\overline{u}(p_{1}')\gamma_{5}u(p_{1})+\overline{u}(p_{1}')\gamma_{\mu}
 p_{1}'^{\mu}\gamma_{5}u(p_{1}) \nonumber \\
- &=&2m\overline{u}(p_{1}')\gamma_{5}u(p_{1}) \nonumber
-\end{eqnarray*}
+& =2m\overline{u}(p_{1}')\gamma_{5}u(p_{1}) \nonumber
+\end{align*}
 !et
 and 
 !bt
@@ -1618,11 +635,7 @@ and
 -2m\overline{u}(p_{2}')\gamma_{5}u(p_{1}).
 \]
 !et
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 We get
 !bt 
 \[
@@ -1633,25 +646,21 @@ V^{pv}=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{\overline{u}(p_{1}')
 !et
 By inserting expressions for the Dirac spinors, we find
 !bt
-\begin{eqnarray*}
-\overline{u}(p_{1}')\gamma_{5}u(p_{1})&=&\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}
+\begin{align*}
+\overline{u}(p_{1}')\gamma_{5}u(p_{1})&=\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}
 {4m^{2}}}\left(\begin{array}{cc}\chi^{\dagger}&-\frac{\sigma_{1}\cdot{
 \bf p_{1}}}{E_{1}'
 +m}\chi^{\dagger}\end{array}\right)\left(\begin{array}{cc}0&1\\1&0\end{array}
 \right)\nonumber \\
- &&\times \left(\begin{array}{c}\chi\\ \frac{\sigma_{1}\cdot\mathbf{p_{1}}}{E_{1}+m}\chi
+ &\times \left(\begin{array}{c}\chi\\ \frac{\sigma_{1}\cdot\mathbf{p_{1}}}{E_{1}+m}\chi
 \end{array}\right) 
 \nonumber \\
- &=&\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}{4m^{2}}}\left(\frac{\sigma_{1}\cdot
+ &=\sqrt{\frac{(E_{1}'+m)(E_{1}+m)}{4m^{2}}}\left(\frac{\sigma_{1}\cdot
 \mathbf{p_{1}}}{E_{1}+m}-\frac{\sigma_{1}\cdot\mathbf{p_{1}'}}{E_{1}'+m}\right) 
 \nonumber 
-\end{eqnarray*}
+\end{align*}
 !et
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 Similarly
 !bt
 \[
@@ -1665,19 +674,15 @@ In the CM system we have $\mathbf{p}_{2}=-\mathbf{p}_{1}$, $\mathbf{p'}_{2}=
 We can then write down the relativistic contribution 
 to the NN potential in the CM system: 
 !bt
-\begin{eqnarray}
-V^{pv}&=&-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{(p_{1}-p_{1}')^{2}-
+\begin{align}
+V^{pv}&=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{(p_{1}-p_{1}')^{2}-
 m_{\pi}^{2}}\frac{(E_{1}+m)(E_{1}'+m)}{4m^{2}} \nonumber \\ 
- &\times&\left(\frac{\sigma_{1}\cdot\mathbf{p}_{1}}{E_{1}+m}-\frac{\sigma_{1}
+ &\times\left(\frac{\sigma_{1}\cdot\mathbf{p}_{1}}{E_{1}+m}-\frac{\sigma_{1}
 \cdot\mathbf{p'}_{1}}{E_{1}'+m}\right)\left(\frac{\sigma_{2}\cdot\mathbf{p}_{1}}
 {E_{1}+m}-\frac{\sigma_{2}\cdot\mathbf{p'}_{1}}{E_{1}'+m}\right). \nonumber
-\end{eqnarray}
+\end{align}
 !et
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 In the non-relativistic limit we have to lowest order 
 !bt
 \[
@@ -1687,21 +692,17 @@ E_{1}=\sqrt{\mathbf{p}_{1}^{2}+m^{2}}\approx m \approx E_{1}'
 and then $(p_{1}-p_{1}')^{2}=-\mathbf{k}^{2}$, so we get 
 for the contribution to the NN potential
 !bt
-\begin{eqnarray}
-V^{pv}&=&-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{\mathbf{k}^{2}+m^{2}}
+\begin{align}
+V^{pv}&=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}4m^{2}\frac{1}{\mathbf{k}^{2}+m^{2}}
 \frac{2m\cdot 2m}{4m^{2}}\frac{\sigma_{1}}{2m}\cdot(\mathbf{p}_{1}-\mathbf{p'}_{1})
 \frac{\sigma_{2}}{2m}\cdot (\mathbf{p}_{1}-\mathbf{p'}_{1}) \nonumber \\ 
- &=&-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}
+ &=-\frac{f_{\pi}^{2}}{m_{\pi}^{2}}
 \frac{(\sigma_{1}\cdot\mathbf{k})(\sigma_{2}\cdot\mathbf{k})}{\mathbf{k}^{2}+m_{\pi}^{2}}.
 \nonumber
-\end{eqnarray}
+\end{align}
 !et
 We have omitted exchange terms and the isospin term $\mathbf{\tau}_1\cdot\mathbf{\tau}_2$.
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 We have
 !bt
 \[
@@ -1723,11 +724,7 @@ resulting in
 \int\frac{d^3k}{(2\pi)^3}e^{i\mathbf{kr}}\frac{1}{\mathbf{k}^{2}+m_{\pi}^{2}}.
 \]
 !et
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 We obtain
 !bt
 \[
@@ -1748,11 +745,7 @@ V(\mathbf{r})= -\frac{f_{\pi}^{2}}{m_{\pi}^{2}}\left\{C_{\sigma}\mathbf{\sigma}_
 \]
 !et
 For the full potential add the exchange part and the $\mathbf{\tau}_1\cdot\mathbf{\tau}_2$ term as well. (Subtle point: there is a divergence which gets cancelled by using cutoffs) This leads to coefficients $C_{\sigma}$ and $C_T$ which are fitted to data.
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 When we perform similar non-relativistic expansions for scalar and vector mesons we obtain
 for the $\sigma$ meson
 !bt
@@ -1764,11 +757,7 @@ V^{\sigma}= g_{\sigma NN}^{2}\frac{1}{\mathbf{k}^{2}+m_{\sigma}^{2}}\left (-1+\f
 We note an attractive central force and spin-orbit force. This term has an intermediate range.
 We have defined $1/2(p_{1}+p_{1}')=\mathbf{q}$.
 For the full potential add the exchange part and the isospin dependence as well.
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 We obtain
 for the $\omega$ meson
 !bt
@@ -1778,11 +767,7 @@ V^{\omega}= g_{\omega NN}^{2}\frac{1}{\mathbf{k}^{2}+m_{\omega}^{2}}\left (1-3\f
 !et
 We note a repulsive central force and an attractive spin-orbit force. This term has  short range.
 For the full potential add the exchange part and the isospin dependence as well.
-!eblock
 
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
 Finally 
 for the $\rho$ meson
 !bt
@@ -1792,27 +777,16 @@ V^{\rho}= g_{\rho NN}^{2}\frac{\mathbf{k}^{2}}{\mathbf{k}^{2}+m_{\rho}^{2}}\left
 \]
 !et
 We note a tensor force with sign opposite to that of the pion. This term has  short range. For the full potential add the exchange part and the isospin dependence as well.
-!eblock
 
-
-
-!split
-===== Models for nuclear forces and derivation of non-relativistic expressions =====
-!bblock
-
+We have seen that:
 * Can use a one-boson exchange picture to construct a nucleon-nucleon interaction a la QED
 * Non-relativistic approximation yields amongst other things a spin-orbit force which is much stronger than in atoms.
 * At large intermediate distances pion exchange dominates while  pion resonances (other mesons) dominate at intermediate and short range 
 *  Potentials are parameterized to fit selected two-nucleon data, binding energies and scattering phase shifts.
 * Nowaydays, chiral perturbation theory gives an effective theory that allows a systematic expansion in terms of contrallable parameters. Good basis for many-body physics
 
-!eblock
-
-
-
-!split
 ===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
+
 What follows now is a more technical discussion on how we can solve the two-nucleon problem.
 This will lead us to the so-called Lippman-Schwinger equation for the scattering problem and a rewrite of Schroedinger's equation in relative and center-of-mass coordinates. 
 
@@ -1838,11 +812,7 @@ We assume that the invers of $\left( \hat{H}_0 -E_n\right)$ exists and rewrite t
 \vert\psi_n \rangle =\frac{1}{\left( E_n -\hat{H}_0\right)}\hat{V}\vert \psi_n \rangle . 
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The equation
 !bt
 \[
@@ -1863,11 +833,7 @@ where $\vert\phi_n \rangle$ are the eigenfunctions of
 \]
 !et
 the so-called unperturbed problem. In our case, these will simply be the kinetic energies of the relative motion. 
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Inserting  $\vert\phi_n \rangle$  on the right-hand side of 
 !bt
 \[
@@ -1893,11 +859,7 @@ and continuing we obtain
 \vert \psi_n \rangle =\sum_{i=0}^{\infty}\left[\frac{1}{( E_n -\hat{H}_0)}\hat{V}\right]^i\vert \phi_n \rangle.
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 It is easy to see that 
 !bt
 \[
@@ -1917,11 +879,7 @@ which we rewrite as
 \vert \psi_n \rangle =\vert\phi_n \rangle+\frac{1}{(E_n -\hat{H}_0)}\hat{V}\vert \psi_n \rangle.
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 In operator form we have thus
 !bt
 \[
@@ -1946,11 +904,7 @@ We can rewrite our equation as
 \langle \phi_m \vert\hat{T}\vert \phi_n \rangle =\langle \phi_m \vert\hat{V}\vert\phi_n \rangle+\langle \phi_m \vert\hat{V}\frac{1}{(E_n -\hat{H}_0)}\hat{T}\vert \phi_n \rangle.
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The equation
 !bt
 \[
@@ -1970,11 +924,7 @@ we have
 \]
 !et
 which is (when we specify the state $\vert\phi_n \rangle$) an integral equation that can actually be solved by matrix inversion easily! The unknown quantity is the $T$-matrix.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Now we wish to introduce a partial wave decomposition in order to solve the Lippman-Schwinger equation. With a partial wave decomposition we can reduce a three-dimensional integral equation to a one-dimensional one. 
 
 Let us continue with our Schroedinger equation in the abstract vector representation
@@ -1990,18 +940,14 @@ The eigenstates form a complete orthonormal set according to
 \mathbf{1}=\sum_n\vert\psi_n\rangle\langle\psi_n\vert, \:\: \langle\psi_n\vert\psi_{n'}\rangle =\delta_{n,n'}
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The most commonly used representations are the coordinate and
 the momentum space representations. They define the completeness relations 
 !bt
-\begin{eqnarray*}
- \mathbf{1}&=&  \int d\mathbf{r} \:\vert\mathbf{r} \rangle \langle \mathbf{r}\vert, \:\: \langle  \mathbf{r}\vert  \mathbf{r'} \rangle = \delta ( \mathbf{r}-\mathbf{r'}) \\
-\mathbf{1} &=& \int d\mathbf{k} \:\vert  \mathbf{k}\rangle \langle \mathbf{k}\vert, \:\: \langle\mathbf{k}\vert  \mathbf{k'} \rangle = \delta ( \mathbf{k}-\mathbf{k'}) 
-\end{eqnarray*}
+\begin{align*}
+ \mathbf{1}&=  \int d\mathbf{r} \:\vert\mathbf{r} \rangle \langle \mathbf{r}\vert, \:\: \langle  \mathbf{r}\vert  \mathbf{r'} \rangle = \delta ( \mathbf{r}-\mathbf{r'}) \\
+\mathbf{1} &= \int d\mathbf{k} \:\vert  \mathbf{k}\rangle \langle \mathbf{k}\vert, \:\: \langle\mathbf{k}\vert  \mathbf{k'} \rangle = \delta ( \mathbf{k}-\mathbf{k'}) 
+\end{align*}
 !et
 Here the basis states in  both $\mathbf{r}$- and $\mathbf{k}$-space are dirac-delta 
 function normalized. From this it follows that the plane-wave states are given by,
@@ -2012,11 +958,7 @@ function normalized. From this it follows that the plane-wave states are given b
 !et
 which is a transformation function defining the mapping from the abstract 
 $\vert\mathbf{k}\rangle$ to the abstract $\vert\mathbf{r}\rangle $ space.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 That the $\mathbf{r}$-space basis states are 
 delta-function normalized follows from 
 !bt
@@ -2030,12 +972,7 @@ and the same for the momentum space basis states,
 \delta ( \mathbf{k}-\mathbf{k'}) = \langle \mathbf{k} \vert \mathbf{k}'\rangle = \langle \mathbf{k} \vert \mathbf{1} \vert \mathbf{k}'\rangle =\int d\mathbf{r} \langle \mathbf{k}\vert \mathbf{r} \rangle \langle \mathbf{r}\vert \mathbf{k}' \rangle = \left( {1\over 2\pi}\right)^3 \int d\mathbf{r} e^{i \mathbf{r}(\mathbf{k} - \mathbf{k}')} 
 \]
 !et
-!eblock
 
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Projecting  on momentum states, we obtain the momentum space Schroedinger equation as
 !bt
 \begin{equation}
@@ -2052,11 +989,7 @@ of the potential in coordinate space, i.e.
 V(\mathbf{k},\mathbf{k'}) = \left( \frac{1}{2\pi}\right)^3\int d\mathbf{r}\int d\mathbf{r}'\exp{-i\mathbf{kr}}V(\mathbf{r},\mathbf{r}')\exp{i\mathbf{k}'\mathbf{r}'}  
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Here it is assumed that the potential interaction does not contain any spin dependence. 
 Instead of a differential equation in coordinate space, the Schroedinger
 equation becomes an integral equation in momentum space. This has 
@@ -2070,11 +1003,7 @@ points.
 Instead of solving the three-dimensional integral equation, an 
 infinite set of 1-dimensional equations can be obtained via a  partial wave
 expansion. 
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The wave function $\psi_n(\mathbf{k})$ can be expanded in a complete set of spherical harmonics, that is
 !bt
 \begin{equation}
@@ -2083,7 +1012,7 @@ The wave function $\psi_n(\mathbf{k})$ can be expanded in a complete set of sphe
 \end{equation}
 !et
 By inserting equation (ref{eq:part_wave1}) in equation (ref{eq:momspace1}), and projecting from the left
-$Y_{lm}(\hat{k})$, the three-dimensional Schroedinger equation~(ref{eq:momspace1}) is reduced
+$Y_{lm}(\hat{k})$, the three-dimensional Schroedinger Eq. (ref{eq:momspace1}) is reduced
 to an infinite set of  1-dimensional angular momentum coupled integral equations, 
 !bt
 \begin{equation}
@@ -2100,11 +1029,6 @@ where the angular momentum projected potential takes the form,
 !et
 here $d\hat{k} = d\theta\sin(\theta)d\varphi$.
 Note that we discuss only the orbital momentum, we will include angular momentum and spin later. 
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 
 The potential is often given in position space. It is then convenient to establish 
 the connection between $V_{lm, l'm'}(k,k')$ and $V_{lm, l'm'}(r,r')$. Inserting 
@@ -2115,11 +1039,7 @@ V =\int d\mathbf{r}\int d\mathbf{r}'\left\{\int d{\hat{k}}Y_{lm}^*(\hat{k})\lang
 label{eq:pot2}
 \end{equation}
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Since the plane waves depend only on the absolute values of position and momentum, $\vert\mathbf{k}\vert$ and 
 $\vert\mathbf{r}\vert$,
 and the angle between them, $\theta_{kr}$, they may be expanded in terms of bipolar harmonics of 
@@ -2137,28 +1057,20 @@ are given in terms of Bessel functions of the first kind with half integer order
 j_l(z) = \sqrt{\pi \over 2 z} J_{l+1/2}(z).  
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Inserting the plane-wave expansion
-into the brackets of equation~(ref{eq:pot2}) yields, 
+into the brackets of Eq. (ref{eq:pot2}) yields, 
 !bt
-\begin{eqnarray*}
+\begin{align*}
   \nonumber
-  \int d{\hat{k}}  Y_{lm}^*(\hat{k})\langle \mathbf{k}\vert \mathbf{r} \rangle & = &  
+  \int d{\hat{k}}  Y_{lm}^*(\hat{k})\langle \mathbf{k}\vert \mathbf{r} \rangle & = 
   \left( {1\over 2\pi} \right) ^{3/2}4\pi i^{-l} j_l(kr) Y_{lm}^*(\hat{r}), \\  
   \nonumber
-  \int d{\hat{k}'}\:   Y_{lm}(\hat{k}') \langle \mathbf{r'}\vert \mathbf{k}' \rangle & = &  
+  \int d{\hat{k}'}\:   Y_{lm}(\hat{k}') \langle \mathbf{r'}\vert \mathbf{k}' \rangle & = 
   \left( {1\over 2\pi} \right) ^{3/2}4\pi i^{l'} j_{l'}(k'r') Y_{l'm'}(\hat{r}). 
-\end{eqnarray*}
+\end{align*}
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The connection between the momentum- and position space angular momentum 
 projected potentials are then given, 
 !bt
@@ -2175,16 +1087,12 @@ momentum projected potential is given by
   label{eq:pot4}
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 No assumptions of locality/non-locality and deformation of the interaction has so far been made, 
-and the result in equation~(ref{eq:pot3}) is general. In position space the Schroedinger equation 
+and the result in Eq. (ref{eq:pot3}) is general. In position space the Schroedinger equation 
 takes form of an integro-differential equation in case of a non-local interaction, 
 in momentum space the Schroedinger equation is an ordinary integral equation of the Fredholm type, 
-see equation~(ref{eq:part_wave2}). This is a further advantage of the momentum space approach as compared to 
+see Eq. (ref{eq:part_wave2}). This is a further advantage of the momentum space approach as compared to 
 the standard position space approach.  
 If we assume that the 
 interaction is of local character, i.e. 
@@ -2194,7 +1102,7 @@ interaction is of local character, i.e.
   V(\mathbf{r}) {\delta( { r}-{r}' ) \over r^2} \delta ( \cos \theta - \cos \theta' ) \delta (\varphi-\varphi'), 
 \]
 !et
-then equation~(ref{eq:pot4}) reduces to 
+then Eq. (ref{eq:pot4}) reduces to 
 !bt
 \begin{equation}
   V_{lm, l'm'}(r,r') = \frac{\delta({r}-{r}')}{r^2}\int d{\hat{r}}\:
@@ -2202,12 +1110,7 @@ then equation~(ref{eq:pot4}) reduces to
   label{eq:pot5}
 \end{equation}
 !et
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
-and equation (ref{eq:pot3}) reduces to  
+and Eq. (ref{eq:pot3}) reduces to  
 !bt
 \begin{equation}
   V_{lm, l'm'}(k,k') = \frac{2}{\pi}i^{l' -l}\int_0^\infty drr^2j_l(kr) V_{lm,l'm'}(r) j_{l'}(k'r)
@@ -2221,11 +1124,7 @@ where
   label{eq:pot10}
 \end{equation}
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 In the case that the interaction is central, $V(\mathbf{r}) = V(r)$, then
 !bt
 \begin{equation}
@@ -2248,13 +1147,9 @@ where the momentum space representation of the interaction finally reads,
   label{eq:pot9}
 \end{equation}
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 For a local and spherical symmetric potential, 
-the coupled momentum space Schroedinger equations given in equation~(ref{eq:part_wave2})
+the coupled momentum space Schroedinger equations given in Eq. (ref{eq:part_wave2})
 decouples in angular momentum, 
 giving
 !bt
@@ -2275,11 +1170,7 @@ is given by the Fourier-Bessel transform
   \phi_{n l}(r)  = \sqrt{\frac{2}{\pi}}\int dk k^2 j_l(kr) \psi_{n l}(k)
 \]    
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 We will thus assume that the interaction is spherically symmetric and use
 the partial wave expansion of the plane waves in
 terms of spherical harmonics.
@@ -2293,11 +1184,7 @@ in terms of plane waves as
 !et
 where $j_l$ is a spherical Bessel function and $Y_{lm}$ the
 spherical harmonics.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 In terms of the relative and center-of-mass momenta $\mathbf{k}$ and
 $\mathbf{K}$, the potential in momentum space is related to the nonlocal operator
 $V(\mathbf{r},\mathbf{r}')$ by
@@ -2318,11 +1205,7 @@ in terms of plane waves as
 !et
 where $j_l$ is a spherical Bessel function and $Y_{lm}$ the
 spherical harmonic.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 This partial wave basis is useful for defining the operator for
 the nucleon-nucleon interaction, which
 is symmetric with respect to rotations, parity and
@@ -2349,12 +1232,7 @@ where we have defined
 We have omitted the momentum of the center-of-mass motion $\mathbf{K}$ and the 
 corresponding orbital momentum $L$, since the interaction is diagonal
 in these variables.
-!eblock
 
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 We wrote the Lippman-Schwinger equation as
 !bt
 \[
@@ -2362,11 +1240,7 @@ We wrote the Lippman-Schwinger equation as
 \]
 !et
 How do we rewrite it in a partial wave expansion with momenta $k$?
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The general structure of the $T$-matrix in partial waves is
 !bt
 \[
@@ -2384,11 +1258,7 @@ The general structure of the $T$-matrix in partial waves is
    label{eq:bspartial}
 \end{equation}
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The  shorthand notation
 !bt
 \[
@@ -2405,11 +1275,7 @@ are the orbital momentum of the center-of-mass motion, the
 total angular momentum,
 spin and isospin, respectively. 
 Due to the nuclear tensor force, the interaction is not diagonal in $ll'$.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Using the orthogonality
 properties of the Clebsch-Gordan coefficients and the spherical harmonics,
 we obtain the well-known
@@ -2434,11 +1300,6 @@ Inserting the denominator we arrive at
    \hat{T}_{l''l'}^{\alpha}(qk'K).
 \]
 !et
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 To parameterize the nucleon-nucleon interaction we solve the Lippman-Scwhinger
 equation
 !bt
@@ -2464,11 +1325,7 @@ the center-of-mass motion. Further, $L$, ${\cal J}$, and $S$
 are the orbital momentum of the center-of-mass motion, the
 total angular momentum and
 spin, respectively. We skip for the moment isospin.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 For scattering states, the energy is positive, $E>0$. 
 The Lippman-Schwinger equation (a rewrite of the Schroedinger equation)
 is an integral equation
@@ -2485,11 +1342,7 @@ defined through the integral equation for one partial wave (no coupled-channels)
 !et
 For negative energies (bound states) and intermediate states scattering states blocked
 by  occupied states below the Fermi level.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The symbol ${\cal P}$ in the previous slide indicates that Cauchy's principal-value prescription
 is used in order to avoid the singularity arising from the zero of the denominator.
 
@@ -2502,11 +1355,7 @@ is
     E=\frac{k_0^2}{m_n}.
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The matrix $R_l(k,k')$ relates to the 
 the  phase shifts through its diagonal elements as
 !bt
@@ -2515,11 +1364,7 @@ the  phase shifts through its diagonal elements as
      label{eq:shifts}
 \end{equation}
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 From now on we will drop the subscript $l$ in all equations.
 In order to solve the Lippman-Schwinger equation 
 in momentum space, we need first to write 
@@ -2533,11 +1378,7 @@ through
 !et
 where we have fixed $N$ lattice points through the corresponding weights
 $w_i$ and points $x_i$. Typically obtained via methods like Gaussian quadrature.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 If you use Gauss-Legendre the points are determined for the interval $x_i\in [-1,1]$
 You map these points over to the limits in your integral. You can then
 use the following mapping
@@ -2554,11 +1395,7 @@ and
 !et
 If you choose units fm$^{-1}$ for $k$, set $const=1$. If you choose to work
 with MeV, set $const\sim 200$ ($\hbar c=197$ MeVfm).
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The principal value integral is rather tricky
 to evaluate numerically, mainly since computers have limited
 precision. We will here use a subtraction trick often used
@@ -2579,11 +1416,7 @@ allows us to rewrite the last equation as
   \int_{0}^{\infty} \frac{dk}{k^2-k_0^2} =0.
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 We can then express a principal values integral
 as
 !bt
@@ -2596,11 +1429,7 @@ as
 where the right-hand side is no longer singular at 
 $k=k_0$, it is proportional to the derivative $df/dk$,
 and can be evaluated numerically as any other integral.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 We can then use this trick to obtain
 !bt
 \begin{equation}
@@ -2614,11 +1443,7 @@ We can then use this trick to obtain
 This is the equation to solve numerically in order
 to calculate the phase shifts. We are interested in obtaining
 $R(k_0,k_0)$.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 How do we proceed?
 
 Using the mesh points $k_j$ and the weights $\omega_j$,
@@ -2633,11 +1458,7 @@ Using the mesh points $k_j$ and the weights $\omega_j$,
                            {(k_0^2-k_n^2)/m}.                
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 This equation contains now the unknowns $R(k_i,k_j)$
 (with dimension $N\times N$) and $R(k_0,k_0)$.
 
@@ -2656,12 +1477,6 @@ With these new mesh points we define the matrix
       label{eq:aeq}
 \end{equation}
 !et
-
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 where $\delta$ is the Kronecker $\delta$
 and
 !bt
@@ -2675,11 +1490,7 @@ and
      u_{N+1}=-\frac{2}{\pi}\sum_{j=1}^N\frac{k_0^2\omega_j}{(k_0^2-k_j^2)/m}.
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The first task is then to 
 set up the matrix $A$ for a given $k_0$. This is an
 $(N+1)\times (N+1)$ matrix. It can be convenient
@@ -2703,11 +1514,7 @@ or just
     AR=V.
 \] 
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 Since you already have defined $A$ and $V$
 (these are stored as $(N+1)\times (N+1)$ matrices) 
 The final equation involves only the unknown
@@ -2722,11 +1529,7 @@ Thus, to obtain $R$, you will need to set up the matrices
 $A$ and $V$ and invert the matrix $A$. 
 With the inverse $A^{-1}$, perform
 a matrix multiplication with $V$ results in $R$.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 With $R$ you can then evaluate the phase shifts
 by noting that 
 !bt
@@ -2735,11 +1538,7 @@ by noting that
 \]
 !et
 where $\delta$ are the phase shifts.
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 For elastic scattering, the scattering potential can only change the outgoing spherical wave function up to a phase. In the asymptotic limit, far away from the scattering potential, we get for the spherical bessel function
 !bt
 \[
@@ -2752,11 +1551,7 @@ The outgoing wave will change by a phase shift $\delta_l$, from which we can def
  \frac{e^{i(kr-l\pi/2)}}{r} \xrightarrow[]{\mathrm{phase change}}  \frac{S_l(k)e^{i(kr-l\pi/2)}}{r}
 \]
 !et
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The solution to the Schrodinger equation for a spherically symmetric potential, will have the form
 !bt
 \[
@@ -2776,11 +1571,7 @@ Using the expansion of a plane wave in spherical waves, we can relate the scatte
 \]
 !et
 which can be simplified further by cancelling $i^l$ with $e^{-il\pi/2}$ 
-!eblock
 
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 We have
 !bt
 \[
@@ -2806,18 +1597,8 @@ f_l(\theta) = \frac{1}{k}\frac{1}{\cot \delta_l(k) - i}.
 \]
 !et
 
+FIGURE: [fig-forces/phase.png, width=700 frac=0.7] Examples of negative and positive phase shifts for repulsive and attractive potentials, respectively.
 
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock Interpretation of phase shifts
-FIGURE: [figslides/phase.png, width=700 frac=0.7] Examples of negative and positive phase shifts for repulsive and attractive potentials, respectively.
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 The integrated cross section is given by
 \[
 \sigma = 2\pi \int_0^{\pi} |f(\theta)|^2 \sin \theta d\theta 
@@ -2833,13 +1614,6 @@ where the orthogonality of the Legendre polynomials was used to evaluate the las
 \]
 Thus, the _total_ cross section is the sum of the partial-wave cross sections. Note that the differential cross section contains cross-terms from different partial waves. The integral over the full sphere enables the use of the legendre orthogonality, and this kills the cross-terms.
 
-
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
-
 At low energy, $k \rightarrow 0$, S-waves are most important. In this region we can define the scattering length $a$ and the effective range $r$. The $S-$wave scattering amplitude is given by
 \[
 f_l(\theta) = \frac{1}{k}\frac{1}{\cot \delta_l(k) - i}.
@@ -2854,20 +1628,8 @@ Thus the low energy cross section is given by
 \]
 If the system contains a bound state, the scattering length will become positive (neutron-proton in $^3S_1$). For the $^1S_0$ wave, the scattering length is negative and large. This indicates that the wave function of the system is at the verge of turning over to get a node, but cannot create a bound state in this wave.
 
+FIGURE: [fig-forces/scattering_length.png, width=700 frac=1.0] Examples of scattering lengths.
 
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock Low energy scattering length
-FIGURE: [figslides/scattering_length.png, width=700 frac=1.0] Examples of scattering lengths.
-
-
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock
 It is important to realize that the phase shifts themselves are not
 observables. The measurable scattering quantity is the cross section,
 or the differential cross section. The partial wave phase shifts can
@@ -2885,23 +1647,12 @@ theory, a statistical optimization with respect to cross sections need
 to be carried out. This is how we constrain the nucleon-nucleon
 interaction in practice!
 
-
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock  Nijmegen multi-energy $pp$ PWA phase shifts
-
-FIGURE: [figslides/nijmegen_pp_phase_shifts.png, width=700 frac=1.0] Nijmegen phase shifts for selected partial waves.
+FIGURE: [fig-forces/nijmegen_pp_phase_shifts.png, width=700 frac=1.0] Nijmegen phase shifts for selected partial waves.
 
 The $pp$-data is more accurate than the $np$-data, and for $nn$ there is no data. The quality of a potential is gauged by the $\chi^2$/datum with respect to the scattering data base
 
+=== The Lippman-Schwinger equation for two-nucleon scattering: Nijmegen multi-energy $pp$ PWA phase shifts ===
 
-!eblock
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock Nijmegen multi-energy $pp$ PWA phase shifts
 
 |-----------------------------------------------------------------------------------|
 |$T_{\mathrm{lab}}$ bin (MeV) |  N3LO$^1$     | NNLO$^2$   | NLO$^2$  | AV18$^3$  |
@@ -2918,12 +1669,8 @@ The $pp$-data is more accurate than the $np$-data, and for $nn$ there is no data
 * R. B. Wiringa et al., Phys. Rev. C5, 38 (1995)
 
 
-!eblock
+=== The Lippman-Schwinger equation for two-nucleon scattering: An example: chiral twobody interactions ===
 
-
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock An example: chiral twobody interactions
 !bt
 \[
 \mathcal{L_{\mathrm{eff}}} = \mathcal{L}_{\pi \pi}(f_\pi,m_{\pi}) + \mathcal{L}_{\pi N}(f_{\pi},M_{N},g_A,c_i,d_i,...) + \mathcal{L}_{NN}(C_{i},\tilde{C}_{i},D_{i},...) + \ldots
@@ -2932,47 +1679,32 @@ The $pp$-data is more accurate than the $np$-data, and for $nn$ there is no data
 * R. Machleidt, D. R. Entem, Phys. Rep. 503, 1 (2011)
 * E. Epelbaum, H.-W. Hammer, Ulf-G. Mei\ss{}ner, Rev. Mod. Phys. 81, 1773 (2009)
 
-!eblock
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock  Proton-neutron $^1S_0$ phase shift
-
 Note that the Nijm93 PWA phase shift becomes negative at T$_{\mathrm{lab}}> 250$MeV. This indicates that the nucleon-nucleon potential is repulsive at short distances 
-FIGURE: [figslides/phase-pn-1s0_IDAHO_JUELICH.pdf, width=700 frac=0.7] Proton-neutron $^1S_0$ phase shift. 
+FIGURE: [fig-forces/phase-pn-1s0_IDAHO_JUELICH.pdf, width=700 frac=0.7] Proton-neutron $^1S_0$ phase shift. 
 
-!eblock
-!split
-===== The Lippman-Schwinger equation for two-nucleon scattering =====
-!bblock Differential cross section
-FIGURE: [figslides/pnDSG_at_199MeV.pdf, width=800 frac=0.8] Proton-neutron $^1S_0$ phase shift. 
+FIGURE: [fig-forces/pnDSG_at_199MeV.pdf, width=800 frac=0.8] Proton-neutron $^1S_0$ phase shift. 
 
-!eblock
-
-
-!split
-===== Exercise 10 =====
-!bblock 
+===== Exercise: List all partial waves up to a given orbital momentum =====
+!bsubex
 List all _allowed_ according to the Pauli principle partial waves with isospin $T$, their 
 projection $T_z$, spin $S$, orbital angular momentum $l$ and total spin $J$ for $J\le 3$.
 Use the standard spectroscopic notation $^{2S+1}L_J$ to label different partial waves. A proton-proton state
 has $T_Z=-1$, a proton-neutron state has $T_z=0$ and a neutron-neutron state has $T_z=1$.
+!esubex
 
-!eblock
+===== Exercise: Expressions for various components =====
+!bsubex
+Find the closed form expression for the spin-orbit force. Show that the spin-orbit force {\bf LS} gives a zero contribution for $S$-waves (orbital angular momentum $l=0$).   What is the value of the spin-orbit force for spin-singlet states ($S=0$)?  
+!esubex
+!bsubex
+Find thereafter the expectation value of $\mathbf{\sigma}_1\cdot\mathbf{\sigma}_2$, where $\mathbf{\sigma}_i$ are so-called Pauli matrices. 
+!esubex
+!bsubex
+ Add thereafter isospin and find the expectation value of $\mathbf{\sigma}_1\cdot\mathbf{\sigma}_2\mathbf{\tau}_1\cdot\mathbf{\tau}_2$, where $\mathbf{\tau}_i$ are also so-called Pauli matrices. List all the cases with $S=0,1$ and $T=0,1$.
+!esubex
 
-!split
-===== Exercise 11 =====
-!bblock 
- o Find the closed form expression for the spin-orbit force. Show that the spin-orbit force {\bf LS} gives a zero
-contribution for $S$-waves (orbital angular momentum $l=0$).   What is the value of the spin-orbit force for spin-singlet states ($S=0$)?  
- o Find thereafter the expectation value of $\mathbf{\sigma}_1\cdot\mathbf{\sigma}_2$, where $\mathbf{\sigma}_i$ are so-called Pauli matrices. 
- o Add thereafter isospin and find the expectation value of $\mathbf{\sigma}_1\cdot\mathbf{\sigma}_2\mathbf{\tau}_1\cdot\mathbf{\tau}_2$, where $\mathbf{\tau}_i$ are also so-called Pauli matrices. List all the cases with $S=0,1$ and $T=0,1$.
 
-!eblock
-
-
-!split
-===== Exercise 12 =====
-!bblock 
+===== Exercise: Analysis of the opne-pion exchange component of the force =====
 A simple parametrization of the nucleon-nucleon force is given by what is called the $V_8$ potential model,
 where we have kept eight different operators. These operators contain a central force, a spin-orbit force,
 a spin-spin force and a tensor force. Several features of the nuclei can be explained in terms of these four components. Without the Pauli matrices for isospin the final form of such an interaction model results in the following form: 
@@ -3030,10 +1762,67 @@ V_{\pi}(\mathbf{r})= -\frac{f_{\pi}^{2}}{4\pi m_{\pi}^{2}}\mathbf{ \tau}_1\cdot\
 \]
 !et
 Here the constant $f_{\pi}^{2}/4\pi\approx 0.08$ and the mass of the pion is $m_\pi\approx 140$ MeV/c${}^{2}$. 
+!bsubex
+Compute the expectation value of the tensor force and the spin-spin  and isospin operators for the one-pion exchange potential for all partial waves you found previously. Comment your results. How does the one-pion exchange part behave as function of different $l$, ${\cal J}$ and $S$ values? Do you see some patterns?
+!esubex
+!bsubex
+For the binding energy of the deuteron, with the ground state defined by the quantum numbers $l=0$, $S=1$ and ${\cal J}=1$, the tensor force plays an important role due to the admixture from the $l=2$ state. Use the expectation values of the different operators of the one-pion exchange potential and plot the ratio of the tensor force component over the spin-spin component of the one-pion exchange part as function of $x=m_\pi r$ for the $l=2$ state (that is the case $l,l'={\cal J}+1$). Comment your results. 
+!esubex
 
- o Compute the expectation value of the tensor force and the spin-spin  and isospin operators for the one-pion exchange potential for all partial waves you found in exercise 9. Comment your results. How does the one-pion exchange part behave as function of different $l$, ${\cal J}$ and $S$ values? Do you see some patterns?
- o For the binding energy of the deuteron, with the ground state defined by the quantum numbers $l=0$, $S=1$ and ${\cal J}=1$, the tensor force plays an important role due to the admixture from the $l=2$ state. Use the expectation values of the different operators of the one-pion exchange potential and plot the ratio of the tensor force component over the spin-spin component of the one-pion exchange part as function of $x=m_\pi r$ for the $l=2$ state (that is the case $l,l'={\cal J}+1$). Comment your results. 
 
-!eblock
+===== Exercise: Program for the Lippman-Schwinger equation =====
+The aim here is to develop a program which solves the Lippman-Schwinger equation for a simple parametrization for the 
+$^1S_0$ partial wave. This partial wave is given by a central force only and is parametrized in coordinate space as
+!bt
+\[
+  V(r)=V_a \frac{e^{-ax}}{x}+V_b \frac{e^{-bx}}{x}+V_c \frac{e^{-cx}}{x}
+\]
+!et
+with $x=\mu r$, $\mu=0.7$ fm (the inverse of the pion mass),
+$V_a=-10.463$ MeV and $a=1$, $V_b=-1650.6$ MeV and $b=4$ and
+$V_c=6484.3$ MeV and $c=7$. 
+!bsubex
+Find an analytical expression for 
+the Fourier-Bessel transform (Hankel transform)
+to momentum space for $l=0$ using
+!bt
+\[
+\left\langle k \right | V_{l} \left | k' \right\rangle
+= \int j_l(kr)V(r)j_l(k'r)r^2dr.
+\]
+!et
+!esubex
+!bsubex
+Write a small program which calculates the latter expression
+and use this potential to compute the $T$-matrix at positive energies
+for $l=0$.
+Compare your results to those obtained with a  box potential given by
+!bt
+\[
+V(r)=\left\{ \begin{array}{cc} -V_0& r < R_0 \\
+                                0  & r > R_0 \end{array} \right.
+\]
+!et
+Make a plot of the
+two $T$-matrices for energies up to 300 MeV in the lab frame
+and comment your results.
 
+Finally, a warning, the above central potential is fitted  
+to data from approximately 
+20 MeV to some 300 MeV. This means that results outside
+the data set should be taken seriously.
+!bsol
+The following Fortran 95 program solves the above Lippmann-Schwinger equation. Python and C++ codes will be added later. Discussions of the results will also be added.  
+!bc fcod
+
+!ec
+!esol
+
+!esubex
+!bsubex
+The parameters of the box potential are chosen to fit a
+potential with a bound state at zero energy. What does this mean
+for your $T$-matrix with this potential when
+$k\rightarrow 0$?
+!esubex
 

@@ -54,7 +54,11 @@ Automatically generated HTML file from DocOnce source
               ('Exercise 2: Derivation of Hartree-Fock equations',
                2,
                None,
-               '___sec9')]}
+               '___sec9'),
+              ('Exercise 3: Hartree-Fock calculations in atomic physics',
+               2,
+               None,
+               '___sec10')]}
 end of tocinfo -->
 
 <body>
@@ -101,6 +105,7 @@ MathJax.Hub.Config({
      <!-- navigation toc: --> <li><a href="#___sec7" style="font-size: 80%;">Analysis of Hartree-Fock equations and Koopman's theorem</a></li>
      <!-- navigation toc: --> <li><a href="#___sec8" style="font-size: 80%;">Exercise 1: Derivation of Hartree-Fock equations</a></li>
      <!-- navigation toc: --> <li><a href="#___sec9" style="font-size: 80%;">Exercise 2: Derivation of Hartree-Fock equations</a></li>
+     <!-- navigation toc: --> <li><a href="#___sec10" style="font-size: 80%;">Exercise 3: Hartree-Fock calculations in atomic physics</a></li>
 
         </ul>
       </li>
@@ -147,6 +152,7 @@ MathJax.Hub.Config({
 <a href="#___sec7"> Analysis of Hartree-Fock equations and Koopman's theorem </a><br>
 <a href="#___sec8"> Exercise 1: Derivation of Hartree-Fock equations </a><br>
 <a href="#___sec9"> Exercise 2: Derivation of Hartree-Fock equations </a><br>
+<a href="#___sec10"> Exercise 3: Hartree-Fock calculations in atomic physics </a><br>
 </p>
 <p>
 </div> <!-- end jumbotron -->
@@ -1197,11 +1203,40 @@ $$
 
 brings us into the new basis.  
 The new basis has quantum numbers \( a=1,2,\dots,N \).
+
+<p>
+<b>a)</b>
 Show that the new basis is orthonormal.
+
+<p>
+<b>b)</b>
 Show that the new Slater determinant constructed from the new single-particle wave functions can be
 written as the determinant based on the previous basis and the determinant of the matrix \( C \).
+
+<p>
+<b>c)</b>
 Show that the old and the new Slater determinants are equal up to a complex constant with absolute value unity.
-(Hint, \( C \) is a unitary matrix).
+
+<p>
+<!-- --- begin hint in exercise --- -->
+
+<p>
+<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+ data-target="#exer_1_1" style="font-size: 80%;"></a>
+<b>Hint.</b>
+<div class="collapse-group">
+<p><div class="collapse" id="exer_1_1">
+
+<p>
+Use the fact that \( C \) is a unitary matrix.
+
+<p>
+</div></p>
+</div>
+</p>
+
+<p>
+<!-- --- end hint in exercise --- -->
 
 <p>
 <!-- --- end exercise --- -->
@@ -1226,6 +1261,8 @@ $$
 \psi_{\alpha_{i+1}}(x_{i+1})\dots\psi_{\alpha_{n}}(x_{n}).
 $$
 
+<p>
+<b>a)</b>
 Show that
 $$
 \langle \delta\Phi_{0}|\sum_{i=1}^{n}\left\{t(x_{i})+u(x_{i})
@@ -1238,6 +1275,513 @@ $$
 |\psi_{\alpha_{j}}\psi_{\alpha_{i}}\rangle\right\}
 $$
 
+<p>
+<!-- --- end exercise --- -->
+
+<p>
+<!-- --- begin exercise --- -->
+
+<h2 id="___sec10">Exercise 3: Hartree-Fock calculations in atomic physics </h2>
+
+<p>
+In this exercise we will develop two simple models for studying the 
+helium atom (with two electrons) and the beryllium atom with four electrons.
+The reason why we chose these systems is simply due to the fact that we can use
+hydrogen-like single-particle state functions. These functions allow for simple evaluations of the two-body integrals needed in a Hartree-Fock calculation. 
+In most cases, these integrals have a simple closed form solution, as indicated in the table below.
+
+<p>
+After having introduced the  Born-Oppenheimer approximation which effectively freezes out the nucleonic degrees
+of freedom, the Hamiltonian for \( N \) electrons takes the following form 
+$$
+  \hat{H} = \sum_{i=1}^{N} t(x_i) 
+  - \sum_{i=1}^{N} k\frac{Ze^2}{r_i} + \sum_{i < j}^{N} \frac{ke^2}{r_{ij}},
+$$
+
+with \( k=1.44 \) eVnm. Througout this work we will use atomic units, this means
+that \( \hbar=c=e=m_e=1 \). The constant \( k \) becomes also equal 1. 
+The resulting energies have to be multiplied by \( 2\times 13.6 \) eV
+in order to obtain energies in eletronvolts.
+
+<p>
+ We can rewrite our Hamiltonians as
+$$
+    \hat{H} = \hat{H_0} + \hat{H_I} 
+    = \sum_{i=1}^{N}\hat{h}_0(x_i) + \sum_{i < j}^{N}\frac{1}{r_{ij}},
+$$
+
+where  we have defined \( r_{ij}=| {\bf r}_i-{\bf r}_j| \) and
+\( \hat{h}_0(x_i) =  \hat{t}(x_i) - \frac{Z}{r_i} \)
+The variable \( x \) contains both the spatial coordinates and the spin values.
+The first term of the previous equation, \( H_0 \), is the sum of the \( N \) <em>one-body</em> Hamiltonians \( \hat{h}_0 \). Each individual
+Hamiltonian \( \hat{h}_0 \) contains the kinetic energy operator of an
+electron and its potential energy due to the attraction of the
+nucleus. The second term, \( H_I \), is the sum of the \( N(N-1)/2 \)
+two-body interactions between each pair of electrons. Note that the double sum carries a restriction \( i < j \).
+
+<p>
+As basis functions for our calculations we will use hydrogen-like single-particle functions.  This means the onebody operator is diagonal in this basis for states \( i,j \) with quantum numbers \( nlm_lsm_s \) with  
+energies 
+$$\langle i|\hat{h}_0| j\rangle =  -Z^2/2n^2\delta_{i,j}.
+$$
+
+The quantum number \( n \) refers to the number of nodes 
+of the wave function.  Observe that this expectation value is independent of spin.
+
+<p>
+We will in all calculations here restrict ourselves to only so-called \( s \) -waves,
+that is the orbital momentum \( l \) is zero. We will also limit the quantum number \( n \) to \( n\le 3 \).  It means that every \( ns \) state can accomodate two electrons due to the spin degeneracy. 
+In the calculations you 
+will need the Coulomb interaction with matrix elements
+involving single-particle wave functions with \( l=0 \) only, the so-called \( s \)-waves.
+We need only the radial part since the 
+spherical harmonics for the \( s \)-waves are rather simple. We omit single-particle states with \( l> 0 \).
+Our radial part of the wave functions are
+$$
+R_{n0}(r)=\left(\frac{2Z}{n}\right)^{3/2}\sqrt{\frac{(n-1)!}{2n\times n!}}L_{n-1}^1(\frac{2Zr}{n})\exp{(-\frac{Zr}{n})},
+$$
+
+where \( L_{n-1}^1(r) \) are the so-called Laguerre polynomials.
+These wave functions can then be used to compute the direct part of the
+Coulomb interaction
+$$
+\langle \alpha\beta| V| \gamma\delta\rangle = \int r_1^2dr_1 \int r_2^2dr_2R_{n_{\alpha}0}^*(r_1) R_{n_{\beta}0}^*(r_2) 
+  \frac{1}{| {\bf r}_1-{\bf r}_2|}R_{n_{\gamma}0}(r_1)R_{n_{\delta}0}(r_2)
+$$
+
+Observe that this is only the radial integral and that the labels \( \alpha\beta\gamma\delta \) refer only to the quantum numbers \( nlm_l \), with \( m_l \) the projection of the orbital momentum \( l \). 
+A similar expression can be found for the exchange part. Since we have restricted ourselves to only \( s \)-waves, these integrals are straightforward but tedious to calculate. As an addendum to this project we list all closed-form expressions for the relevant matrix elements. Note well that these matrix elements do not include spin. When setting up the final antisymmetrized matrix elements you need to consider the spin degrees of freedom as well. Please pay in particular special attention to the exchange part and the pertinent spin values of the single-particle states.
+
+<p>
+We will also, for both helium and beryllium assume that the many-particle states we construct have always the same total spin projection \( M_S=0 \). This means that if we excite one or two particles from the ground state, the spins of the various single-particle states should always sum up to zero.
+
+<p>
+<b>a)</b>
+We start with the helium atom and define our single-particle Hilbert space to consist of the single-particle orbits \( 1s \), \( 2s \) and \( 3s \), with their corresponding spin degeneracies.
+
+<p>
+Set up the ansatz for the ground state \( |c\rangle = |\Phi_0\rangle \) in second 
+quantization and define a table of single-particle states. Construct thereafter
+all possible one-particle-one-hole excitations  \( |\Phi_i^a\rangle \) where \( i \) refer to levels below the Fermi level (define this level) and \( a \) refers to particle states. Define particles and holes. The Slater determinants have to be written in terms of the respective creation and annihilation operators.
+The states you construct should all have total spin projection \( M_S=0 \). 
+Construct also all possible two-particle-two-hole states \( |\Phi_{ij}^{ab}\rangle \)  in a second quantization representation.
+
+<p>
+<b>b)</b>
+Define the Hamiltonian in a second-quantized form and use this to
+compute the expectation value of the ground state (defining the so-called reference energy and later our Hartree-Fock functional) of the helium atom. 
+Show that it is given by
+$$
+  E[\Phi_0] = \langle c | \hat{H}| c \rangle 
+  = \sum_{i} \langle i | \hat{h}_0 | i\rangle+ \frac{1}{2}\sum_{ij}\left[\langle ij |\frac{1}{r}|ij\rangle-\langle ij |\frac{1}{r}|ji\rangle\right].
+$$
+
+Define properly the sums keeping in mind that the states \( ij \) refer to all
+quantum numbers \( nlm_lsm_s \).
+Use the values for the various matrix elements listed at the end of the project to find the value of \( E \)
+as function of \( Z \) and compute \( E \) as function of \( Z \).
+
+<p>
+<b>c)</b>
+Hereafter we will limit ourselves to a system which now contains only one-particle-one-hole
+excitations beyond the chosen state \( |c\rangle \).
+Using the possible Slater determinants from exercise a) for the helium atom,   
+find the expressions  (without inserting the explicit values for the matrix elements first) for
+$$
+\langle c | \hat{H}| \Phi_i^a \rangle,
+$$
+
+and
+$$
+\langle \Phi_i^a | \hat{H}| \Phi_j^b \rangle.
+$$
+
+Represent these expressions in a diagrammatic form, both for the onebody part and the two-body part of the Hamiltonian.
+
+<p>
+Insert then the explicit values for the various matrix elements and 
+set up the final Hamiltonian matrix and diagonalize it using for example
+Octave, Matlab, Python, C++ or Fortran as programming tools.
+
+<p>
+Compare your results from those of exercise b) and comment your results. 
+The exact energy with our Hamiltonian is \( -2.9037 \) atomic units for helium. This value is also close to the experimental energy.
+
+<p>
+<b>d)</b>
+We repeat exercises b) and c) but now for the beryllium atom.
+Define the ansatz for \( |c\rangle \) and limit yourself again to one-particle-one-hole excitations.   Compute the reference energy 
+\( \langle c | \hat{H}| c \rangle  \) as function of \( Z \). Thereafter you will need to set up the appropriate Hamiltonian matrix
+which involves also one-particle-one-hole excitations. Diagonalize this matrix
+and compare your eigenvalues with  \( \langle c | \hat{H}| c \rangle \) as function of \( Z \) and comment your results. 
+The exact energy with our Hamiltonian is \( -14.6674 \) atomic units for beryllium. This value is again close to the experimental energy.\newline\newline\newline
+With a given energy functional, we can perform at least two types of variational strategies
+
+<ol>
+<li> Vary the Slater determinant by changing the spatial part of the single-particle</li>
+</ol>
+
+wave functions themselves. 
+
+<ol>
+<li> Expand the single-particle functions in a known basis  and vary the coefficients,</li> 
+</ol>
+
+that is, the new function single-particle wave function \( |p\rangle \) is written as a linear expansion in terms of a fixed basis \( \phi \) (harmonic oscillator, Laguerre polynomials etc)
+$$
+\psi_p  = \sum_{\lambda} C_{p\lambda}\phi_{\lambda},
+$$
+
+Both cases lead to a new Slater determinant which is related to the previous via  a unitary transformation.
+Below we will set up the Hartree-Fock equations using the second option.  
+We assume that our basis is still formed by the hydrogen-like wave functions. 
+We consider a Slater determinant built up of single-particle orbitals \( \phi_{\lambda} \) where the indices \( \lambda \) refer to specific single-particle states.  As an example, you could think of the ground state ansatz for the Beryllium atom.
+
+<p>
+The unitary transformation
+\[
+\psi_p  = \sum_{\lambda} C_{p\lambda}\phi_{\lambda},
+\]
+brings us into the new basis \( \psi \).  The new basis is orthonormal and \( C \) is a unitary matrix.
+
+<p>
+<b>e)</b>
+Minimizing with respect to \( C^*_{p\alpha} \), remembering that \( C^*_{p\alpha} \) and \( C_{p\alpha} \) (and that the indices contain all single-particle quantum numbers including spin)
+are independent and defining
+$$
+h_{\alpha\gamma}^{HF}=\langle \alpha | h | \gamma \rangle+
+\sum_{p}\sum_{\beta\delta} C^*_{p\beta}C_{p\delta}\langle \alpha\beta|V|\gamma\delta\rangle_{AS},
+$$
+
+show that you can write the Hartree-Fock  equations as 
+$$
+\sum_{\gamma}h_{\alpha\gamma}^{HF}C_{p\gamma}=\epsilon_p^{\mathrm{HF}}C_{p\alpha}.
+$$
+
+Explain the meaning of the different terms and define the Hartree-Fock 
+operator in second quantization. Write down its diagrammatic representation as well.  The greek letters refer to the wave functions in the original basis (in our case the hydrogen-like wave functions) while roman letters refer to the new basis.
+
+<p>
+<b>f)</b>
+The Hartree-Fock equations with a variation of the coefficients \( C_{p\alpha} \)
+lead to an eigenvalue problem whose eigenvectors are the coefficients
+\( C_{p\alpha} \) and eigenvalues are the new single-particle energies. 
+Use the single-particle orbits \( 1s-3s \) and set up the Hartree-Fock matrix for both the helium atom and the beryllium atom. Find after the first diagonalization the new single-particle energies and the new ground state energy.
+Compare these results with  those you obtained under the minimization of the ground states as functions of \( Z \) and the full diagonalization. When setting up the Hartree-Fock matrix 
+in the first iteration, our guess for the coefficients \( C_{p\beta} \) etc.&nbsp;is \( C_{p\beta}=1 \) for \( p=\beta \) and zero else. 
+The final stage is to 
+set up an iterative scheme where you use the new wave functions
+determined via the coefficients \( C_{p\alpha} \) to solve iteratively the Hartree-Fock equations till a given self-consistency is reached. A typical way of doing this is to compare the single-particle energies from the previous iteration with those obtained from the new diagonalization. If the total difference is smaller than a prefixed value, the iterative process is stopped.
+
+<p>
+Compare these results with the those you obtained under the minimization of the ground states as functions of \( Z \) and the full diagonalization. Discuss your results.
+
+<p>
+<!-- --- begin solution of exercise --- -->
+
+<p>
+<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+ data-target="#exer_3_1" style="font-size: 80%;"></a>
+<b>Solution.</b>
+<div class="collapse-group">
+<p><div class="collapse" id="exer_3_1">
+
+<p>
+The following Python program set ups a simple Hartree-Fock program for solving the above problem, using as input the integrals listed at the end here.
+<p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">Program for solving Hartree Fock iteratively.</span>
+<span style="color: #BA2121; font-style: italic">1. Import radial integral results</span>
+<span style="color: #BA2121; font-style: italic">2. Set up HF matrix using C = I as initial guess</span>
+<span style="color: #BA2121; font-style: italic">3. Solve eigenvalue problem using numpy.linalg</span>
+<span style="color: #BA2121; font-style: italic">4. Use resulting eigenvectors to assemble new HF matrix</span>
+<span style="color: #BA2121; font-style: italic">5. Repeat steps 3 and 4 until convergence is met.</span>
+<span style="color: #BA2121; font-style: italic">6. Calculate ground state energy from resulting C.</span>
+<span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">__future__</span> <span style="color: #008000; font-weight: bold">import</span> division
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">sympy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">pickle</span><span style="color: #666666">,</span> <span style="color: #0000FF; font-weight: bold">sys</span>
+
+Z <span style="color: #666666">=</span> Symbol(<span style="color: #BA2121">&quot;Z&quot;</span>)
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">HF</span>:
+    <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">    Class for solving the Hartree Fock equations iteratively.</span>
+<span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, N, basis, Z_value, first_C<span style="color: #666666">=</span><span style="color: #BA2121">&#39;identity&#39;</span>):
+        <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">        N is the number of particles in the system and basis</span>
+<span style="color: #BA2121; font-style: italic">        is the single-particle basis for the system.</span>
+<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
+        <span style="color: #408080; font-style: italic"># Read in the radial_integrals from pickled object</span>
+        <span style="color: #008000; font-weight: bold">with</span> <span style="color: #008000">open</span>(<span style="color: #BA2121">&quot;radial_integrals.p&quot;</span>, <span style="color: #BA2121">&quot;rb&quot;</span>) <span style="color: #008000; font-weight: bold">as</span> infile:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>radial_integrals <span style="color: #666666">=</span> pickle<span style="color: #666666">.</span>load(infile)
+        
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>N <span style="color: #666666">=</span> N <span style="color: #408080; font-style: italic"># number of particles in the system</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>basis <span style="color: #666666">=</span> basis <span style="color: #408080; font-style: italic"># single-particle basis for the system</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>Z_value <span style="color: #666666">=</span> Z_value <span style="color: #408080; font-style: italic"># atomic number of the atom</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>n <span style="color: #666666">=</span> <span style="color: #008000">len</span>(basis) <span style="color: #408080; font-style: italic"># number of single-particle basis states</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>ek <span style="color: #666666">=</span> array((<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>)) <span style="color: #408080; font-style: italic"># new single-particle energies</span>
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>E <span style="color: #666666">=</span> <span style="color: #666666">0</span> <span style="color: #408080; font-style: italic"># energy</span>
+        <span style="color: #408080; font-style: italic"># Set up the first coefficient matrix to be used</span>
+        <span style="color: #008000; font-weight: bold">if</span> first_C <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;identity&#39;</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>C <span style="color: #666666">=</span> identity(<span style="color: #008000">self</span><span style="color: #666666">.</span>n)
+        <span style="color: #008000; font-weight: bold">elif</span> first_C <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;zero&#39;</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>C <span style="color: #666666">=</span> zeros((<span style="color: #008000">self</span><span style="color: #666666">.</span>n, <span style="color: #008000">self</span><span style="color: #666666">.</span>n))
+        <span style="color: #008000; font-weight: bold">elif</span> first_C <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;rand&#39;</span>:
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>C <span style="color: #666666">=</span> random<span style="color: #666666">.</span>rand(<span style="color: #008000">self</span><span style="color: #666666">.</span>n, <span style="color: #008000">self</span><span style="color: #666666">.</span>n)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;first_C argument not understood&quot;</span>
+            <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Legal values are: &#39;identity&#39;, &#39;zero&#39;, &#39;rand&#39;&quot;</span>
+            sys<span style="color: #666666">.</span>exit(<span style="color: #666666">1</span>)
+
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>h_HF <span style="color: #666666">=</span> zeros((<span style="color: #008000">self</span><span style="color: #666666">.</span>n, <span style="color: #008000">self</span><span style="color: #666666">.</span>n))
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>assemble_HF_matrix() <span style="color: #408080; font-style: italic"># set up HF matrix for C = I</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">h_0</span>(<span style="color: #008000">self</span>, p, q):
+        <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">        Takes the integer values of states and returns the </span>
+<span style="color: #BA2121; font-style: italic">        asymmetrized twobody matrix element &lt;pq||rs&gt;.</span>
+<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
+        n1, s1 <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>basis[p]
+        n2, s2 <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>basis[q]
+
+        <span style="color: #008000; font-weight: bold">if</span> n1 <span style="color: #666666">!=</span> n2 <span style="color: #AA22FF; font-weight: bold">or</span> s1 <span style="color: #666666">!=</span> s2:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-</span>Z<span style="color: #666666">**2/</span>(<span style="color: #666666">2*</span>n1<span style="color: #666666">**2</span>)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">rad</span>(<span style="color: #008000">self</span>, n1, n2, n3, n4):
+        <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">        Returns the radial integral &lt;n1, n2|v|n3, n4&gt;.</span>
+<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>radial_integrals[n1<span style="color: #666666">-1</span>, n2<span style="color: #666666">-1</span>, n3<span style="color: #666666">-1</span>, n4<span style="color: #666666">-1</span>]
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">h_1</span>(<span style="color: #008000">self</span>, p, q, r, s):
+        <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">        Takes the integer values of four basis-states and returns</span>
+<span style="color: #BA2121; font-style: italic">        the asymmetrized twobody matrix element &lt;pq||rs&gt;.</span>
+<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
+        n1, s1 <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>basis[p]
+        n2, s2 <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>basis[q]
+        n3, s3 <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>basis[r]
+        n4, s4 <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>basis[s]
+
+        <span style="color: #008000; font-weight: bold">if</span> s1 <span style="color: #666666">==</span> s2 <span style="color: #666666">==</span> s3 <span style="color: #666666">==</span> s4:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rad(n1, n2, n3, n4) <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rad(n1, n2, n4, n3)
+        <span style="color: #008000; font-weight: bold">if</span> s1 <span style="color: #666666">==</span> s3 <span style="color: #AA22FF; font-weight: bold">and</span> s2 <span style="color: #666666">==</span> s4:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>rad(n1, n2, n3, n4)
+        <span style="color: #008000; font-weight: bold">if</span> s1 <span style="color: #666666">==</span> s4 <span style="color: #AA22FF; font-weight: bold">and</span> s2 <span style="color: #666666">==</span> s3:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-</span><span style="color: #008000">self</span><span style="color: #666666">.</span>rad(n1, n2, n4, n3)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">0</span>
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">assemble_HF_matrix</span>(<span style="color: #008000">self</span>):
+        <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">        Assemble the HF matric from the coefficient matrix.</span>
+<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
+        n, N <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>n, <span style="color: #008000">self</span><span style="color: #666666">.</span>N
+        C <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>C
+
+        <span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+            <span style="color: #008000; font-weight: bold">for</span> g <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+                s <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>h_0(a,g)
+                <span style="color: #008000; font-weight: bold">for</span> p <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N):
+                    <span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+                        <span style="color: #008000; font-weight: bold">for</span> d <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+                            s <span style="color: #666666">+=</span> C[p,b]<span style="color: #666666">*</span>C[p,d]<span style="color: #666666">*</span><span style="color: #008000">self</span><span style="color: #666666">.</span>h_1(a,b,g,d)
+
+                <span style="color: #008000">self</span><span style="color: #666666">.</span>h_HF[a,g] <span style="color: #666666">=</span> s<span style="color: #666666">.</span>subs(Z, <span style="color: #008000">self</span><span style="color: #666666">.</span>Z_value)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">reorder_coefficients</span>(<span style="color: #008000">self</span>):
+        ek, C <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>ek, <span style="color: #008000">self</span><span style="color: #666666">.</span>C
+
+        <span style="color: #408080; font-style: italic"># Sort eigenvalues and coefficient matrix using numpy.argsort</span>
+        indices <span style="color: #666666">=</span> argsort(ek)        
+        ek <span style="color: #666666">=</span> ek[indices]
+        C <span style="color: #666666">=</span> C[:, indices]
+
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>ek, <span style="color: #008000">self</span><span style="color: #666666">.</span>C <span style="color: #666666">=</span> ek, C<span style="color: #666666">.</span>T
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">calc_energy</span>(<span style="color: #008000">self</span>):
+        <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
+<span style="color: #BA2121; font-style: italic">        Calculates the ground state energy from the </span>
+<span style="color: #BA2121; font-style: italic">        current coefficient matric.</span>
+<span style="color: #BA2121; font-style: italic">        &quot;&quot;&quot;</span>
+        n, N <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>n, <span style="color: #008000">self</span><span style="color: #666666">.</span>N
+        C <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>C
+
+        e <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        <span style="color: #008000; font-weight: bold">for</span> p <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N):
+         <span style="color: #008000; font-weight: bold">for</span> a <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+           <span style="color: #008000; font-weight: bold">for</span> b <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+             e <span style="color: #666666">+=</span> C[p,a]<span style="color: #666666">*</span>C[p,b]<span style="color: #666666">*</span><span style="color: #008000">self</span><span style="color: #666666">.</span>h_0(a,b)
+             <span style="color: #008000; font-weight: bold">for</span> q <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(N):
+              <span style="color: #008000; font-weight: bold">for</span> c <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+               <span style="color: #008000; font-weight: bold">for</span> d <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+                e <span style="color: #666666">+=</span> <span style="color: #666666">0.5*</span>C[p,a]<span style="color: #666666">*</span>C[q,b]<span style="color: #666666">*</span>C[p,c]<span style="color: #666666">*</span>C[q,d]<span style="color: #666666">*</span><span style="color: #008000">self</span><span style="color: #666666">.</span>h_1(a,b,c,d)
+
+        <span style="color: #008000">self</span><span style="color: #666666">.</span>E <span style="color: #666666">=</span> e<span style="color: #666666">.</span>subs(Z, Z_value)<span style="color: #666666">.</span>evalf()
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>E
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solve</span>(<span style="color: #008000">self</span>, tol<span style="color: #666666">=1e-6</span>, max_iters<span style="color: #666666">=40</span>):
+        iterations <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        n, N <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>n, <span style="color: #008000">self</span><span style="color: #666666">.</span>N
+        Ep <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+        ekp <span style="color: #666666">=</span> array((<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>,<span style="color: #666666">0</span>))
+
+        <span style="color: #008000; font-weight: bold">while</span> iterations <span style="color: #666666">&lt;</span> max_iters:
+            iterations <span style="color: #666666">+=1</span>
+
+            <span style="color: #408080; font-style: italic"># Find eigenvalues and eigenvector of HF matrix</span>
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>ek, <span style="color: #008000">self</span><span style="color: #666666">.</span>C <span style="color: #666666">=</span> linalg<span style="color: #666666">.</span>eig(<span style="color: #008000">self</span><span style="color: #666666">.</span>h_HF)
+            
+            <span style="color: #408080; font-style: italic"># Reorder eigenvalues and eigenvector</span>
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>reorder_coefficients()
+
+            <span style="color: #408080; font-style: italic"># Assemble the new HF matrix</span>
+            <span style="color: #008000">self</span><span style="color: #666666">.</span>assemble_HF_matrix()
+            
+            <span style="color: #408080; font-style: italic"># Test tolerance of lowest eigenvalue</span>
+            <span style="color: #008000; font-weight: bold">print</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>calc_energy()
+            error <span style="color: #666666">=</span> <span style="color: #008000">sum</span>(<span style="color: #008000">abs</span>(ekp <span style="color: #666666">-</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>ek[<span style="color: #666666">0</span>]))
+            <span style="color: #008000; font-weight: bold">if</span> error <span style="color: #666666">&lt;</span> tol:
+                <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Solver converged after </span><span style="color: #BB6688; font-weight: bold">%d</span><span style="color: #BA2121"> iterations.&quot;</span> <span style="color: #666666">%</span> (iterations)
+                <span style="color: #008000; font-weight: bold">return</span>
+
+            Ep <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>E
+            ekp <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>ek[<span style="color: #666666">0</span>]
+
+        <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Solver failed to converge in </span><span style="color: #BB6688; font-weight: bold">%d</span><span style="color: #BA2121"> iterations.&quot;</span> <span style="color: #666666">%</span> (iterations)
+
+
+N <span style="color: #666666">=</span> <span style="color: #666666">4</span>
+Z_value <span style="color: #666666">=</span> <span style="color: #666666">4</span>
+basis <span style="color: #666666">=</span> [(<span style="color: #666666">1</span>,<span style="color: #666666">1</span>), (<span style="color: #666666">1</span>,<span style="color: #666666">-1</span>), (<span style="color: #666666">2</span>,<span style="color: #666666">1</span>), (<span style="color: #666666">2</span>,<span style="color: #666666">-1</span>), (<span style="color: #666666">3</span>,<span style="color: #666666">1</span>), (<span style="color: #666666">3</span>,<span style="color: #666666">-1</span>)]
+
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;Solving with initial guess C=I.&quot;</span>
+solver <span style="color: #666666">=</span> HF(N, basis, Z_value, first_C<span style="color: #666666">=</span><span style="color: #BA2121">&#39;identity&#39;</span>)
+solver<span style="color: #666666">.</span>solve(max_iters<span style="color: #666666">=100</span>)
+
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6622; font-weight: bold">\n\n\n</span><span style="color: #BA2121"> Solving with initial guess C=0.&quot;</span>
+solver <span style="color: #666666">=</span> HF(N, basis, Z_value, first_C<span style="color: #666666">=</span><span style="color: #BA2121">&#39;zero&#39;</span>)
+solver<span style="color: #666666">.</span>solve(max_iters<span style="color: #666666">=100</span>)
+
+<span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&quot;</span><span style="color: #BB6622; font-weight: bold">\n\n\n</span><span style="color: #BA2121"> Solving with random initial guess.&quot;</span>
+solver <span style="color: #666666">=</span> HF(N, basis, Z_value, first_C<span style="color: #666666">=</span><span style="color: #BA2121">&#39;rand&#39;</span>)
+solver<span style="color: #666666">.</span>solve(max_iters<span style="color: #666666">=100</span>)
+</pre></div>
+<p>
+</div></p>
+</div>
+</p>
+
+<p>
+<!-- --- end solution of exercise --- -->
+
+<p>
+We conclude by listing the matrix elements for the radial integrals to be used for the direct part and the exchange part. Note again that these integrals do not include spin. The nomenclature is \( 1=1s \), \( 2=2s \), and \( 3=3s \), with no
+spin degrees of freedom.
+
+<p>
+
+<div class="row">
+  <div class="col-xs-10">
+    <table class="table table-striped table-hover table-condensed">
+<thead>
+<tr><td align="center"><b>                   Element                   </b></td> <td align="center"><b> </b></td> <td align="center">Expression as function of charge \( Z \)</td> </tr>
+</thead>
+<tbody>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (5*Z)/8                                     </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (4096*Sqrt[2]*Z)/64827                      </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1269*Sqrt[3]*Z)/50000                      </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (4096*Sqrt[2]*Z)/64827                      </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (16*Z)/729                                  </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1269*Sqrt[3]*Z)/50000                      </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 11\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (189*Z)/32768                               </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (4096*Sqrt[2]*Z)/64827                      </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (17*Z)/81                                   </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1555918848*Sqrt[6]*Z)/75429903125          </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (16*Z)/729                                  </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (512*Sqrt[2]*Z)/84375                       </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (29943*Sqrt[3]*Z)/13176688                  </td> </tr>
+<tr><td align="center">   \( \langle 12\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1269*Sqrt[3]*Z)/50000                      </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1555918848*Sqrt[6]*Z)/75429903125          </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (815*Z)/8192                                </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (37826560*Sqrt[2]*Z)/22024729467            </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (189*Z)/32768                               </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 13\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (617*Z)/(314928*Sqrt[3])                    </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (4096*Sqrt[2]*Z)/64827                      </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (16*Z)/729                                  </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (17*Z)/81                                   </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (512*Sqrt[2]*Z)/84375                       </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (29943*Sqrt[3]*Z)/13176688                  </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1555918848*Sqrt[6]*Z)/75429903125          </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 21\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (16*Z)/729                                  </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (512*Sqrt[2]*Z)/84375                       </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (512*Sqrt[2]*Z)/84375                       </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (77*Z)/512                                  </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (5870679552*Sqrt[6]*Z)/669871503125         </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (5870679552*Sqrt[6]*Z)/669871503125         </td> </tr>
+<tr><td align="center">   \( \langle 22\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (73008*Z)/9765625                           </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (37826560*Sqrt[2]*Z)/22024729467            </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (29943*Sqrt[3]*Z)/13176688                  </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (5870679552*Sqrt[6]*Z)/669871503125         </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (32857*Z)/390625                            </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (73008*Z)/9765625                           </td> </tr>
+<tr><td align="center">   \( \langle 23\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (6890942464*Sqrt[2/3]*Z)/1210689028125      </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1269*Sqrt[3]*Z)/50000                      </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (189*Z)/32768                               </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1555918848*Sqrt[6]*Z)/75429903125          </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (815*Z)/8192                                </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (37826560*Sqrt[2]*Z)/22024729467            </td> </tr>
+<tr><td align="center">   \( \langle 31\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (617*Z)/(314928*Sqrt[3])                    </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (110592*Sqrt[6]*Z)/24137569                 </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (29943*Sqrt[3]*Z)/13176688                  </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (2160*Sqrt[3]*Z)/823543                     </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (5870679552*Sqrt[6]*Z)/669871503125         </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (73008*Z)/9765625                           </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (37826560*Sqrt[2]*Z)/22024729467            </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (32857*Z)/390625                            </td> </tr>
+<tr><td align="center">   \( \langle 32\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (6890942464*Sqrt[2/3]*Z)/1210689028125      </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 11\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (189*Z)/32768                               </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 12\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 13\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (617*Z)/(314928*Sqrt[3])                    </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 21\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (1216512*Sqrt[2]*Z)/815730721               </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 22\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (73008*Z)/9765625                           </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 23\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (6890942464*Sqrt[2/3]*Z)/1210689028125      </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 31\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (617*Z)/(314928*Sqrt[3])                    </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 32\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (6890942464*Sqrt[2/3]*Z)/1210689028125      </td> </tr>
+<tr><td align="center">   \( \langle 33\vert \hat{v} \vert 33\rangle \)    </td> <td align="center">   =    </td> <td align="center">   (17*Z)/256                                  </td> </tr>
+</tbody>
+    </table>
+  </div>
+</div> <!-- col-xs-10 -->
 <p>
 <!-- --- end exercise --- -->
 
